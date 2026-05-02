@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Portfolio — AP Digital</title>
+<meta name="description" content="Websites en apps die we gebouwd hebben." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="style.css" />
+<style>
+  #portfolio { background: var(--bg-0); justify-content: center; }
+  #portfolio::before {
+    content: ""; position: absolute; inset: 0;
+    background-image: radial-gradient(circle, oklch(0.45 0.008 250 / 0.4) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: radial-gradient(ellipse 60% 70% at 50% 50%, black 20%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 60% 70% at 50% 50%, black 20%, transparent 70%);
+    opacity: 0.5; pointer-events: none; z-index: 0;
+  }
+  #portfolio > .container { position: relative; z-index: 1; }
+
+  .portfolio-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  }
+  .port-card {
+    border-radius: 20px; overflow: hidden;
+    background: oklch(0.20 0.005 250 / 0.5); border: 1px solid var(--line);
+    text-decoration: none; color: var(--fg); display: flex; flex-direction: column;
+    transition: transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s ease, box-shadow .3s ease;
+  }
+  a.port-card:hover {
+    transform: translateY(-6px);
+    border-color: oklch(0.92 0.18 100 / 0.45);
+    box-shadow: 0 24px 60px oklch(0 0 0 / 0.35);
+  }
+  .port-thumb {
+    aspect-ratio: 4/3; position: relative; overflow: hidden;
+    background: #0a1628;
+  }
+  .port-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; transition: transform .5s ease; }
+  a.port-card:hover .port-thumb img { transform: scale(1.04); }
+  a.port-card .port-thumb::after {
+    content: ""; position: absolute; inset: 0;
+    background: oklch(0.92 0.18 100 / 0.28);
+    transition: opacity .5s ease; pointer-events: none;
+  }
+  a.port-card:hover .port-thumb::after { opacity: 0; }
+  .port-wip .port-thumb { opacity: 0.3; }
+  .port-info { padding: 20px 22px; flex: 1; display: flex; flex-direction: column; gap: 8px; }
+  .port-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 2px; }
+  .port-tags span {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase;
+    letter-spacing: 0.1em; padding: 4px 10px; border: 1px solid var(--line);
+    border-radius: 999px; color: var(--fg-3);
+  }
+  a.port-card .port-tags span { border-color: oklch(0.92 0.18 100 / 0.35); color: var(--accent); }
+  .port-info h3 { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; }
+  .port-wip .port-info h3 { color: var(--fg-3); }
+  .port-info p { font-size: 13px; color: var(--fg-3); line-height: 1.5; }
+  .port-foot {
+    padding: 12px 22px; border-top: 1px solid var(--line-soft);
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em;
+  }
+  a.port-card .port-foot { color: var(--accent); }
+  .port-wip .port-foot { color: var(--fg-3); opacity: 0.5; }
+  .port-arrow { transition: transform .3s ease; }
+  a.port-card:hover .port-arrow { transform: translateX(5px); }
+
+  /* Thumbnail — WIP */
+  .thumb-wip {
+    background: oklch(0.22 0.005 250);
+  }
+  .thumb-wip::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(135deg, var(--line-soft) 0%, transparent 60%);
+  }
+
+  @media (max-width: 900px) {
+    .portfolio-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+
+<body class="loading">
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="scroll-prog" id="scrollProg"></div>
+
+<nav class="nav" id="nav">
+  <a href="index.html" class="logo" aria-label="AP Digital home">
+    <span class="logo-mark">AP</span>
+    <span>AP Digital</span>
+  </a>
+  <div class="nav-links">
+    <a href="diensten.html">Services</a>
+    <a href="pakketten.html">Packages</a>
+    <a href="portfolio.html" class="active">Portfolio</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <a class="nav-cta" href="contact.html">Vraag offerte aan</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+</nav>
+
+<div class="nav-mobile-overlay" id="navMobile">
+  <button class="nav-mobile-close" id="navMobileClose" aria-label="Sluiten">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <a href="diensten.html">Services</a>
+  <a href="pakketten.html">Packages</a>
+  <a href="portfolio.html" class="active">Portfolio</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<section id="portfolio">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="reveal d1">Wat we <em>gemaakt hebben.</em></h2>
+    </div>
+    <div class="portfolio-grid">
+
+      <!-- CASA 5 -->
+      <a class="port-card reveal d2" href="/casa5" target="_blank" rel="noopener">
+        <div class="port-thumb">
+          <img src="https://casa5.eu/wp-content/uploads/2025/04/pagina1_terrace_horizontal_view-1.jpeg" alt="Casa 5 terras" loading="lazy" />
+        </div>
+        <div class="port-info">
+          <div class="port-tags"><span>Website</span><span>B&amp;B</span></div>
+          <h3>Casa 5</h3>
+          <p>B&amp;B website. Live en klaar.</p>
+        </div>
+        <div class="port-foot">
+          <span>Bekijk live</span>
+          <span class="port-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- WIP 2 -->
+      <div class="port-card port-wip reveal d3">
+        <div class="port-thumb thumb-wip"></div>
+        <div class="port-info">
+          <div class="port-tags"><span>Binnenkort</span></div>
+          <h3>Project #2</h3>
+          <p>Volgende project komt hier te staan.</p>
+        </div>
+        <div class="port-foot"><span>In de maak</span></div>
+      </div>
+
+      <!-- WIP 3 -->
+      <div class="port-card port-wip reveal d4">
+        <div class="port-thumb thumb-wip"></div>
+        <div class="port-info">
+          <div class="port-tags"><span>Binnenkort</span></div>
+          <h3>Project #3</h3>
+          <p>Volgende project komt hier te staan.</p>
+        </div>
+        <div class="port-foot"><span>In de maak</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const delayFor = (el) => { for (const c of el.classList) { if (/^d[1-6]$/.test(c)) return parseInt(c.slice(1), 10) * 80; } return 0; };
+  const playReveal = (el) => {
+    if (el.dataset.revealed) return;
+    el.dataset.revealed = '1';
+    el.animate([{ opacity: 0, transform: 'translateY(60px)' }, { opacity: 1, transform: 'translateY(0)' }],
+      { duration: 900, delay: delayFor(el), fill: 'forwards', easing: 'cubic-bezier(.2,.7,.2,1)' });
+    el.classList.add('in');
+  };
+  reveals.forEach(el => { const r = el.getBoundingClientRect(); if (r.top < window.innerHeight * 0.95) playReveal(el); });
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { playReveal(e.target); io.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
+  reveals.forEach(el => { if (!el.dataset.revealed) io.observe(el); });
+  setTimeout(() => reveals.forEach(playReveal), 1500);
+
+  // Cursor dot
+  const cd = document.getElementById('cursorDot');
+  let cdX = 0, cdY = 0, mx = 0, my = 0;
+  document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; });
+  (function animateCD() { cdX += (mx - cdX) * 0.2; cdY += (my - cdY) * 0.2; if (cd) cd.style.transform = `translate(${cdX}px, ${cdY}px) translate(-50%, -50%)`; requestAnimationFrame(animateCD); })();
+  document.querySelectorAll('a, button, .port-card').forEach(el => {
+    el.addEventListener('mouseenter', () => cd && cd.classList.add('lg'));
+    el.addEventListener('mouseleave', () => cd && cd.classList.remove('lg'));
+  });
+
+  // Nav scroll + progress
+  const nav = document.getElementById('nav');
+  const prog = document.getElementById('scrollProg');
+  window.addEventListener('scroll', () => {
+    const st = window.scrollY;
+    nav.style.background = st > 40 ? 'oklch(0.14 0.004 250 / 0.85)' : 'oklch(0.16 0.004 250 / 0.55)';
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    if (prog) prog.style.width = (max > 0 ? (st / max) * 100 : 0) + '%';
+  }, { passive: true });
+
+  // Mobile nav
+  const navToggle = document.getElementById('navToggle');
+  const navMobile = document.getElementById('navMobile');
+  const navMobileClose = document.getElementById('navMobileClose');
+  if (navToggle && navMobile) {
+    navToggle.addEventListener('click', () => navMobile.classList.add('open'));
+    navMobileClose.addEventListener('click', () => navMobile.classList.remove('open'));
+    navMobile.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navMobile.classList.remove('open')));
+  }
+
+  // Loading mask
+  window.addEventListener('load', () => { setTimeout(() => document.body.classList.remove('loading'), 1300); });
+</script>
+</body>
+</html>

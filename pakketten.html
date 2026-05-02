@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Packages — AP Digital</title>
+<meta name="description" content="Starter, Groei of Premium. Kies het pakket dat bij jouw bedrijf past." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="loading">
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="scroll-prog" id="scrollProg"></div>
+
+<nav class="nav" id="nav">
+  <a href="index.html" class="logo" aria-label="AP Digital home">
+    <span class="logo-mark">AP</span>
+    <span>AP Digital</span>
+  </a>
+  <div class="nav-links">
+    <a href="diensten.html">Services</a>
+    <a href="pakketten.html" class="active">Packages</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <a class="nav-cta" href="contact.html">Vraag offerte aan</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+</nav>
+
+<div class="nav-mobile-overlay" id="navMobile">
+  <button class="nav-mobile-close" id="navMobileClose" aria-label="Sluiten">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <a href="diensten.html">Services</a>
+  <a href="pakketten.html" class="active">Packages</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- PACKAGES -->
+<section id="packages">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="reveal d1">Drie smaken. <em>Eén richting: live.</em></h2>
+    </div>
+    <div class="packages-grid">
+
+      <!-- STARTER -->
+      <div class="pkg reveal d2">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="pkg-name">Starter</div>
+            <div class="pkg-tagline">Online in een week.</div>
+            <p class="pkg-desc">Voor kleine bedrijven of net opgestart. Strakke landing page die werkt.</p>
+            <div class="pkg-price"><div><div class="from">From</div><div class="amount">€ <em>op aanvraag</em></div></div></div>
+            <div class="reveal-cta">Klik voor meer</div>
+          </div>
+          <div class="card-back">
+            <button class="flip-close">← Terug</button>
+            <h4>Wat zit erin?</h4>
+            <ul>
+              <li>Landing page (1 pagina)</li>
+              <li>Mobile-first design</li>
+              <li>Hosting + domein 1 jaar</li>
+              <li>Basis SEO setup</li>
+              <li>Contactformulier</li>
+            </ul>
+            <a class="flip-cta" href="contact.html">Start met Starter</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- GROEI (featured) -->
+      <div class="pkg featured reveal d3">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="pkg-name">Groei</div>
+            <div class="pkg-tagline">Schaal mee met je bedrijf.</div>
+            <p class="pkg-desc">Volledige website plus social content per maand. De sweet spot.</p>
+            <div class="pkg-price"><div><div class="from">From</div><div class="amount">€ <em>op aanvraag</em></div></div></div>
+            <div class="reveal-cta">Klik voor meer</div>
+          </div>
+          <div class="card-back">
+            <button class="flip-close">← Terug</button>
+            <h4>Wat zit erin?</h4>
+            <ul>
+              <li>Volledige website (5+ pagina's)</li>
+              <li>CMS, zelf updaten</li>
+              <li>8 social posts / maand</li>
+              <li>2 reels / maand</li>
+              <li>Analytics dashboard</li>
+              <li>Maandelijks support</li>
+            </ul>
+            <a class="flip-cta" href="contact.html">Kies Groei</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PREMIUM -->
+      <div class="pkg reveal d4">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="pkg-name">Premium</div>
+            <div class="pkg-tagline">Full-service, custom-built.</div>
+            <p class="pkg-desc">App + website + social. Voor wie het serieus speelt. Dedicated team.</p>
+            <div class="pkg-price"><div><div class="from">From</div><div class="amount">€ <em>op aanvraag</em></div></div></div>
+            <div class="reveal-cta">Klik voor meer</div>
+          </div>
+          <div class="card-back">
+            <button class="flip-close">← Terug</button>
+            <h4>Wat zit erin?</h4>
+            <ul>
+              <li>Custom web platform</li>
+              <li>iOS + Android app</li>
+              <li>Onbeperkt social content</li>
+              <li>Paid ads management</li>
+              <li>Dedicated project lead</li>
+              <li>24/7 priority support</li>
+            </ul>
+            <a class="flip-cta" href="contact.html">Praat over Premium</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  // Flip cards
+  document.querySelectorAll('.pkg').forEach(card => {
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('.flip-close, a')) return;
+      card.classList.toggle('flipped');
+    });
+    card.querySelector('.flip-close')?.addEventListener('click', () => {
+      card.classList.remove('flipped');
+    });
+    card.addEventListener('mousemove', (e) => {
+      if (card.classList.contains('flipped')) return;
+      const r = card.getBoundingClientRect();
+      const rx = ((e.clientY - r.top) / r.height - 0.5) * -4;
+      const ry = ((e.clientX - r.left) / r.width - 0.5) * 4;
+      card.style.transform = `translateY(-4px) perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+    });
+    card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const delayFor = (el) => { for (const c of el.classList) { if (/^d[1-6]$/.test(c)) return parseInt(c.slice(1), 10) * 80; } return 0; };
+  const playReveal = (el) => {
+    if (el.dataset.revealed) return;
+    el.dataset.revealed = '1';
+    el.animate(
+      [{ opacity: 0, transform: 'translateY(60px)' }, { opacity: 1, transform: 'translateY(0)' }],
+      { duration: 900, delay: delayFor(el), fill: 'forwards', easing: 'cubic-bezier(.2,.7,.2,1)' }
+    );
+    el.classList.add('in');
+  };
+  reveals.forEach(el => { const r = el.getBoundingClientRect(); if (r.top < window.innerHeight * 0.95) playReveal(el); });
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { playReveal(e.target); io.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
+  reveals.forEach(el => { if (!el.dataset.revealed) io.observe(el); });
+  setTimeout(() => reveals.forEach(playReveal), 1500);
+
+  // Cursor dot
+  const cd = document.getElementById('cursorDot');
+  let cdX = 0, cdY = 0, mx = 0, my = 0;
+  document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; });
+  (function animateCD() { cdX += (mx - cdX) * 0.2; cdY += (my - cdY) * 0.2; if (cd) cd.style.transform = `translate(${cdX}px, ${cdY}px) translate(-50%, -50%)`; requestAnimationFrame(animateCD); })();
+  document.querySelectorAll('a, button, .pkg').forEach(el => {
+    el.addEventListener('mouseenter', () => cd && cd.classList.add('lg'));
+    el.addEventListener('mouseleave', () => cd && cd.classList.remove('lg'));
+  });
+
+  // Click ripple
+  document.addEventListener('click', (e) => {
+    const target = e.target.closest('.btn, .nav-cta, .flip-cta');
+    if (!target) return;
+    const r = target.getBoundingClientRect();
+    const ripple = document.createElement('span');
+    ripple.className = 'ripple';
+    const size = Math.max(r.width, r.height);
+    ripple.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX - r.left}px;top:${e.clientY - r.top}px`;
+    if (getComputedStyle(target).position === 'static') target.style.position = 'relative';
+    target.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 750);
+  });
+
+  // Magnetic CTA
+  document.querySelectorAll('.btn-primary, .nav-cta').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const r = btn.getBoundingClientRect();
+      btn.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * 0.18}px, ${(e.clientY - r.top - r.height / 2) * 0.25}px)`;
+    });
+    btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+  });
+
+  // Nav scroll + progress
+  const nav = document.getElementById('nav');
+  const prog = document.getElementById('scrollProg');
+  window.addEventListener('scroll', () => {
+    const st = window.scrollY;
+    nav.style.background = st > 40 ? 'oklch(0.14 0.004 250 / 0.85)' : 'oklch(0.16 0.004 250 / 0.55)';
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    if (prog) prog.style.width = (max > 0 ? (st / max) * 100 : 0) + '%';
+  }, { passive: true });
+
+  // Mobile nav
+  const navToggle = document.getElementById('navToggle');
+  const navMobile = document.getElementById('navMobile');
+  const navMobileClose = document.getElementById('navMobileClose');
+  if (navToggle && navMobile) {
+    navToggle.addEventListener('click', () => navMobile.classList.add('open'));
+    navMobileClose.addEventListener('click', () => navMobile.classList.remove('open'));
+    navMobile.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navMobile.classList.remove('open')));
+  }
+
+  // Loading mask
+  window.addEventListener('load', () => { setTimeout(() => document.body.classList.remove('loading'), 1300); });
+</script>
+</body>
+</html>
