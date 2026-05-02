@@ -34,8 +34,13 @@ CSS: `.card-inner` met `transform-style: preserve-3d`, `.card-front` en `.card-b
 
 ## Portfolio
 
-- **Casa 5** — B&B website, thumbnail = echte hero foto van casa5.eu, gele tint overlay die oplicht bij hover
-- **Project #2 + #3** — WIP placeholders (`.port-wip`)
+- **Casa 5** — B&B website (`/casa5`), thumbnail = echte hero foto van casa5.eu, gele tint overlay die oplicht bij hover
+- **Eetcafé Rubens** — Restaurant website (`/rubens`), thumbnail = `rubens-website.vercel.app/images/koepelkerk-terras.jpg`
+- **Marketing Fit** — Marketing bureau website (`/marketing-fit`), thumbnail = Microlink screenshot embed van marketing-fit.vercel.app
+
+## Workflow
+
+- **Deploy direct, altijd** — PRs worden zonder extra bevestiging uit draft gehaald en gesquashed naar `main`. Vercel deployt automatisch naar apdigital.nl. Nooit wachten op "mag ik mergen?" tenzij CI rood is of er onopgeloste review comments zijn.
 
 ## Design tokens (style.css)
 
