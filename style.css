@@ -269,6 +269,49 @@ h1.hero-title .accent::after {
 .stat .num { font-family: 'Space Grotesk', sans-serif; color: var(--fg); font-size: 22px; font-weight: 600; letter-spacing: -0.02em; text-transform: none; }
 .stat .lbl { font-size: 10px; }
 
+.hero-tiles {
+  display: flex; gap: 14px; flex-wrap: wrap; margin-top: 36px;
+}
+.hero-tile {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 12px 18px; border-radius: 14px;
+  background: oklch(0.20 0.005 250 / 0.55);
+  border: 1px solid var(--line);
+  text-decoration: none; color: var(--fg);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  transition: border-color .3s ease, box-shadow .3s ease;
+  animation: tileFloat 4.5s ease-in-out infinite;
+  animation-delay: calc(var(--i, 0) * 0.6s);
+}
+.hero-tile:hover {
+  border-color: oklch(0.92 0.18 100 / 0.55);
+  box-shadow: 0 14px 40px oklch(0 0 0 / 0.35);
+  animation-play-state: paused;
+}
+.hero-tile-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 10px;
+  background: oklch(0.92 0.18 100 / 0.15); color: var(--accent);
+  flex-shrink: 0;
+}
+.hero-tile-text { display: flex; flex-direction: column; line-height: 1.2; }
+.hero-tile-text strong { font-size: 14px; font-weight: 600; letter-spacing: -0.01em; }
+.hero-tile-text em {
+  font-style: normal; font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--fg-3); margin-top: 2px;
+}
+@keyframes tileFloat {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  25%      { transform: translateX(8px) translateY(-4px); }
+  50%      { transform: translateX(0) translateY(-7px); }
+  75%      { transform: translateX(-8px) translateY(-4px); }
+}
+@media (max-width: 600px) {
+  .hero-tiles { gap: 10px; margin-top: 28px; }
+  .hero-tile { padding: 10px 14px; }
+}
+
 .hero-bigtext {
   position: absolute; bottom: -2vw; left: -2vw; right: -2vw;
   font-size: clamp(140px, 22vw, 360px); font-weight: 700; line-height: 0.85;
