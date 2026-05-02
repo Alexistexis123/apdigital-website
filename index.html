@@ -19,16 +19,20 @@
 <style>
   /* HERO CAROUSEL */
   .hero-carousel {
-    position: relative; z-index: 2; width: 100%; margin-top: 56px; overflow: hidden;
+    position: relative; z-index: 2; width: 100%; margin-top: 56px;
+    overflow-x: auto; overflow-y: hidden;
+    scrollbar-width: none; -ms-overflow-style: none;
+    cursor: grab; user-select: none; -webkit-user-select: none;
+    touch-action: pan-x;
     mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent);
     -webkit-mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent);
   }
+  .hero-carousel::-webkit-scrollbar { display: none; }
+  .hero-carousel.dragging { cursor: grabbing; }
+  .hero-carousel.dragging a { pointer-events: none; }
   .hero-carousel-track {
     display: flex; gap: 22px; width: max-content;
-    animation: hcSlide 28s linear infinite;
   }
-  .hero-carousel:hover .hero-carousel-track { animation-play-state: paused; }
-  @keyframes hcSlide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
   .hc-card {
     flex: 0 0 320px; border-radius: 18px; overflow: hidden;
@@ -295,6 +299,70 @@
     navMobileClose.addEventListener('click', () => navMobile.classList.remove('open'));
     navMobile.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navMobile.classList.remove('open')));
   }
+
+  // Hero carousel — auto-scroll + drag/swipe
+  (function () {
+    const carousel = document.querySelector('.hero-carousel');
+    const track = document.querySelector('.hero-carousel-track');
+    if (!carousel || !track) return;
+
+    const SPEED = 30; // px/sec
+    const RESUME_DELAY = 1800; // ms after interaction
+    let halfWidth = 0;
+    let isDragging = false, didDrag = false;
+    let startX = 0, startScroll = 0;
+    let pausedUntil = 0;
+    let lastTime = performance.now();
+
+    const recalc = () => { halfWidth = track.scrollWidth / 2; };
+    recalc();
+    window.addEventListener('resize', recalc);
+    window.addEventListener('load', recalc);
+
+    function loop(now) {
+      const dt = (now - lastTime) / 1000;
+      lastTime = now;
+      const paused = isDragging || carousel.matches(':hover') || now < pausedUntil;
+      if (!paused && halfWidth > 0) {
+        carousel.scrollLeft += SPEED * dt;
+      }
+      if (halfWidth > 0) {
+        if (carousel.scrollLeft >= halfWidth) carousel.scrollLeft -= halfWidth;
+        else if (carousel.scrollLeft < 0) carousel.scrollLeft += halfWidth;
+      }
+      requestAnimationFrame(loop);
+    }
+    requestAnimationFrame((t) => { lastTime = t; loop(t); });
+
+    // Mouse drag (touch uses native scroll via touch-action: pan-x)
+    carousel.addEventListener('mousedown', (e) => {
+      isDragging = true; didDrag = false;
+      startX = e.clientX; startScroll = carousel.scrollLeft;
+      carousel.classList.add('dragging');
+      e.preventDefault();
+    });
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const dx = e.clientX - startX;
+      if (Math.abs(dx) > 4) didDrag = true;
+      carousel.scrollLeft = startScroll - dx;
+    });
+    window.addEventListener('mouseup', () => {
+      if (!isDragging) return;
+      isDragging = false;
+      pausedUntil = performance.now() + RESUME_DELAY;
+      setTimeout(() => carousel.classList.remove('dragging'), 0);
+    });
+
+    // Suppress click after drag
+    carousel.addEventListener('click', (e) => {
+      if (didDrag) { e.preventDefault(); e.stopPropagation(); didDrag = false; }
+    }, true);
+
+    // Touch — pause auto-scroll briefly so user's swipe coasts
+    carousel.addEventListener('touchstart', () => { pausedUntil = performance.now() + RESUME_DELAY; }, { passive: true });
+    carousel.addEventListener('touchend', () => { pausedUntil = performance.now() + RESUME_DELAY; }, { passive: true });
+  })();
 
   // Loading mask
   window.addEventListener('load', () => { setTimeout(() => document.body.classList.remove('loading'), 1300); });
