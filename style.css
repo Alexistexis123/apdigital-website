@@ -142,7 +142,7 @@ section {
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
 
 /* HERO */
-#hero { padding-top: 100px; background: var(--bg-1); }
+#hero { padding-top: 100px; background: transparent; }
 .noise {
   position: absolute; inset: 0; pointer-events: none; opacity: 0.04; z-index: 1;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
@@ -377,7 +377,7 @@ body.loading::before {
 .section-head .section-sub { color: var(--fg-2); font-size: 16px; max-width: 560px; line-height: 1.5; }
 
 /* SERVICES */
-#services { background: var(--bg-0); justify-content: center; }
+#services { background: transparent; justify-content: center; }
 #services::before {
   content: ""; position: absolute; inset: 0;
   background-image: radial-gradient(circle, oklch(0.45 0.008 250 / 0.4) 1px, transparent 1px);
@@ -486,7 +486,7 @@ body.loading::before {
 .service-card:hover .reveal-cta::after { transform: translateX(6px); }
 
 /* PACKAGES */
-#packages { background: var(--bg-1); justify-content: center; }
+#packages { background: transparent; justify-content: center; }
 #packages::before {
   content: ""; position: absolute; inset: 0;
   background: linear-gradient(115deg, transparent 0%, transparent 40%, oklch(0.92 0.18 100 / 0.10) 50%, transparent 60%, transparent 100%);
@@ -546,7 +546,7 @@ body.loading::before {
 .pkg.featured .pkg-cta:hover { box-shadow: 0 0 24px var(--accent-glow); transform: translateY(-2px); }
 
 /* CONTACT */
-#contact { background: var(--bg-0); justify-content: center; position: relative; overflow: hidden; }
+#contact { background: transparent; justify-content: center; position: relative; overflow: hidden; }
 #contact .contact-orb { position: absolute; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%); filter: blur(120px); opacity: 0.15; bottom: -300px; right: -200px; pointer-events: none; }
 .contact-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 60px; align-items: start; position: relative; z-index: 1; text-align: left; }
 .contact-grid h2 { font-size: clamp(40px, 5.5vw, 80px); font-weight: 700; line-height: 0.95; letter-spacing: -0.03em; margin-bottom: 24px; }
