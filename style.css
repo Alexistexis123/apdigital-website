@@ -610,9 +610,10 @@ body.loading::before {
   section { height: auto; min-height: 100vh; overflow: visible; padding: 100px 24px 60px; }
   #hero {
     min-height: 0;
-    padding: 90px 24px 48px;
+    padding: 76px 24px 32px;
     justify-content: flex-start;
   }
+  #hero .btn { padding: 14px 22px; font-size: 14px; }
   .nav { padding: 14px 24px; }
   .nav-links { display: none; }
   .nav-toggle { display: block; }
@@ -626,8 +627,8 @@ body.loading::before {
   #contact { padding-bottom: 0; }
 }
 @media (max-width: 540px) {
-  h1.hero-title { font-size: 52px; margin-bottom: 20px; }
-  .hero-tagline { margin-bottom: 24px; }
+  h1.hero-title { font-size: 44px; margin-bottom: 14px; }
+  .hero-tagline { font-size: 14px; margin-bottom: 18px; }
   .stats-row { gap: 20px; flex-wrap: wrap; }
   .stat .num { font-size: 18px; }
   .nav-cta { display: none; }
