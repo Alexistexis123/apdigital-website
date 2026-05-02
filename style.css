@@ -24,7 +24,16 @@ html, body {
   text-rendering: optimizeLegibility;
 }
 html { overflow-x: hidden; }
-body { overflow-x: hidden; }
+body { overflow-x: hidden; position: relative; }
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background: linear-gradient(115deg, transparent 0%, transparent 40%, oklch(0.92 0.18 100 / 0.10) 50%, transparent 60%, transparent 100%);
+  background-size: 300% 100%;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 85%);
+  animation: lineSweep 9s linear infinite;
+}
+body > * { position: relative; z-index: 1; }
 ::selection { background: var(--accent); color: var(--bg-0); }
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--bg-0); }
