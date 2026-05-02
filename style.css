@@ -609,7 +609,7 @@ body.loading::before {
 @media (max-width: 900px) {
   section { height: auto; min-height: 100vh; overflow: visible; padding: 100px 24px 60px; }
   #hero {
-    min-height: 100dvh;
+    min-height: 100svh;
     padding: 76px 24px 32px;
     justify-content: flex-start;
   }
