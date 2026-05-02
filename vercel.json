@@ -1,6 +1,10 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/marketing-fit", "destination": "https://marketing-fit.vercel.app", "permanent": false },
+    { "source": "/marketing-fit/:path*", "destination": "https://marketing-fit.vercel.app/:path*", "permanent": false }
+  ],
   "rewrites": [
     { "source": "/casa5", "destination": "https://casa5-nieuw.vercel.app/" },
     { "source": "/casa5/:path*", "destination": "https://casa5-nieuw.vercel.app/:path*" },
