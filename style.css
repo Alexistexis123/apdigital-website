@@ -357,12 +357,6 @@ h1.hero-title .accent::after {
 @media (hover: hover) and (pointer: fine) { .cursor-dot { display: block; } }
 .cursor-dot.lg { width: 36px; height: 36px; background: oklch(0.92 0.18 100 / 0.3); }
 
-/* INTRO MASK WIPE */
-body.loading::before {
-  content: ""; position: fixed; inset: 0; background: var(--bg-0);
-  z-index: 999; animation: maskWipe 1s .2s cubic-bezier(.65,0,.35,1) forwards;
-}
-@keyframes maskWipe { to { transform: translateY(-100%); } }
 
 /* SECTION HEADS */
 .section-head { display: flex; flex-direction: column; align-items: center; margin-bottom: 40px; gap: 14px; }
