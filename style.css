@@ -180,7 +180,7 @@ section {
   transition: left .15s ease-out, top .15s ease-out;
   pointer-events: none; left: 50%; top: 50%;
 }
-.hero-content { position: relative; z-index: 2; max-width: 900px; }
+.hero-content { position: relative; z-index: 2; max-width: 900px; margin-top: auto; }
 .hero-status {
   display: inline-flex; align-items: center; gap: 10px;
   padding: 8px 14px; border-radius: 999px;
