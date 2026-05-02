@@ -608,6 +608,11 @@ body.loading::before {
 /* RESPONSIVE */
 @media (max-width: 900px) {
   section { height: auto; min-height: 100vh; overflow: visible; padding: 100px 24px 60px; }
+  #hero {
+    min-height: 100svh;
+    padding: 90px 24px 0;
+    justify-content: flex-start;
+  }
   .nav { padding: 14px 24px; }
   .nav-links { display: none; }
   .nav-toggle { display: block; }
@@ -621,7 +626,8 @@ body.loading::before {
   #contact { padding-bottom: 0; }
 }
 @media (max-width: 540px) {
-  h1.hero-title { font-size: 56px; }
+  h1.hero-title { font-size: 52px; margin-bottom: 20px; }
+  .hero-tagline { margin-bottom: 24px; }
   .stats-row { gap: 20px; flex-wrap: wrap; }
   .stat .num { font-size: 18px; }
   .nav-cta { display: none; }
