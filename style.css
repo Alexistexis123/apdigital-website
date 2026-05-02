@@ -365,6 +365,7 @@ body.loading::before {
 }
 .section-head h2 em { font-style: italic; font-weight: 400; color: var(--accent); -webkit-text-fill-color: var(--accent); }
 .section-head .head-meta { color: var(--fg-3); font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; max-width: 480px; }
+.section-head .section-sub { color: var(--fg-2); font-size: 16px; max-width: 560px; line-height: 1.5; }
 
 /* SERVICES */
 #services { background: var(--bg-0); justify-content: center; }
