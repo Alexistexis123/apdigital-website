@@ -6,10 +6,12 @@
     { "source": "/marketing-fit/:path*", "destination": "https://marketing-fit.vercel.app/:path*", "permanent": false },
     { "source": "/devide", "destination": "https://devide.vercel.app/", "permanent": false },
     { "source": "/devide/:path*", "destination": "https://devide.vercel.app/:path*", "permanent": false },
-    { "source": "/bijdaanbarbershop", "destination": "https://bijdaanbarbershop.vercel.app/", "permanent": false },
-    { "source": "/bijdaanbarbershop/:path*", "destination": "https://bijdaanbarbershop.vercel.app/:path*", "permanent": false }
+    { "source": "/bijdaanbarbershop", "destination": "/BijDaan", "permanent": false },
+    { "source": "/bijdaanbarbershop/:path*", "destination": "/BijDaan/:path*", "permanent": false }
   ],
   "rewrites": [
+    { "source": "/BijDaan", "destination": "https://bijdaanbarbershop.vercel.app/" },
+    { "source": "/BijDaan/:path*", "destination": "https://bijdaanbarbershop.vercel.app/:path*" },
     { "source": "/casa5", "destination": "https://casa5-nieuw.vercel.app/" },
     { "source": "/casa5/:path*", "destination": "https://casa5-nieuw.vercel.app/:path*" },
     { "source": "/pieterpostkaart", "destination": "https://pieterpostkaartmap.pages.dev/" },
