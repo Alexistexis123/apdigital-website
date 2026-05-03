@@ -12,8 +12,7 @@
     { "source": "/rubens/:path*", "destination": "/Rubens", "permanent": false }
   ],
   "rewrites": [
-    { "source": "/BijDaan", "destination": "https://bijdaanbarbershop.vercel.app/" },
-    { "source": "/BijDaan/:path*", "destination": "https://bijdaanbarbershop.vercel.app/:path*" },
+    { "source": "/BijDaan", "destination": "/bijdaan-frame" },
     { "source": "/Devide", "destination": "/devide-frame" },
     { "source": "/Rubens", "destination": "/rubens-frame" },
     { "source": "/casa5", "destination": "https://casa5-nieuw.vercel.app/" },
