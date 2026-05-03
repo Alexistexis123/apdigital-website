@@ -395,6 +395,9 @@ h1.hero-title .accent::after {
 .section-head .head-meta { color: var(--fg-3); font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; max-width: 480px; }
 .section-head .section-sub { color: var(--fg-2); font-size: 16px; max-width: 560px; line-height: 1.5; }
 
+/* Anchor scroll offset for fixed nav */
+.service-card[id] { scroll-margin-top: 100px; }
+
 /* SERVICES */
 #services { background: transparent; justify-content: center; }
 #services::before {
