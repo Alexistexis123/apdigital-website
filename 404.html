@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>404 — pagina niet gevonden | AP Digital</title>
+<meta name="description" content="Deze pagina bestaat niet. Maar je website wel binnen 7 dagen — vanaf €299." />
+<meta name="robots" content="noindex" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="/style.css" />
+<style>
+  #notfound {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    padding: 120px 24px 60px; position: relative; overflow: hidden;
+    background: var(--bg-0);
+  }
+  #notfound::before {
+    content: ""; position: absolute; inset: 0;
+    background-image: radial-gradient(circle, oklch(0.45 0.008 250 / 0.4) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: radial-gradient(ellipse 60% 70% at 50% 50%, black 20%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 60% 70% at 50% 50%, black 20%, transparent 70%);
+    opacity: 0.4; pointer-events: none;
+  }
+  .nf-inner {
+    position: relative; z-index: 1; max-width: 720px; text-align: center;
+    display: flex; flex-direction: column; gap: 24px; align-items: center;
+  }
+  .nf-code {
+    font-family: 'JetBrains Mono', monospace; font-size: clamp(96px, 18vw, 200px);
+    font-weight: 700; line-height: 1; letter-spacing: -0.04em;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .nf-title {
+    font-size: clamp(28px, 5vw, 44px); font-weight: 700; letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+  .nf-title em { color: var(--accent); font-style: normal; }
+  .nf-sub { color: var(--fg-2); font-size: 18px; max-width: 480px; }
+  .nf-cta-row { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-top: 8px; }
+  .nf-links {
+    display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+    margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--line-soft); width: 100%;
+  }
+  .nf-links a {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase;
+    letter-spacing: 0.1em; padding: 8px 14px; border: 1px solid var(--line);
+    border-radius: 999px; color: var(--fg-2); text-decoration: none;
+    transition: border-color .2s, color .2s, background .2s;
+  }
+  .nf-links a:hover { border-color: var(--accent); color: var(--accent); background: oklch(0.92 0.18 100 / 0.08); }
+</style>
+</head>
+
+<body class="loading">
+<a class="skip-link" href="#main">Naar hoofdinhoud</a>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<nav class="nav" id="nav">
+  <a href="/" class="logo" aria-label="AP Digital home">
+    <span class="logo-mark">AP</span>
+    <span>AP Digital</span>
+  </a>
+  <div class="nav-links">
+    <a href="/diensten">Diensten</a>
+    <a href="/pakketten">Pakketten</a>
+    <a href="/portfolio">Portfolio</a>
+    <a href="/contact">Contact</a>
+  </div>
+  <a class="nav-cta" href="/contact">Vraag offerte aan</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+</nav>
+
+<div class="nav-mobile-overlay" id="navMobile">
+  <button class="nav-mobile-close" id="navMobileClose" aria-label="Sluiten">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <a href="/diensten">Diensten</a>
+  <a href="/pakketten">Pakketten</a>
+  <a href="/portfolio">Portfolio</a>
+  <a href="/contact">Contact</a>
+</div>
+
+<a id="main" tabindex="-1" aria-hidden="true"></a>
+<section id="notfound">
+  <div class="nf-inner">
+    <div class="nf-code">404</div>
+    <h1 class="nf-title">Deze pagina bestaat niet — <em>maar je website wel binnen 7 dagen.</em></h1>
+    <p class="nf-sub">Verkeerde URL of een oude link. Hieronder vind je de wel-bestaande pagina's.</p>
+    <div class="nf-cta-row">
+      <a class="btn btn-primary" href="https://wa.me/31614160265" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        WhatsApp ons
+      </a>
+      <a class="btn btn-ghost" href="/">
+        Terug naar home
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <nav class="nf-links" aria-label="Sitemap">
+      <a href="/">Home</a>
+      <a href="/diensten">Diensten</a>
+      <a href="/pakketten">Pakketten</a>
+      <a href="/portfolio">Portfolio</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </div>
+</section>
+
+<script>
+  // Cursor dot
+  const cd = document.getElementById('cursorDot');
+  let cdX = 0, cdY = 0, mx = 0, my = 0;
+  document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; });
+  (function animateCD() { cdX += (mx - cdX) * 0.2; cdY += (my - cdY) * 0.2; if (cd) cd.style.transform = `translate(${cdX}px, ${cdY}px) translate(-50%, -50%)`; requestAnimationFrame(animateCD); })();
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => cd && cd.classList.add('lg'));
+    el.addEventListener('mouseleave', () => cd && cd.classList.remove('lg'));
+  });
+
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.background = window.scrollY > 40 ? 'oklch(0.14 0.004 250 / 0.85)' : 'oklch(0.16 0.004 250 / 0.55)';
+  }, { passive: true });
+
+  // Mobile nav
+  const navToggle = document.getElementById('navToggle');
+  const navMobile = document.getElementById('navMobile');
+  const navMobileClose = document.getElementById('navMobileClose');
+  if (navToggle && navMobile) {
+    navToggle.addEventListener('click', () => navMobile.classList.add('open'));
+    navMobileClose.addEventListener('click', () => navMobile.classList.remove('open'));
+    navMobile.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navMobile.classList.remove('open')));
+  }
+
+  window.addEventListener('load', () => { setTimeout(() => document.body.classList.remove('loading'), 800); });
+</script>
+</body>
+</html>
