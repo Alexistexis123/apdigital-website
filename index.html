@@ -242,12 +242,6 @@
     orbs.forEach((o, i) => { const k = (i + 1) * 18; o.style.translate = `${x * k}px ${y * k}px`; });
   });
 
-  // Hero big text parallax
-  const heroBig = document.getElementById('heroBigtext');
-  window.addEventListener('scroll', () => {
-    if (heroBig) heroBig.style.transform = `translateX(${-window.scrollY * 0.5}px)`;
-  }, { passive: true });
-
   // Count-up
   const counted = new WeakSet();
   document.querySelectorAll('[data-count]').forEach(el => {
