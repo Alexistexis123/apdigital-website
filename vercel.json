@@ -14,8 +14,8 @@
   "rewrites": [
     { "source": "/BijDaan", "destination": "https://bijdaanbarbershop.vercel.app/" },
     { "source": "/BijDaan/:path*", "destination": "https://bijdaanbarbershop.vercel.app/:path*" },
-    { "source": "/Devide", "destination": "/devide-frame.html" },
-    { "source": "/Rubens", "destination": "/rubens-frame.html" },
+    { "source": "/Devide", "destination": "/devide-frame" },
+    { "source": "/Rubens", "destination": "/rubens-frame" },
     { "source": "/casa5", "destination": "https://casa5-nieuw.vercel.app/" },
     { "source": "/casa5/:path*", "destination": "https://casa5-nieuw.vercel.app/:path*" },
     { "source": "/pieterpostkaart", "destination": "https://pieterpostkaartmap.pages.dev/" },
