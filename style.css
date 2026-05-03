@@ -385,13 +385,15 @@ h1.hero-title .accent::after {
 
 /* SECTION HEADS */
 .section-head { display: flex; flex-direction: column; align-items: center; margin-bottom: 40px; gap: 14px; }
-.section-head h2 {
+.section-head h2,
+.section-head h1 {
   font-size: clamp(40px, 5.5vw, 80px); font-weight: 700;
   line-height: 0.95; letter-spacing: -0.03em; text-wrap: balance; max-width: 900px;
   background: linear-gradient(180deg, var(--fg) 30%, oklch(0.65 0.008 250) 100%);
   -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
 }
-.section-head h2 em { font-style: italic; font-weight: 400; color: var(--accent); -webkit-text-fill-color: var(--accent); }
+.section-head h2 em,
+.section-head h1 em { font-style: italic; font-weight: 400; color: var(--accent); -webkit-text-fill-color: var(--accent); }
 .section-head .head-meta { color: var(--fg-3); font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; max-width: 480px; }
 .section-head .section-sub { color: var(--fg-2); font-size: 16px; max-width: 560px; line-height: 1.5; }
 
@@ -763,8 +765,10 @@ h1.hero-title .accent::after {
 #contact { background: transparent; justify-content: center; position: relative; overflow: hidden; }
 #contact .contact-orb { position: absolute; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%); filter: blur(120px); opacity: 0.15; bottom: -300px; right: -200px; pointer-events: none; }
 .contact-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 60px; align-items: start; position: relative; z-index: 1; text-align: left; }
-.contact-grid h2 { font-size: clamp(40px, 5.5vw, 80px); font-weight: 700; line-height: 0.95; letter-spacing: -0.03em; margin-bottom: 24px; }
-.contact-grid h2 em { font-style: italic; font-weight: 400; color: var(--accent); }
+.contact-grid h2,
+.contact-grid h1 { font-size: clamp(40px, 5.5vw, 80px); font-weight: 700; line-height: 0.95; letter-spacing: -0.03em; margin-bottom: 24px; }
+.contact-grid h2 em,
+.contact-grid h1 em { font-style: italic; font-weight: 400; color: var(--accent); }
 .contact-lead { color: var(--fg-2); font-size: 17px; line-height: 1.55; margin-bottom: 36px; max-width: 460px; }
 .contact-actions { display: flex; flex-direction: column; gap: 14px; margin-bottom: 36px; }
 .contact-link {
@@ -806,7 +810,8 @@ h1.hero-title .accent::after {
 /* COMPACT OVERRIDES — packages & services have a lot of content */
 #packages { padding-top: 80px; padding-bottom: 40px; }
 #packages .section-head { margin-bottom: 28px; gap: 10px; }
-#packages .section-head h2 { font-size: clamp(32px, 4.2vw, 58px); }
+#packages .section-head h2,
+#packages .section-head h1 { font-size: clamp(32px, 4.2vw, 58px); }
 #packages .pkg { padding: 0; min-height: 340px; cursor: pointer; perspective: 1200px; }
 #packages .pkg .card-inner { flex: 1; }
 #packages .pkg.flipped .card-inner { transform: rotateY(180deg); }
