@@ -67,7 +67,17 @@ In commits, code comments en interne docs mogen em-dashes wel.
 - OG tags + canonical + twitter:card op index.html
 - Google Search Console verificatie: meta tag `CgNNQrAZwi1S_UNIU0qI0KRWeE4KUXG3Hbb` staat live op site
 - DNS TXT record ook al gezet via Vercel, maar nog niet geverifieerd in Search Console
-- **TODO:** Ga naar search.google.com/search-console → Eigendom toevoegen → URL prefix `https://apdigital.nl` → HTML-tag → Verifiëren
+- **TODO:** Klant logt in met **zakelijke Gmail** (NIET a.b.prijs@gmail.com), gaat naar search.google.com/search-console → Eigendom toevoegen → URL prefix `https://apdigital.nl` → HTML-tag → Verifiëren. Daarna sitemap.xml submitten.
+
+## Account-strategie
+
+Toekomstplan: alle business-tools naar zakelijke Gmail (NIET a.b.prijs@gmail.com privé):
+- Search Console (eerst, want gratis en makkelijk)
+- Vercel (migreren via team transfer)
+- TransIP (domein verhuizen naar zakelijke account)
+- Web3Forms email destination doorzetten naar zakelijke gmail
+
+Voor nu staat alles nog op a.b.prijs@gmail.com, maar Search Console gaat direct op zakelijk.
 
 ## TODO (input van klant nodig)
 
