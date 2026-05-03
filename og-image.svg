@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <pattern id="dots" patternUnits="userSpaceOnUse" width="40" height="40">
+      <circle cx="2" cy="2" r="1.5" fill="#2a2a4a"/>
+    </pattern>
+    <radialGradient id="glow" cx="78%" cy="22%" r="55%">
+      <stop offset="0%" stop-color="#f4d14c" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#f4d14c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="border" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f4d14c" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#f4d14c" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#f4d14c" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="#1a1a2e"/>
+  <rect width="1200" height="630" fill="url(#dots)" opacity="0.5"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <g transform="translate(72, 72)">
+    <rect width="60" height="60" rx="14" fill="#f4d14c"/>
+    <text x="30" y="44" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700" text-anchor="middle" fill="#1a1a2e" letter-spacing="-1">AP</text>
+    <text x="80" y="42" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="600" fill="#ffffff" letter-spacing="-0.5">AP Digital</text>
+  </g>
+
+  <g transform="translate(72, 280)">
+    <text x="0" y="0" font-family="Arial, Helvetica, sans-serif" font-size="86" font-weight="700" fill="#ffffff" letter-spacing="-3">Live binnen 7 dagen.</text>
+    <text x="0" y="108" font-family="Arial, Helvetica, sans-serif" font-size="86" font-weight="700" fill="#f4d14c" letter-spacing="-3">Vanaf €299.</text>
+  </g>
+
+  <text x="72" y="510" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="400" fill="#a8a8b8">Strakke websites en apps. Vaste prijs, geen verborgen kosten.</text>
+
+  <rect x="72" y="555" width="200" height="2" fill="url(#border)"/>
+
+  <text x="1128" y="580" font-family="monospace" font-size="22" font-weight="500" text-anchor="end" fill="#f4d14c">apdigital.nl</text>
+</svg>
