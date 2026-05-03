@@ -108,8 +108,37 @@ Deze items zijn onafgemaakt omdat ze klant-content/-actie vragen die Claude niet
 - **KVK nummer**: footer zegt nu `KVK 00000000`, echte nummer invullen.
 - **Self-host Google Fonts**: Space Grotesk + JetBrains Mono lokaal hosten voor snellere render + GDPR. Vergt download van .woff2 files.
 
+## Marketing roadmap
+
+### Nu meteen (week 1)
+- **Google Business Profile aanmaken** (gratis): https://business.google.com → verschijnt in Maps + lokale zoekresultaten voor "websitebureau Arnhem". Levert direct lokale leads zonder advertentiekosten.
+
+### Foundation eerst (week 1-3)
+Voordat SEA (Google Ads) zin heeft, moet dit staan:
+1. **Vercel Web Analytics aanzetten** (gratis, 5 min werk in Vercel dashboard) → meet hoeveel mensen organisch komen
+2. **Privacy policy + Algemene voorwaarden publiceren** (Google Ads vereist deze)
+3. **KVK invullen** in footer (Google Ads checkt business identity)
+4. **1-2 testimonials verzamelen** voor social proof
+5. **2-4 weken organisch wachten** → Search Console laat zien welke steden traffic krijgen
+
+### SEA / Google Ads (week 4-6)
+Pas starten als foundation hierboven staat. Strategie:
+- Begin met €5-15/dag op **één stad** (waar minste organische traffic, of meeste vraag)
+- Target keywords: *"website laten maken [stad]"*, *"webdesigner [stad]"*, *"website bureau [stad]"*
+- USP vaste prijs €299 + 7 dagen = sterke ad copy
+- Test 2-4 weken → schaal op wat werkt
+
+### Waarom NU NOG GEEN SEA
+- Geen analytics → optimaliseren is blind, budget verbrandt
+- Geen privacy policy → Google kan account weigeren
+- KVK 00000000 in footer → ziet er onaf uit, verlaagt vertrouwen
+- Geen testimonials → bezoekers haken af, hoge cost-per-lead
+- Geen blog/content → lage Quality Score = duurdere clicks dan concurrenten
+
 ## Toekomstige ideeën
 
 - Meer portfolio projecten toevoegen als ze live gaan
 - Blog/artikelen sectie voor SEO
 - Testimonials sectie
+- SEA campagnes starten (zie marketing roadmap hierboven)
+- Google Business Profile claimen en optimaliseren
