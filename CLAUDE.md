@@ -77,7 +77,7 @@ Deze items zijn onafgemaakt omdat ze klant-content/-actie vragen die Claude niet
 - **Casa 5 + Rubens images**: nu extern geladen vanuit `casa5.eu` en `rubens-website.vercel.app`. Klant downloadt en uploadt lokaal voor controle/snelheid.
 - **Testimonials sectie homepage**: klant verzamelt 2-3 quotes van Casa5/Rubens/De Vide/Bij Daan met naam + bedrijf + ster-rating.
 - **Logo strip onder hero**: klant levert logo's of toestemming voor 3-5 klanten.
-- **About pagina**: klant verhaal nodig (wie zit erachter, foto, locatie, korte intro).
+- **About pagina foto**: `/over` pagina staat live (Alex, Arnhem, fotograaf-verleden), maar foto van Alex moet nog worden geüpload en geintegreerd.
 - **Case studies**: per project een detail-pagina met probleem, oplossing, resultaten (vraagt klant-data per case).
 - **Project highlights per stad**: welke projecten horen bij welke landingspages? (bv. De Vide → Arnhem, Rubens → ?)
 - **Blog/artikelen**: eerste 1-2 artikelen onderwerp + tekst van klant.
