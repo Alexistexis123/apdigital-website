@@ -4,8 +4,10 @@
   "redirects": [
     { "source": "/marketing-fit", "destination": "https://marketing-fit.vercel.app", "permanent": false },
     { "source": "/marketing-fit/:path*", "destination": "https://marketing-fit.vercel.app/:path*", "permanent": false },
-    { "source": "/devide", "destination": "/Devide", "permanent": false },
-    { "source": "/devide/:path*", "destination": "/Devide", "permanent": false },
+    { "source": "/devide", "destination": "https://devide.vercel.app/", "permanent": false },
+    { "source": "/devide/:path*", "destination": "https://devide.vercel.app/:path*", "permanent": false },
+    { "source": "/Devide", "destination": "https://devide.vercel.app/", "permanent": false },
+    { "source": "/Devide/:path*", "destination": "https://devide.vercel.app/:path*", "permanent": false },
     { "source": "/bijdaanbarbershop", "destination": "/BijDaan", "permanent": false },
     { "source": "/bijdaanbarbershop/:path*", "destination": "/BijDaan/:path*", "permanent": false },
     { "source": "/rubens", "destination": "/Rubens", "permanent": false },
@@ -13,7 +15,6 @@
   ],
   "rewrites": [
     { "source": "/BijDaan", "destination": "/bijdaan-frame" },
-    { "source": "/Devide", "destination": "/devide-frame" },
     { "source": "/Rubens", "destination": "/rubens-frame" },
     { "source": "/casa5", "destination": "https://casa5-nieuw.vercel.app/" },
     { "source": "/casa5/:path*", "destination": "https://casa5-nieuw.vercel.app/:path*" },
