@@ -131,13 +131,17 @@
     const btn = document.getElementById('submitBtn');
     btn.disabled = true; btn.querySelector('span').textContent = 'Versturen...';
     const data = new FormData(form);
-    data.append('access_key', 'a634c808-f96b-4b81-a917-174acd38f74b');
-    data.append('subject', 'Nieuwe aanvraag via AP Digital');
-    data.append('from_name', 'AP Digital Website');
+    data.append('_subject', 'Nieuwe aanvraag via AP Digital');
+    data.append('_template', 'table');
+    data.append('_captcha', 'false');
     try {
-      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+      const res = await fetch('https://formsubmit.co/ajax/info@apdigital.nl', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: data
+      });
       const json = await res.json();
-      if (json.success) {
+      if (json.success === 'true' || json.success === true) {
         document.getElementById('formFields').style.display = 'none';
         document.getElementById('formSuccess').classList.add('visible');
       } else {
