@@ -42,6 +42,18 @@ CSS: `.card-inner` met `transform-style: preserve-3d`, `.card-front` en `.card-b
 
 - **Deploy direct, altijd** — PRs worden zonder extra bevestiging uit draft gehaald en gesquashed naar `main`. Vercel deployt automatisch naar apdigital.nl. Nooit wachten op "mag ik mergen?" tenzij CI rood is of er onopgeloste review comments zijn.
 
+## Schrijfstijl regels
+
+**ABSOLUUT GEEN em-dashes (—) of en-dashes (–) gebruiken in copy, content, alt-tags, meta descriptions, JSON-LD names, of waar dan ook in user-facing tekst.** Gebruik in plaats daarvan: komma's, punten, of woorden zoals "want", "dus", "of", "en", "maar". Em-dashes zijn een herkenbaar AI-stijl-pattern dat de site amateuristisch laat lijken.
+
+Andere AI-tells om te vermijden:
+- Repetitieve "Of je nu X bent, een Y hebt of een Z runt" patronen
+- Loze adjectieven als "uniek", "passend", "professioneel", "innovatief"
+- Cliché's als "klein team, korte lijnen", "geen consultancy-circus", "recht voor zijn raap" (één per pagina max, niet overal)
+- Overdreven enthousiast taalgebruik
+
+In commits, code comments en interne docs mogen em-dashes wel.
+
 ## Design tokens (style.css)
 
 ```css
