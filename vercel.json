@@ -7,19 +7,18 @@
     { "source": "/devide", "destination": "/Devide", "permanent": false },
     { "source": "/devide/:path*", "destination": "/Devide", "permanent": false },
     { "source": "/bijdaanbarbershop", "destination": "/BijDaan", "permanent": false },
-    { "source": "/bijdaanbarbershop/:path*", "destination": "/BijDaan/:path*", "permanent": false }
+    { "source": "/bijdaanbarbershop/:path*", "destination": "/BijDaan/:path*", "permanent": false },
+    { "source": "/rubens", "destination": "/Rubens", "permanent": false },
+    { "source": "/rubens/:path*", "destination": "/Rubens", "permanent": false }
   ],
   "rewrites": [
     { "source": "/BijDaan", "destination": "https://bijdaanbarbershop.vercel.app/" },
     { "source": "/BijDaan/:path*", "destination": "https://bijdaanbarbershop.vercel.app/:path*" },
     { "source": "/Devide", "destination": "/devide-frame.html" },
+    { "source": "/Rubens", "destination": "/rubens-frame.html" },
     { "source": "/casa5", "destination": "https://casa5-nieuw.vercel.app/" },
     { "source": "/casa5/:path*", "destination": "https://casa5-nieuw.vercel.app/:path*" },
     { "source": "/pieterpostkaart", "destination": "https://pieterpostkaartmap.pages.dev/" },
-    { "source": "/pieterpostkaart/:path*", "destination": "https://pieterpostkaartmap.pages.dev/:path*" },
-    { "source": "/rubens", "destination": "https://rubens-website.vercel.app/" },
-    { "source": "/rubens/:path*", "destination": "https://rubens-website.vercel.app/:path*" },
-    { "source": "/_next/:path*", "destination": "https://rubens-website.vercel.app/_next/:path*" },
-    { "source": "/images/:path*", "destination": "https://rubens-website.vercel.app/images/:path*" }
+    { "source": "/pieterpostkaart/:path*", "destination": "https://pieterpostkaartmap.pages.dev/:path*" }
   ]
 }
