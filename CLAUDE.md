@@ -85,6 +85,18 @@ Voor nu staat alles nog op a.b.prijs@gmail.com, maar Search Console gaat direct 
 
 Deze items zijn onafgemaakt omdat ze klant-content/-actie vragen die Claude niet kan vervullen:
 
+### Legal / GDPR (HOGE PRIO)
+- **Privacy policy pagina** (`/privacy`): GDPR-verplicht voor EU. Beschrijft wat we met klantdata doen (contactform → Web3Forms → email).
+- **Algemene voorwaarden pagina** (`/voorwaarden`): zakelijke betalingen + leveringsvoorwaarden + recht op herroeping.
+- **Cookie consent banner**: site laadt Google Fonts + Microlink screenshots (externe IP-tracking). Klant beslist of banner nodig is, of self-host fonts en eigen screenshots.
+- **Footer privacy/voorwaarden links** toevoegen na bovenstaande pages.
+
+### Account / setup
+- **FormSubmit destination** doorzetten van `a.b.prijs@gmail.com` naar zakelijke gmail (na email setup).
+- **Google Analytics of Vercel Web Analytics** toevoegen voor traffic-data.
+
+### Content (voorheen al genoemd)
+
 - **Echte portfolio screenshots**: Microlink wordt nu gebruikt voor Bij Daan + Marketing Fit (1-3sec laad-overhead). Klant uploadt eigen PNG/WebP screenshots naar `/img/portfolio/` om Microlink te vervangen.
 - **Casa 5 + Rubens images**: nu extern geladen vanuit `casa5.eu` en `rubens-website.vercel.app`. Klant downloadt en uploadt lokaal voor controle/snelheid.
 - **Testimonials sectie homepage**: klant verzamelt 2-3 quotes van Casa5/Rubens/De Vide/Bij Daan met naam + bedrijf + ster-rating.
