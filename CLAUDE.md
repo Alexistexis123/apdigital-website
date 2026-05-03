@@ -69,6 +69,23 @@ In commits, code comments en interne docs mogen em-dashes wel.
 - DNS TXT record ook al gezet via Vercel, maar nog niet geverifieerd in Search Console
 - **TODO:** Ga naar search.google.com/search-console → Eigendom toevoegen → URL prefix `https://apdigital.nl` → HTML-tag → Verifiëren
 
+## TODO (input van klant nodig)
+
+Deze items zijn onafgemaakt omdat ze klant-content/-actie vragen die Claude niet kan vervullen:
+
+- **Echte portfolio screenshots**: Microlink wordt nu gebruikt voor Bij Daan + Marketing Fit (1-3sec laad-overhead). Klant uploadt eigen PNG/WebP screenshots naar `/img/portfolio/` om Microlink te vervangen.
+- **Casa 5 + Rubens images**: nu extern geladen vanuit `casa5.eu` en `rubens-website.vercel.app`. Klant downloadt en uploadt lokaal voor controle/snelheid.
+- **Testimonials sectie homepage**: klant verzamelt 2-3 quotes van Casa5/Rubens/De Vide/Bij Daan met naam + bedrijf + ster-rating.
+- **Logo strip onder hero**: klant levert logo's of toestemming voor 3-5 klanten.
+- **About pagina**: klant verhaal nodig (wie zit erachter, foto, locatie, korte intro).
+- **Case studies**: per project een detail-pagina met probleem, oplossing, resultaten (vraagt klant-data per case).
+- **Project highlights per stad**: welke projecten horen bij welke landingspages? (bv. De Vide → Arnhem, Rubens → ?)
+- **Blog/artikelen**: eerste 1-2 artikelen onderwerp + tekst van klant.
+- **Search Console verifiëren**: meta tag staat al live, klant moet inloggen op search.google.com/search-console en op verifieer klikken.
+- **KVK nummer**: footer zegt nu `KVK 00000000`, echte nummer invullen.
+- **Maandabonnement uitwerken**: pakketten/FAQ verwijzen er al naar, vorm nog uitwerken (prijs, frequentie, scope).
+- **Self-host Google Fonts**: Space Grotesk + JetBrains Mono lokaal hosten voor snellere render + GDPR. Vergt download van .woff2 files.
+
 ## Toekomstige ideeën
 
 - Meer portfolio projecten toevoegen als ze live gaan

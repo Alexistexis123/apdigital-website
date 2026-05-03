@@ -773,4 +773,10 @@ h1.hero-title .accent::after {
   .stat .num { font-size: 18px; }
   .nav-cta { display: none; }
   .hero-bigtext { display: none; }
+  /* Reduce backdrop-filter blur on mobile for performance on midrange Android */
+  .nav { backdrop-filter: blur(8px) saturate(120%); -webkit-backdrop-filter: blur(8px) saturate(120%); }
+  .nav-mobile-overlay { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  .hc-card, .pkg, .service-card, .port-card, .faq-item, .process-step {
+    backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+  }
 }
