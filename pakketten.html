@@ -36,6 +36,20 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "AP Digital maandabonnementen",
+  "description": "Doorlopend onderhoud en kleine wijzigingen op je website. Drie tiers: Brons, Zilver en Goud.",
+  "provider": { "@type": "Organization", "name": "AP Digital" },
+  "offers": [
+    { "@type": "Offer", "name": "Brons abonnement", "price": "49.99", "priceCurrency": "EUR", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "49.99", "priceCurrency": "EUR", "billingDuration": "P1M", "billingIncrement": 1 } },
+    { "@type": "Offer", "name": "Zilver abonnement", "price": "99.99", "priceCurrency": "EUR", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "99.99", "priceCurrency": "EUR", "billingDuration": "P1M", "billingIncrement": 1 } },
+    { "@type": "Offer", "name": "Goud abonnement", "price": "199.99", "priceCurrency": "EUR", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "199.99", "priceCurrency": "EUR", "billingDuration": "P1M", "billingIncrement": 1 } }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <meta property="og:image" content="https://apdigital.nl/og-image.svg" />
@@ -172,6 +186,57 @@
   </div>
 </section>
 
+<!-- ABONNEMENTEN -->
+<section id="abonnementen">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="reveal d1">Houd je site <em>fris.</em></h2>
+      <p class="section-sub reveal d2">Maandabonnementen voor doorlopend onderhoud en kleine wijzigingen. Eén vaste prijs, zonder verrassingen.</p>
+    </div>
+    <div class="abo-grid">
+
+      <div class="abo-card reveal d2">
+        <div class="abo-name">Brons</div>
+        <div class="abo-price"><span class="amount">€49,99</span><span class="per">per maand</span></div>
+        <ul class="abo-list">
+          <li>1 aanpassing per maand</li>
+          <li>Maandelijkse check</li>
+          <li>WhatsApp support</li>
+        </ul>
+        <a class="flip-cta" href="contact.html">Kies Brons</a>
+      </div>
+
+      <div class="abo-card featured reveal d3">
+        <div class="abo-badge">Populair</div>
+        <div class="abo-name">Zilver</div>
+        <div class="abo-price"><span class="amount">€99,99</span><span class="per">per maand</span></div>
+        <ul class="abo-list">
+          <li>3 aanpassingen per maand</li>
+          <li>1 extra pagina per maand</li>
+          <li>Alles uit Brons</li>
+        </ul>
+        <a class="flip-cta" href="contact.html">Kies Zilver</a>
+      </div>
+
+      <div class="abo-card reveal d4">
+        <div class="abo-name">Goud</div>
+        <div class="abo-price"><span class="amount">€199,99</span><span class="per">per maand</span></div>
+        <ul class="abo-list">
+          <li>5 aanpassingen per maand</li>
+          <li>2 tot 3 extra pagina's per maand</li>
+          <li>Maandelijks SEO-rapport</li>
+          <li>Maandelijks performance-rapport</li>
+          <li>Per kwartaal een upgrade-ronde</li>
+          <li>Alles uit Zilver</li>
+        </ul>
+        <a class="flip-cta" href="contact.html">Kies Goud</a>
+      </div>
+
+    </div>
+    <p class="abo-note reveal d5">Een aanpassing is één wijziging op je site. Denk aan tekst aanpassen, foto vervangen, prijs of openingstijden bijwerken, of een blogpost plaatsen. Grotere veranderingen (nieuwe pagina of redesign) doen we apart op uurtarief of via Goud. Niet-gebruikte aanpassingen vervallen aan het eind van de maand.</p>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section id="faq">
   <div class="container">
@@ -186,7 +251,7 @@
       </details>
       <details class="faq-item reveal d2">
         <summary>Wat als ik later wijzigingen wil?</summary>
-        <div class="faq-answer">Aanpassingen tegen uurtarief, of via ons maandabonnement voor doorlopend onderhoud. Zo blijft je site altijd fris zonder gedoe.</div>
+        <div class="faq-answer">Aanpassingen tegen uurtarief (€85), of via een maandabonnement (Brons vanaf €49,99, Zilver €99,99, Goud €199,99). Zo blijft je site fris zonder verrassingen.</div>
       </details>
       <details class="faq-item reveal d3">
         <summary>Hoe zit het met hosting na het eerste jaar?</summary>

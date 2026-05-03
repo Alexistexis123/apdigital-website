@@ -94,7 +94,6 @@ Deze items zijn onafgemaakt omdat ze klant-content/-actie vragen die Claude niet
 - **Project highlights per stad**: welke projecten horen bij welke landingspages? (bv. De Vide → Arnhem, Rubens → ?)
 - **Blog/artikelen**: eerste 1-2 artikelen onderwerp + tekst van klant.
 - **KVK nummer**: footer zegt nu `KVK 00000000`, echte nummer invullen.
-- **Maandabonnement uitwerken**: pakketten/FAQ verwijzen er al naar, vorm nog uitwerken (prijs, frequentie, scope).
 - **Self-host Google Fonts**: Space Grotesk + JetBrains Mono lokaal hosten voor snellere render + GDPR. Vergt download van .woff2 files.
 
 ## Toekomstige ideeën
