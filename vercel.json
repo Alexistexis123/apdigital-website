@@ -3,7 +3,11 @@
   "trailingSlash": false,
   "redirects": [
     { "source": "/marketing-fit", "destination": "https://marketing-fit.vercel.app", "permanent": false },
-    { "source": "/marketing-fit/:path*", "destination": "https://marketing-fit.vercel.app/:path*", "permanent": false }
+    { "source": "/marketing-fit/:path*", "destination": "https://marketing-fit.vercel.app/:path*", "permanent": false },
+    { "source": "/devide", "destination": "https://devide.vercel.app/", "permanent": false },
+    { "source": "/devide/:path*", "destination": "https://devide.vercel.app/:path*", "permanent": false },
+    { "source": "/bijdaanbarbershop", "destination": "https://bijdaanbarbershop.vercel.app/", "permanent": false },
+    { "source": "/bijdaanbarbershop/:path*", "destination": "https://bijdaanbarbershop.vercel.app/:path*", "permanent": false }
   ],
   "rewrites": [
     { "source": "/casa5", "destination": "https://casa5-nieuw.vercel.app/" },
@@ -13,10 +17,6 @@
     { "source": "/rubens", "destination": "https://rubens-website.vercel.app/" },
     { "source": "/rubens/:path*", "destination": "https://rubens-website.vercel.app/:path*" },
     { "source": "/_next/:path*", "destination": "https://rubens-website.vercel.app/_next/:path*" },
-    { "source": "/images/:path*", "destination": "https://rubens-website.vercel.app/images/:path*" },
-    { "source": "/devide", "destination": "https://devide.vercel.app/" },
-    { "source": "/devide/:path*", "destination": "https://devide.vercel.app/:path*" },
-    { "source": "/bijdaanbarbershop", "destination": "https://bijdaanbarbershop.vercel.app/" },
-    { "source": "/bijdaanbarbershop/:path*", "destination": "https://bijdaanbarbershop.vercel.app/:path*" }
+    { "source": "/images/:path*", "destination": "https://rubens-website.vercel.app/images/:path*" }
   ]
 }
