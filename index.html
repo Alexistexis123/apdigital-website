@@ -341,14 +341,15 @@
     carousel.addEventListener('mousedown', (e) => {
       isDragging = true; didDrag = false;
       startX = e.clientX; startScroll = carousel.scrollLeft;
-      carousel.classList.add('dragging');
-      e.preventDefault();
     });
     window.addEventListener('mousemove', (e) => {
       if (!isDragging) return;
       const dx = e.clientX - startX;
-      if (Math.abs(dx) > 4) didDrag = true;
-      carousel.scrollLeft = startScroll - dx;
+      if (Math.abs(dx) > 4) {
+        didDrag = true;
+        carousel.classList.add('dragging');
+      }
+      if (didDrag) carousel.scrollLeft = startScroll - dx;
     });
     window.addEventListener('mouseup', () => {
       if (!isDragging) return;
