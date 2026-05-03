@@ -64,10 +64,12 @@ In commits, code comments en interne docs mogen em-dashes wel.
 
 ## SEO status
 
-- OG tags + canonical + twitter:card op index.html
-- Google Search Console verificatie: meta tag `CgNNQrAZwi1S_UNIU0qI0KRWeE4KUXG3Hbb` staat live op site
-- DNS TXT record ook al gezet via Vercel, maar nog niet geverifieerd in Search Console
-- **TODO:** Klant logt in met **zakelijke Gmail** (NIET a.b.prijs@gmail.com), gaat naar search.google.com/search-console → Eigendom toevoegen → URL prefix `https://apdigital.nl` → HTML-tag → Verifiëren. Daarna sitemap.xml submitten.
+- OG tags + canonical + twitter:card op alle paginas
+- og:image (branded SVG) op alle paginas
+- JSON-LD schemas: LocalBusiness, Service, Product, FAQPage, ContactPage, AboutPage, CollectionPage
+- Google Search Console: GEVERIFIEERD via HTML-bestand `googlebf71989ee444de94.html` (op zakelijke Gmail account)
+- Sitemap.xml gesubmit (kan eerste keer "Couldn't fetch" tonen, retry'd vanzelf)
+- 10 lokale landingspages voor SEO (websites-laten-maken-{stad})
 
 ## Account-strategie
 
@@ -91,7 +93,6 @@ Deze items zijn onafgemaakt omdat ze klant-content/-actie vragen die Claude niet
 - **Case studies**: per project een detail-pagina met probleem, oplossing, resultaten (vraagt klant-data per case).
 - **Project highlights per stad**: welke projecten horen bij welke landingspages? (bv. De Vide → Arnhem, Rubens → ?)
 - **Blog/artikelen**: eerste 1-2 artikelen onderwerp + tekst van klant.
-- **Search Console verifiëren**: meta tag staat al live, klant moet inloggen op search.google.com/search-console en op verifieer klikken.
 - **KVK nummer**: footer zegt nu `KVK 00000000`, echte nummer invullen.
 - **Maandabonnement uitwerken**: pakketten/FAQ verwijzen er al naar, vorm nog uitwerken (prijs, frequentie, scope).
 - **Self-host Google Fonts**: Space Grotesk + JetBrains Mono lokaal hosten voor snellere render + GDPR. Vergt download van .woff2 files.
