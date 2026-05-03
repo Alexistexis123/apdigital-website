@@ -27,6 +27,7 @@
 </head>
 
 <body class="loading">
+<a class="skip-link" href="#main">Naar hoofdinhoud</a>
 <div class="cursor-dot" id="cursorDot"></div>
 <div class="scroll-prog" id="scrollProg"></div>
 
@@ -58,6 +59,7 @@
 </div>
 
 <!-- CONTACT -->
+<a id="main" tabindex="-1" aria-hidden="true"></a>
 <section id="contact">
   <div class="contact-orb"></div>
   <div class="container">
@@ -87,13 +89,13 @@
           <div class="row">
             <div class="field">
               <label for="name">Naam</label>
-              <input type="text" id="name" name="name" placeholder="Je naam" required />
-              <div class="field-error">Vul je naam in</div>
+              <input type="text" id="name" name="name" placeholder="Je naam" required aria-describedby="name-error" />
+              <div class="field-error" id="name-error">Vul je naam in</div>
             </div>
             <div class="field">
               <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="jij@bedrijf.nl" required />
-              <div class="field-error">Geldig email adres graag</div>
+              <input type="email" id="email" name="email" placeholder="jij@bedrijf.nl" required aria-describedby="email-error" />
+              <div class="field-error" id="email-error">Geldig email adres graag</div>
             </div>
           </div>
           <div class="field">
@@ -108,8 +110,8 @@
           </div>
           <div class="field">
             <label for="message">Project</label>
-            <textarea id="message" name="message" placeholder="Vertel kort wat je nodig hebt..." required></textarea>
-            <div class="field-error">Beschrijf je project even</div>
+            <textarea id="message" name="message" placeholder="Vertel kort wat je nodig hebt..." required aria-describedby="message-error"></textarea>
+            <div class="field-error" id="message-error">Beschrijf je project even</div>
           </div>
           <button type="submit" class="submit-btn" id="submitBtn">
             <span>Verstuur aanvraag</span>
