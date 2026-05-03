@@ -13,6 +13,10 @@
     { "source": "/rubens", "destination": "https://rubens-website.vercel.app/" },
     { "source": "/rubens/:path*", "destination": "https://rubens-website.vercel.app/:path*" },
     { "source": "/_next/:path*", "destination": "https://rubens-website.vercel.app/_next/:path*" },
-    { "source": "/images/:path*", "destination": "https://rubens-website.vercel.app/images/:path*" }
+    { "source": "/images/:path*", "destination": "https://rubens-website.vercel.app/images/:path*" },
+    { "source": "/devide", "destination": "https://devide.vercel.app/" },
+    { "source": "/devide/:path*", "destination": "https://devide.vercel.app/:path*" },
+    { "source": "/bijdaanbarbershop", "destination": "https://bijdaanbarbershop.vercel.app/" },
+    { "source": "/bijdaanbarbershop/:path*", "destination": "https://bijdaanbarbershop.vercel.app/:path*" }
   ]
 }
