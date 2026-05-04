@@ -142,3 +142,9 @@ Pas starten als foundation hierboven staat. Strategie:
 - Testimonials sectie
 - SEA campagnes starten (zie marketing roadmap hierboven)
 - Google Business Profile claimen en optimaliseren
+- **Eigen unified analytics dashboard** (`/dashboard` of `/admin` met auth):
+  - Combineert data uit Vercel Analytics API, Vercel Speed Insights API, Search Console API
+  - Chart.js voor grafieken (page views over tijd, top pages, top queries, Core Web Vitals trend)
+  - Vereist: Vercel Pro plan ($20/mnd) voor Analytics API + OAuth setup voor Search Console
+  - Sales-tool: kan als upsell aangeboden worden bij Premium pakket of als losse dienst
+  - Bouwen na 1-2 maanden, wanneer er echte data is om mee te visualiseren
