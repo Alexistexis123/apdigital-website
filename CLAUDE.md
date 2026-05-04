@@ -85,15 +85,12 @@ Voor nu staat alles nog op a.b.prijs@gmail.com, maar Search Console gaat direct 
 
 Deze items zijn onafgemaakt omdat ze klant-content/-actie vragen die Claude niet kan vervullen:
 
-### Legal / GDPR (HOGE PRIO)
-- **Privacy policy pagina** (`/privacy`): GDPR-verplicht voor EU. Beschrijft wat we met klantdata doen (contactform → Web3Forms → email).
-- **Algemene voorwaarden pagina** (`/voorwaarden`): zakelijke betalingen + leveringsvoorwaarden + recht op herroeping.
-- **Cookie consent banner**: site laadt Google Fonts + Microlink screenshots (externe IP-tracking). Klant beslist of banner nodig is, of self-host fonts en eigen screenshots.
-- **Footer privacy/voorwaarden links** toevoegen na bovenstaande pages.
+### Legal / GDPR
+- **Cookie consent banner**: site gebruikt Vercel Analytics en Microsoft Clarity (beide geen tracking cookies, GDPR-OK), Google Fonts en Microlink screenshots (externe IP-call). Banner technisch niet verplicht maar overweeg er één toe te voegen voor duidelijkheid en SEA-compliance later.
+- **Privacy/voorwaarden review na KVK** (juni 2026): KVK nummer invullen op /privacy en /voorwaarden, eventueel door jurist laten reviewen voor zekerheid.
 
 ### Account / setup
 - **FormSubmit destination** doorzetten van `a.b.prijs@gmail.com` naar zakelijke gmail (na email setup).
-- **Google Analytics of Vercel Web Analytics** toevoegen voor traffic-data.
 
 ### Content (voorheen al genoemd)
 
