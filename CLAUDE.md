@@ -139,6 +139,13 @@ Pas starten als foundation hierboven staat. Strategie:
 - Testimonials sectie
 - SEA campagnes starten (zie marketing roadmap hierboven)
 - Google Business Profile claimen en optimaliseren
+- **App-propositie aanscherpen op /diensten**: nu vaag ('klantenportalen of dashboards'). Klant wil meer focus op apps want hogere bedragen + minder concurrentie. Strategie:
+  - Hybride: websites blijven cash cow (snel geld), apps als upsell na 6-12 mnd bij bestaande klanten
+  - Niche: klantenportalen voor MKB, internal tools (urenregistratie/voorraad), SaaS prototypes
+  - Niet: consumer apps (Uber voor X, social, gaming) want concurrentiemoeras
+  - Pricing: web-app simpel €2,5-5k, complex €5-15k, native iOS+Android €15-50k+, maintenance €200-1k/mnd
+  - Concrete actie: 5 bestaande klanten vragen welk handmatig proces ze willen automatiseren = warme lead + app idee
+  - Showcase bouwen: AP Digital intern dashboard als demo web-app op portfolio
 - **Eigen unified analytics dashboard** (`/dashboard` of `/admin` met auth):
   - Combineert data uit Vercel Analytics API, Vercel Speed Insights API, Search Console API
   - Chart.js voor grafieken (page views over tijd, top pages, top queries, Core Web Vitals trend)
