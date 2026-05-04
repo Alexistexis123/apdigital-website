@@ -105,7 +105,7 @@ Deze items zijn onafgemaakt omdat ze klant-content/-actie vragen die Claude niet
 - **Case studies**: per project een detail-pagina met probleem, oplossing, resultaten (vraagt klant-data per case).
 - **Project highlights per stad**: welke projecten horen bij welke landingspages? (bv. De Vide → Arnhem, Rubens → ?)
 - **Blog/artikelen**: eerste 1-2 artikelen onderwerp + tekst van klant.
-- **KVK nummer**: footer zegt nu `KVK 00000000`, echte nummer invullen.
+- **KVK nummer**: footer toont nu `KVK in aanvraag` (overal). KVK afspraak op 23 juni 2026, daarna echte nummer invullen + LocalBusiness JSON-LD update.
 - **Self-host Google Fonts**: Space Grotesk + JetBrains Mono lokaal hosten voor snellere render + GDPR. Vergt download van .woff2 files.
 
 ## Marketing roadmap
