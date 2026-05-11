@@ -27,7 +27,7 @@ html { overflow-x: hidden; }
 body { overflow-x: hidden; position: relative; }
 body::before {
   content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
-  background: linear-gradient(115deg, transparent 0%, transparent 40%, oklch(0.92 0.18 100 / 0.10) 50%, transparent 60%, transparent 100%);
+  background: linear-gradient(115deg, transparent 0%, transparent 40%, oklch(0.92 0.18 100 / 0.05) 50%, transparent 60%, transparent 100%);
   background-size: 300% 100%;
   mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 85%);
   -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 85%);
@@ -189,7 +189,7 @@ section {
   to { background-position: 80px 80px, 80px 80px; }
 }
 .orb { position: absolute; border-radius: 50%; filter: blur(80px); animation: float 20s ease-in-out infinite; }
-.orb.a { width: 480px; height: 480px; background: var(--accent); top: -120px; left: -120px; opacity: 0.18; animation-delay: 0s; }
+.orb.a { width: 480px; height: 480px; background: var(--accent); top: -120px; left: -120px; opacity: 0.10; animation-delay: 0s; }
 .orb.b { width: 380px; height: 380px; background: oklch(0.55 0.18 280); bottom: -100px; right: -80px; opacity: 0.25; animation-delay: -7s; }
 .orb.c { width: 300px; height: 300px; background: oklch(0.7 0.15 200); top: 30%; right: 20%; opacity: 0.15; animation-delay: -14s; }
 @keyframes float {

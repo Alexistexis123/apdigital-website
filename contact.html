@@ -93,7 +93,7 @@
     <a href="over.html">Over</a>
     <a href="contact.html" class="active">Contact</a>
   </div>
-  <a class="nav-cta" href="contact.html">Vraag offerte aan</a>
+  <a class="nav-cta" href="contact.html">Plan kennismaking</a>
   <button class="nav-toggle" id="navToggle" aria-label="Menu">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
   </button>
@@ -180,7 +180,7 @@
           </div>
           <p class="form-trust">Geen glad salesgesprek. Gewoon eerlijk kijken wat slim is voor jouw bedrijf.</p>
           <button type="submit" class="submit-btn" id="submitBtn">
-            <span>Verstuur aanvraag</span>
+            <span>Vraag website aan</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </button>
         </div>
@@ -296,11 +296,11 @@
         document.getElementById('formFields').style.display = 'none';
         document.getElementById('formSuccess').classList.add('visible');
       } else {
-        btn.disabled = false; btn.querySelector('span').textContent = 'Verstuur aanvraag';
+        btn.disabled = false; btn.querySelector('span').textContent = 'Vraag website aan';
         alert('Er ging iets mis. Probeer het opnieuw of mail naar info@apdigital.nl');
       }
     } catch {
-      btn.disabled = false; btn.querySelector('span').textContent = 'Verstuur aanvraag';
+      btn.disabled = false; btn.querySelector('span').textContent = 'Vraag website aan';
       alert('Er ging iets mis. Probeer het opnieuw of mail naar info@apdigital.nl');
     }
   });

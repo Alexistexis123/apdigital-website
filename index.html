@@ -1,14 +1,14 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="nl">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>AP Digital | Websites in 7 dagen, vanaf €299</title>
-<meta name="description" content="Laat een snelle, professionele website maken die vertrouwen wekt en meer aanvragen oplevert. AP Digital bouwt websites, apps en digitale systemen voor ondernemers." />
+<meta name="description" content="Snelle moderne websites voor lokale bedrijven. Professioneel gebouwd en binnen 7 dagen live, vanaf €299." />
 
 <link rel="canonical" href="https://apdigital.nl/" />
 <meta property="og:title" content="AP Digital | Websites in 7 dagen, vanaf €299" />
-<meta property="og:description" content="Laat een snelle, professionele website maken die vertrouwen wekt en meer aanvragen oplevert. AP Digital bouwt websites, apps en digitale systemen." />
+<meta property="og:description" content="Snelle moderne websites voor lokale bedrijven. Professioneel gebouwd en binnen 7 dagen live." />
 <meta property="og:url" content="https://apdigital.nl/" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="nl_NL" />
@@ -26,7 +26,7 @@
   "@id": "https://apdigital.nl/#business",
   "name": "AP Digital",
   "url": "https://apdigital.nl/",
-  "description": "AP Digital bouwt websites, apps en social content voor bedrijven door heel Nederland. Strak, snel, en zonder gedoe.",
+  "description": "AP Digital bouwt snelle moderne websites voor lokale bedrijven door heel Nederland.",
   "email": "info@apdigital.nl",
   "telephone": "+31614160265",
   "areaServed": [
@@ -114,9 +114,6 @@
     transition: opacity .5s ease; pointer-events: none;
   }
   a.hc-card:hover .hc-thumb::after { opacity: 0; }
-  .hc-wip .hc-thumb { opacity: 0.35; background: oklch(0.22 0.005 250); }
-  .hc-wip .hc-thumb::after { content: ""; position: absolute; inset: 0;
-    background: linear-gradient(135deg, var(--line-soft) 0%, transparent 60%); }
   .hc-info { padding: 14px 18px; display: flex; flex-direction: column; gap: 6px; }
   .hc-tags { display: flex; gap: 6px; flex-wrap: wrap; }
   .hc-tags span {
@@ -126,7 +123,6 @@
   }
   a.hc-card .hc-tags span { border-color: oklch(0.92 0.18 100 / 0.4); color: var(--accent); }
   .hc-info h3 { font-size: 17px; font-weight: 600; letter-spacing: -0.02em; }
-  .hc-wip .hc-info h3 { color: var(--fg-3); }
 
   @media (max-width: 700px) {
     .hero-carousel { margin-top: 16px; }
@@ -136,7 +132,7 @@
     .hc-info h3 { font-size: 15px; }
   }
 
-  /* USP GRID (direct onder hero) */
+  /* USP GRID */
   .usp-section { padding: 64px 0 32px; position: relative; z-index: 2; }
   .usp-grid {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
@@ -144,9 +140,7 @@
   .usp-card {
     background: var(--bg-1); border: 1px solid var(--line);
     border-radius: 16px; padding: 28px 26px;
-    transition: border-color .3s ease, transform .3s ease;
   }
-  .usp-card:hover { border-color: oklch(0.92 0.18 100 / 0.45); transform: translateY(-4px); }
   .usp-card .usp-label {
     font-family: 'JetBrains Mono', monospace; font-size: 11px;
     text-transform: uppercase; letter-spacing: 0.14em;
@@ -163,55 +157,55 @@
     .usp-card { padding: 22px 20px; }
   }
 
-  /* WAAROM-sectie */
-  .waarom-section { padding: 80px 0; }
-  .section-head { margin-bottom: 40px; }
+  /* Section shared */
+  .section-head { margin-bottom: 32px; }
   .section-eyebrow {
     font-family: 'JetBrains Mono', monospace; font-size: 11px;
     text-transform: uppercase; letter-spacing: 0.18em;
     color: var(--accent); display: inline-block; margin-bottom: 14px;
   }
   .section-title {
-    font-size: clamp(28px, 4vw, 42px); font-weight: 600;
-    letter-spacing: -0.025em; line-height: 1.1;
+    font-size: clamp(26px, 3.6vw, 38px); font-weight: 600;
+    letter-spacing: -0.025em; line-height: 1.15;
   }
-  .waarom-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
-  }
-  .waarom-card {
+
+  /* DIENSTEN-snippet */
+  .diensten-section { padding: 72px 0 56px; }
+  .diensten-primary {
     background: var(--bg-1); border: 1px solid var(--line);
-    border-radius: 14px; padding: 24px;
+    border-radius: 18px; padding: 36px 36px;
+    max-width: 820px;
   }
-  .waarom-card h3 {
-    font-size: 17px; font-weight: 600; letter-spacing: -0.01em;
-    margin-bottom: 8px; color: var(--accent);
+  .diensten-primary h2 {
+    font-size: clamp(22px, 2.8vw, 30px); font-weight: 600;
+    letter-spacing: -0.02em; margin-bottom: 14px;
   }
-  .waarom-card p { color: var(--fg); opacity: 0.82; font-size: 14px; line-height: 1.55; }
-  @media (max-width: 900px) {
-    .waarom-grid { grid-template-columns: 1fr 1fr; }
+  .diensten-primary p { color: var(--fg); opacity: 0.85; font-size: 16px; line-height: 1.6; margin-bottom: 22px; }
+  .diensten-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--accent); text-decoration: none; font-weight: 500;
+    border-bottom: 1px solid oklch(0.92 0.18 100 / 0.4);
+    padding-bottom: 2px; font-size: 15px;
   }
-  @media (max-width: 560px) {
-    .waarom-grid { grid-template-columns: 1fr; }
+  .diensten-link:hover { border-bottom-color: var(--accent); }
+  .diensten-tertiary {
+    margin-top: 24px; color: var(--fg); opacity: 0.6;
+    font-size: 14px; line-height: 1.55; max-width: 720px;
+  }
+  @media (max-width: 700px) {
+    .diensten-primary { padding: 26px 22px; }
   }
 
-  /* VOOR WIE-sectie (pills) */
-  .doelgroep-section { padding: 48px 0 80px; }
-  .doelgroep-chips {
-    display: flex; flex-wrap: wrap; gap: 10px;
+  /* PORTFOLIO-link onder carousel */
+  .portfolio-link-row {
+    padding: 20px 0 8px; display: flex; justify-content: center;
+    position: relative; z-index: 2;
   }
-  .doelgroep-chip {
-    border: 1px solid var(--line); border-radius: 999px;
-    padding: 10px 18px; font-size: 14px;
-    background: var(--bg-1); color: var(--fg);
-    transition: border-color .3s ease, color .3s ease;
-  }
-  .doelgroep-chip:hover { border-color: var(--accent); color: var(--accent); }
 
-  /* ZO WERKT HET-sectie */
-  .stappen-section { padding: 80px 0; }
+  /* HOE HET WERKT */
+  .stappen-section { padding: 72px 0; }
   .stappen-list {
     display: grid; grid-template-columns: 1fr; gap: 14px;
-    counter-reset: stap;
   }
   .stap-item {
     display: grid; grid-template-columns: 64px 1fr; gap: 22px;
@@ -233,10 +227,24 @@
     .stap-num { font-size: 22px; }
   }
 
-  /* FOOTER CTA-blok */
-  .footer-cta {
-    padding: 72px 0 96px; text-align: center;
+  /* TESTIMONIALS placeholder */
+  .testimonials-section { padding: 56px 0 56px; }
+  .testimonials-card {
+    background: var(--bg-1); border: 1px solid var(--line);
+    border-radius: 18px; padding: 36px 36px;
+    max-width: 820px;
   }
+  .testimonials-card h2 {
+    font-size: clamp(22px, 2.8vw, 30px); font-weight: 600;
+    letter-spacing: -0.02em; margin-bottom: 14px;
+  }
+  .testimonials-card p { color: var(--fg); opacity: 0.85; font-size: 16px; line-height: 1.6; margin-bottom: 22px; }
+  @media (max-width: 700px) {
+    .testimonials-card { padding: 26px 22px; }
+  }
+
+  /* FOOTER CTA-blok */
+  .footer-cta { padding: 72px 0 96px; text-align: center; }
   .footer-cta h2 {
     font-size: clamp(28px, 4vw, 40px); font-weight: 600;
     letter-spacing: -0.025em; margin-bottom: 14px;
@@ -263,7 +271,7 @@
     <a href="over.html">Over</a>
     <a href="contact.html">Contact</a>
   </div>
-  <a class="nav-cta" href="contact.html">Vraag offerte aan</a>
+  <a class="nav-cta" href="contact.html">Plan kennismaking</a>
   <button class="nav-toggle" id="navToggle" aria-label="Menu">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
   </button>
@@ -280,7 +288,7 @@
   <a href="contact.html">Contact</a>
 </div>
 
-<!-- HERO -->
+<!-- 1. HERO -->
 <a id="main" tabindex="-1" aria-hidden="true"></a>
 <section id="hero">
   <div class="hero-bg">
@@ -294,15 +302,15 @@
   <div class="container hero-content">
     <h1 class="hero-title" id="heroTitle" data-line1="Websites die" data-line2="klanten opleveren"></h1>
     <p class="hero-tagline reveal d4">
-      Laat een snelle, professionele website bouwen die vertrouwen wekt, duidelijk verkoopt en aanvragen binnenhaalt. Binnen 7 dagen live, vanaf €299.
+      Snelle moderne websites voor lokale bedrijven. Professioneel gebouwd en binnen 7 dagen live.
     </p>
     <div class="cta-row reveal d5">
-      <a class="btn btn-primary" href="contact.html">
-        Vraag gratis kennismaking aan
+      <a class="btn btn-primary" href="pakketten.html">
+        Bekijk pakketten
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
-      <a class="btn btn-ghost" href="pakketten.html">
-        Bekijk pakketten
+      <a class="btn btn-ghost" href="contact.html">
+        Plan kennismaking
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
     </div>
@@ -337,9 +345,17 @@
       </a>
     </div>
   </div>
+
+  <!-- 4b. PORTFOLIO link onder carousel -->
+  <div class="portfolio-link-row">
+    <a class="btn btn-ghost" href="portfolio.html">
+      Meer projecten bekijken
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
 </section>
 
-<!-- USP GRID -->
+<!-- 2. USP GRID -->
 <section class="usp-section">
   <div class="container">
     <div class="usp-grid">
@@ -351,84 +367,43 @@
       <div class="usp-card reveal d2">
         <span class="usp-label">02 / Vaste prijs</span>
         <h3>Vanaf &euro;299</h3>
-        <p>Duidelijke pakketten zonder vage bureauprijzen.</p>
+        <p>Duidelijke pakketten zonder verrassingen achteraf.</p>
       </div>
       <div class="usp-card reveal d3">
         <span class="usp-label">03 / Resultaat</span>
-        <h3>Conversiegericht gebouwd</h3>
-        <p>Niet alleen mooi, ook ingericht op aanvragen, vertrouwen en groei.</p>
+        <h3>Modern &amp; conversiegericht</h3>
+        <p>Snel, mobiel-vriendelijk en gericht op aanvragen.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER CTA TOP -->
-<section class="footer-cta" style="padding: 48px 0 24px;">
-  <div class="container">
-    <div class="cta-row">
-      <a class="btn btn-primary" href="contact.html">
-        Vraag gratis kennismaking aan
-        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-      <a class="btn btn-ghost" href="pakketten.html">
-        Bekijk pakketten
-        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- WAAROM -->
-<section class="waarom-section">
+<!-- 3. DIENSTEN-snippet -->
+<section class="diensten-section">
   <div class="container">
     <div class="section-head reveal d1">
-      <span class="section-eyebrow">Waarom AP Digital</span>
-      <h2 class="section-title">Waarom ondernemers voor AP Digital kiezen</h2>
+      <span class="section-eyebrow">Wat we maken</span>
     </div>
-    <div class="waarom-grid">
-      <div class="waarom-card reveal d1">
-        <h3>Snel schakelen</h3>
-        <p>Geen log bureauproces, maar direct duidelijkheid en uitvoering.</p>
-      </div>
-      <div class="waarom-card reveal d2">
-        <h3>Modern gebouwd</h3>
-        <p>Websites en systemen die snel laden, goed werken op mobiel en professioneel aanvoelen.</p>
-      </div>
-      <div class="waarom-card reveal d3">
-        <h3>Gericht op aanvragen</h3>
-        <p>Elke pagina krijgt duidelijke structuur, CTA en contactflow.</p>
-      </div>
-      <div class="waarom-card reveal d4">
-        <h3>Slimmer werken</h3>
-        <p>Waar mogelijk automatiseren we processen zodat je minder handmatig hoeft te doen.</p>
-      </div>
+    <div class="diensten-primary reveal d1">
+      <h2>Websites en redesigns voor lokale bedrijven</h2>
+      <p>We bouwen overzichtelijke websites die meteen duidelijk maken wat je doet, voor wie en hoe klanten contact opnemen. Vaste prijs, vaste planning, live binnen 7 dagen.</p>
+      <a class="diensten-link" href="diensten.html">
+        Bekijk diensten
+        <svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
     </div>
+    <p class="diensten-tertiary reveal d2">
+      Ook maatwerk webapps, social content en automatisering mogelijk op aanvraag.
+    </p>
   </div>
 </section>
 
-<!-- VOOR WIE -->
-<section class="doelgroep-section">
-  <div class="container">
-    <div class="section-head reveal d1">
-      <span class="section-eyebrow">Voor wie</span>
-      <h2 class="section-title">Voor wie we werken</h2>
-    </div>
-    <div class="doelgroep-chips reveal d2">
-      <span class="doelgroep-chip">Lokale ondernemers</span>
-      <span class="doelgroep-chip">Horeca</span>
-      <span class="doelgroep-chip">Dienstverleners</span>
-      <span class="doelgroep-chip">Coaches en consultants</span>
-      <span class="doelgroep-chip">Bedrijven die hun oude website willen vervangen</span>
-    </div>
-  </div>
-</section>
-
-<!-- ZO WERKT HET -->
+<!-- 5. HOE HET WERKT -->
 <section class="stappen-section">
   <div class="container">
     <div class="section-head reveal d1">
       <span class="section-eyebrow">Werkwijze</span>
-      <h2 class="section-title">Zo werkt het</h2>
+      <h2 class="section-title">Hoe het werkt</h2>
     </div>
     <div class="stappen-list">
       <div class="stap-item reveal d1">
@@ -449,7 +424,7 @@
         <div class="stap-num">03</div>
         <div class="stap-body">
           <h3>Design en bouw</h3>
-          <p>We bouwen je website of digitale oplossing snel en professioneel.</p>
+          <p>We bouwen je website snel en professioneel.</p>
         </div>
       </div>
       <div class="stap-item reveal d4">
@@ -463,25 +438,42 @@
         <div class="stap-num">05</div>
         <div class="stap-body">
           <h3>Doorontwikkeling</h3>
-          <p>Indien gewenst helpen we met content, SEO, social of automatisering.</p>
+          <p>Indien gewenst helpen we met content, SEO en doorontwikkeling.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER CTA BOTTOM -->
+<!-- 6. TESTIMONIALS placeholder -->
+<section class="testimonials-section">
+  <div class="container">
+    <div class="section-head reveal d1">
+      <span class="section-eyebrow">Klanten</span>
+      <h2 class="section-title">Klanten van AP Digital</h2>
+    </div>
+    <div class="testimonials-card reveal d1">
+      <p>We werken voor lokale ondernemers in horeca, retail en dienstverlening. Bekijk wat we voor anderen hebben gebouwd.</p>
+      <a class="diensten-link" href="portfolio.html">
+        Bekijk portfolio
+        <svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 7. FOOTER CTA BOTTOM -->
 <section class="footer-cta">
   <div class="container">
     <h2 class="reveal d1">Klaar om te starten?</h2>
-    <p class="reveal d2">Vraag een gratis kennismaking aan of bekijk eerst de pakketten.</p>
+    <p class="reveal d2">Bekijk de pakketten of plan een kennismaking.</p>
     <div class="cta-row reveal d3">
-      <a class="btn btn-primary" href="contact.html">
-        Vraag gratis kennismaking aan
+      <a class="btn btn-primary" href="pakketten.html">
+        Bekijk pakketten
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
-      <a class="btn btn-ghost" href="pakketten.html">
-        Bekijk pakketten
+      <a class="btn btn-ghost" href="contact.html">
+        Plan kennismaking
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
     </div>
@@ -523,26 +515,6 @@
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
     orbs.forEach((o, i) => { const k = (i + 1) * 18; o.style.translate = `${x * k}px ${y * k}px`; });
-  });
-
-  // Count-up
-  const counted = new WeakSet();
-  document.querySelectorAll('[data-count]').forEach(el => {
-    const target = parseFloat(el.dataset.count), suffix = el.dataset.suffix || '';
-    const runCount = () => {
-      if (counted.has(el)) return; counted.add(el);
-      const dur = 1200, start = performance.now();
-      const tick = (now) => {
-        const p = Math.min(1, (now - start) / dur);
-        el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))) + suffix;
-        if (p < 1) requestAnimationFrame(tick);
-      };
-      requestAnimationFrame(tick);
-      setTimeout(() => { el.textContent = target + suffix; }, dur + 100);
-    };
-    const r = el.getBoundingClientRect();
-    if (r.top < window.innerHeight) { runCount(); }
-    else { const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { runCount(); obs.unobserve(el); } }); }, { threshold: 0.5 }); obs.observe(el); }
   });
 
   // Reveal on scroll
@@ -651,7 +623,6 @@
     }
     requestAnimationFrame((t) => { lastTime = t; loop(t); });
 
-    // Mouse drag (touch uses native scroll via touch-action: pan-x)
     carousel.addEventListener('mousedown', (e) => {
       isDragging = true; didDrag = false;
       startX = e.clientX; startScroll = carousel.scrollLeft;
@@ -672,12 +643,10 @@
       setTimeout(() => carousel.classList.remove('dragging'), 0);
     });
 
-    // Suppress click after drag
     carousel.addEventListener('click', (e) => {
       if (didDrag) { e.preventDefault(); e.stopPropagation(); didDrag = false; }
     }, true);
 
-    // Touch pause auto-scroll briefly so user's swipe coasts
     carousel.addEventListener('touchstart', () => { pausedUntil = performance.now() + RESUME_DELAY; }, { passive: true });
     carousel.addEventListener('touchend', () => { pausedUntil = performance.now() + RESUME_DELAY; }, { passive: true });
   })();
