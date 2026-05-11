@@ -10,23 +10,17 @@ Puur statische HTML/CSS/JS — geen framework. Bestanden:
 - `diensten.html` — 3 flip cards (Websites / Apps / Social)
 - `pakketten.html` — 3 flip cards (Starter / Groei / Premium)
 - `portfolio.html` — project grid (Casa 5 live + 2 WIP placeholders)
-- `contact.html` — contactformulier via Web3Forms → a.b.prijs@gmail.com
+- `contact.html` — contactformulier via formsubmit.co → info@apdigital.nl
 - `style.css` — alle styling, donker thema, CSS variabelen, flip card logica
 - `robots.txt` + `sitemap.xml` — SEO
 
 ## Deployen
 
-```bash
-cd C:/Users/hipbi/Desktop/ruflo-website
-vercel deploy --prod --yes
-```
-
-Vercel CLI is geïnstalleerd en ingelogd als `abprijs-4201`.
+Lokale werkmap: `C:/Users/alexa/Desktop/apdigital-website`. Pushen naar `main` (`git push origin main`) → Vercel deployt automatisch naar apdigital.nl. Het Vercel-project heet nog `ruflo-website` (team `abprijs-4201s-projects`) om historische redenen, maar de productie-URL is apdigital.nl. Vercel CLI is alleen nodig voor handmatige re-deploys.
 
 ## Contact form
 
-Web3Forms key: `a634c808-f96b-4b81-a917-174acd38f74b`  
-Mails komen binnen op a.b.prijs@gmail.com
+Endpoint: `https://formsubmit.co/ajax/info@apdigital.nl` (zie [contact.html:165](contact.html)). Geen API-key nodig, formsubmit verifieert het ontvangst-adres eenmalig. Mails komen binnen op info@apdigital.nl.
 
 ## Flip cards (diensten + pakketten)
 
