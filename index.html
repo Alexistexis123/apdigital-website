@@ -486,11 +486,16 @@
     const t = document.getElementById('heroTitle');
     const l1 = t.dataset.line1, l2 = t.dataset.line2;
     const buildLine = (str, accent) => {
-      let html = '<span class="line">';
-      for (const ch of str) {
-        if (ch === ' ') html += ' ';
-        else html += `<span class="ch${accent ? ' accent' : ''}">${ch}</span>`;
-      }
+      let html = `<span class="line${accent ? ' accent' : ''}">`;
+      const words = str.split(' ');
+      words.forEach((word, wi) => {
+        html += '<span class="word">';
+        for (const ch of word) {
+          html += `<span class="ch">${ch}</span>`;
+        }
+        html += '</span>';
+        if (wi < words.length - 1) html += ' ';
+      });
       return html + '</span>';
     };
     t.innerHTML = buildLine(l1, false) + '<br/>' + buildLine(l2, true);
