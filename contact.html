@@ -1,11 +1,16 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="nl">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Contact | AP Digital</title>
-<meta name="description" content="Stuur een berichtje of bel even. Geen gladde sales, gewoon kijken of we passen." />
+<title>Contact met AP Digital | Websitebureau Arnhem</title>
+<meta name="description" content="Neem contact op met AP Digital uit Arnhem voor websites, app ontwikkeling, social content beheer en digitale groei." />
 <link rel="canonical" href="https://apdigital.nl/contact" />
+<meta property="og:title" content="Contact met AP Digital | Websitebureau Arnhem" />
+<meta property="og:description" content="Neem contact op met AP Digital uit Arnhem voor websites, app ontwikkeling, social content beheer en digitale groei." />
+<meta property="og:url" content="https://apdigital.nl/contact" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="nl_NL" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -21,13 +26,51 @@
   }
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://apdigital.nl/" },
+    { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://apdigital.nl/contact" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Reageren jullie snel?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Meestal binnen 1 werkdag, vaak sneller." }
+    },
+    {
+      "@type": "Question",
+      "name": "Kan ik ook klein beginnen?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Ja. Veel klanten starten met een Starter-pakket en groeien daarna door." }
+    },
+    {
+      "@type": "Question",
+      "name": "Werken jullie met vaste prijzen?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Ja. Je krijgt vooraf een offerte met vaste prijs, geen verrassingen." }
+    },
+    {
+      "@type": "Question",
+      "name": "Kan mijn website snel live?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Starter binnen 7 dagen. Groei in 7-14 dagen. Premium 2-8 weken." }
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<meta property="og:image" content="https://apdigital.nl/og-image.svg" />
+<meta property="og:image" content="https://apdigital.nl/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="AP Digital - Live binnen 7 dagen, vanaf 299 euro" />
-<meta name="twitter:image" content="https://apdigital.nl/og-image.svg" />
+<meta name="twitter:image" content="https://apdigital.nl/og-image.png" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="theme-color" content="#1a1a2e" />
 <link rel="stylesheet" href="style.css" />
@@ -74,8 +117,8 @@
   <div class="container">
 <div class="contact-grid">
       <div class="reveal d1">
-        <h1>Laten we<br /><em>iets bouwen.</em></h1>
-        <p class="contact-lead">Stuur een berichtje of bel even. Geen gladde sales, gewoon kijken of we passen.</p>
+        <h1>Laten we kijken wat je <em>nodig hebt.</em></h1>
+        <p class="contact-lead">Wil je een website, app, contentbeheer of een slimmer digitaal systeem? Stuur kort je idee door en we denken eerlijk met je mee.</p>
         <div class="contact-actions">
           <a class="contact-link whatsapp" href="https://wa.me/31614160265" target="_blank" rel="noopener">
             <span class="ic">
@@ -102,26 +145,40 @@
               <div class="field-error" id="name-error">Vul je naam in</div>
             </div>
             <div class="field">
-              <label for="email">Email</label>
+              <label for="company">Bedrijfsnaam</label>
+              <input type="text" id="company" name="company" placeholder="Optioneel" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="email">E-mailadres</label>
               <input type="email" id="email" name="email" placeholder="jij@bedrijf.nl" required aria-describedby="email-error" />
-              <div class="field-error" id="email-error">Geldig email adres graag</div>
+              <div class="field-error" id="email-error">Geldig e-mailadres graag</div>
+            </div>
+            <div class="field">
+              <label for="phone">Telefoonnummer</label>
+              <input type="tel" id="phone" name="phone" placeholder="Optioneel" />
             </div>
           </div>
           <div class="field">
-            <label for="package">Pakket</label>
-            <select id="package" name="package">
+            <label for="looking_for">Waar ben je naar op zoek?</label>
+            <select id="looking_for" name="looking_for" required aria-describedby="looking-for-error">
+              <option value="">Kies een optie</option>
+              <option>Website laten maken</option>
+              <option>Website verbeteren</option>
+              <option>App ontwikkeling</option>
+              <option>Social content beheer</option>
+              <option>Automatisering</option>
               <option>Nog niet zeker</option>
-              <option>Starter</option>
-              <option>Groei</option>
-              <option>Premium</option>
-              <option>Op maat</option>
             </select>
+            <div class="field-error" id="looking-for-error">Kies waar je naar op zoek bent</div>
           </div>
           <div class="field">
-            <label for="message">Project</label>
+            <label for="message">Bericht</label>
             <textarea id="message" name="message" placeholder="Vertel kort wat je nodig hebt..." required aria-describedby="message-error"></textarea>
             <div class="field-error" id="message-error">Beschrijf je project even</div>
           </div>
+          <p class="form-trust">Geen glad salesgesprek. Gewoon eerlijk kijken wat slim is voor jouw bedrijf.</p>
           <button type="submit" class="submit-btn" id="submitBtn">
             <span>Verstuur aanvraag</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -136,7 +193,73 @@
         </div>
       </form>
     </div>
+    <div class="contact-faq reveal d3">
+      <h2>Veelgestelde vragen</h2>
+      <details>
+        <summary>Reageren jullie snel?</summary>
+        <p>Meestal binnen 1 werkdag, vaak sneller.</p>
+      </details>
+      <details>
+        <summary>Kan ik ook klein beginnen?</summary>
+        <p>Ja. Veel klanten starten met een Starter-pakket en groeien daarna door.</p>
+      </details>
+      <details>
+        <summary>Werken jullie met vaste prijzen?</summary>
+        <p>Ja. Je krijgt vooraf een offerte met vaste prijs, geen verrassingen.</p>
+      </details>
+      <details>
+        <summary>Kan mijn website snel live?</summary>
+        <p>Starter binnen 7 dagen. Groei in 7-14 dagen. Premium 2-8 weken.</p>
+      </details>
+    </div>
   </div>
+  <style>
+    .form-trust {
+      font-size: 14px; color: var(--fg-2); line-height: 1.5;
+      margin: 8px 0 18px; padding: 12px 14px;
+      background: oklch(0.18 0.005 250 / 0.5);
+      border-left: 2px solid var(--accent);
+      border-radius: 6px;
+    }
+    .contact-faq {
+      max-width: 760px; margin: 80px auto 0; padding: 0 24px;
+    }
+    .contact-faq h2 {
+      font-size: clamp(28px, 4vw, 40px); font-weight: 700; letter-spacing: -0.02em;
+      margin-bottom: 28px; text-align: center;
+    }
+    .contact-faq details {
+      border: 1px solid var(--line-soft);
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin-bottom: 12px;
+      background: oklch(0.16 0.005 250 / 0.4);
+      transition: background 0.2s ease;
+    }
+    .contact-faq details[open] {
+      background: oklch(0.18 0.006 250 / 0.6);
+    }
+    .contact-faq summary {
+      cursor: pointer; font-size: 17px; font-weight: 600;
+      list-style: none; position: relative; padding-right: 28px;
+      color: var(--fg);
+    }
+    .contact-faq summary::-webkit-details-marker { display: none; }
+    .contact-faq summary::after {
+      content: "+"; position: absolute; right: 0; top: -2px;
+      font-size: 22px; font-weight: 400; color: var(--accent);
+      transition: transform 0.2s ease;
+    }
+    .contact-faq details[open] summary::after { content: "−"; }
+    .contact-faq details p {
+      margin: 14px 0 0; color: var(--fg-2); font-size: 16px; line-height: 1.6;
+    }
+    @media (max-width: 700px) {
+      .contact-faq { margin-top: 56px; padding: 0 16px; }
+      .contact-faq details { padding: 16px 18px; }
+      .contact-faq summary { font-size: 16px; }
+    }
+  </style>
   <div class="footer-strip">
     <div>© 2026 AP Digital <span class="dot">·</span> KVK in aanvraag <span class="dot">·</span> <a href="privacy.html" style="color:var(--fg-3);">Privacy</a> <span class="dot">·</span> <a href="voorwaarden.html" style="color:var(--fg-3);">Voorwaarden</a></div>
     <div>v2.6 <span class="dot">·</span> Boekingen Q3 2026</div>
@@ -149,10 +272,11 @@
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     let valid = true;
-    const name = document.getElementById('name'), email = document.getElementById('email'), message = document.getElementById('message');
-    [name, email, message].forEach(el => el.parentElement.classList.remove('error'));
+    const name = document.getElementById('name'), email = document.getElementById('email'), message = document.getElementById('message'), lookingFor = document.getElementById('looking_for');
+    [name, email, message, lookingFor].forEach(el => el.parentElement.classList.remove('error'));
     if (!name.value.trim()) { name.parentElement.classList.add('error'); valid = false; }
     if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) { email.parentElement.classList.add('error'); valid = false; }
+    if (!lookingFor.value.trim()) { lookingFor.parentElement.classList.add('error'); valid = false; }
     if (!message.value.trim()) { message.parentElement.classList.add('error'); valid = false; }
     if (!valid) return;
     const btn = document.getElementById('submitBtn');

@@ -1,10 +1,14 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="nl">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Portfolio | AP Digital</title>
-<meta name="description" content="Websites en apps die we gebouwd hebben." />
+<title>Portfolio: moderne websites, apps & branding | AP Digital</title>
+<meta name="description" content="Bekijk websites, apps en digitale projecten die AP Digital ontwikkelde voor bedrijven. Modern design, snelle performance en conversiegericht gebouwd." />
+<meta property="og:title" content="Portfolio: moderne websites, apps & branding | AP Digital" />
+<meta property="og:description" content="Bekijk websites, apps en digitale projecten die AP Digital ontwikkelde voor bedrijven. Modern design, snelle performance en conversiegericht gebouwd." />
+<meta name="twitter:title" content="Portfolio: moderne websites, apps & branding | AP Digital" />
+<meta name="twitter:description" content="Bekijk websites, apps en digitale projecten die AP Digital ontwikkelde voor bedrijven. Modern design, snelle performance en conversiegericht gebouwd." />
 <link rel="canonical" href="https://apdigital.nl/portfolio" />
 <script type="application/ld+json">
 {
@@ -17,20 +21,30 @@
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Casa 5", "url": "https://apdigital.nl/casa5" },
       { "@type": "ListItem", "position": 2, "name": "Eetcafé Rubens", "url": "https://apdigital.nl/Rubens" },
-      { "@type": "ListItem", "position": 3, "name": "De Vide", "url": "https://apdigital.nl/devide" },
-      { "@type": "ListItem", "position": 4, "name": "Bij Daan Barbershop", "url": "https://apdigital.nl/BijDaan" },
-      { "@type": "ListItem", "position": 5, "name": "Marketing Fit", "url": "https://apdigital.nl/marketing-fit" }
+      { "@type": "ListItem", "position": 3, "name": "Marketing Fit", "url": "https://apdigital.nl/marketing-fit" },
+      { "@type": "ListItem", "position": 4, "name": "De Vide", "url": "https://apdigital.nl/devide" },
+      { "@type": "ListItem", "position": 5, "name": "Bij Daan Barbershop", "url": "https://apdigital.nl/bijdaanbarbershop" }
     ]
   }
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://apdigital.nl/" },
+    { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://apdigital.nl/portfolio" }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<meta property="og:image" content="https://apdigital.nl/og-image.svg" />
+<meta property="og:image" content="https://apdigital.nl/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="AP Digital - Live binnen 7 dagen, vanaf 299 euro" />
-<meta name="twitter:image" content="https://apdigital.nl/og-image.svg" />
+<meta name="twitter:image" content="https://apdigital.nl/og-image.png" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="theme-color" content="#1a1a2e" />
 <link rel="stylesheet" href="style.css" />
@@ -84,6 +98,55 @@
   .port-info h3 { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; }
   .port-wip .port-info h3 { color: var(--fg-3); }
   .port-info p { font-size: 13px; color: var(--fg-3); line-height: 1.5; }
+  .port-meta { display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
+  .port-meta .row { display: grid; grid-template-columns: 88px 1fr; gap: 10px; align-items: start; }
+  .port-meta .label {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase;
+    letter-spacing: 0.12em; color: var(--fg-3); padding-top: 2px;
+  }
+  .port-meta .val { font-size: 13px; color: var(--fg-2, var(--fg)); line-height: 1.5; }
+  .port-actions {
+    padding: 14px 22px 18px; border-top: 1px solid var(--line-soft);
+    display: flex; flex-wrap: wrap; gap: 10px;
+  }
+  .port-actions a {
+    flex: 1 1 auto; text-align: center; padding: 10px 14px; border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.1em; text-decoration: none; transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .port-actions .btn-primary {
+    background: var(--accent); color: #1a1a2e; border: 1px solid var(--accent);
+  }
+  .port-actions .btn-primary:hover { transform: translateY(-2px); }
+  .port-actions .btn-ghost {
+    background: transparent; color: var(--fg-2, var(--fg)); border: 1px solid var(--line);
+  }
+  .port-actions .btn-ghost:hover { border-color: oklch(0.92 0.18 100 / 0.45); color: var(--accent); }
+  .portfolio-intro {
+    max-width: 760px; margin: 14px 0 36px;
+    font-size: 16px; line-height: 1.7; color: var(--fg-3);
+  }
+  .portfolio-cta {
+    margin-top: 56px; padding: 36px 28px; border-radius: 22px;
+    border: 1px solid var(--line); background: oklch(0.20 0.005 250 / 0.5);
+    display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center;
+  }
+  .portfolio-cta h2 { font-size: clamp(24px, 3vw, 32px); font-weight: 600; letter-spacing: -0.02em; }
+  .portfolio-cta p { color: var(--fg-3); max-width: 560px; line-height: 1.6; }
+  .portfolio-cta .cta-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  .portfolio-cta .cta-row a {
+    padding: 14px 22px; border-radius: 999px; font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none;
+    transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .portfolio-cta .btn-primary {
+    background: var(--accent); color: #1a1a2e; border: 1px solid var(--accent);
+  }
+  .portfolio-cta .btn-primary:hover { transform: translateY(-2px); }
+  .portfolio-cta .btn-ghost {
+    background: transparent; color: var(--fg); border: 1px solid var(--line);
+  }
+  .portfolio-cta .btn-ghost:hover { border-color: oklch(0.92 0.18 100 / 0.45); color: var(--accent); }
   .port-foot {
     padding: 12px 22px; border-top: 1px solid var(--line-soft);
     display: flex; align-items: center; justify-content: space-between;
@@ -147,90 +210,125 @@
 <section id="portfolio">
   <div class="container">
     <div class="section-head">
-      <h1 class="reveal d1">Wat we <em>gemaakt hebben.</em></h1>
+      <h1 class="reveal d1">Portfolio van websites, apps en digitale projecten</h1>
+      <p class="portfolio-intro reveal d1">Een selectie van websites en digitale oplossingen die we hebben gebouwd voor ondernemers. Gericht op moderne uitstraling, snelheid, duidelijkheid en conversie.</p>
     </div>
     <div class="portfolio-grid">
 
       <!-- CASA 5 -->
-      <a class="port-card reveal d2" href="/casa5" target="_blank" rel="noopener">
-        <div class="port-thumb">
+      <div class="port-card reveal d2">
+        <a class="port-thumb" href="/casa5" target="_blank" rel="noopener" aria-label="Bekijk Casa 5 project">
           <img src="https://casa5.eu/wp-content/uploads/2025/04/pagina1_terrace_horizontal_view-1.jpeg" alt="Casa 5 bed and breakfast website door AP Digital terrasfoto" loading="lazy" />
-        </div>
+        </a>
         <div class="port-info">
           <div class="port-tags"><span>Website</span><span>B&amp;B</span></div>
           <h3>Casa 5</h3>
-          <p>B&amp;B website. Live en klaar.</p>
+          <div class="port-meta">
+            <div class="row"><span class="label">Type</span><span class="val">B&amp;B en horeca website</span></div>
+            <div class="row"><span class="label">Doel</span><span class="val">Gasten een rustige plek geven om kamers, locatie en sfeer te bekijken voordat ze boeken.</span></div>
+            <div class="row"><span class="label">Aanpak</span><span class="val">Rustige fotografie op de voorgrond, heldere navigatie tussen kamers en omgeving, mobiel-eerst opgebouwd voor reizigers onderweg.</span></div>
+            <div class="row"><span class="label">Resultaat</span><span class="val">Een site die het gevoel van de plek vasthoudt en gasten direct naar contact en boekingsinfo leidt.</span></div>
+          </div>
         </div>
-        <div class="port-foot">
-          <span>Bekijk live</span>
-          <span class="port-arrow">→</span>
+        <div class="port-actions">
+          <a class="btn-primary" href="/casa5" target="_blank" rel="noopener">Bekijk project</a>
+          <a class="btn-ghost" href="/contact">Vraag vergelijkbaar project aan</a>
         </div>
-      </a>
+      </div>
 
       <!-- EETCAFÉ RUBENS -->
-      <a class="port-card reveal d3" href="/Rubens" target="_blank" rel="noopener">
-        <div class="port-thumb">
+      <div class="port-card reveal d3">
+        <a class="port-thumb" href="/Rubens" target="_blank" rel="noopener" aria-label="Bekijk Eetcafé Rubens project">
           <img src="https://rubens-website.vercel.app/images/koepelkerk-terras.jpg" alt="Eetcafé Rubens restaurant website door AP Digital terras met koepelkerk" loading="lazy" />
-        </div>
+        </a>
         <div class="port-info">
           <div class="port-tags"><span>Website</span><span>Restaurant</span></div>
           <h3>Eetcafé Rubens</h3>
-          <p>Restaurant website. Live en klaar.</p>
+          <div class="port-meta">
+            <div class="row"><span class="label">Type</span><span class="val">Restaurant website</span></div>
+            <div class="row"><span class="label">Doel</span><span class="val">Een sterkere online uitstraling geven aan een bekend lokaal eetcafé en bezoekers vooraf vertrouwen geven.</span></div>
+            <div class="row"><span class="label">Aanpak</span><span class="val">Warm beeldgebruik van het terras en interieur, duidelijke menukaart en openingstijden, snelle laadtijd op telefoon.</span></div>
+            <div class="row"><span class="label">Resultaat</span><span class="val">Een site die past bij de sfeer van het café en bezoekers snel het antwoord geeft dat ze zoeken.</span></div>
+          </div>
         </div>
-        <div class="port-foot">
-          <span>Bekijk live</span>
-          <span class="port-arrow">→</span>
+        <div class="port-actions">
+          <a class="btn-primary" href="/Rubens" target="_blank" rel="noopener">Bekijk project</a>
+          <a class="btn-ghost" href="/contact">Vraag vergelijkbaar project aan</a>
         </div>
-      </a>
-
-      <!-- DE VIDE -->
-      <a class="port-card reveal d4" href="/devide" target="_blank" rel="noopener">
-        <div class="port-thumb">
-          <img src="/devide/img/devide-4.jpg" alt="De Vide buurtcafé Arnhem website door AP Digital interieur in gerenoveerde kerk" loading="lazy" />
-        </div>
-        <div class="port-info">
-          <div class="port-tags"><span>Website</span><span>Koffiezaak</span></div>
-          <h3>De Vide</h3>
-          <p>Buurtcafe in een gerenoveerde kerk in Arnhem.</p>
-        </div>
-        <div class="port-foot">
-          <span>Bekijk live</span>
-          <span class="port-arrow">→</span>
-        </div>
-      </a>
-
-      <!-- BIJDAAN BARBERSHOP -->
-      <a class="port-card reveal d5" href="/BijDaan" target="_blank" rel="noopener">
-        <div class="port-thumb">
-          <img src="https://api.microlink.io/?url=https%3A%2F%2Fbijdaanbarbershop.vercel.app&screenshot=true&meta=false&embed=screenshot.url&waitUntil=networkidle0&viewport.width=1440&viewport.height=900" alt="Bij Daan Barbershop website door AP Digital homepage screenshot" loading="lazy" />
-        </div>
-        <div class="port-info">
-          <div class="port-tags"><span>Website</span><span>Barbershop</span></div>
-          <h3>Bij Daan Barbershop</h3>
-          <p>Barbershop website. Live en klaar.</p>
-        </div>
-        <div class="port-foot">
-          <span>Bekijk live</span>
-          <span class="port-arrow">→</span>
-        </div>
-      </a>
+      </div>
 
       <!-- MARKETING FIT -->
-      <a class="port-card reveal d6" href="/marketing-fit" target="_blank" rel="noopener">
-        <div class="port-thumb">
+      <div class="port-card reveal d4">
+        <a class="port-thumb" href="/marketing-fit" target="_blank" rel="noopener" aria-label="Bekijk Marketing Fit project">
           <img src="https://api.microlink.io/?url=https%3A%2F%2Fmarketing-fit.vercel.app&screenshot=true&meta=false&embed=screenshot.url&waitUntil=networkidle0&viewport.width=1440&viewport.height=900" alt="Marketing Fit marketingbureau website door AP Digital homepage screenshot" loading="lazy" />
-        </div>
+        </a>
         <div class="port-info">
           <div class="port-tags"><span>Website</span><span>Marketing</span></div>
           <h3>Marketing Fit</h3>
-          <p>Marketing bureau website. Live en klaar.</p>
+          <div class="port-meta">
+            <div class="row"><span class="label">Type</span><span class="val">Website voor een marketingbureau</span></div>
+            <div class="row"><span class="label">Doel</span><span class="val">De positionering van het bureau scherp neerzetten en bezoekers naar contact of een offerteaanvraag begeleiden.</span></div>
+            <div class="row"><span class="label">Aanpak</span><span class="val">Strakke layout met duidelijke diensten, opgebouwd vanuit een heldere CTA-flow en geoptimaliseerd voor mobiel.</span></div>
+            <div class="row"><span class="label">Resultaat</span><span class="val">Een site met een rustig laadprofiel en een duidelijke route van homepage naar contactformulier.</span></div>
+          </div>
         </div>
-        <div class="port-foot">
-          <span>Bekijk live</span>
-          <span class="port-arrow">→</span>
+        <div class="port-actions">
+          <a class="btn-primary" href="/marketing-fit" target="_blank" rel="noopener">Bekijk project</a>
+          <a class="btn-ghost" href="/contact">Vraag vergelijkbaar project aan</a>
         </div>
-      </a>
+      </div>
 
+      <!-- DE VIDE -->
+      <div class="port-card reveal d5">
+        <a class="port-thumb" href="/devide" target="_blank" rel="noopener" aria-label="Bekijk De Vide project">
+          <img src="/devide/img/devide-4.jpg" alt="De Vide koffiezaak Arnhem website door AP Digital interieur in gerenoveerde kerk" loading="lazy" />
+        </a>
+        <div class="port-info">
+          <div class="port-tags"><span>Website</span><span>Koffiezaak</span></div>
+          <h3>De Vide</h3>
+          <div class="port-meta">
+            <div class="row"><span class="label">Type</span><span class="val">Website voor een koffiezaak en horeca-locatie in een gerenoveerde kerk in Arnhem</span></div>
+            <div class="row"><span class="label">Doel</span><span class="val">Bezoekers een goed beeld geven van de locatie en hen makkelijk laten kiezen tussen bezoeken, reserveren of contact opnemen.</span></div>
+            <div class="row"><span class="label">Aanpak</span><span class="val">Sfeervolle fotografie van de ruimte, opgebouwd in heldere secties met openingstijden, locatie en menu binnen handbereik.</span></div>
+            <div class="row"><span class="label">Resultaat</span><span class="val">Een site die de bijzondere locatie laat zien en klaar staat voor lokale vindbaarheid en klantcontact.</span></div>
+          </div>
+        </div>
+        <div class="port-actions">
+          <a class="btn-primary" href="/devide" target="_blank" rel="noopener">Bekijk project</a>
+          <a class="btn-ghost" href="/contact">Vraag vergelijkbaar project aan</a>
+        </div>
+      </div>
+
+      <!-- BIJDAAN BARBERSHOP -->
+      <div class="port-card reveal d6">
+        <a class="port-thumb" href="/bijdaanbarbershop" target="_blank" rel="noopener" aria-label="Bekijk Bij Daan Barbershop project">
+          <img src="https://api.microlink.io/?url=https%3A%2F%2Fbijdaanbarbershop.vercel.app&screenshot=true&meta=false&embed=screenshot.url&waitUntil=networkidle0&viewport.width=1440&viewport.height=900" alt="Bij Daan Barbershop website door AP Digital homepage screenshot" loading="lazy" />
+        </a>
+        <div class="port-info">
+          <div class="port-tags"><span>Website</span><span>Barbershop</span></div>
+          <h3>Bij Daan Barbershop</h3>
+          <div class="port-meta">
+            <div class="row"><span class="label">Type</span><span class="val">Barbershop website</span></div>
+            <div class="row"><span class="label">Doel</span><span class="val">Een online visitekaartje neerzetten waarmee klanten snel zien wat de zaak biedt en hoe ze een afspraak kunnen maken.</span></div>
+            <div class="row"><span class="label">Aanpak</span><span class="val">Strak donker design, duidelijke knoppen voor afspraak en contact, mobiele optimalisatie als uitgangspunt.</span></div>
+            <div class="row"><span class="label">Resultaat</span><span class="val">Een snelle site met een heldere CTA-flow van homepage naar afspraak.</span></div>
+          </div>
+        </div>
+        <div class="port-actions">
+          <a class="btn-primary" href="/bijdaanbarbershop" target="_blank" rel="noopener">Bekijk project</a>
+          <a class="btn-ghost" href="/contact">Vraag vergelijkbaar project aan</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="portfolio-cta reveal d2">
+      <h2>Klaar voor je eigen project?</h2>
+      <p>We denken graag mee over wat past bij jouw onderneming. Vrijblijvend kennismaken kan altijd.</p>
+      <div class="cta-row">
+        <a class="btn-primary" href="/contact">Vraag gratis kennismaking aan</a>
+        <a class="btn-ghost" href="/pakketten">Bekijk pakketten</a>
+      </div>
     </div>
   </div>
 </section>

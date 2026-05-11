@@ -1,21 +1,22 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="nl">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>AP Digital | Websites in 7 dagen, vanaf €299</title>
-<meta name="description" content="Strakke websites in 7 dagen live. Vanaf €299, vaste prijs, geen verborgen kosten. Websites, apps en social content door AP Digital." />
+<meta name="description" content="Laat een snelle, professionele website maken die vertrouwen wekt en meer aanvragen oplevert. AP Digital bouwt websites, apps en digitale systemen voor ondernemers." />
+
 <link rel="canonical" href="https://apdigital.nl/" />
 <meta property="og:title" content="AP Digital | Websites in 7 dagen, vanaf €299" />
-<meta property="og:description" content="Strakke websites in 7 dagen live. Vanaf €299, vaste prijs, geen verborgen kosten." />
+<meta property="og:description" content="Laat een snelle, professionele website maken die vertrouwen wekt en meer aanvragen oplevert. AP Digital bouwt websites, apps en digitale systemen." />
 <meta property="og:url" content="https://apdigital.nl/" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="nl_NL" />
-<meta property="og:image" content="https://apdigital.nl/og-image.svg" />
+<meta property="og:image" content="https://apdigital.nl/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="AP Digital - Live binnen 7 dagen, vanaf 299 euro" />
-<meta name="twitter:image" content="https://apdigital.nl/og-image.svg" />
+<meta name="twitter:image" content="https://apdigital.nl/og-image.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="google-site-verification" content="CgNNQrAZwi1S_UNIU0qI0KRWeE4KUXG3Hbb" />
 <script type="application/ld+json">
@@ -53,6 +54,20 @@
   "name": "AP Digital",
   "publisher": { "@id": "https://apdigital.nl/#business" },
   "inLanguage": "nl-NL"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://apdigital.nl/"
+    }
+  ]
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -120,6 +135,114 @@
     .hc-info { padding: 10px 14px; }
     .hc-info h3 { font-size: 15px; }
   }
+
+  /* USP GRID (direct onder hero) */
+  .usp-section { padding: 64px 0 32px; position: relative; z-index: 2; }
+  .usp-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+  }
+  .usp-card {
+    background: var(--bg-1); border: 1px solid var(--line);
+    border-radius: 16px; padding: 28px 26px;
+    transition: border-color .3s ease, transform .3s ease;
+  }
+  .usp-card:hover { border-color: oklch(0.92 0.18 100 / 0.45); transform: translateY(-4px); }
+  .usp-card .usp-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--accent); margin-bottom: 12px; display: block;
+  }
+  .usp-card h3 {
+    font-size: 20px; font-weight: 600; letter-spacing: -0.02em;
+    margin-bottom: 8px; color: var(--fg);
+  }
+  .usp-card p { color: var(--fg-2, var(--fg)); font-size: 15px; line-height: 1.55; opacity: 0.82; }
+  @media (max-width: 800px) {
+    .usp-grid { grid-template-columns: 1fr; gap: 14px; }
+    .usp-section { padding: 40px 0 16px; }
+    .usp-card { padding: 22px 20px; }
+  }
+
+  /* WAAROM-sectie */
+  .waarom-section { padding: 80px 0; }
+  .section-head { margin-bottom: 40px; }
+  .section-eyebrow {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.18em;
+    color: var(--accent); display: inline-block; margin-bottom: 14px;
+  }
+  .section-title {
+    font-size: clamp(28px, 4vw, 42px); font-weight: 600;
+    letter-spacing: -0.025em; line-height: 1.1;
+  }
+  .waarom-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+  }
+  .waarom-card {
+    background: var(--bg-1); border: 1px solid var(--line);
+    border-radius: 14px; padding: 24px;
+  }
+  .waarom-card h3 {
+    font-size: 17px; font-weight: 600; letter-spacing: -0.01em;
+    margin-bottom: 8px; color: var(--accent);
+  }
+  .waarom-card p { color: var(--fg); opacity: 0.82; font-size: 14px; line-height: 1.55; }
+  @media (max-width: 900px) {
+    .waarom-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) {
+    .waarom-grid { grid-template-columns: 1fr; }
+  }
+
+  /* VOOR WIE-sectie (pills) */
+  .doelgroep-section { padding: 48px 0 80px; }
+  .doelgroep-chips {
+    display: flex; flex-wrap: wrap; gap: 10px;
+  }
+  .doelgroep-chip {
+    border: 1px solid var(--line); border-radius: 999px;
+    padding: 10px 18px; font-size: 14px;
+    background: var(--bg-1); color: var(--fg);
+    transition: border-color .3s ease, color .3s ease;
+  }
+  .doelgroep-chip:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ZO WERKT HET-sectie */
+  .stappen-section { padding: 80px 0; }
+  .stappen-list {
+    display: grid; grid-template-columns: 1fr; gap: 14px;
+    counter-reset: stap;
+  }
+  .stap-item {
+    display: grid; grid-template-columns: 64px 1fr; gap: 22px;
+    align-items: start; padding: 22px 24px;
+    background: var(--bg-1); border: 1px solid var(--line);
+    border-radius: 14px;
+  }
+  .stap-num {
+    font-family: 'JetBrains Mono', monospace; font-size: 28px;
+    color: var(--accent); font-weight: 500;
+  }
+  .stap-body h3 {
+    font-size: 18px; font-weight: 600; letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+  .stap-body p { color: var(--fg); opacity: 0.82; font-size: 15px; line-height: 1.55; }
+  @media (max-width: 560px) {
+    .stap-item { grid-template-columns: 48px 1fr; gap: 16px; padding: 18px; }
+    .stap-num { font-size: 22px; }
+  }
+
+  /* FOOTER CTA-blok */
+  .footer-cta {
+    padding: 72px 0 96px; text-align: center;
+  }
+  .footer-cta h2 {
+    font-size: clamp(28px, 4vw, 40px); font-weight: 600;
+    letter-spacing: -0.025em; margin-bottom: 14px;
+  }
+  .footer-cta p { color: var(--fg); opacity: 0.78; margin-bottom: 28px; font-size: 16px; }
+  .footer-cta .cta-row { justify-content: center; }
 </style>
 </head>
 
@@ -169,17 +292,17 @@
   </div>
   <div class="noise"></div>
   <div class="container hero-content">
-    <h1 class="hero-title" id="heroTitle" data-line1="Live binnen 7 dagen." data-line2="Vanaf €299."></h1>
+    <h1 class="hero-title" id="heroTitle" data-line1="Websites die" data-line2="klanten opleveren"></h1>
     <p class="hero-tagline reveal d4">
-      Strakke websites. Vaste prijs, geen verborgen kosten.
+      Laat een snelle, professionele website bouwen die vertrouwen wekt, duidelijk verkoopt en aanvragen binnenhaalt. Binnen 7 dagen live, vanaf €299.
     </p>
     <div class="cta-row reveal d5">
-      <a class="btn btn-primary" href="https://wa.me/31614160265" target="_blank" rel="noopener">
-        <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-        WhatsApp ons
+      <a class="btn btn-primary" href="contact.html">
+        Vraag gratis kennismaking aan
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
-      <a class="btn btn-ghost" href="contact.html">
-        Vraag offerte aan
+      <a class="btn btn-ghost" href="pakketten.html">
+        Bekijk pakketten
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
     </div>
@@ -211,6 +334,155 @@
       <a class="hc-card" href="/marketing-fit" target="_blank" rel="noopener" aria-hidden="true">
         <div class="hc-thumb"><img src="https://api.microlink.io/?url=https%3A%2F%2Fmarketing-fit.vercel.app&screenshot=true&meta=false&embed=screenshot.url&waitUntil=networkidle0&viewport.width=1440&viewport.height=900" alt="" loading="lazy" /></div>
         <div class="hc-info"><div class="hc-tags"><span>Website</span><span>Marketing</span></div><h3>Marketing Fit</h3></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- USP GRID -->
+<section class="usp-section">
+  <div class="container">
+    <div class="usp-grid">
+      <div class="usp-card reveal d1">
+        <span class="usp-label">01 / Snel live</span>
+        <h3>Binnen 7 dagen live</h3>
+        <p>Professioneel gebouwd zonder maandenlange trajecten.</p>
+      </div>
+      <div class="usp-card reveal d2">
+        <span class="usp-label">02 / Vaste prijs</span>
+        <h3>Vanaf &euro;299</h3>
+        <p>Duidelijke pakketten zonder vage bureauprijzen.</p>
+      </div>
+      <div class="usp-card reveal d3">
+        <span class="usp-label">03 / Resultaat</span>
+        <h3>Conversiegericht gebouwd</h3>
+        <p>Niet alleen mooi, ook ingericht op aanvragen, vertrouwen en groei.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER CTA TOP -->
+<section class="footer-cta" style="padding: 48px 0 24px;">
+  <div class="container">
+    <div class="cta-row">
+      <a class="btn btn-primary" href="contact.html">
+        Vraag gratis kennismaking aan
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn btn-ghost" href="pakketten.html">
+        Bekijk pakketten
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- WAAROM -->
+<section class="waarom-section">
+  <div class="container">
+    <div class="section-head reveal d1">
+      <span class="section-eyebrow">Waarom AP Digital</span>
+      <h2 class="section-title">Waarom ondernemers voor AP Digital kiezen</h2>
+    </div>
+    <div class="waarom-grid">
+      <div class="waarom-card reveal d1">
+        <h3>Snel schakelen</h3>
+        <p>Geen log bureauproces, maar direct duidelijkheid en uitvoering.</p>
+      </div>
+      <div class="waarom-card reveal d2">
+        <h3>Modern gebouwd</h3>
+        <p>Websites en systemen die snel laden, goed werken op mobiel en professioneel aanvoelen.</p>
+      </div>
+      <div class="waarom-card reveal d3">
+        <h3>Gericht op aanvragen</h3>
+        <p>Elke pagina krijgt duidelijke structuur, CTA en contactflow.</p>
+      </div>
+      <div class="waarom-card reveal d4">
+        <h3>Slimmer werken</h3>
+        <p>Waar mogelijk automatiseren we processen zodat je minder handmatig hoeft te doen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VOOR WIE -->
+<section class="doelgroep-section">
+  <div class="container">
+    <div class="section-head reveal d1">
+      <span class="section-eyebrow">Voor wie</span>
+      <h2 class="section-title">Voor wie we werken</h2>
+    </div>
+    <div class="doelgroep-chips reveal d2">
+      <span class="doelgroep-chip">Lokale ondernemers</span>
+      <span class="doelgroep-chip">Horeca</span>
+      <span class="doelgroep-chip">Dienstverleners</span>
+      <span class="doelgroep-chip">Coaches en consultants</span>
+      <span class="doelgroep-chip">Bedrijven die hun oude website willen vervangen</span>
+    </div>
+  </div>
+</section>
+
+<!-- ZO WERKT HET -->
+<section class="stappen-section">
+  <div class="container">
+    <div class="section-head reveal d1">
+      <span class="section-eyebrow">Werkwijze</span>
+      <h2 class="section-title">Zo werkt het</h2>
+    </div>
+    <div class="stappen-list">
+      <div class="stap-item reveal d1">
+        <div class="stap-num">01</div>
+        <div class="stap-body">
+          <h3>Kennismaking</h3>
+          <p>We bespreken kort wat je nodig hebt en wat slim is.</p>
+        </div>
+      </div>
+      <div class="stap-item reveal d2">
+        <div class="stap-num">02</div>
+        <div class="stap-body">
+          <h3>Voorstel</h3>
+          <p>Je krijgt een duidelijk voorstel met vaste prijs en planning.</p>
+        </div>
+      </div>
+      <div class="stap-item reveal d3">
+        <div class="stap-num">03</div>
+        <div class="stap-body">
+          <h3>Design en bouw</h3>
+          <p>We bouwen je website of digitale oplossing snel en professioneel.</p>
+        </div>
+      </div>
+      <div class="stap-item reveal d4">
+        <div class="stap-num">04</div>
+        <div class="stap-body">
+          <h3>Livegang</h3>
+          <p>Alles wordt getest, gekoppeld en netjes live gezet.</p>
+        </div>
+      </div>
+      <div class="stap-item reveal d5">
+        <div class="stap-num">05</div>
+        <div class="stap-body">
+          <h3>Doorontwikkeling</h3>
+          <p>Indien gewenst helpen we met content, SEO, social of automatisering.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER CTA BOTTOM -->
+<section class="footer-cta">
+  <div class="container">
+    <h2 class="reveal d1">Klaar om te starten?</h2>
+    <p class="reveal d2">Vraag een gratis kennismaking aan of bekijk eerst de pakketten.</p>
+    <div class="cta-row reveal d3">
+      <a class="btn btn-primary" href="contact.html">
+        Vraag gratis kennismaking aan
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn btn-ghost" href="pakketten.html">
+        Bekijk pakketten
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
     </div>
   </div>
