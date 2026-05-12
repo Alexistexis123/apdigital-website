@@ -26,6 +26,7 @@
     "@type": "Person",
     "name": "Alexander Prijs",
     "jobTitle": "Founder, AP Digital",
+    "image": "https://apdigital.nl/img/alex-1.webp",
     "address": { "@type": "PostalAddress", "addressLocality": "Arnhem", "addressCountry": "NL" },
     "worksFor": { "@type": "Organization", "name": "AP Digital", "url": "https://apdigital.nl/" }
   }
@@ -59,36 +60,64 @@
     -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 30%, black 10%, transparent 75%);
     opacity: 0.4; pointer-events: none; z-index: 0;
   }
-  #about > .container { position: relative; z-index: 1; max-width: 720px; }
-  .about-hero { text-align: center; margin-bottom: 60px; }
+  #about > .container { position: relative; z-index: 1; max-width: 1080px; }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 0.85fr;
+    gap: 64px; align-items: start; margin-bottom: 72px;
+  }
+  .about-text { text-align: left; }
+  .about-hero { margin-bottom: 36px; }
   .about-hero .label {
     font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase;
     letter-spacing: 0.15em; color: var(--accent); margin-bottom: 16px;
   }
   .about-hero h1 {
-    font-size: clamp(40px, 6vw, 72px); font-weight: 700; letter-spacing: -0.03em;
+    font-size: clamp(40px, 5.5vw, 64px); font-weight: 700; letter-spacing: -0.03em;
     line-height: 1.05; margin-bottom: 18px;
   }
   .about-hero h1 em { color: var(--accent); font-style: normal; }
   .about-hero p.lead {
-    font-size: 19px; color: var(--fg-2); line-height: 1.5; max-width: 560px; margin: 0 auto;
+    font-size: 19px; color: var(--fg-2); line-height: 1.5;
   }
-  .about-body { display: flex; flex-direction: column; gap: 24px; margin-bottom: 56px; }
+  .about-body { display: flex; flex-direction: column; gap: 22px; }
   .about-body p {
     font-size: 17px; line-height: 1.65; color: var(--fg);
   }
-  .about-body p:first-child { font-size: 20px; line-height: 1.55; }
+  .about-body p:first-child { font-size: 19px; line-height: 1.55; }
+  .about-photo {
+    position: relative; border-radius: 20px; overflow: hidden;
+    border: 1px solid var(--line);
+    box-shadow: 0 24px 64px oklch(0 0 0 / 0.4);
+    aspect-ratio: 4/5; position: sticky; top: 100px;
+  }
+  .about-photo img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: brightness(1.02) saturate(0.96);
+  }
+  .about-photo::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(180deg, transparent 50%, oklch(0.92 0.18 100 / 0.07));
+  }
   .about-cta {
-    text-align: center; padding: 40px 0 0;
+    text-align: center; padding: 44px 0 0;
     border-top: 1px solid var(--line-soft);
+    max-width: 720px; margin: 0 auto;
   }
   .about-cta h3 {
     font-size: 24px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 20px;
   }
   .about-cta-row { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+  @media (max-width: 880px) {
+    .about-grid {
+      grid-template-columns: 1fr; gap: 40px; margin-bottom: 56px;
+    }
+    .about-photo { aspect-ratio: 4/3; max-width: 480px; margin: 0 auto; position: static; top: auto; }
+    .about-text { text-align: center; }
+    .about-hero p.lead, .about-body { text-align: left; }
+  }
   @media (max-width: 700px) {
     #about { padding: 100px 24px 80px; }
-    .about-hero { margin-bottom: 40px; }
+    .about-hero { margin-bottom: 28px; }
     .about-body p { font-size: 16px; }
     .about-body p:first-child { font-size: 18px; }
   }
@@ -132,16 +161,24 @@
 <a id="main" tabindex="-1" aria-hidden="true"></a>
 <section id="about">
   <div class="container">
-    <div class="about-hero">
-      <div class="label">Over</div>
-      <h1>Hi, ik ben <em>Alex.</em></h1>
-      <p class="lead">Vanuit Arnhem run ik AP Digital, een kleine studio voor websites en apps. Klanten door heel Nederland.</p>
-    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="about-hero">
+          <div class="label">Over</div>
+          <h1>Hi, ik ben <em>Alex.</em></h1>
+          <p class="lead">Vanuit Arnhem run ik AP Digital, een kleine studio voor websites en apps. Klanten door heel Nederland.</p>
+        </div>
 
-    <div class="about-body">
-      <p>Mijn werk begon achter de camera. Als fotograaf leerde ik kijken: wat valt op, wat verkoopt, wat blijft hangen. Die kennis neem ik mee naar elke site en app die ik bouw. Eerst de essentie pakken, dan pas in code en design vertalen.</p>
-      <p>Wat ik het belangrijkst vind: persoonlijk contact en plezier. Geen account managers tussen ons, gewoon één lijn van briefing tot live. Bel me, app me, kom langs voor een koffie. Werken aan een goede site hoort gewoon leuk te zijn, voor jou en voor mij.</p>
-      <p>En als de site live gaat? Vieren we dat. Met een biertje, koffie of taart, kies maar.</p>
+        <div class="about-body">
+          <p>Mijn werk begon achter de camera. Als fotograaf leerde ik kijken: wat valt op, wat verkoopt, wat blijft hangen. Die kennis neem ik mee naar elke site en app die ik bouw. Eerst de essentie pakken, dan pas in code en design vertalen.</p>
+          <p>Wat ik het belangrijkst vind: persoonlijk contact en plezier. Geen account managers tussen ons, gewoon één lijn van briefing tot live. Bel me, app me, kom langs voor een koffie. Werken aan een goede site hoort gewoon leuk te zijn, voor jou en voor mij.</p>
+          <p>En als de site live gaat? Vieren we dat. Met een biertje, koffie of taart, kies maar.</p>
+        </div>
+      </div>
+
+      <figure class="about-photo">
+        <img src="/img/alex-1.webp" alt="Alexander Prijs, oprichter AP Digital, in studio in Arnhem" width="1100" height="793" />
+      </figure>
     </div>
 
     <div class="about-cta">
