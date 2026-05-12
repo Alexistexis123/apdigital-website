@@ -141,12 +141,12 @@ button:focus-visible,
 
 /* SECTIONS */
 section {
-  min-height: 100vh;
   position: relative; padding: 100px 40px 60px;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
   text-align: center; overflow: visible;
 }
+#hero { min-height: 100vh; }
 /* only clip sections that have overflowing absolute backgrounds */
 #hero, #contact { overflow: hidden; }
 .container { max-width: 1280px; margin: 0 auto; width: 100%; }
@@ -830,7 +830,7 @@ h1.hero-title {
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
-  section { height: auto; min-height: 100vh; overflow: visible; padding: 100px 24px 60px; }
+  section { height: auto; overflow: visible; padding: 100px 24px 60px; }
   #hero {
     min-height: 100dvh;
     padding: 76px 24px 32px;
