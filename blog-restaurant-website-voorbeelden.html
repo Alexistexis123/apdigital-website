@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Restaurant website voorbeelden: wat werkt en wat niet | AP Digital</title>
+<meta name="description" content="Restaurant website voorbeelden uit de praktijk. Wat maakt een goede horeca-site, welke patronen werken en welke moet je vermijden? Met echte cases." />
+<link rel="canonical" href="https://apdigital.nl/blog-restaurant-website-voorbeelden" />
+<meta property="og:title" content="Restaurant website voorbeelden: wat werkt en wat niet" />
+<meta property="og:description" content="Goede horeca-sites uit de praktijk, plus patronen die je moet vermijden. Met echte voorbeelden van De Vide en Rubens." />
+<meta property="og:image" content="https://apdigital.nl/og-image.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-05-12" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Restaurant website voorbeelden: wat werkt en wat niet",
+  "description": "Goede horeca-sites uit de praktijk, plus patronen die je moet vermijden. Met echte voorbeelden van De Vide en Rubens.",
+  "image": "https://apdigital.nl/og-image.png",
+  "author": { "@type": "Person", "name": "Alexander Prijs" },
+  "publisher": { "@type": "Organization", "name": "AP Digital", "url": "https://apdigital.nl/" },
+  "mainEntityOfPage": "https://apdigital.nl/blog-restaurant-website-voorbeelden",
+  "datePublished": "2026-05-12",
+  "inLanguage": "nl-NL"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://apdigital.nl/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://apdigital.nl/blog" },
+    { "@type": "ListItem", "position": 3, "name": "Restaurant website voorbeelden", "item": "https://apdigital.nl/blog-restaurant-website-voorbeelden" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Wat hoort er minimaal op een restaurantwebsite?", "acceptedAnswer": { "@type": "Answer", "text": "Foto's, menukaart, openingstijden, locatie en een reserveerknop. Alle vijf moeten binnen drie seconden vindbaar zijn." }},
+    { "@type": "Question", "name": "Is een PDF-menukaart erg?", "acceptedAnswer": { "@type": "Answer", "text": "Ja, op mobiel werkt het slecht en Google indexeert je gerechten niet. Liever menu als gewone webpagina opnemen." }},
+    { "@type": "Question", "name": "Wat kost een restaurantwebsite?", "acceptedAnswer": { "@type": "Answer", "text": "Een complete site met foto's, menu en reserveerflow ligt meestal tussen 499 en 999 euro." }},
+    { "@type": "Question", "name": "Heb ik een eigen site nodig als ik op Thuisbezorgd sta?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Bezorg-apps pakken commissie en je hebt geen klantrelatie. Een eigen site geeft je directe boekingen zonder tussenpartij." }}
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="theme-color" content="#1a1a2e" />
+<link rel="stylesheet" href="style.css" />
+<style>
+  .article-hero { padding: 130px 0 24px; }
+  .article-crumbs { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--fg-3); margin-bottom: 22px; }
+  .article-crumbs a { color: var(--accent); text-decoration: none; }
+  .article-crumbs span { margin: 0 8px; opacity: 0.5; }
+  .article-wrap { padding: 0 0 80px; }
+  .article-wrap .container { max-width: 760px; }
+  .article h1 { font-size: clamp(32px, 4.5vw, 48px); font-weight: 600; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 18px; }
+  .article .lead { color: var(--fg-2); font-size: 19px; line-height: 1.6; margin-bottom: 36px; }
+  .article .meta-info { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--fg-3); margin-bottom: 28px; }
+  .article h2 { font-size: clamp(22px, 2.6vw, 28px); font-weight: 600; letter-spacing: -0.015em; color: var(--accent); margin: 48px 0 14px; line-height: 1.25; }
+  .article h3 { font-size: 18px; font-weight: 600; margin: 28px 0 8px; }
+  .article p, .article li { color: var(--fg); opacity: 0.9; font-size: 16.5px; line-height: 1.75; }
+  .article p { margin-bottom: 18px; }
+  .article ul, .article ol { padding-left: 22px; margin: 0 0 22px; }
+  .article li { margin-bottom: 8px; }
+  .article a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  .article a:hover { text-decoration-thickness: 2px; }
+  .article strong { color: var(--fg); font-weight: 600; }
+  .faq-section { margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--line); }
+  .faq-section h2 { margin-top: 0; }
+  .faq-item { background: var(--bg-1); border: 1px solid var(--line); border-radius: 12px; padding: 20px 22px; margin-bottom: 12px; }
+  .faq-item h3 { margin: 0 0 8px; color: var(--accent); font-size: 17px; }
+  .faq-item p { margin: 0; font-size: 15.5px; line-height: 1.65; }
+  .article-cta { margin-top: 56px; padding: 36px 32px; border-radius: 18px; background: linear-gradient(135deg, oklch(0.20 0.005 250) 0%, oklch(0.16 0.004 250) 100%); border: 1px solid var(--line); text-align: center; }
+  .article-cta h2 { margin: 0 0 10px; color: var(--fg); font-size: 24px; }
+  .article-cta p { margin-bottom: 22px; color: var(--fg-2); }
+  .article-cta .btn { display: inline-flex; }
+</style>
+</head>
+
+<body class="loading">
+<a class="skip-link" href="#main">Naar hoofdinhoud</a>
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="scroll-prog" id="scrollProg"></div>
+
+<nav class="nav" id="nav">
+  <a href="index.html" class="logo" aria-label="AP Digital home">
+    <span class="logo-mark">AP</span>
+    <span>AP Digital</span>
+  </a>
+  <div class="nav-links">
+    <a href="diensten.html">Diensten</a>
+    <a href="pakketten.html">Pakketten</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="over.html">Over</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <a class="nav-cta" href="contact.html">Plan kennismaking</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+</nav>
+
+<div class="nav-mobile-overlay" id="navMobile">
+  <button class="nav-mobile-close" id="navMobileClose" aria-label="Sluiten">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <a href="diensten.html">Diensten</a>
+  <a href="pakketten.html">Pakketten</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="over.html">Over</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<a id="main" tabindex="-1" aria-hidden="true"></a>
+
+<section class="article-hero">
+  <div class="container" style="max-width: 760px;">
+    <div class="article-crumbs">
+      <a href="/blog">Blog</a><span>/</span>Horeca
+    </div>
+  </div>
+</section>
+
+<article class="article article-wrap">
+  <div class="container">
+    <h1>Restaurant website voorbeelden: wat werkt en wat niet</h1>
+    <p class="meta-info">12 mei 2026 &middot; 6 min leestijd</p>
+    <p class="lead">Een restaurantwebsite heeft een simpele taak: zorgen dat de bezoeker een tafel reserveert, het menu bekijkt of langs komt. Klinkt overzichtelijk, gaat in de praktijk vaak mis. Hier laat ik zien wat werkt aan de hand van onze eigen projecten, en wat patronen zijn die ik in de horeca steeds weer fout zie gaan.</p>
+
+    <h2>Wat een goede restaurantsite minimaal doet</h2>
+    <p>Bezoekers zijn ongeduldig. Ze openen je site meestal op de telefoon, soms terwijl ze al ergens onderweg zijn. Vijf dingen moeten binnen drie seconden vindbaar zijn:</p>
+    <ul>
+      <li>Een sterke foto van je zaak of een gerecht. Sfeer voor inhoud.</li>
+      <li>Je menukaart, leesbaar zonder PDF-download.</li>
+      <li>Openingstijden, helder en zonder doorklikken.</li>
+      <li>Adres, met een mapje of een directe link naar Google Maps.</li>
+      <li>Reserveerknop, sticky op mobiel zodat hij altijd zichtbaar is.</li>
+    </ul>
+    <p>Lukt het je niet om die vijf in een oogopslag te tonen, dan haakt een bezoeker af. Voor uitgebreidere horeca-sites zie je dat extra functies als een agenda, nieuwsbrief of cadeaubon erbij komen.</p>
+
+    <h2>Case: De Vide</h2>
+    <p>Restaurant De Vide in Arnhem had een oude site zonder foto's en met een telefoonnummer als enige manier om te reserveren. Mensen die buiten openingstijden naar de site kwamen, zagen geen optie om een tafel te boeken. Die belden vaak niet meer terug.</p>
+    <p>Wat we hebben gedaan: een hero met grote food fotografie, een korte intro van twee zinnen, sticky reserveerknop, menu als gewone webpagina (geen PDF) en openingstijden direct in de footer. De site is bewust kort gehouden, omdat de zaak het werk doet, niet de website. Bekijk het project op het <a href="/portfolio">portfolio</a>.</p>
+
+    <h2>Case: Eetcafé Rubens</h2>
+    <p>Rubens had een functionele site maar voelde niet als de zaak. Een verbouwd cafe in de oude binnenstad met een eigen sfeer, en een site die generiek voelde. We hebben de hele look opnieuw opgebouwd. Eigen fotoshoot, kleurpalet uit het interieur, typografie die past bij het karakter. Wat opvalt aan dit project: de site duurde langer dan technisch nodig, omdat we wachtten op de juiste foto's. Het verschil is groot. Stockfoto's voelen anoniem, eigen foto's voelen als jouw zaak.</p>
+
+    <h2>Vier patronen die werken</h2>
+
+    <h3>1. Hero met een echte foto, niet stock</h3>
+    <p>De bovenste seconde van je site is het belangrijkste. Een echte foto van jouw bord, jouw bar of jouw terras zegt onmiddellijk: dit is een echte zaak. Een stockfoto van pasta uit een Duitse fotobank zegt: dit kan elke zaak zijn.</p>
+
+    <h3>2. Sticky reserveerknop op mobiel</h3>
+    <p>Een knop die meeloopt onderaan het scherm. Altijd zichtbaar, met een duidelijke kleur. Bezoekers hoeven niet te zoeken. Dit verhoogt direct het aantal reserveringen.</p>
+
+    <h3>3. Menu als webpagina, niet als PDF</h3>
+    <p>PDFs werken slecht op telefoons, vergroten niet lekker en Google leest je gerechten niet. Een menu als webpagina is sneller, beter doorzoekbaar en Google laat soms zelfs gerechten als zoekresultaat zien. Werkt aanzienlijk beter.</p>
+
+    <h3>4. Openingstijden in de footer</h3>
+    <p>Op elke pagina, niet alleen op een contactpagina. Bezoekers zoeken vaak naar openingstijden. Als ze die niet meteen vinden, gaan ze terug naar Google en kiezen iemand anders.</p>
+
+    <h2>Slechte patronen om te vermijden</h2>
+
+    <h3>Menukaart alleen als PDF</h3>
+    <p>Zoals gezegd: slecht op mobiel, onzichtbaar voor Google. Toch zie ik het overal. Vaak omdat het makkelijker is om dezelfde PDF die in de zaak ligt online te zetten. Even doorpakken: de gerechten als tekst overzetten op de site. Loont.</p>
+
+    <h3>Reserveren alleen per telefoon</h3>
+    <p>50 procent van je potentiele klanten reserveert buiten kantooruren. Als je alleen telefoon biedt, mis je die helft. Een eenvoudig reserveerformulier of integratie met een tool als TheFork of Resengo voorkomt dit.</p>
+
+    <h3>Geen mobiele optimalisatie</h3>
+    <p>De helft van je bezoekers komt via mobiel. Een site die op desktop er prima uitziet maar op mobiel breekt is een direct verlies. Test je site op je eigen telefoon. Als jij ergens op klikt en het werkt niet goed, je klant ook niet.</p>
+
+    <h3>Stockfoto's van pasta</h3>
+    <p>Iedereen heeft het gezien. Een dame in een wit shirt met een glas wijn. Een Italiaanse keuken die niet de jouwe is. Spendeer 200 tot 400 euro op een fotograaf voor een halve dag in je zaak. Verdient zich uit in vertrouwen.</p>
+
+    <h2>Eigen site of bezorg-app?</h2>
+    <p>Veel restauranthouders denken: ik sta op Thuisbezorgd of Uber Eats, dan heb ik geen site nodig. Klopt deels. Voor bezorgingen werkt het. Maar Thuisbezorgd pakt commissie tot wel 30 procent, en je hebt geen klantrelatie. Een eigen site met een eigen bestel- of reserveerflow geeft je directe contact zonder tussenpartij. Op de lange termijn levert dat meer op. Zie ook onze <a href="/diensten">diensten</a> voor wat hierbij komt kijken.</p>
+
+    <div class="faq-section">
+      <h2>Veelgestelde vragen</h2>
+
+      <div class="faq-item">
+        <h3>Wat hoort er minimaal op een restaurantwebsite?</h3>
+        <p>Foto's, menukaart, openingstijden, locatie en een reserveerknop. Alle vijf moeten binnen drie seconden vindbaar zijn.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is een PDF-menukaart erg?</h3>
+        <p>Ja, op mobiel werkt het slecht en Google indexeert je gerechten niet. Liever menu als gewone webpagina opnemen.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Wat kost een restaurantwebsite?</h3>
+        <p>Een complete site met foto's, menu en reserveerflow ligt meestal tussen 499 en 999 euro.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Heb ik een eigen site nodig als ik op Thuisbezorgd sta?</h3>
+        <p>Ja. Bezorg-apps pakken commissie en je hebt geen klantrelatie. Een eigen site geeft je directe boekingen zonder tussenpartij.</p>
+      </div>
+    </div>
+
+    <div class="article-cta">
+      <h2>Klaar om aan jouw restaurantwebsite te beginnen?</h2>
+      <p>Plan een kennismaking. We kijken samen naar je zaak, je menu en wat een goede online plek voor jou betekent.</p>
+      <a class="btn btn-primary" href="/contact">
+        Plan kennismaking
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</article>
+
+<script>
+  const nav = document.getElementById('nav');
+  const prog = document.getElementById('scrollProg');
+  window.addEventListener('scroll', () => {
+    const st = window.scrollY;
+    nav.style.background = st > 40 ? 'oklch(0.14 0.004 250 / 0.85)' : 'oklch(0.16 0.004 250 / 0.55)';
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    if (prog) prog.style.width = (max > 0 ? (st / max) * 100 : 0) + '%';
+  }, { passive: true });
+  const navToggle = document.getElementById('navToggle');
+  const navMobile = document.getElementById('navMobile');
+  const navMobileClose = document.getElementById('navMobileClose');
+  if (navToggle && navMobile) {
+    navToggle.addEventListener('click', () => navMobile.classList.add('open'));
+    navMobileClose.addEventListener('click', () => navMobile.classList.remove('open'));
+    navMobile.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navMobile.classList.remove('open')));
+  }
+  const cd = document.getElementById('cursorDot');
+  let cdX = 0, cdY = 0, mx = 0, my = 0;
+  document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; });
+  (function animateCD() { cdX += (mx - cdX) * 0.2; cdY += (my - cdY) * 0.2; if (cd) cd.style.transform = `translate(${cdX}px, ${cdY}px) translate(-50%, -50%)`; requestAnimationFrame(animateCD); })();
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => cd && cd.classList.add('lg'));
+    el.addEventListener('mouseleave', () => cd && cd.classList.remove('lg'));
+  });
+  window.addEventListener('load', () => { setTimeout(() => document.body.classList.remove('loading'), 1000); });
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
