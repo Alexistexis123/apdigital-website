@@ -84,6 +84,32 @@
     font-size: 17px; line-height: 1.65; color: var(--fg);
   }
   .about-body p:first-child { font-size: 19px; line-height: 1.55; }
+  .about-credibility {
+    list-style: none;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px 22px;
+    margin-top: 28px; padding-top: 24px;
+    border-top: 1px solid var(--line-soft);
+  }
+  .about-credibility li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 15px; color: var(--fg-2); line-height: 1.5;
+  }
+  .about-credibility .check {
+    width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px;
+    color: var(--accent);
+  }
+  .about-quote {
+    margin-top: 28px; padding: 20px 22px;
+    border-left: 3px solid var(--accent);
+    background: oklch(0.92 0.18 100 / 0.04);
+    border-radius: 0 12px 12px 0;
+    font-size: 18px; line-height: 1.5;
+    color: var(--fg); font-style: italic;
+  }
+  @media (max-width: 700px) {
+    .about-credibility { grid-template-columns: 1fr; gap: 10px; }
+    .about-quote { font-size: 16px; padding: 16px 18px; }
+  }
   .about-photo {
     position: relative; border-radius: 20px; overflow: hidden;
     border: 1px solid var(--line);
@@ -166,14 +192,26 @@
         <div class="about-hero">
           <div class="label">Over</div>
           <h1>Hi, ik ben <em>Alex.</em></h1>
-          <p class="lead">Vanuit Arnhem run ik AP Digital, een kleine studio voor websites en apps. Klanten door heel Nederland.</p>
+          <p class="lead">Vanuit Arnhem run ik AP Digital, een digitaal bureau voor moderne websites voor lokale bedrijven.</p>
         </div>
 
         <div class="about-body">
-          <p>Mijn werk begon achter de camera. Als fotograaf leerde ik kijken: wat valt op, wat verkoopt, wat blijft hangen. Die kennis neem ik mee naar elke site en app die ik bouw. Eerst de essentie pakken, dan pas in code en design vertalen.</p>
-          <p>Wat ik het belangrijkst vind: persoonlijk contact en plezier. Geen account managers tussen ons, gewoon één lijn van briefing tot live. Bel me, app me, kom langs voor een koffie. Werken aan een goede site hoort gewoon leuk te zijn, voor jou en voor mij.</p>
-          <p>En als de site live gaat? Vieren we dat. Met een biertje, koffie of taart, kies maar.</p>
+          <p>Mijn achtergrond ligt in fotografie en design. Daardoor kijk ik niet alleen naar hoe een website eruitziet, maar vooral naar wat vertrouwen wekt en duidelijk overkomt voor klanten.</p>
+          <p>Ik geloof dat een goede website snel, overzichtelijk en professioneel moet zijn. Geen onnodige complexiteit, maar een website die duidelijk laat zien wat een bedrijf doet en waarom klanten contact moeten opnemen.</p>
+          <p>Wat ik belangrijk vind: persoonlijk contact, snel schakelen en korte lijnen. Geen groot bureau met accountmanagers, maar direct samenwerken van idee tot livegang.</p>
+          <p>En als de website live gaat? Dan vieren we dat gewoon met koffie, taart of een biertje.</p>
         </div>
+
+        <blockquote class="about-quote">
+          Een goede website moet vooral duidelijk zijn en klanten opleveren.
+        </blockquote>
+
+        <ul class="about-credibility">
+          <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg> Websites live binnen 7 dagen</li>
+          <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg> Focus op lokale bedrijven</li>
+          <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg> Vaste prijzen zonder verrassingen</li>
+          <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg> Direct contact, geen groot bureau</li>
+        </ul>
       </div>
 
       <figure class="about-photo">
