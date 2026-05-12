@@ -137,6 +137,8 @@
         </div>
       </div>
       <form class="contact-form reveal d2" id="contactForm" novalidate>
+        <input type="hidden" id="pakket" name="pakket" value="" />
+        <input type="hidden" id="abo" name="abo" value="" />
         <div id="formFields">
           <div class="row">
             <div class="field">
@@ -267,6 +269,15 @@
 </section>
 
 <script>
+  // Pre-fill hidden inputs vanuit URL-params (?pakket=starter / ?abo=goud)
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    var pakket = params.get('pakket');
+    var abo = params.get('abo');
+    if (pakket) document.getElementById('pakket').value = pakket;
+    if (abo) document.getElementById('abo').value = abo;
+  })();
+
   // Form
   const form = document.getElementById('contactForm');
   form.addEventListener('submit', async (e) => {
