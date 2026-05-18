@@ -9,7 +9,9 @@
     { "source": "/BijDaan", "destination": "/bijdaanbarbershop", "permanent": false },
     { "source": "/BijDaan/:path*", "destination": "/bijdaanbarbershop/:path*", "permanent": false },
     { "source": "/rubens", "destination": "/Rubens", "permanent": false },
-    { "source": "/rubens/:path*", "destination": "/Rubens", "permanent": false }
+    { "source": "/rubens/:path*", "destination": "/Rubens", "permanent": false },
+    { "source": "/crmmockup", "destination": "/CRMMOCKUP", "permanent": false },
+    { "source": "/crmmockup/:path*", "destination": "/CRMMOCKUP/:path*", "permanent": false }
   ],
   "rewrites": [
     { "source": "/devide", "destination": "https://devide-cafe-arnhem.vercel.app/" },
@@ -20,6 +22,8 @@
     { "source": "/casa5", "destination": "https://casa5-nieuw.vercel.app/" },
     { "source": "/casa5/:path*", "destination": "https://casa5-nieuw.vercel.app/:path*" },
     { "source": "/pieterpostkaart", "destination": "https://pieterpostkaartmap.pages.dev/" },
-    { "source": "/pieterpostkaart/:path*", "destination": "https://pieterpostkaartmap.pages.dev/:path*" }
+    { "source": "/pieterpostkaart/:path*", "destination": "https://pieterpostkaartmap.pages.dev/:path*" },
+    { "source": "/CRMMOCKUP", "destination": "https://elsa-crm-mockup.vercel.app/" },
+    { "source": "/CRMMOCKUP/:path*", "destination": "https://elsa-crm-mockup.vercel.app/:path*" }
   ]
 }
