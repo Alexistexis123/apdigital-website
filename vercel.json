@@ -12,6 +12,8 @@
     { "source": "/rubens/:path*", "destination": "/Rubens", "permanent": false }
   ],
   "rewrites": [
+    { "source": "/rhscooter", "destination": "https://rh-scooter-service.vercel.app/rhscooter" },
+    { "source": "/rhscooter/:path*", "destination": "https://rh-scooter-service.vercel.app/rhscooter/:path*" },
     { "source": "/devide", "destination": "https://devide-cafe-arnhem.vercel.app/" },
     { "source": "/devide/:path*", "destination": "https://devide-cafe-arnhem.vercel.app/:path*" },
     { "source": "/bijdaanbarbershop", "destination": "https://bijdaanbarbershop.vercel.app/" },
