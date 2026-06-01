@@ -293,7 +293,9 @@
     const btn = document.getElementById('submitBtn');
     btn.disabled = true; btn.querySelector('span').textContent = 'Versturen...';
     const data = new FormData(form);
+    data.append('access_key', 'd33cb3a8-8112-40a2-a85d-9501a91cdeea');
     data.append('subject', 'Nieuwe aanvraag via AP Digital');
+    data.append('from_name', 'AP Digital contactformulier');
 
     // Vangnet: open een voorgevulde e-mail aan info@apdigital.nl zodat een
     // aanvraag altijd aankomt, ook als de form-service onbereikbaar is.
@@ -313,7 +315,7 @@
     };
 
     try {
-      const res = await fetch('https://formsubmit.co/ajax/info@apdigital.nl', {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Accept': 'application/json' },
         body: data
