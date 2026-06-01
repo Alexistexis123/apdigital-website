@@ -29,8 +29,8 @@ body::before {
   content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
   background: linear-gradient(115deg, transparent 0%, transparent 40%, oklch(0.92 0.18 100 / 0.05) 50%, transparent 60%, transparent 100%);
   background-size: 300% 100%;
-  mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 85%);
-  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 85%);
+  mask-image: radial-gradient(ellipse 46% 60% at 50% 42%, black 15%, transparent 62%);
+  -webkit-mask-image: radial-gradient(ellipse 46% 60% at 50% 42%, black 15%, transparent 62%);
   animation: lineSweep 9s linear infinite;
 }
 body > * { position: relative; z-index: 1; }
@@ -696,8 +696,8 @@ h1.hero-title {
   content: ""; position: absolute; inset: 0;
   background: linear-gradient(115deg, transparent 0%, transparent 40%, oklch(0.92 0.18 100 / 0.10) 50%, transparent 60%, transparent 100%);
   background-size: 300% 100%;
-  mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 85%);
-  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 85%);
+  mask-image: radial-gradient(ellipse 46% 60% at 50% 42%, black 15%, transparent 62%);
+  -webkit-mask-image: radial-gradient(ellipse 46% 60% at 50% 42%, black 15%, transparent 62%);
   pointer-events: none; z-index: 0;
   animation: lineSweep 9s linear infinite;
 }
