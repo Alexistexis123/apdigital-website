@@ -381,7 +381,6 @@
     <div class="orb a"></div>
     <div class="orb b"></div>
     <div class="orb c"></div>
-    <div class="cursor-glow" id="cursorGlow"></div>
   </div>
   <div class="noise"></div>
   <div class="container hero-content">
@@ -744,14 +743,11 @@
     });
   })();
 
-  // Cursor glow + orb parallax
+  // Orb parallax
   const hero = document.getElementById('hero');
-  const cursorGlow = document.getElementById('cursorGlow');
   const orbs = document.querySelectorAll('#hero .orb');
   hero.addEventListener('mousemove', (e) => {
     const rect = hero.getBoundingClientRect();
-    cursorGlow.style.left = (e.clientX - rect.left) + 'px';
-    cursorGlow.style.top = (e.clientY - rect.top) + 'px';
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
     orbs.forEach((o, i) => { const k = (i + 1) * 18; o.style.translate = `${x * k}px ${y * k}px`; });
