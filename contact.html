@@ -163,8 +163,8 @@
             </div>
           </div>
           <div class="field">
-            <label for="looking_for">Waar ben je naar op zoek?</label>
-            <select id="looking_for" name="looking_for" required aria-describedby="looking-for-error">
+            <label for="looking_for">Waar ben je naar op zoek? (optioneel)</label>
+            <select id="looking_for" name="looking_for" aria-describedby="looking-for-error">
               <option value="">Kies een optie</option>
               <option>Website laten maken</option>
               <option>Website verbeteren</option>
@@ -287,7 +287,6 @@
     [name, email, message, lookingFor].forEach(el => el.parentElement.classList.remove('error'));
     if (!name.value.trim()) { name.parentElement.classList.add('error'); valid = false; }
     if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) { email.parentElement.classList.add('error'); valid = false; }
-    if (!lookingFor.value.trim()) { lookingFor.parentElement.classList.add('error'); valid = false; }
     if (!message.value.trim()) { message.parentElement.classList.add('error'); valid = false; }
     if (!valid) return;
     const btn = document.getElementById('submitBtn');
