@@ -151,9 +151,14 @@
     a.setAttribute('aria-label', 'Stuur ons een WhatsApp-bericht');
     a.innerHTML = wa;
     a.addEventListener('click', function () { track('whatsapp_nav_click', { page: pagePath() }); });
-    navCta.parentNode.insertBefore(a, navCta);
+    // groepeer WhatsApp + Plan kennismaking rechts, naast elkaar
+    var grp = document.createElement('div');
+    grp.id = 'navActions';
+    navCta.parentNode.insertBefore(grp, navCta);
+    grp.appendChild(a);
+    grp.appendChild(navCta);
     var style = document.createElement('style');
-    style.textContent = '#waNav{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#25D366;color:#fff;margin-right:12px;flex:0 0 auto;transition:transform .2s ease,box-shadow .2s ease;box-shadow:0 4px 14px rgba(37,211,102,.3);}#waNav:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(37,211,102,.45);}@media(max-width:860px){#waNav{display:none;}}';
+    style.textContent = '#navActions{display:flex;align-items:center;gap:14px;}#waNav{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;background:var(--accent);color:var(--bg-0);flex:0 0 auto;transition:transform .2s ease,box-shadow .2s ease;}#waNav:hover{transform:translateY(-1px);box-shadow:0 0 24px var(--accent-glow);}@media(max-width:860px){#waNav{display:none;}}';
     document.head.appendChild(style);
     // ook in mobiel menu
     var mob = document.getElementById('navMobile');
