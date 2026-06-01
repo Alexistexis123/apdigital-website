@@ -796,6 +796,31 @@ h1.hero-title {
 .footer-strip { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px 40px; border-top: 1px solid var(--line-soft); display: flex; justify-content: space-between; align-items: center; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--fg-3); text-transform: uppercase; letter-spacing: 0.1em; z-index: 2; }
 .footer-strip .dot { color: var(--accent); }
 
+/* SITE FOOTER (SEO hub: diensten + steden + bedrijf) */
+.site-footer { border-top: 1px solid var(--line-soft); background: var(--bg-0); padding: 64px 40px 32px; }
+.site-footer .sf-inner { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 2fr 1fr; gap: 40px; }
+.site-footer .sf-brand .logo-mark { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 9px; background: var(--accent); color: var(--bg-0); font-weight: 700; font-size: 14px; margin-bottom: 14px; }
+.site-footer .sf-brand p { color: var(--fg-3); font-size: 13.5px; line-height: 1.6; max-width: 260px; }
+.site-footer h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--fg-3); margin-bottom: 16px; font-weight: 600; }
+.site-footer ul { list-style: none; }
+.site-footer li { margin-bottom: 9px; }
+.site-footer a { color: var(--fg-2); text-decoration: none; font-size: 14px; transition: color .2s ease; }
+.site-footer a:hover { color: var(--accent); }
+.site-footer .sf-cities ul { columns: 3; column-gap: 24px; }
+.site-footer .sf-cities li { font-size: 13px; }
+.site-footer .sf-bottom { max-width: 1120px; margin: 40px auto 0; padding-top: 24px; border-top: 1px solid var(--line-soft); display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--fg-3); text-transform: uppercase; letter-spacing: 0.1em; }
+.site-footer .sf-bottom a { color: var(--fg-3); font-size: 11px; }
+.site-footer .sf-bottom .dot { color: var(--accent); }
+@media (max-width: 860px) {
+  .site-footer { padding: 48px 24px 28px; }
+  .site-footer .sf-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .site-footer .sf-cities { grid-column: 1 / -1; }
+}
+@media (max-width: 520px) {
+  .site-footer .sf-inner { grid-template-columns: 1fr; }
+  .site-footer .sf-cities ul { columns: 2; }
+}
+
 /* COMPACT OVERRIDES — packages & services have a lot of content */
 #packages { padding-top: 80px; padding-bottom: 40px; }
 #packages .section-head { margin-bottom: 28px; gap: 10px; }
