@@ -48,7 +48,7 @@
   "mainEntity": [
     { "@type": "Question", "name": "Web-app of een echte app in de App Store?", "acceptedAnswer": { "@type": "Answer", "text": "Voor de meeste bedrijven is een web-app de slimste keuze. Die werkt op iPhone, Android en desktop vanuit een en dezelfde code, en je kunt hem op het startscherm zetten als een gewone app. Een native app in de App Store is alleen nodig bij zware eisen zoals offline gebruik of camera- en sensorfuncties. We adviseren eerlijk welke kant het op moet, voordat je iets bouwt." } },
     { "@type": "Question", "name": "Wat kost een app laten maken?", "acceptedAnswer": { "@type": "Answer", "text": "Een eenvoudige web-app of klantenportaal start vanaf 2.500 euro. Voor een uitgebreidere applicatie met koppelingen en meerdere gebruikersrollen reken je doorgaans op 5.000 tot 15.000 euro. Native iOS- en Android-apps liggen hoger. Je krijgt vooraf een vaste prijs, geen open eind." } },
-    { "@type": "Question", "name": "Hoe lang duurt het om een app te bouwen?", "acceptedAnswer": { "@type": "Answer", "text": "Een eerste werkende versie van een web-app staat vaak binnen 2 tot 4 weken. Daarna bouwen we stap voor stap uit op basis van wat in de praktijk werkt, in plaats van maanden vooraf te plannen." } },
+    { "@type": "Question", "name": "Hoe lang duurt het om een app te bouwen?", "acceptedAnswer": { "@type": "Answer", "text": "Een eerste werkende versie van een web-app staat vaak binnen 14 dagen. Daarna bouwen we stap voor stap uit op basis van wat in de praktijk werkt, in plaats van maanden vooraf te plannen." } },
     { "@type": "Question", "name": "Kan de app koppelen met mijn bestaande software?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. We koppelen aan systemen die je al gebruikt, zoals je boekhouding, agenda, e-mail of een bestaande database. Zo hoef je niets dubbel in te voeren en blijft alles op een plek kloppen." } },
     { "@type": "Question", "name": "Werken jullie ook buiten Arnhem?", "acceptedAnswer": { "@type": "Answer", "text": "Ja, heel Nederland. We werken remote, dus locatie maakt niet uit. Voor klanten in de regio Arnhem, Ede, Nijmegen en Wageningen komen we ook gewoon langs." } }
   ]
@@ -67,6 +67,8 @@
   .svc-body { max-width: 980px; margin: 0 auto; padding: 0 40px 60px; }
   .svc-body h2 { font-size: clamp(26px, 2.8vw, 36px); font-weight: 600; letter-spacing: -0.02em; margin: 56px 0 18px; }
   .svc-body p { color: var(--fg-2); font-size: 16px; line-height: 1.65; margin-bottom: 14px; }
+  .svc-body p a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; transition: opacity .2s ease; }
+  .svc-body p a:hover { opacity: 0.8; }
   .pain-grid, .solution-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 24px 0 8px; }
   .pain-card, .solution-card { padding: 22px 24px; border-radius: 16px; border: 1px solid var(--line); background: oklch(0.20 0.005 250 / 0.5); }
   .pain-card h3, .solution-card h3 { font-size: 17px; font-weight: 600; margin-bottom: 6px; letter-spacing: -0.01em; }
@@ -183,8 +185,8 @@
       <p>De app en je gegevens blijven van jou. Geen vendor lock-in, geen dure exit als je ooit een andere kant op wilt.</p>
     </div>
     <div class="solution-card">
-      <h3>Snel een werkende versie</h3>
-      <p>Binnen een paar weken iets dat draait, daarna uitbouwen op basis van de praktijk in plaats van een dik plan vooraf.</p>
+      <h3>Binnen 14 dagen een werkende versie</h3>
+      <p>Snel iets dat draait, daarna uitbouwen op basis van de praktijk in plaats van een dik plan vooraf.</p>
     </div>
     <div class="solution-card">
       <h3>Onderhoud en doorontwikkeling</h3>
@@ -231,7 +233,7 @@
     <div class="step-card">
       <span class="step-num">03</span>
       <h3>Bouwen in stappen</h3>
-      <p>Binnen enkele weken een werkende eerste versie, daarna uitbouwen op basis van wat in de praktijk werkt.</p>
+      <p>Binnen 14 dagen een werkende eerste versie, daarna uitbouwen op basis van wat in de praktijk werkt.</p>
     </div>
     <div class="step-card">
       <span class="step-num">04</span>
@@ -261,7 +263,7 @@
     </details>
     <details>
       <summary>Hoe lang duurt het om een app te bouwen?</summary>
-      <div class="faq-answer">Een eerste werkende versie van een web-app staat vaak binnen 2 tot 4 weken. Daarna bouwen we stap voor stap uit op basis van wat in de praktijk werkt, in plaats van maanden vooraf te plannen.</div>
+      <div class="faq-answer">Een eerste werkende versie van een web-app staat vaak binnen 14 dagen. Daarna bouwen we stap voor stap uit op basis van wat in de praktijk werkt, in plaats van maanden vooraf te plannen.</div>
     </details>
     <details>
       <summary>Kan de app koppelen met mijn bestaande software?</summary>
