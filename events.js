@@ -5,7 +5,7 @@
 // Vul GADS_ID + labels in zodra het Ads-account en de conversieacties bestaan.
 // Zolang GADS_ID leeg is verandert er NIETS: geen tag, geen cookies, geen banner.
 (function () {
-  var GADS_ID = '';      // bijv 'AW-1234567890'  (Google Ads > Doelen > Conversies)
+  var GADS_ID = 'AW-18207337778';      // Google-tag ID account AP Digital (102-869-9452)
   var LEAD_LABEL = '';   // conversielabel contactformulier, bijv 'AbCdEfGhIjk'
   var WA_LABEL = '';     // conversielabel WhatsApp-klik (optioneel, laat leeg om uit te zetten)
 
