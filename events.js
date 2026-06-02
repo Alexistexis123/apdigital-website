@@ -1,5 +1,90 @@
 // AP Digital - conversion event tracking
 // Stuurt key user actions naar Vercel Analytics
+
+// ===== Google Ads + Consent Mode v2 + cookiebanner =====
+// Vul GADS_ID + labels in zodra het Ads-account en de conversieacties bestaan.
+// Zolang GADS_ID leeg is verandert er NIETS: geen tag, geen cookies, geen banner.
+(function () {
+  var GADS_ID = '';      // bijv 'AW-1234567890'  (Google Ads > Doelen > Conversies)
+  var LEAD_LABEL = '';   // conversielabel contactformulier, bijv 'AbCdEfGhIjk'
+  var WA_LABEL = '';     // conversielabel WhatsApp-klik (optioneel, laat leeg om uit te zetten)
+
+  // Geen ID = niets doen. apAdsConversion blijft een veilige no-op.
+  if (!GADS_ID) { window.apAdsConversion = function () {}; return; }
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  window.gtag = gtag;
+
+  // Standaard alles geweigerd tot de bezoeker toestemming geeft (AVG/Consent Mode v2).
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    wait_for_update: 500
+  });
+
+  function loadGtag() {
+    if (!document.getElementById('gtag-js')) {
+      var s = document.createElement('script');
+      s.id = 'gtag-js';
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GADS_ID;
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', GADS_ID);
+    }
+  }
+
+  function grantConsent() {
+    gtag('consent', 'update', {
+      ad_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted',
+      analytics_storage: 'granted'
+    });
+    loadGtag();
+  }
+
+  var choice = null;
+  try { choice = localStorage.getItem('ap_consent'); } catch (e) {}
+  if (choice === 'granted') grantConsent();
+
+  // Conversie afvuren (alleen als er een label is). Wordt aangeroepen vanuit events hieronder.
+  window.apAdsConversion = function (type) {
+    var label = type === 'whatsapp' ? WA_LABEL : LEAD_LABEL;
+    if (window.gtag && label) gtag('event', 'conversion', { send_to: GADS_ID + '/' + label });
+  };
+
+  // Cookiebanner: alleen tonen als er nog geen keuze is gemaakt.
+  if (!choice) {
+    var build = function () {
+      if (document.getElementById('ap-consent')) return;
+      var st = document.createElement('style');
+      st.textContent = '#ap-consent{position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;max-width:560px;margin:0 auto;background:#0a1628;color:#e7eefb;border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:18px 20px;box-shadow:0 12px 40px rgba(0,0,0,.4);font:15px/1.5 system-ui,sans-serif;}#ap-consent p{margin:0 0 12px;}#ap-consent a{color:#f08a5d;}#ap-consent .ap-c-btns{display:flex;gap:10px;flex-wrap:wrap;}#ap-consent button{cursor:pointer;border:0;border-radius:10px;padding:10px 18px;font-weight:600;font-size:14px;}#ap-consent .ap-ok{background:#f08a5d;color:#0a1628;}#ap-consent .ap-no{background:transparent;color:#e7eefb;border:1px solid rgba(255,255,255,.25);}';
+      document.head.appendChild(st);
+      var bar = document.createElement('div');
+      bar.id = 'ap-consent';
+      bar.setAttribute('role', 'dialog');
+      bar.setAttribute('aria-label', 'Cookietoestemming');
+      bar.innerHTML = '<p>We gebruiken cookies om te meten welke advertenties aanvragen opleveren. Hulp nodig? Zie ons <a href="/privacy">privacybeleid</a>.</p><div class="ap-c-btns"><button class="ap-ok" data-c="ok">Accepteren</button><button class="ap-no" data-c="no">Alleen noodzakelijk</button></div>';
+      document.body.appendChild(bar);
+      bar.addEventListener('click', function (e) {
+        var c = e.target.getAttribute('data-c');
+        if (!c) return;
+        try { localStorage.setItem('ap_consent', c === 'ok' ? 'granted' : 'denied'); } catch (e) {}
+        if (c === 'ok') grantConsent();
+        bar.remove();
+      });
+    };
+    if (document.body) build();
+    else document.addEventListener('DOMContentLoaded', build);
+  }
+})();
+
+// AP Digital - conversion event tracking
+// Stuurt key user actions naar Vercel Analytics
 (function () {
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 
@@ -15,6 +100,7 @@
     if (link) {
       var location = link.closest('nav') ? 'nav' : (link.closest('section')?.id || 'body');
       track('whatsapp_click', { location: location, page: pagePath() });
+      if (window.apAdsConversion) window.apAdsConversion('whatsapp');
     }
   }, { passive: true });
 
@@ -114,6 +200,7 @@
             pakket_van_url: urlPakket,
             abo_van_url: urlAbo
           });
+          if (window.apAdsConversion) window.apAdsConversion('lead');
           observer.disconnect();
         }
       });
@@ -150,7 +237,7 @@
     a.rel = 'noopener';
     a.setAttribute('aria-label', 'Stuur ons een WhatsApp-bericht');
     a.innerHTML = wa;
-    a.addEventListener('click', function () { track('whatsapp_nav_click', { page: pagePath() }); });
+    a.addEventListener('click', function () { track('whatsapp_nav_click', { page: pagePath() }); if (window.apAdsConversion) window.apAdsConversion('whatsapp'); });
     // groepeer WhatsApp + Plan kennismaking rechts, naast elkaar
     var grp = document.createElement('div');
     grp.id = 'navActions';
