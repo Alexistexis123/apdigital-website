@@ -30,7 +30,9 @@ CSS: `.card-inner` met `transform-style: preserve-3d`, `.card-front` en `.card-b
 
 - **Casa 5** — B&B website (`/casa5`), thumbnail = echte hero foto van casa5.eu, gele tint overlay die oplicht bij hover
 - **Eetcafé Rubens** — Restaurant website (`/rubens`), thumbnail = `rubens-website.vercel.app/images/koepelkerk-terras.jpg`
-- **Marketing Fit** — Marketing bureau website (`/marketing-fit`), thumbnail = Microlink screenshot embed van marketing-fit.vercel.app
+- **Marketing Fit** — Marketing bureau website (`/marketing-fit`), thumbnail = lokale `/img/portfolio/marketingfit.webp`
+
+Alle portfolio-thumbnails draaien op lokale WebP in `/img/portfolio/` (casa5, rubens, marketingfit, bijdaan). Microlink is volledig uitgefaseerd, geen externe screenshot-calls meer.
 
 ## Workflow
 
@@ -80,7 +82,7 @@ Voor nu staat alles nog op a.b.prijs@gmail.com, maar Search Console gaat direct 
 Deze items zijn onafgemaakt omdat ze klant-content/-actie vragen die Claude niet kan vervullen:
 
 ### Legal / GDPR
-- **Cookie consent banner**: site gebruikt Vercel Analytics en Microsoft Clarity (beide geen tracking cookies, GDPR-OK), Google Fonts en Microlink screenshots (externe IP-call). Banner technisch niet verplicht maar overweeg er één toe te voegen voor duidelijkheid en SEA-compliance later.
+- **Cookie consent banner**: site gebruikt Vercel Analytics en Microsoft Clarity (beide geen tracking cookies, GDPR-OK) en Google Fonts (externe IP-call). Banner technisch niet verplicht maar overweeg er één toe te voegen voor duidelijkheid en SEA-compliance later.
 - **Privacy/voorwaarden review na KVK** (juni 2026): KVK nummer invullen op /privacy en /voorwaarden, eventueel door jurist laten reviewen voor zekerheid.
 
 ### Account / setup
@@ -88,7 +90,7 @@ Deze items zijn onafgemaakt omdat ze klant-content/-actie vragen die Claude niet
 
 ### Content (voorheen al genoemd)
 
-- **Echte portfolio screenshots**: Microlink wordt nu gebruikt voor Bij Daan + Marketing Fit (1-3sec laad-overhead). Klant uploadt eigen PNG/WebP screenshots naar `/img/portfolio/` om Microlink te vervangen.
+- **Echte portfolio screenshots**: KLAAR. Alle thumbnails draaien op lokale WebP in `/img/portfolio/` (casa5, rubens, marketingfit, bijdaan). Microlink uitgefaseerd.
 - **Casa 5 + Rubens images**: nu extern geladen vanuit `casa5.eu` en `rubens-website.vercel.app`. Klant downloadt en uploadt lokaal voor controle/snelheid.
 - **Testimonials sectie homepage**: klant verzamelt 2-3 quotes van Casa5/Rubens/De Vide/Bij Daan met naam + bedrijf + ster-rating.
 - **Logo strip onder hero**: klant levert logo's of toestemming voor 3-5 klanten.
