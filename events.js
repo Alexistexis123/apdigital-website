@@ -6,7 +6,7 @@
 // Zolang GADS_ID leeg is verandert er NIETS: geen tag, geen cookies, geen banner.
 (function () {
   var GADS_ID = 'AW-18207337778';      // Google-tag ID account AP Digital (102-869-9452)
-  var LEAD_LABEL = '';   // conversielabel contactformulier, bijv 'AbCdEfGhIjk'
+  var LEAD_LABEL = 'DOggCKue-rccELLa9-1D';   // conversielabel "Leadformulier indienen"
   var WA_LABEL = '';     // conversielabel WhatsApp-klik (optioneel, laat leeg om uit te zetten)
 
   // Geen ID = niets doen. apAdsConversion blijft een veilige no-op.
