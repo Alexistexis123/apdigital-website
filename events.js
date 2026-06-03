@@ -24,6 +24,8 @@
     analytics_storage: 'denied',
     wait_for_update: 500
   });
+  gtag('set', 'url_passthrough', true);
+  gtag('set', 'ads_data_redaction', true);
 
   function loadGtag() {
     if (!document.getElementById('gtag-js')) {
@@ -47,6 +49,9 @@
     loadGtag();
   }
 
+  // Laad de Google-tag ALTIJD (consent standaard denied) zodat Google de tag detecteert
+  // en cookieless conversion modeling werkt; echte cookies pas na toestemming.
+  loadGtag();
   var choice = null;
   try { choice = localStorage.getItem('ap_consent'); } catch (e) {}
   if (choice === 'granted') grantConsent();
