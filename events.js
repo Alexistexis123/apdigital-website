@@ -6,6 +6,7 @@
 // Zolang GADS_ID leeg is verandert er NIETS: geen tag, geen cookies, geen banner.
 (function () {
   var GADS_ID = 'AW-18207337778';      // Google-tag ID account AP Digital (102-869-9452)
+  var GA4_ID = 'G-K7ZLJ842BM';         // GA4 meet-ID property apdigital.nl
   var LEAD_LABEL = 'DOggCKue-rccELLa9-1D';   // conversielabel "Leadformulier indienen"
   var WA_LABEL = '';     // conversielabel WhatsApp-klik (optioneel, laat leeg om uit te zetten)
 
@@ -36,6 +37,7 @@
       document.head.appendChild(s);
       gtag('js', new Date());
       gtag('config', GADS_ID);
+      if (GA4_ID) gtag('config', GA4_ID);
     }
   }
 
