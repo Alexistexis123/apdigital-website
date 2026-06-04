@@ -97,6 +97,7 @@
 
   function track(name, props) {
     try { window.va('event', { name: name, data: props || {} }); } catch (e) {}
+    try { if (typeof window.gtag === 'function') window.gtag('event', name, props || {}); } catch (e) {}
   }
 
   function pagePath() { return window.location.pathname; }
