@@ -8,7 +8,9 @@
   var GADS_ID = 'AW-18207337778';      // Google-tag ID account AP Digital (102-869-9452)
   var GA4_ID = 'G-K7ZLJ842BM';         // GA4 meet-ID property apdigital.nl
   var LEAD_LABEL = 'DOggCKue-rccELLa9-1D';   // conversielabel "Leadformulier indienen"
-  var WA_LABEL = '';     // conversielabel WhatsApp-klik (optioneel, laat leeg om uit te zetten)
+  var PHONE_LABEL = 'XGZVCLq_6rscELLa9-1D';  // conversielabel "Telefoonklik"
+  var EMAIL_LABEL = 'AaYbCL2_6rscELLa9-1D';  // conversielabel "E-mailklik"
+  var WA_LABEL = 'AiiACP-Y7LscELLa9-1D';     // conversielabel "WhatsApp-klik"
 
   // Geen ID = niets doen. apAdsConversion blijft een veilige no-op.
   if (!GADS_ID) { window.apAdsConversion = function () {}; return; }
@@ -60,7 +62,8 @@
 
   // Conversie afvuren (alleen als er een label is). Wordt aangeroepen vanuit events hieronder.
   window.apAdsConversion = function (type) {
-    var label = type === 'whatsapp' ? WA_LABEL : LEAD_LABEL;
+    var labels = { whatsapp: WA_LABEL, tel: PHONE_LABEL, email: EMAIL_LABEL, lead: LEAD_LABEL };
+    var label = Object.prototype.hasOwnProperty.call(labels, type) ? labels[type] : LEAD_LABEL;
     if (window.gtag && label) gtag('event', 'conversion', { send_to: GADS_ID + '/' + label });
   };
 
@@ -115,13 +118,19 @@
   // 2. Email click (mailto:)
   document.addEventListener('click', function (e) {
     var link = e.target.closest('a[href^="mailto:"]');
-    if (link) track('email_click', { page: pagePath() });
+    if (link) {
+      track('email_click', { page: pagePath() });
+      if (window.apAdsConversion) window.apAdsConversion('email');
+    }
   }, { passive: true });
 
   // 3. Phone click (tel:)
   document.addEventListener('click', function (e) {
     var link = e.target.closest('a[href^="tel:"]');
-    if (link) track('tel_click', { page: pagePath() });
+    if (link) {
+      track('tel_click', { page: pagePath() });
+      if (window.apAdsConversion) window.apAdsConversion('tel');
+    }
   }, { passive: true });
 
   // 4. CTA: elke click op contact-link
