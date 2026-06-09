@@ -22,8 +22,11 @@
   <url><loc>https://apdigital.nl/case-devide</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
   <url><loc>https://apdigital.nl/case-marketing-fit</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
 
-  <!-- Local landings (21) -->
+  <!-- Local landings (24) -->
   <url><loc>https://apdigital.nl/websites-laten-maken-arnhem</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://apdigital.nl/websites-laten-maken-amsterdam</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://apdigital.nl/websites-laten-maken-breda</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://apdigital.nl/websites-laten-maken-alkmaar</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://apdigital.nl/websites-laten-maken-eindhoven</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://apdigital.nl/websites-laten-maken-den-haag</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://apdigital.nl/websites-laten-maken-groningen</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
