@@ -441,6 +441,27 @@
   </div>
 </section>
 
+<!-- 1b. LOGO STRIP / SOCIAL PROOF -->
+<section class="logostrip-section">
+  <div class="container">
+    <p class="logostrip-label">Gewerkt voor ondernemers door heel Nederland</p>
+    <div class="logostrip">
+      <span class="logostrip-item">Casa&nbsp;5</span>
+      <span class="logostrip-item">Marketing&nbsp;Fit</span>
+      <span class="logostrip-item">Postleads</span>
+      <span class="logostrip-item">RH&nbsp;Scooter&nbsp;Service</span>
+    </div>
+  </div>
+</section>
+<style>
+  .logostrip-section { padding: 28px 0 8px; }
+  .logostrip-label { text-align: center; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-3); margin: 0 0 18px; }
+  .logostrip { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 20px 44px; }
+  .logostrip-item { font-size: clamp(16px, 2vw, 22px); font-weight: 600; letter-spacing: -0.01em; color: var(--fg-2); opacity: 0.62; filter: grayscale(1); transition: opacity .25s ease, color .25s ease; white-space: nowrap; }
+  .logostrip-item:hover { opacity: 1; color: var(--accent); }
+  @media (max-width: 600px) { .logostrip { gap: 14px 26px; } }
+</style>
+
 <!-- 2. USP GRID -->
 <section class="usp-section">
   <div class="container">
