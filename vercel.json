@@ -22,6 +22,22 @@
     { "source": "/casa5", "destination": "https://casa5-nieuw.vercel.app/" },
     { "source": "/casa5/:path*", "destination": "https://casa5-nieuw.vercel.app/:path*" },
     { "source": "/pieterpostkaart", "destination": "https://pieterpostkaartmap.pages.dev/" },
-    { "source": "/pieterpostkaart/:path*", "destination": "https://pieterpostkaartmap.pages.dev/:path*" }
+    { "source": "/pieterpostkaart/:path*", "destination": "https://pieterpostkaartmap.pages.dev/:path*" },
+    { "source": "/house-of-nofa", "destination": "https://leads-psi-one.vercel.app/house-of-nofa/" },
+    { "source": "/house-of-nofa/:path*", "destination": "https://leads-psi-one.vercel.app/house-of-nofa/:path*" },
+    { "source": "/beauty-cabin", "destination": "https://leads-psi-one.vercel.app/beauty-cabin/" },
+    { "source": "/beauty-cabin/:path*", "destination": "https://leads-psi-one.vercel.app/beauty-cabin/:path*" },
+    { "source": "/golden-feet", "destination": "https://leads-psi-one.vercel.app/golden-feet/" },
+    { "source": "/golden-feet/:path*", "destination": "https://leads-psi-one.vercel.app/golden-feet/:path*" },
+    { "source": "/ameetas-pedicure", "destination": "https://leads-psi-one.vercel.app/ameetas-pedicure/" },
+    { "source": "/ameetas-pedicure/:path*", "destination": "https://leads-psi-one.vercel.app/ameetas-pedicure/:path*" },
+    { "source": "/sparkling-nails", "destination": "https://leads-psi-one.vercel.app/sparkling-nails/" },
+    { "source": "/sparkling-nails/:path*", "destination": "https://leads-psi-one.vercel.app/sparkling-nails/:path*" },
+    { "source": "/en-beauty-empire", "destination": "https://leads-psi-one.vercel.app/en-beauty-empire/" },
+    { "source": "/en-beauty-empire/:path*", "destination": "https://leads-psi-one.vercel.app/en-beauty-empire/:path*" },
+    { "source": "/pedicure-angelique", "destination": "https://leads-psi-one.vercel.app/pedicure-angelique/" },
+    { "source": "/pedicure-angelique/:path*", "destination": "https://leads-psi-one.vercel.app/pedicure-angelique/:path*" },
+    { "source": "/dionnes-beauty-salon", "destination": "https://leads-psi-one.vercel.app/dionnes-beauty-salon/" },
+    { "source": "/dionnes-beauty-salon/:path*", "destination": "https://leads-psi-one.vercel.app/dionnes-beauty-salon/:path*" }
   ]
 }
