@@ -38,6 +38,12 @@
     { "source": "/pedicure-angelique", "destination": "https://leads-psi-one.vercel.app/pedicure-angelique/" },
     { "source": "/pedicure-angelique/:path*", "destination": "https://leads-psi-one.vercel.app/pedicure-angelique/:path*" },
     { "source": "/dionnes-beauty-salon", "destination": "https://leads-psi-one.vercel.app/dionnes-beauty-salon/" },
-    { "source": "/dionnes-beauty-salon/:path*", "destination": "https://leads-psi-one.vercel.app/dionnes-beauty-salon/:path*" }
+    { "source": "/dionnes-beauty-salon/:path*", "destination": "https://leads-psi-one.vercel.app/dionnes-beauty-salon/:path*" },
+    { "source": "/pires-kapsalon", "destination": "https://leads-psi-one.vercel.app/pires-kapsalon/" },
+    { "source": "/pires-kapsalon/:path*", "destination": "https://leads-psi-one.vercel.app/pires-kapsalon/:path*" },
+    { "source": "/sado-kapper", "destination": "https://leads-psi-one.vercel.app/sado-kapper/" },
+    { "source": "/sado-kapper/:path*", "destination": "https://leads-psi-one.vercel.app/sado-kapper/:path*" },
+    { "source": "/mira-beauty", "destination": "https://leads-psi-one.vercel.app/mira-beauty/" },
+    { "source": "/mira-beauty/:path*", "destination": "https://leads-psi-one.vercel.app/mira-beauty/:path*" }
   ]
 }
