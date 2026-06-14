@@ -2,6 +2,8 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
+    { "source": "/rhscooter", "destination": "https://rhscooterservicearnhem.nl/", "permanent": false },
+    { "source": "/rhscooter/:path*", "destination": "https://rhscooterservicearnhem.nl/:path*", "permanent": false },
     { "source": "/marketing-fit", "destination": "https://marketing-fit.vercel.app", "permanent": false },
     { "source": "/marketing-fit/:path*", "destination": "https://marketing-fit.vercel.app/:path*", "permanent": false },
     { "source": "/Devide", "destination": "/devide", "permanent": false },
@@ -12,8 +14,6 @@
     { "source": "/rubens/:path*", "destination": "/Rubens", "permanent": false }
   ],
   "rewrites": [
-    { "source": "/rhscooter", "destination": "https://rh-scooter-service.vercel.app/rhscooter" },
-    { "source": "/rhscooter/:path*", "destination": "https://rh-scooter-service.vercel.app/rhscooter/:path*" },
     { "source": "/devide", "destination": "https://devide-cafe-arnhem.vercel.app/" },
     { "source": "/devide/:path*", "destination": "https://devide-cafe-arnhem.vercel.app/:path*" },
     { "source": "/bijdaanbarbershop", "destination": "https://bijdaanbarbershop.vercel.app/" },
