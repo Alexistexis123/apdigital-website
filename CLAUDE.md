@@ -29,10 +29,9 @@ CSS: `.card-inner` met `transform-style: preserve-3d`, `.card-front` en `.card-b
 ## Portfolio
 
 - **Casa 5** — B&B website (`/casa5`), thumbnail = echte hero foto van casa5.eu, gele tint overlay die oplicht bij hover
-- **Eetcafé Rubens** — Restaurant website (`/rubens`), thumbnail = `rubens-website.vercel.app/images/koepelkerk-terras.jpg`
 - **Marketing Fit** — Marketing bureau website (`/marketing-fit`), thumbnail = lokale `/img/portfolio/marketingfit.webp`
 
-Alle portfolio-thumbnails draaien op lokale WebP in `/img/portfolio/` (casa5, rubens, marketingfit, bijdaan). Microlink is volledig uitgefaseerd, geen externe screenshot-calls meer.
+Alle portfolio-thumbnails draaien op lokale WebP in `/img/portfolio/` (casa5, marketingfit, bijdaan). Microlink is volledig uitgefaseerd, geen externe screenshot-calls meer.
 
 ## Workflow
 
@@ -90,13 +89,13 @@ Deze items zijn onafgemaakt omdat ze klant-content/-actie vragen die Claude niet
 
 ### Content (voorheen al genoemd)
 
-- **Echte portfolio screenshots**: KLAAR. Alle thumbnails draaien op lokale WebP in `/img/portfolio/` (casa5, rubens, marketingfit, bijdaan). Microlink uitgefaseerd.
-- **Casa 5 + Rubens images**: nu extern geladen vanuit `casa5.eu` en `rubens-website.vercel.app`. Klant downloadt en uploadt lokaal voor controle/snelheid.
-- **Testimonials sectie homepage**: klant verzamelt 2-3 quotes van Casa5/Rubens/De Vide/Bij Daan met naam + bedrijf + ster-rating.
+- **Echte portfolio screenshots**: KLAAR. Alle thumbnails draaien op lokale WebP in `/img/portfolio/` (casa5, marketingfit, bijdaan). Microlink uitgefaseerd.
+- **Casa 5 images**: nu extern geladen vanuit `casa5.eu`. Klant downloadt en uploadt lokaal voor controle/snelheid.
+- **Testimonials sectie homepage**: klant verzamelt 2-3 quotes van Casa5/Bij Daan met naam + bedrijf + ster-rating.
 - **Logo strip onder hero**: klant levert logo's of toestemming voor 3-5 klanten.
 - **About pagina foto**: `/over` pagina staat live (Alex, Arnhem, fotograaf-verleden), maar foto van Alex moet nog worden geüpload en geintegreerd.
 - **Case studies**: per project een detail-pagina met probleem, oplossing, resultaten (vraagt klant-data per case).
-- **Project highlights per stad**: welke projecten horen bij welke landingspages? (bv. De Vide → Arnhem, Rubens → ?)
+- **Project highlights per stad**: welke projecten horen bij welke landingspages?
 - **Blog/artikelen**: eerste 1-2 artikelen onderwerp + tekst van klant.
 - **KVK nummer**: footer toont nu `KVK in aanvraag` (overal). KVK afspraak op 23 juni 2026, daarna echte nummer invullen + LocalBusiness JSON-LD update.
 - **Self-host Google Fonts**: Space Grotesk + JetBrains Mono lokaal hosten voor snellere render + GDPR. Vergt download van .woff2 files.
