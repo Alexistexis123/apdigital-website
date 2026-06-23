@@ -36,12 +36,6 @@ body::before {
 body > * { position: relative; z-index: 1; }
 ::selection { background: var(--accent); color: var(--bg-0); }
 
-/* Globale link-reset: nooit de paarse/blauwe browser-default (ook niet :visited).
-   Links erven standaard de tekstkleur van hun context (wit/grijs in de huisstijl).
-   Specifiekere regels (inline-content-links geel, knoppen, kaarten) winnen hierover. */
-a, a:link, a:visited { color: inherit; text-decoration: none; }
-a:hover, a:active { color: inherit; }
-
 /* Skip-to-content link (a11y) */
 .skip-link {
   position: absolute; top: -40px; left: 12px; z-index: 1000;
@@ -906,13 +900,7 @@ h1.hero-title {
 .legal-body p a,
 .legal-body li a,
 .article p a,
-.article li a,
-.loc-content p a:visited,
-.loc-content li a:visited,
-.legal-body p a:visited,
-.legal-body li a:visited,
-.article p a:visited,
-.article li a:visited {
+.article li a {
   color: var(--accent);
   text-decoration: underline;
   text-underline-offset: 3px;
