@@ -19,6 +19,7 @@
 
   <!-- Case studies -->
   <url><loc>https://apdigital.nl/case-marketing-fit</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://apdigital.nl/case-casa5</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
 
   <!-- Local landings (24) -->
   <url><loc>https://apdigital.nl/websites-laten-maken-arnhem</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -56,4 +57,5 @@
   <url><loc>https://apdigital.nl/blog-wat-kost-een-website-laten-maken</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://apdigital.nl/blog-website-laten-maken-of-zelf-bouwen</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://apdigital.nl/blog-waarom-snelle-websites-meer-aanvragen-opleveren</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://apdigital.nl/blog-casa5-in-5-dagen-live</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>
