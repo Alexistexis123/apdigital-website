@@ -88,6 +88,16 @@
     .loc-services { grid-template-columns: 1fr; }
     .loc-steps { grid-template-columns: 1fr; }
   }
+
+  /* offerte-formulier inline op landingspagina (AP Digital) */
+  .loc-offerte { max-width: 760px; margin: -32px auto 0; padding: 0 40px 8px; }
+  .loc-offerte-card { background: oklch(0.16 0.005 250 / 0.6); border: 1px solid var(--line); border-radius: 18px; padding: 32px; box-shadow: 0 18px 60px oklch(0 0 0 / 0.35); }
+  .loc-offerte-card h2 { font-size: clamp(22px, 2.6vw, 30px); font-weight: 600; letter-spacing: -0.02em; margin: 0 0 6px; text-align: center; }
+  .loc-offerte-card .loc-offerte-sub { text-align: center; color: var(--fg-2); font-size: 15px; margin: 0 0 24px; }
+  @media (max-width: 700px) {
+    .loc-offerte { padding: 0 24px 8px; margin-top: -16px; }
+    .loc-offerte-card { padding: 22px; }
+  }
 </style>
 </head>
 <body class="loading has-sticky-cta">
@@ -129,7 +139,7 @@
   <p class="lead-kicker">Een website laten maken in Breda die nieuwe klanten oplevert.</p>
   <p class="lead">Ben je ondernemer in Breda en wil je een site die past bij de gezellige Brabantse handelsstad? Van een zaak in het centrum tot een praktijk in Ginneken: wij bouwen websites die aanvoelen alsof ze bij jouw zaak horen, niet bij een template uit de kast.</p>
   <div class="cta-row" style="justify-content:center;">
-    <a class="btn btn-primary" href="/contact">Vraag gratis offerte aan</a>
+    <a class="btn btn-primary" href="#offerte">Vraag gratis offerte aan</a>
     <a class="btn btn-ghost" href="https://wa.me/31614160265?text=Hoi%20AP%20Digital%2C%20ik%20wil%20een%20website%20laten%20maken%20in%20Breda." target="_blank" rel="noopener">WhatsApp ons</a>
     <a class="btn btn-ghost" href="tel:+31614160265">Bel 06 14160265</a>
   </div>
@@ -140,6 +150,76 @@
     <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Lokaal in Breda, KVK 42080619</span>
   </div>
 </section>
+
+<section class="loc-offerte" id="offerte">
+  <div class="loc-offerte-card">
+    <h2>Vraag je offerte aan</h2>
+    <p class="loc-offerte-sub">Binnen 1 werkdag reactie, vaste prijs vooraf, geen verkooppraatje.</p>
+    <form class="contact-form" id="contactForm" novalidate>
+      <input type="hidden" id="pakket" name="pakket" value="" />
+      <input type="hidden" id="abo" name="abo" value="" />
+      <input type="hidden" id="stad" name="stad" value="Breda" />
+      <div id="formFields">
+        <div class="row">
+          <div class="field">
+            <label for="name">Naam</label>
+            <input type="text" id="name" name="name" placeholder="Je naam" required aria-describedby="name-error" />
+            <div class="field-error" id="name-error">Vul je naam in</div>
+          </div>
+          <div class="field">
+            <label for="company">Bedrijfsnaam</label>
+            <input type="text" id="company" name="company" placeholder="Optioneel" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="email">E-mailadres</label>
+            <input type="email" id="email" name="email" placeholder="jij@bedrijf.nl" required aria-describedby="email-error" />
+            <div class="field-error" id="email-error">Geldig e-mailadres graag</div>
+          </div>
+          <div class="field">
+            <label for="phone">Telefoonnummer</label>
+            <input type="tel" id="phone" name="phone" placeholder="Optioneel" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="looking_for">Waar ben je naar op zoek? (optioneel)</label>
+          <select id="looking_for" name="looking_for" aria-describedby="looking-for-error">
+            <option value="">Kies een optie</option>
+            <option>Website laten maken</option>
+            <option>Website verbeteren</option>
+            <option>App ontwikkeling</option>
+            <option>Social content beheer</option>
+            <option>Automatisering</option>
+            <option>Nog niet zeker</option>
+          </select>
+          <div class="field-error" id="looking-for-error">Kies waar je naar op zoek bent</div>
+        </div>
+        <div class="field">
+          <label for="message">Bericht</label>
+          <textarea id="message" name="message" placeholder="Vertel kort wat je nodig hebt..." required aria-describedby="message-error"></textarea>
+          <div class="field-error" id="message-error">Beschrijf je project even</div>
+        </div>
+        <p class="form-trust">Geen glad salesgesprek. Gewoon eerlijk kijken wat slim is voor jouw bedrijf.</p>
+        <button type="submit" class="submit-btn" id="submitBtn">
+          <span>Vraag website aan</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <div class="check-circle">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <h4>Verstuurd. Bedankt!</h4>
+        <p>We reageren binnen 24 uur, meestal sneller.</p>
+      </div>
+    </form>
+    <div class="loc-offerte-alt" style="text-align:center;margin-top:18px;">
+      <a class="btn btn-ghost" href="https://wa.me/31614160265?text=Hoi%20AP%20Digital%2C%20ik%20wil%20een%20website%20laten%20maken%20in%20Breda." target="_blank" rel="noopener">Liever WhatsApp? Stuur een bericht</a>
+    </div>
+  </div>
+</section>
+
 
 <div class="loc-content">
   <h2>Waarom een goede website belangrijk is in Breda</h2>
@@ -289,6 +369,57 @@
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script defer src="/_vercel/speed-insights/script.js"></script>
+
+<script>
+  // Inline offerte-formulier: zelfde submit-logica + success-mechaniek als contact.html.
+  // events.js detecteert de formSuccess display-wissel (.visible -> display:block) en vuurt de Ads lead-conversie.
+  (function () {
+    var form = document.getElementById('contactForm');
+    if (!form) return;
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      var valid = true;
+      var name = document.getElementById('name'), email = document.getElementById('email'), message = document.getElementById('message'), lookingFor = document.getElementById('looking_for');
+      [name, email, message, lookingFor].forEach(function (el) { el.parentElement.classList.remove('error'); });
+      if (!name.value.trim()) { name.parentElement.classList.add('error'); valid = false; }
+      if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) { email.parentElement.classList.add('error'); valid = false; }
+      if (!message.value.trim()) { message.parentElement.classList.add('error'); valid = false; }
+      if (!valid) return;
+      var btn = document.getElementById('submitBtn');
+      btn.disabled = true; btn.querySelector('span').textContent = 'Versturen...';
+      var data = new FormData(form);
+      data.append('access_key', 'd33cb3a8-8112-40a2-a85d-9501a91cdeea');
+      data.append('subject', 'Nieuwe aanvraag via AP Digital');
+      data.append('from_name', 'AP Digital contactformulier');
+      var mailtoFallback = function () {
+        var body =
+          'Naam: ' + (name.value || '') + '\n' +
+          'Bedrijf: ' + (document.getElementById('company') ? document.getElementById('company').value : '') + '\n' +
+          'E-mail: ' + (email.value || '') + '\n' +
+          'Telefoon: ' + (document.getElementById('phone') ? document.getElementById('phone').value : '') + '\n' +
+          'Stad: ' + (document.getElementById('stad') ? document.getElementById('stad').value : '') + '\n' +
+          'Op zoek naar: ' + (lookingFor.value || '') + '\n\n' +
+          'Bericht:\n' + (message.value || '');
+        window.location.href = 'mailto:info@apdigital.nl'
+          + '?subject=' + encodeURIComponent('Nieuwe aanvraag via AP Digital')
+          + '&body=' + encodeURIComponent(body);
+        document.getElementById('formFields').style.display = 'none';
+        document.getElementById('formSuccess').classList.add('visible');
+      };
+      try {
+        var res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST', headers: { 'Accept': 'application/json' }, body: data
+        });
+        var json = await res.json();
+        if (json.success === 'true' || json.success === true) {
+          document.getElementById('formFields').style.display = 'none';
+          document.getElementById('formSuccess').classList.add('visible');
+        } else { mailtoFallback(); }
+      } catch (err) { mailtoFallback(); }
+    });
+  })();
+</script>
+
 <script defer src="/events.js"></script>
 <script type="text/javascript">
 (function(c,l,a,r,i,t,y){
