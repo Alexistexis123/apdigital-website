@@ -19,13 +19,26 @@
   function gtag() { dataLayer.push(arguments); }
   window.gtag = gtag;
 
-  // Standaard alles geweigerd tot de bezoeker toestemming geeft (AVG/Consent Mode v2).
+  // Consent Mode v2, regionaal. Binnen de EEA (+ VK/Zwitserland) standaard alles
+  // geweigerd tot toestemming (AVG-plicht). Daarbuiten standaard toegestaan, anders
+  // telt Google daar 100% als "denied" en meet je niets (GA4-tagdiagnose-melding).
+  var EEA = ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT',
+    'LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'];
+  // Globale default = toegestaan (geldt buiten de EEA-regio's hieronder).
+  gtag('consent', 'default', {
+    ad_storage: 'granted',
+    ad_user_data: 'granted',
+    ad_personalization: 'granted',
+    analytics_storage: 'granted'
+  });
+  // Regio-specifieke default = geweigerd tot toestemming (EEA + VK/CH).
   gtag('consent', 'default', {
     ad_storage: 'denied',
     ad_user_data: 'denied',
     ad_personalization: 'denied',
     analytics_storage: 'denied',
-    wait_for_update: 500
+    wait_for_update: 500,
+    region: EEA
   });
   gtag('set', 'url_passthrough', true);
   gtag('set', 'ads_data_redaction', true);
