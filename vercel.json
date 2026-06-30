@@ -2,6 +2,9 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
+    { "source": "/Rubens", "destination": "/", "permanent": true },
+    { "source": "/Rubens/:path*", "destination": "/", "permanent": true },
+    { "source": "/rubens", "destination": "/", "permanent": true },
     { "source": "/rhscooter", "destination": "https://rhscooterservicearnhem.nl/", "permanent": false },
     { "source": "/rhscooter/:path*", "destination": "https://rhscooterservicearnhem.nl/:path*", "permanent": false },
     { "source": "/marketing-fit", "destination": "https://marketing-fit.vercel.app", "permanent": false },
@@ -37,6 +40,16 @@
     { "source": "/sado-kapper", "destination": "https://leads-psi-one.vercel.app/sado-kapper/" },
     { "source": "/sado-kapper/:path*", "destination": "https://leads-psi-one.vercel.app/sado-kapper/:path*" },
     { "source": "/mira-beauty", "destination": "https://leads-psi-one.vercel.app/mira-beauty/" },
-    { "source": "/mira-beauty/:path*", "destination": "https://leads-psi-one.vercel.app/mira-beauty/:path*" }
+    { "source": "/mira-beauty/:path*", "destination": "https://leads-psi-one.vercel.app/mira-beauty/:path*" },
+    { "source": "/dog-spa-with-love", "destination": "https://leads-psi-one.vercel.app/dog-spa-with-love/" },
+    { "source": "/dog-spa-with-love/:path*", "destination": "https://leads-psi-one.vercel.app/dog-spa-with-love/:path*" },
+    { "source": "/finishing-touch", "destination": "https://leads-psi-one.vercel.app/finishing-touch/" },
+    { "source": "/finishing-touch/:path*", "destination": "https://leads-psi-one.vercel.app/finishing-touch/:path*" },
+    { "source": "/trimsalon-rijkerswoerd", "destination": "https://leads-psi-one.vercel.app/trimsalon-rijkerswoerd/" },
+    { "source": "/trimsalon-rijkerswoerd/:path*", "destination": "https://leads-psi-one.vercel.app/trimsalon-rijkerswoerd/:path*" },
+    { "source": "/hondentrimsalon-braaf", "destination": "https://leads-psi-one.vercel.app/hondentrimsalon-braaf/" },
+    { "source": "/hondentrimsalon-braaf/:path*", "destination": "https://leads-psi-one.vercel.app/hondentrimsalon-braaf/:path*" },
+    { "source": "/trimsalon-phoenix", "destination": "https://leads-psi-one.vercel.app/trimsalon-phoenix/" },
+    { "source": "/trimsalon-phoenix/:path*", "destination": "https://leads-psi-one.vercel.app/trimsalon-phoenix/:path*" }
   ]
 }
