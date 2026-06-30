@@ -1,4 +1,36 @@
 User-agent: *
 Allow: /
 
+# Leadgen-demo's uitsluiten van indexering (voorbeeldsites, geen eindproduct)
+Disallow: /house-of-nofa
+Disallow: /beauty-cabin
+Disallow: /golden-feet
+Disallow: /ameetas-pedicure
+Disallow: /sparkling-nails
+Disallow: /en-beauty-empire
+Disallow: /pedicure-angelique
+Disallow: /dionnes-beauty-salon
+Disallow: /pires-kapsalon
+Disallow: /sado-kapper
+Disallow: /mira-beauty
+Disallow: /dog-spa-with-love
+Disallow: /finishing-touch
+Disallow: /trimsalon-rijkerswoerd
+Disallow: /hondentrimsalon-braaf
+Disallow: /trimsalon-phoenix
+Disallow: /mitano
+Disallow: /ijsje-zuid
+Disallow: /drieslag-bakery
+Disallow: /cafe-de-wacht
+Disallow: /barlas-doner
+Disallow: /ijssalon-buongiorno
+Disallow: /mesopotamie
+Disallow: /restaurant-karakter
+Disallow: /devide
+Disallow: /passage-de-la-beaute
+Disallow: /kapper-backstage
+Disallow: /kapsalon-miroir
+Disallow: /kamil-klussenbedrijf
+Disallow: /bijdaanbarbershop
+
 Sitemap: https://apdigital.nl/sitemap.xml
