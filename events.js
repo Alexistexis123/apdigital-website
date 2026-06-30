@@ -15,6 +15,14 @@
   // Geen ID = niets doen. apAdsConversion blijft een veilige no-op.
   if (!GADS_ID) { window.apAdsConversion = function () {}; return; }
 
+  // Alleen op de echte productie-host meten. Zo vuurt de tag niet op Vercel-
+  // preview-URL's, localhost of Electron-webviews (anders meldt GA4 "extra
+  // domeinen" en vervuilt intern/preview-verkeer je cijfers).
+  if (location.hostname.indexOf('apdigital.nl') === -1) {
+    window.apAdsConversion = function () {};
+    return;
+  }
+
   window.dataLayer = window.dataLayer || [];
   function gtag() { dataLayer.push(arguments); }
   window.gtag = gtag;
