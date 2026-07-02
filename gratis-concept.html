@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gratis website-concept voor jouw bedrijf | AP Digital Gelderland</title>
+<meta name="description" content="Zie vrijblijvend hoe jouw bedrijf er online beter uit kan zien. Gratis website-concept voor ondernemers in Gelderland. Lokaal, snel geleverd, nergens aan vast." />
+<link rel="canonical" href="https://apdigital.nl/gratis-concept" />
+<meta name="robots" content="index, follow" />
+<meta property="og:title" content="Gratis website-concept voor jouw bedrijf | AP Digital" />
+<meta property="og:description" content="Zie vrijblijvend hoe jouw bedrijf er online beter uit kan zien. Gratis website-concept voor ondernemers in Gelderland." />
+<meta property="og:url" content="https://apdigital.nl/gratis-concept" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="nl_NL" />
+<meta property="og:image" content="https://apdigital.nl/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AP Digital - Gratis website-concept voor ondernemers in Gelderland" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://apdigital.nl/og-image.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Gratis website-concept",
+  "url": "https://apdigital.nl/gratis-concept",
+  "description": "Vrijblijvend website-concept voor ondernemers in Gelderland.",
+  "provider": {
+    "@type": "Organization",
+    "name": "AP Digital",
+    "email": "info@apdigital.nl",
+    "telephone": "+31614160265",
+    "url": "https://apdigital.nl/",
+    "areaServed": "Arnhem en omgeving, Gelderland"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://apdigital.nl/" },
+    { "@type": "ListItem", "position": 2, "name": "Gratis concept", "item": "https://apdigital.nl/gratis-concept" }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="theme-color" content="#1a1a2e" />
+<link rel="stylesheet" href="style.css" />
+<style>
+  /* ===== Gratis-concept landingspagina ===== */
+  #gc-hero {
+    position: relative; overflow: hidden;
+    padding: 148px 24px 60px; text-align: center;
+  }
+  .gc-orb {
+    position: absolute; top: -140px; left: 50%; transform: translateX(-50%);
+    width: 620px; height: 620px; border-radius: 50%;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 65%);
+    opacity: .5; pointer-events: none; z-index: 0;
+  }
+  #gc-hero .container { position: relative; z-index: 1; }
+  .gc-region {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 16px; border-radius: 999px;
+    border: 1px solid var(--line); background: oklch(0.20 0.005 250 / 0.6);
+    font-size: 13.5px; font-weight: 600; color: var(--fg-2);
+    margin-bottom: 26px;
+  }
+  .gc-region svg { width: 16px; height: 16px; color: var(--accent); }
+  #gc-hero h1 {
+    font-size: clamp(38px, 6.4vw, 76px); font-weight: 700;
+    letter-spacing: -0.03em; line-height: 1.02; margin: 0 auto 20px;
+    max-width: 15ch;
+  }
+  #gc-hero h1 em {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic; font-weight: 400; color: var(--accent);
+    letter-spacing: 0;
+  }
+  .gc-sub {
+    font-size: clamp(17px, 2.2vw, 21px); color: var(--fg-2);
+    max-width: 46ch; margin: 0 auto 34px; line-height: 1.55;
+  }
+  .gc-cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--accent); color: var(--bg-0);
+    padding: 18px 34px; border-radius: 14px;
+    font-size: 16px; font-weight: 700; text-decoration: none;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .gc-cta:hover { transform: translateY(-2px); box-shadow: 0 0 34px var(--accent-glow); }
+  .gc-cta svg { width: 18px; height: 18px; }
+  .gc-note { margin-top: 16px; font-size: 14px; color: var(--fg-3); }
+
+  /* Trust-badges */
+  .gc-badges {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 14px;
+    max-width: 780px; margin: 48px auto 0;
+  }
+  .gc-badge {
+    flex: 1 1 210px; max-width: 240px; text-align: left;
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 18px 20px; border-radius: 14px;
+    border: 1px solid var(--line-soft); background: oklch(0.18 0.005 250 / 0.5);
+  }
+  .gc-badge .ic {
+    flex: 0 0 auto; width: 38px; height: 38px; border-radius: 10px;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--accent); color: var(--bg-0);
+  }
+  .gc-badge .ic svg { width: 20px; height: 20px; }
+  .gc-badge strong { display: block; font-size: 15.5px; font-weight: 700; margin-bottom: 3px; }
+  .gc-badge span { font-size: 13.5px; color: var(--fg-2); line-height: 1.45; }
+
+  /* Before / after */
+  #gc-beforeafter { padding: 72px 24px; }
+  #gc-beforeafter .container { max-width: 1000px; }
+  .gc-ba-head { text-align: center; margin-bottom: 40px; }
+  .gc-ba-head h2 {
+    font-size: clamp(28px, 4vw, 44px); font-weight: 700;
+    letter-spacing: -0.02em; margin-bottom: 12px;
+  }
+  .gc-ba-head h2 em {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic; font-weight: 400; color: var(--accent); letter-spacing: 0;
+  }
+  .gc-ba-head p { color: var(--fg-2); font-size: 17px; max-width: 52ch; margin: 0 auto; line-height: 1.55; }
+  .gc-ba-frame {
+    border: 1px solid var(--line-soft); border-radius: 18px; overflow: hidden;
+    background: #0E0E0E; box-shadow: 0 24px 70px oklch(0 0 0 / 0.45);
+  }
+  .gc-ba-frame img { display: block; width: 100%; height: auto; }
+  .gc-ba-caption { text-align: center; margin-top: 18px; color: var(--fg-3); font-size: 14px; }
+
+  /* How it works */
+  #gc-how { padding: 24px 24px 72px; }
+  #gc-how .container { max-width: 900px; }
+  .gc-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .gc-step {
+    padding: 24px 22px; border-radius: 14px;
+    border: 1px solid var(--line-soft); background: oklch(0.18 0.005 250 / 0.4);
+  }
+  .gc-step .num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; border-radius: 10px;
+    background: var(--accent); color: var(--bg-0); font-weight: 700; font-size: 16px;
+    margin-bottom: 14px;
+  }
+  .gc-step h3 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+  .gc-step p { font-size: 14.5px; color: var(--fg-2); line-height: 1.5; }
+
+  /* Form */
+  #gc-form { padding: 24px 24px 40px; }
+  #gc-form .container { max-width: 720px; }
+  .gc-form-head { text-align: center; margin-bottom: 30px; }
+  .gc-form-head h2 {
+    font-size: clamp(26px, 4vw, 40px); font-weight: 700;
+    letter-spacing: -0.02em; margin-bottom: 10px;
+  }
+  .gc-form-head p { color: var(--fg-2); font-size: 16.5px; line-height: 1.5; }
+  .gc-form {
+    border: 1px solid var(--line-soft); border-radius: 18px;
+    background: oklch(0.16 0.005 250 / 0.55); padding: 30px;
+  }
+  .gc-form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .gc-form .field { margin-bottom: 16px; }
+  .gc-form label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 7px; color: var(--fg); }
+  .gc-form input, .gc-form textarea {
+    width: 100%; padding: 13px 15px; border-radius: 10px;
+    border: 1px solid var(--line); background: oklch(0.13 0.004 250 / 0.7);
+    color: var(--fg); font-family: inherit; font-size: 15px;
+    transition: border-color .18s ease;
+  }
+  .gc-form input::placeholder, .gc-form textarea::placeholder { color: var(--fg-3); }
+  .gc-form input:focus, .gc-form textarea:focus { outline: none; border-color: var(--accent); }
+  .gc-form textarea { min-height: 110px; resize: vertical; }
+  .gc-form .field-error { display: none; color: oklch(0.72 0.17 25); font-size: 13px; margin-top: 6px; }
+  .gc-form .field.error .field-error { display: block; }
+  .gc-form .field.error input, .gc-form .field.error textarea { border-color: oklch(0.72 0.17 25); }
+  .gc-trust {
+    font-size: 14px; color: var(--fg-2); line-height: 1.5;
+    margin: 4px 0 18px; padding: 12px 14px;
+    background: oklch(0.18 0.005 250 / 0.5);
+    border-left: 2px solid var(--accent); border-radius: 6px;
+  }
+  .gc-submit {
+    width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    background: var(--accent); color: var(--bg-0); border: 0; cursor: pointer;
+    padding: 16px 28px; border-radius: 12px; font-size: 16px; font-weight: 700;
+    font-family: inherit; transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .gc-submit:hover { transform: translateY(-2px); box-shadow: 0 0 30px var(--accent-glow); }
+  .gc-submit:disabled { opacity: .7; cursor: default; transform: none; box-shadow: none; }
+  .gc-submit svg { width: 18px; height: 18px; }
+  .form-success { display: none; text-align: center; padding: 30px 10px; }
+  .form-success.visible { display: block; }
+  .form-success .check-circle {
+    width: 62px; height: 62px; border-radius: 50%; margin: 0 auto 18px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--accent); color: var(--bg-0);
+  }
+  .form-success h4 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+  .form-success p { color: var(--fg-2); font-size: 16px; }
+
+  @media (max-width: 700px) {
+    #gc-hero { padding: 126px 18px 48px; }
+    .gc-steps { grid-template-columns: 1fr; }
+    .gc-form .row { grid-template-columns: 1fr; gap: 0; }
+    .gc-form { padding: 22px; }
+    .gc-badge { flex: 1 1 100%; max-width: 100%; }
+  }
+</style>
+</head>
+
+<body class="loading">
+<a class="skip-link" href="#main">Naar hoofdinhoud</a>
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="scroll-prog" id="scrollProg"></div>
+
+<nav class="nav" id="nav">
+  <a href="/" class="logo" aria-label="AP Digital home">
+    <span class="logo-mark">AP</span>
+    <span>AP Digital</span>
+  </a>
+  <div class="nav-links">
+    <a href="/diensten">Diensten</a>
+    <a href="/pakketten">Pakketten</a>
+    <a href="/portfolio">Portfolio</a>
+    <a href="/websites-laten-maken">Regio's</a>
+    <a href="/over">Over</a>
+    <a href="/contact">Contact</a>
+  </div>
+  <a class="nav-cta" href="#gc-form">Vraag gratis concept aan</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+</nav>
+
+<div class="nav-mobile-overlay" id="navMobile">
+  <button class="nav-mobile-close" id="navMobileClose" aria-label="Sluiten">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <a href="/diensten">Diensten</a>
+  <a href="/pakketten">Pakketten</a>
+  <a href="/portfolio">Portfolio</a>
+  <a href="/websites-laten-maken">Regio's</a>
+  <a href="/over">Over</a>
+  <a href="/contact">Contact</a>
+</div>
+
+<a id="main" tabindex="-1" aria-hidden="true"></a>
+
+<!-- HERO -->
+<section id="gc-hero">
+  <div class="gc-orb"></div>
+  <div class="container">
+    <div class="gc-region reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Voor ondernemers in Gelderland
+    </div>
+    <h1 class="reveal d1">Gratis <em>website-concept</em></h1>
+    <p class="gc-sub reveal d2">Zie vrijblijvend hoe jouw bedrijf er online beter uit kan zien. Wij maken een concept op maat, jij beslist daarna zelf of je verder wilt.</p>
+    <a class="gc-cta reveal d2" href="#gc-form">
+      Vraag gratis je concept aan
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <p class="gc-note reveal d2">Nergens aan vast. Reactie binnen 1 werkdag.</p>
+
+    <div class="gc-badges reveal d3">
+      <div class="gc-badge">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></span>
+        <div><strong>Vrijblijvend</strong><span>Je zit nergens aan vast. Bevalt het niet, dan stopt het daar.</span></div>
+      </div>
+      <div class="gc-badge">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <div><strong>Lokaal</strong><span>Uit Arnhem, korte lijnen. Je praat met de maker, niet met een callcenter.</span></div>
+      </div>
+      <div class="gc-badge">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg></span>
+        <div><strong>Snel geleverd</strong><span>Een eerste concept staat er meestal binnen een paar dagen.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section id="gc-beforeafter">
+  <div class="container">
+    <div class="gc-ba-head reveal">
+      <h2>Van dit <em>naar dit.</em></h2>
+      <p>Een echt voorbeeld uit onze eigen praktijk. Zelfde bedrijf, dezelfde foto's, alleen een site die wel klopt.</p>
+    </div>
+    <div class="gc-ba-frame reveal d1">
+      <img src="/img/concept/casa5-voor-na.webp" width="1400" height="1750" alt="Voor en na van een klantwebsite door AP Digital: bovenaan de oude site, onderaan de nieuwe site met heldere hero en duidelijke knoppen." loading="lazy" />
+    </div>
+    <p class="gc-ba-caption reveal d1">Voorbeeld: Casa Agosto Azul. Jouw concept maken we in jouw eigen stijl.</p>
+  </div>
+</section>
+
+<!-- HOW -->
+<section id="gc-how">
+  <div class="container">
+    <div class="gc-steps">
+      <div class="gc-step reveal">
+        <span class="num">1</span>
+        <h3>Jij vult het formulier in</h3>
+        <p>Kort je bedrijf, je huidige site (als je er een hebt) en wat je wilt bereiken. Klaar in twee minuten.</p>
+      </div>
+      <div class="gc-step reveal d1">
+        <span class="num">2</span>
+        <h3>Wij maken het concept</h3>
+        <p>We kijken naar je bedrijf en bouwen een concreet voorstel hoe jouw site eruit kan zien.</p>
+      </div>
+      <div class="gc-step reveal d2">
+        <span class="num">3</span>
+        <h3>Jij beslist</h3>
+        <p>Je bekijkt het concept vrijblijvend. Wil je door, dan gaan we bouwen. Zo niet, ook prima.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section id="gc-form">
+  <div class="container">
+    <div class="gc-form-head reveal">
+      <h2>Vraag je gratis concept aan</h2>
+      <p>Vul kort je gegevens in. We nemen binnen 1 werkdag contact op.</p>
+    </div>
+    <form class="gc-form reveal d1" id="contactForm" novalidate>
+      <!-- Verborgen veld zodat events.js de dienst-interesse kan meelezen -->
+      <input type="hidden" id="looking_for" name="looking_for" value="Gratis website-concept" />
+      <div id="formFields">
+        <div class="row">
+          <div class="field">
+            <label for="company">Bedrijfsnaam</label>
+            <input type="text" id="company" name="company" placeholder="Naam van je bedrijf" required aria-describedby="company-error" />
+            <div class="field-error" id="company-error">Vul je bedrijfsnaam in</div>
+          </div>
+          <div class="field">
+            <label for="website">Huidige website (optioneel)</label>
+            <input type="text" id="website" name="website" placeholder="www.jouwsite.nl of leeg laten" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="name">Je naam</label>
+            <input type="text" id="name" name="name" placeholder="Voor- en achternaam" required aria-describedby="name-error" />
+            <div class="field-error" id="name-error">Vul je naam in</div>
+          </div>
+          <div class="field">
+            <label for="phone">Telefoonnummer (optioneel)</label>
+            <input type="tel" id="phone" name="phone" placeholder="Zodat we snel kunnen bellen" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="email">E-mailadres</label>
+          <input type="email" id="email" name="email" placeholder="jij@bedrijf.nl" required aria-describedby="email-error" />
+          <div class="field-error" id="email-error">Geldig e-mailadres graag</div>
+        </div>
+        <div class="field">
+          <label for="goal">Wat wil je bereiken?</label>
+          <textarea id="goal" name="goal" placeholder="Bijv. meer klanten, een frissere uitstraling, online kunnen boeken..." required aria-describedby="goal-error"></textarea>
+          <div class="field-error" id="goal-error">Vertel kort wat je wilt bereiken</div>
+        </div>
+        <p class="gc-trust">Geen glad salesgesprek. We kijken eerlijk of een nieuw concept iets voor je bedrijf oplevert.</p>
+        <button type="submit" class="gc-submit" id="submitBtn">
+          <span>Vraag gratis je concept aan</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <div class="check-circle">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <h4>Aanvraag binnen. Bedankt!</h4>
+        <p>We gaan aan de slag met je concept en reageren binnen 1 werkdag.</p>
+      </div>
+    </form>
+  </div>
+  <div class="footer-strip">
+    <div>© 2026 AP Digital <span class="dot">·</span> <a href="/privacy" style="color:var(--fg-3);">Privacy</a> <span class="dot">·</span> <a href="/voorwaarden" style="color:var(--fg-3);">Voorwaarden</a></div>
+    <div>Reactie binnen 1 werkdag</div>
+  </div>
+</section>
+
+<script>
+  /* ===================================================================
+     LEADCAPTURE
+     Aanvragen komen binnen via Web3Forms -> mailt naar info@apdigital.nl
+     (zelfde access_key als het contactformulier). Werkt de service niet,
+     dan opent er een voorgevulde mailto naar info@apdigital.nl als vangnet,
+     zodat een lead nooit verloren gaat. events.js pikt de succesvolle
+     submit op als 'form_submit' + Google Ads lead-conversie (via #contactForm
+     + #looking_for). Geen aparte backend of cockpit-endpoint nodig.
+     =================================================================== */
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    let valid = true;
+    const company = document.getElementById('company');
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const goal = document.getElementById('goal');
+    [company, name, email, goal].forEach(el => el.parentElement.classList.remove('error'));
+    if (!company.value.trim()) { company.parentElement.classList.add('error'); valid = false; }
+    if (!name.value.trim()) { name.parentElement.classList.add('error'); valid = false; }
+    if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) { email.parentElement.classList.add('error'); valid = false; }
+    if (!goal.value.trim()) { goal.parentElement.classList.add('error'); valid = false; }
+    if (!valid) return;
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true; btn.querySelector('span').textContent = 'Versturen...';
+
+    const data = new FormData(form);
+    data.append('access_key', 'd33cb3a8-8112-40a2-a85d-9501a91cdeea');
+    data.append('subject', 'Nieuwe aanvraag gratis website-concept');
+    data.append('from_name', 'AP Digital gratis-concept');
+
+    const mailtoFallback = () => {
+      const body =
+        'Bedrijf: ' + (company.value || '') + '\n' +
+        'Huidige website: ' + (document.getElementById('website') ? document.getElementById('website').value : '') + '\n' +
+        'Naam: ' + (name.value || '') + '\n' +
+        'E-mail: ' + (email.value || '') + '\n' +
+        'Telefoon: ' + (document.getElementById('phone') ? document.getElementById('phone').value : '') + '\n\n' +
+        'Wil bereiken:\n' + (goal.value || '');
+      window.location.href = 'mailto:info@apdigital.nl'
+        + '?subject=' + encodeURIComponent('Nieuwe aanvraag gratis website-concept')
+        + '&body=' + encodeURIComponent(body);
+      document.getElementById('formFields').style.display = 'none';
+      document.getElementById('formSuccess').classList.add('visible');
+    };
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: data
+      });
+      const json = await res.json();
+      if (json.success === 'true' || json.success === true) {
+        document.getElementById('formFields').style.display = 'none';
+        document.getElementById('formSuccess').classList.add('visible');
+      } else {
+        mailtoFallback();
+      }
+    } catch {
+      mailtoFallback();
+    }
+  });
+
+  // Smooth scroll naar formulier vanuit CTA's
+  document.querySelectorAll('a[href="#gc-form"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.getElementById('gc-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const delayFor = (el) => { for (const c of el.classList) { if (/^d[1-6]$/.test(c)) return parseInt(c.slice(1), 10) * 80; } return 0; };
+  const playReveal = (el) => {
+    if (el.dataset.revealed) return;
+    el.dataset.revealed = '1';
+    el.animate(
+      [{ opacity: 0, transform: 'translateY(60px)' }, { opacity: 1, transform: 'translateY(0)' }],
+      { duration: 900, delay: delayFor(el), fill: 'forwards', easing: 'cubic-bezier(.2,.7,.2,1)' }
+    );
+    el.classList.add('in');
+  };
+  reveals.forEach(el => { const r = el.getBoundingClientRect(); if (r.top < window.innerHeight * 0.95) playReveal(el); });
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { playReveal(e.target); io.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
+  reveals.forEach(el => { if (!el.dataset.revealed) io.observe(el); });
+  setTimeout(() => reveals.forEach(playReveal), 1500);
+
+  // Cursor dot
+  const cd = document.getElementById('cursorDot');
+  let cdX = 0, cdY = 0, mx = 0, my = 0;
+  document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; });
+  (function animateCD() { cdX += (mx - cdX) * 0.2; cdY += (my - cdY) * 0.2; if (cd) cd.style.transform = `translate(${cdX}px, ${cdY}px) translate(-50%, -50%)`; requestAnimationFrame(animateCD); })();
+  document.querySelectorAll('a, button, input, textarea').forEach(el => {
+    el.addEventListener('mouseenter', () => cd && cd.classList.add('lg'));
+    el.addEventListener('mouseleave', () => cd && cd.classList.remove('lg'));
+  });
+
+  // Nav scroll + progress
+  const nav = document.getElementById('nav');
+  const prog = document.getElementById('scrollProg');
+  window.addEventListener('scroll', () => {
+    const st = window.scrollY;
+    nav.style.background = st > 40 ? 'oklch(0.14 0.004 250 / 0.85)' : 'oklch(0.16 0.004 250 / 0.55)';
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    if (prog) prog.style.width = (max > 0 ? (st / max) * 100 : 0) + '%';
+  }, { passive: true });
+
+  // Mobile nav
+  const navToggle = document.getElementById('navToggle');
+  const navMobile = document.getElementById('navMobile');
+  const navMobileClose = document.getElementById('navMobileClose');
+  if (navToggle && navMobile) {
+    navToggle.addEventListener('click', () => navMobile.classList.add('open'));
+    navMobileClose.addEventListener('click', () => navMobile.classList.remove('open'));
+    navMobile.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navMobile.classList.remove('open')));
+  }
+
+  // Loading mask
+  window.addEventListener('load', () => { setTimeout(() => document.body.classList.remove('loading'), 1300); });
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/events.js"></script>
+<script type="text/javascript">
+(function(c,l,a,r,i,t,y){
+  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "wlzolill5t");
+</script>
+</body>
+</html>
