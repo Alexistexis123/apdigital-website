@@ -64,6 +64,27 @@
     }
   }
 
+  // ===== Meta (Facebook) Pixel =====
+  // Dataset "AP Digital Pixel". Laadt pas na consent (net als Google Ads/GA4),
+  // achter dezelfde hostname-guard hierboven. Buiten de EEA is consent default
+  // granted, binnen de EEA pas na Accepteren.
+  var META_PIXEL_ID = '1009309772029179';
+  function loadMetaPixel() {
+    if (!META_PIXEL_ID || window._apMetaLoaded) return;
+    window._apMetaLoaded = true;
+    // Standaard Meta Pixel base-code.
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+    }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    window.fbq('init', META_PIXEL_ID);
+    window.fbq('track', 'PageView');
+  }
+
   function grantConsent() {
     gtag('consent', 'update', {
       ad_storage: 'granted',
@@ -72,6 +93,7 @@
       analytics_storage: 'granted'
     });
     loadGtag();
+    loadMetaPixel();
   }
 
   // Laad de Google-tag ALTIJD (consent standaard denied) zodat Google de tag detecteert
@@ -82,10 +104,13 @@
   if (choice === 'granted') grantConsent();
 
   // Conversie afvuren (alleen als er een label is). Wordt aangeroepen vanuit events hieronder.
+  // Vuurt zowel de Google Ads-conversie als (bij een lead) de Meta Pixel Lead-event.
   window.apAdsConversion = function (type) {
     var labels = { whatsapp: WA_LABEL, tel: PHONE_LABEL, email: EMAIL_LABEL, lead: LEAD_LABEL };
     var label = Object.prototype.hasOwnProperty.call(labels, type) ? labels[type] : LEAD_LABEL;
     if (window.gtag && label) gtag('event', 'conversion', { send_to: GADS_ID + '/' + label });
+    // Meta Lead-conversie (alleen als de pixel na consent geladen is).
+    if (type === 'lead' && window.fbq) window.fbq('track', 'Lead');
   };
 
   // Cookiebanner: alleen tonen als er nog geen keuze is gemaakt.
