@@ -13,6 +13,7 @@
     { "source": "/BijDaan/:path*", "destination": "/bijdaanbarbershop/:path*", "permanent": false }
   ],
   "rewrites": [
+    { "source": "/wof-v2/:path*", "destination": "https://wof-v2-deploy.vercel.app/wof-v2/:path*" },
     { "source": "/bijdaanbarbershop", "destination": "https://bijdaanbarbershop.vercel.app/" },
     { "source": "/bijdaanbarbershop/:path*", "destination": "https://bijdaanbarbershop.vercel.app/:path*" },
     { "source": "/casa5", "destination": "https://casa5-nieuw.vercel.app/" },
