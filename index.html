@@ -639,6 +639,7 @@
       form.style.display = 'none';
       document.getElementById('hcfSuccess').hidden = false;
       try { window.va && window.va('event', { name: 'form_submit', data: { bron: 'homepage' } }); } catch (e) {}
+      try { window.apAdsConversion && window.apAdsConversion('lead'); } catch (e) {}
     };
     var mailtoFallback = function () {
       var body = 'Naam: ' + name.value + '\nE-mail: ' + email.value + '\n\nBericht:\n' + message.value;
