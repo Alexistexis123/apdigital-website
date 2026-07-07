@@ -65,10 +65,10 @@
   }
 
   // ===== Meta (Facebook) Pixel =====
-  // Dataset "AP Digital Pixel". Laadt pas na consent (net als Google Ads/GA4),
-  // achter dezelfde hostname-guard hierboven. Buiten de EEA is consent default
-  // granted, binnen de EEA pas na Accepteren.
-  var META_PIXEL_ID = '1009309772029179';
+  // Dataset "AP Digital website" (portfolio 1638019784167212, aangemaakt 07-07-2026).
+  // Laadt pas na consent (net als Google Ads/GA4), achter dezelfde hostname-guard
+  // hierboven. Buiten de EEA is consent default granted, binnen de EEA pas na Accepteren.
+  var META_PIXEL_ID = '1665860437842778';
   function loadMetaPixel() {
     if (!META_PIXEL_ID || window._apMetaLoaded) return;
     window._apMetaLoaded = true;
