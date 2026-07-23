@@ -11,7 +11,8 @@ img { max-width: 100%; }
 .header-inner { max-width: 1200px; margin: 0 auto; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .brand-link { display: flex; align-items: center; gap: 12px; white-space: nowrap; }
 .brand-link img { width: 150px; display: block; mix-blend-mode: multiply; }
-.brand-name { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; letter-spacing: 0.02em; color: #38412F; }
+.brand-name { display: flex; flex-direction: column; font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; letter-spacing: 0.02em; color: #38412F; line-height: 1.1; }
+.brand-sub { font-family: 'Karla', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: #57604A; margin-top: 3px; }
 .site-nav { display: flex; align-items: center; gap: 16px 22px; flex-wrap: wrap; justify-content: flex-end; row-gap: 10px; }
 .nav-link { color: #57604A; font-size: 15px; font-weight: 400; border-bottom: 2px solid transparent; padding-bottom: 3px; }
 .nav-link:hover { color: #A96B44; }
