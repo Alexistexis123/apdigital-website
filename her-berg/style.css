@@ -1,0 +1,80 @@
+/* Her-berg preview, gedeelde stijl (bron: Claude-design prototype v2) */
+body { margin: 0; background: #F6F2E9; color: #38412F; font-family: 'Karla', sans-serif; -webkit-font-smoothing: antialiased; }
+a { color: #A96B44; text-decoration: none; }
+a:hover { color: #38412F; }
+::selection { background: #E5D9BF; }
+input, textarea, button { font-family: 'Karla', sans-serif; }
+img { max-width: 100%; }
+
+/* Header */
+.site-header { position: sticky; top: 0; z-index: 50; background: rgba(246,242,233,0.94); backdrop-filter: blur(8px); border-bottom: 1px solid #E3DCC9; }
+.header-inner { max-width: 1200px; margin: 0 auto; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.brand-link { display: flex; align-items: center; gap: 12px; white-space: nowrap; }
+.brand-link img { width: 150px; display: block; mix-blend-mode: multiply; }
+.brand-name { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; letter-spacing: 0.02em; color: #38412F; }
+.site-nav { display: flex; align-items: center; gap: 16px 22px; flex-wrap: wrap; justify-content: flex-end; row-gap: 10px; }
+.nav-link { color: #57604A; font-size: 15px; font-weight: 400; border-bottom: 2px solid transparent; padding-bottom: 3px; }
+.nav-link:hover { color: #A96B44; }
+.nav-link.active { color: #38412F; font-weight: 600; border-bottom-color: #A96B44; }
+.lang-switch { display: flex; align-items: center; gap: 4px; border: 1px solid #D8D0B9; border-radius: 999px; padding: 3px; }
+.lang-btn { font-size: 13px; font-weight: 600; padding: 5px 12px; border-radius: 999px; background: transparent; color: #57604A; }
+.lang-btn:hover { color: #A96B44; }
+.lang-btn.active { background: #38412F; color: #F6F2E9; }
+.lang-btn.active:hover { color: #F6F2E9; }
+
+/* Knoppen en links */
+.btn-terra-s { background: #A96B44; color: #F6F2E9; font-size: 15px; font-weight: 600; padding: 10px 22px; border-radius: 999px; display: inline-block; }
+.btn-terra-s:hover { background: #38412F; color: #F6F2E9; }
+.btn-dark { background: #38412F; color: #F6F2E9; font-size: 16px; font-weight: 600; padding: 14px 30px; border-radius: 999px; display: inline-block; }
+.btn-dark:hover { background: #A96B44; color: #F6F2E9; }
+.btn-terra { background: #A96B44; color: #F6F2E9; font-size: 16px; font-weight: 600; padding: 14px 30px; border-radius: 999px; display: inline-block; }
+.btn-terra:hover { background: #38412F; color: #F6F2E9; }
+.link-line { color: #57604A; font-size: 16px; border-bottom: 1px solid #C9BFA4; padding-bottom: 2px; }
+.link-line:hover { color: #A96B44; }
+.link-gold { color: #A96B44; font-size: 16px; font-weight: 600; }
+.link-gold:hover { color: #38412F; }
+.teaser-card { background: #FFFDF7; border: 1px solid #E9E2D0; border-radius: 4px; padding: 36px 32px; display: flex; flex-direction: column; gap: 14px; color: inherit; }
+.teaser-card:hover { border-color: #A96B44; color: inherit; }
+.footer-link { color: #8F9280; }
+.footer-link:hover { color: #C9C4B2; }
+.footer-credit { color: #8F9280; text-decoration: underline; }
+.footer-credit:hover { color: #C9C4B2; }
+.contact-mail { color: #E0B08A; font-size: 19px; font-weight: 600; }
+.contact-mail:hover { color: #EFEADD; }
+
+/* Grids (kolommen hier zodat mobiel kan overschrijven) */
+.grid-hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center; }
+.grid-naam { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 980px; margin: 0 auto; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.grid-vragen { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.grid-werk-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.grid-about { display: grid; grid-template-columns: 400px 1fr; gap: 80px; align-items: start; }
+.grid-work { display: grid; grid-template-columns: 1fr 380px; gap: 80px; align-items: start; }
+.grid-contact { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.sticky-col { position: sticky; top: 110px; }
+
+/* Contactformulier */
+.form-card { background: #FFFDF7; border-radius: 4px; padding: 38px; display: flex; flex-direction: column; gap: 16px; }
+.form-card label { display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; color: #38412F; }
+.form-card input, .form-card textarea { border: 1px solid #D8D0B9; border-radius: 4px; padding: 12px 14px; font-size: 16px; background: #FFFFFF; color: #38412F; outline: none; }
+.form-card textarea { resize: vertical; }
+.form-card button { border: none; cursor: pointer; background: #A96B44; color: #F6F2E9; font-size: 16px; font-weight: 600; padding: 14px 30px; border-radius: 999px; align-self: flex-start; }
+.form-card button:hover { background: #38412F; }
+.form-card button:disabled { opacity: 0.6; cursor: default; }
+.form-success { display: none; font-size: 17px; line-height: 1.7; color: #38412F; }
+.form-success.visible { display: block; }
+
+/* Mobiel */
+@media (max-width: 900px) {
+  .grid-hero, .grid-naam, .grid-3, .grid-about, .grid-work, .grid-contact { grid-template-columns: 1fr; gap: 40px; }
+  .sticky-col { position: static; }
+  h1 { font-size: 38px !important; }
+  .header-inner { padding: 12px 18px; gap: 14px; flex-wrap: wrap; justify-content: center; }
+  .brand-link img { width: 104px; }
+  .brand-name { font-size: 22px; }
+  .site-nav { justify-content: center; }
+  .hero-figure { justify-self: center; }
+  .hero-img { width: 100%; max-width: 360px; }
+  .about-col { max-width: 400px; margin: 0 auto; }
+  section { padding-top: 56px !important; padding-bottom: 56px !important; }
+}
