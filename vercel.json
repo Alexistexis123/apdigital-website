@@ -5,6 +5,7 @@
     { "source": "/Rubens", "destination": "/", "permanent": true },
     { "source": "/Rubens/:path*", "destination": "/", "permanent": true },
     { "source": "/rubens", "destination": "/", "permanent": true },
+    { "source": "/case-rubens", "destination": "/portfolio", "permanent": true },
     { "source": "/rhscooter", "destination": "https://rhscooterservicearnhem.nl/", "permanent": false },
     { "source": "/rhscooter/:path*", "destination": "https://rhscooterservicearnhem.nl/:path*", "permanent": false },
     { "source": "/marketing-fit", "destination": "https://marketing-fit.vercel.app", "permanent": false },
