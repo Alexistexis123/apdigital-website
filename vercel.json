@@ -78,6 +78,8 @@
     { "source": "/kapsalon-miroir", "destination": "https://kapsalon-miroir.vercel.app/" },
     { "source": "/kapsalon-miroir/:path*", "destination": "https://kapsalon-miroir.vercel.app/:path*" },
     { "source": "/kamil-klussenbedrijf", "destination": "https://kamil-klussenbedrijf.vercel.app/" },
-    { "source": "/kamil-klussenbedrijf/:path*", "destination": "https://kamil-klussenbedrijf.vercel.app/:path*" }
+    { "source": "/kamil-klussenbedrijf/:path*", "destination": "https://kamil-klussenbedrijf.vercel.app/:path*" },
+    { "source": "/cs-schildersbedrijf", "destination": "https://cs-schildersbedrijf.vercel.app/cs-schildersbedrijf" },
+    { "source": "/cs-schildersbedrijf/:path*", "destination": "https://cs-schildersbedrijf.vercel.app/cs-schildersbedrijf/:path*" }
   ]
 }
