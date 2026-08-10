@@ -32,5 +32,7 @@ Disallow: /kapper-backstage
 Disallow: /kapsalon-miroir
 Disallow: /kamil-klussenbedrijf
 Disallow: /bijdaanbarbershop
+Disallow: /cs-schildersbedrijf
+Disallow: /allround-bora
 
 Sitemap: https://apdigital.nl/sitemap.xml

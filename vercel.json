@@ -82,6 +82,8 @@
     { "source": "/kamil-klussenbedrijf", "destination": "https://kamil-klussenbedrijf.vercel.app/" },
     { "source": "/kamil-klussenbedrijf/:path*", "destination": "https://kamil-klussenbedrijf.vercel.app/:path*" },
     { "source": "/cs-schildersbedrijf", "destination": "https://cs-schildersbedrijf.vercel.app/cs-schildersbedrijf" },
-    { "source": "/cs-schildersbedrijf/:path*", "destination": "https://cs-schildersbedrijf.vercel.app/cs-schildersbedrijf/:path*" }
+    { "source": "/cs-schildersbedrijf/:path*", "destination": "https://cs-schildersbedrijf.vercel.app/cs-schildersbedrijf/:path*" },
+    { "source": "/allround-bora", "destination": "https://allround-bora.vercel.app/" },
+    { "source": "/allround-bora/:path*", "destination": "https://allround-bora.vercel.app/:path*" }
   ]
 }
