@@ -71,11 +71,13 @@ img { max-width: 100%; }
   .sticky-col { position: static; }
   h1 { font-size: 38px !important; }
   .header-inner { padding: 12px 18px; gap: 14px; flex-wrap: wrap; justify-content: center; }
-  .brand-link img { width: 40px; }
-  .brand-name { font-size: 20px; }
+  .brand-link img { width: 44px; }
+  .brand-link { white-space: normal; }
+  .brand-name { font-size: 23px; }
+  .brand-sub { font-size: 13px; margin-top: 4px; line-height: 1.35; }
   .site-nav { justify-content: center; }
-  .hero-figure { justify-self: center; }
-  .hero-img { width: 100%; max-width: 360px; }
+  .hero-figure { justify-self: center; max-width: 100%; min-width: 0; }
+  .hero-img { width: 100%; max-width: min(360px, 100%); }
   .about-col { max-width: 400px; margin: 0 auto; }
   section { padding-top: 56px !important; padding-bottom: 56px !important; }
 }
