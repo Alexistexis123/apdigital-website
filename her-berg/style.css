@@ -43,6 +43,12 @@ img { max-width: 100%; }
 .quote-source { font-family: 'Karla', sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #C9BFA4; margin-top: 4px; }
 .contact-mail { color: #E0B08A; font-size: 19px; font-weight: 600; }
 .contact-mail:hover { color: #EFEADD; }
+.contact-acties { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.btn-whatsapp { background: #4B7A52; color: #F6F2E9; font-size: 16px; font-weight: 600; padding: 13px 26px; border-radius: 999px; display: inline-flex; align-items: center; gap: 10px; }
+.btn-whatsapp:hover { background: #EFEADD; color: #2D3526; }
+.btn-whatsapp svg { width: 19px; height: 19px; fill: currentColor; flex: none; }
+.btn-bel { background: transparent; color: #EFEADD; border: 1px solid #6F7A5F; font-size: 16px; font-weight: 600; padding: 12px 26px; border-radius: 999px; display: inline-flex; align-items: center; gap: 10px; }
+.btn-bel:hover { background: #EFEADD; color: #2D3526; border-color: #EFEADD; }
 
 /* Grids (kolommen hier zodat mobiel kan overschrijven) */
 .grid-hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center; }
