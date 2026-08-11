@@ -62,6 +62,8 @@ img { max-width: 100%; }
 .grid-about { display: grid; grid-template-columns: 400px 1fr; gap: 80px; align-items: start; }
 /* Tekstkolom van Over mij. Staat hier en niet inline, zodat mobiel 'display' kan overschrijven. */
 .about-tekst { display: flex; flex-direction: column; gap: 28px; }
+/* Kopie van de hero-foto die alleen op mobiel verschijnt, onder het her-bergen-blok. */
+.hero-foto-mobiel { display: none; }
 .grid-work { display: grid; grid-template-columns: 1fr 380px; gap: 80px; align-items: start; }
 .grid-contact { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
 .sticky-col { position: sticky; top: 110px; }
@@ -101,10 +103,11 @@ img { max-width: 100%; }
   .site-nav .nav-link.active { border-bottom-color: #A96B44; }
   .lang-switch { align-self: flex-start; margin-top: 12px; }
   .site-nav .btn-terra-s { margin-top: 12px; text-align: center; padding: 13px 22px; font-size: 16px; }
-  /* Mobiel: eerst het tekstblok (heading + intro + knoppen), daarna pas de foto.
-     Desktop blijft ongewijzigd: links tekst, rechts foto. */
-  .grid-hero > div:first-child { order: 1; }
-  .grid-hero > .hero-figure { order: 2; }
+  /* Mobiel: de hero is tekst-only (eyebrow, kop, intro, knoppen). De foto uit de hero
+     wordt verborgen en verschijnt als kopie onder het her-bergen-blok, zie
+     .hero-foto-mobiel. Desktop blijft ongewijzigd: links tekst, rechts foto. */
+  .grid-hero > .hero-figure { display: none; }
+  .hero-foto-mobiel { display: block; }
   .hero-figure { justify-self: center; max-width: 100%; min-width: 0; }
   .hero-img { width: 100%; max-width: min(360px, 100%); }
   .about-col { max-width: 400px; margin: 0 auto; }
