@@ -44,6 +44,8 @@ img { max-width: 100%; }
 .contact-mail { color: #E0B08A; font-size: 19px; font-weight: 600; }
 .contact-mail:hover { color: #EFEADD; }
 .contact-acties { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.form-check { flex-direction: row !important; align-items: center; gap: 10px !important; font-weight: 400 !important; font-size: 15px !important; color: #4A5340 !important; cursor: pointer; }
+.form-check input { width: 17px; height: 17px; accent-color: #A96B44; flex: none; margin: 0; }
 .btn-whatsapp { background: #4B7A52; color: #F6F2E9; font-size: 16px; font-weight: 600; padding: 13px 26px; border-radius: 999px; display: inline-flex; align-items: center; gap: 10px; }
 .btn-whatsapp:hover { background: #EFEADD; color: #2D3526; }
 .btn-whatsapp svg { width: 19px; height: 19px; fill: currentColor; flex: none; }

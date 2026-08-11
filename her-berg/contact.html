@@ -55,12 +55,13 @@
         <label>E-mail
           <input type="email" name="email" required>
         </label>
-        <label>Telefoonnummer <span style="font-weight: 400; color: #7C846C;">(optioneel)</span>
-          <input type="tel" name="phone" inputmode="tel" autocomplete="tel">
+        <label>Telefoonnummer
+          <input type="tel" name="phone" inputmode="tel" autocomplete="tel" required>
         </label>
         <label>Bericht
           <textarea name="message" rows="6" required></textarea>
         </label>
+        <label class="form-check"><input type="checkbox" name="callback" value="ja"><span>Ik word graag teruggebeld</span></label>
         <button type="submit" id="submitBtn">Verstuur</button>
       </div>
       <div class="form-success" id="formSuccess">Bedankt voor je bericht. Christine neemt zo snel mogelijk contact met je op.</div>
@@ -77,7 +78,8 @@
     var email = form.querySelector('[name=email]');
     var phone = form.querySelector('[name=phone]');
     var message = form.querySelector('[name=message]');
-    if (!name.value.trim() || !email.value.trim() || !message.value.trim()) { return; }
+    var callback = form.querySelector('[name=callback]');
+    if (!name.value.trim() || !email.value.trim() || !phone.value.trim() || !message.value.trim()) { return; }
     var btn = document.getElementById('submitBtn');
     btn.disabled = true; btn.textContent = 'Versturen...';
     var showSuccess = function () {
@@ -92,6 +94,7 @@
           _subject: 'Her-berg preview contactformulier',
           _honey: form.querySelector('[name=_honey]').value,
           name: name.value, email: email.value, telefoon: phone.value, message: message.value,
+          terugbelverzoek: callback.checked ? 'ja' : 'nee',
           taal: 'nl'
         })
       });
@@ -100,7 +103,8 @@
     } catch (err) {
       window.location.href = 'mailto:info@apdigital.nl'
         + '?subject=' + encodeURIComponent('Her-berg preview contactformulier')
-        + '&body=' + encodeURIComponent(message.value + '\n\n' + name.value + '\n' + email.value + '\n' + phone.value);
+        + '&body=' + encodeURIComponent(message.value + '\n\n' + name.value + '\n' + email.value + '\n' + phone.value
+          + (callback.checked ? '\nTerugbelverzoek: ja' : ''));
       showSuccess();
     }
   });
