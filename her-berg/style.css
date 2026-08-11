@@ -40,6 +40,7 @@ img { max-width: 100%; }
 .footer-link:hover { color: #C9C4B2; }
 .footer-credit { color: #8F9280; text-decoration: underline; }
 .footer-credit:hover { color: #C9C4B2; }
+.quote-source { font-family: 'Karla', sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #C9BFA4; margin-top: 4px; }
 .contact-mail { color: #E0B08A; font-size: 19px; font-weight: 600; }
 .contact-mail:hover { color: #EFEADD; }
 
