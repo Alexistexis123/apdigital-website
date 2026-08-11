@@ -60,6 +60,8 @@ img { max-width: 100%; }
 .grid-vragen { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 .grid-werk-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
 .grid-about { display: grid; grid-template-columns: 400px 1fr; gap: 80px; align-items: start; }
+/* Tekstkolom van Over mij. Staat hier en niet inline, zodat mobiel 'display' kan overschrijven. */
+.about-tekst { display: flex; flex-direction: column; gap: 28px; }
 .grid-work { display: grid; grid-template-columns: 1fr 380px; gap: 80px; align-items: start; }
 .grid-contact { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
 .sticky-col { position: sticky; top: 110px; }
@@ -106,5 +108,14 @@ img { max-width: 100%; }
   .hero-figure { justify-self: center; max-width: 100%; min-width: 0; }
   .hero-img { width: 100%; max-width: min(360px, 100%); }
   .about-col { max-width: 400px; margin: 0 auto; }
+  /* Mobiel op Over mij: eerst de kop, dan het portret, dan de rest van de tekst.
+     De tekstkolom laat zichzelf los (display: contents) zodat kop en lopende tekst
+     los van elkaar rond de foto geordend kunnen worden. Desktop blijft ongewijzigd:
+     deze regels staan alleen in de mobiele media-query. */
+  .grid-about { display: flex; flex-direction: column; gap: 28px; }
+  .about-tekst { display: contents; }
+  .about-tekst > *:nth-child(-n+2) { order: 1; }
+  .grid-about > .about-col { order: 2; margin: 6px auto; }
+  .about-tekst > *:nth-child(n+3) { order: 3; }
   section { padding-top: 56px !important; padding-bottom: 56px !important; }
 }
