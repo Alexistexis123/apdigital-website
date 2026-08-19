@@ -13,7 +13,10 @@
     { "source": "/marketing-fit", "destination": "https://marketing-fit.vercel.app", "permanent": false },
     { "source": "/marketing-fit/:path*", "destination": "https://marketing-fit.vercel.app/:path*", "permanent": false },
     { "source": "/BijDaan", "destination": "/bijdaanbarbershop", "permanent": false },
-    { "source": "/BijDaan/:path*", "destination": "/bijdaanbarbershop/:path*", "permanent": false }
+    { "source": "/BijDaan/:path*", "destination": "/bijdaanbarbershop/:path*", "permanent": false },
+    { "source": "/her-berg/en/contact", "destination": "https://her-bergen.nl/en/get-in-touch/", "permanent": true },
+    { "source": "/her-berg", "destination": "https://her-bergen.nl/", "permanent": true },
+    { "source": "/her-berg/:path*", "destination": "https://her-bergen.nl/:path*", "permanent": true }
   ],
   "rewrites": [
     { "source": "/wof-v2/:path*", "destination": "https://wof-v2-deploy.vercel.app/wof-v2/:path*" },
