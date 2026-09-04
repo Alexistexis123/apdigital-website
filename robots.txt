@@ -33,7 +33,6 @@ Disallow: /kapsalon-miroir
 Disallow: /kamil-klussenbedrijf
 Disallow: /bijdaanbarbershop
 Disallow: /cs-schildersbedrijf
-Disallow: /allround-bora
 Disallow: /nova-textiel
 
 Sitemap: https://apdigital.nl/sitemap.xml
