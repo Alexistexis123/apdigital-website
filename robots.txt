@@ -34,5 +34,6 @@ Disallow: /kamil-klussenbedrijf
 Disallow: /bijdaanbarbershop
 Disallow: /cs-schildersbedrijf
 Disallow: /nova-textiel
+Disallow: /reviewmotor
 
 Sitemap: https://apdigital.nl/sitemap.xml
