@@ -4,443 +4,332 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
-<meta name="description" content="Reviewmotor koppelt aan je boekhoudpakket en vraagt na elke factuur automatisch om een Google-review.">
+<meta name="description" content="Jouw Google-reviews naast die van de nummer 1 in je stad, en wat Reviewmotor daaraan doet.">
 <meta property="og:title" content="Reviewmotor">
-<meta property="og:description" content="Factuur eruit, review erin. Automatisch om Google-reviews vragen zonder dat je iets hoeft af te vinken.">
+<meta property="og:description" content="Factuur eruit, review erin. Automatisch om Google-reviews vragen zonder iets af te vinken.">
 <meta property="og:type" content="website">
-<style>
-  /* basis-reset, in de artifact-viewer zit die ingebouwd, hier niet */
-  :root{color-scheme:light dark;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-  body{margin:0}
-  img{max-width:100%}
-  [hidden]{display:none!important}
-</style>
+<style>img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Reviewmotor</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;900&family=JetBrains+Mono:wght@700;800&display=swap">
 <style>
   :root{
-    --ground:#EDEFF3;
-    --surface:#FFFFFF;
-    --steel:#1C2229;
-    --steel-2:#2B333D;
-    --ink:#14181E;
-    --ink-2:#5A626D;
-    --ink-on-steel:#EBEEF2;
-    --ink-2-on-steel:#98A2AE;
-    --line:#D3D9E1;
-    --line-steel:#39424E;
-    --accent:#E0A017;
-    --accent-soft:#FBEFD4;
-    --accent-ink:#231903;
-    --good:#1C8557;
-
-    --display:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
-    --body:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
-    --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace;
-
-    --wrap:1080px;
+    --ground:#121518;
+    --panel:#1B2025;
+    --inset:#0C0F12;
+    --ink:#F2EEE6;
+    --ink-2:#A6ADB3;
+    --dim:#6B747B;
+    --line:#2B3239;
+    --amber:#F4B028;
+    --amber-ink:#1B1300;
+    --rood:#E5533D;
+    --display:"Archivo",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --reserve:56px;
   }
-  @media (prefers-color-scheme:dark){
-    :root:not([data-theme="light"]){
-      --ground:#0E1217;
-      --surface:#161C23;
-      --steel:#080B0E;
-      --steel-2:#161C23;
-      --ink:#E9EDF2;
-      --ink-2:#98A2AE;
-      --ink-on-steel:#E9EDF2;
-      --ink-2-on-steel:#8B96A3;
-      --line:#28313B;
-      --line-steel:#242C35;
-      --accent:#F2B331;
-      --accent-soft:#2A2110;
-      --accent-ink:#1A1300;
-      --good:#33B07C;
-    }
-  }
-  :root[data-theme="dark"]{
-    --ground:#0E1217;
-    --surface:#161C23;
-    --steel:#080B0E;
-    --steel-2:#161C23;
-    --ink:#E9EDF2;
-    --ink-2:#98A2AE;
-    --ink-on-steel:#E9EDF2;
-    --ink-2-on-steel:#8B96A3;
-    --line:#28313B;
-    --line-steel:#242C35;
-    --accent:#F2B331;
-    --accent-soft:#2A2110;
-    --accent-ink:#1A1300;
-    --good:#33B07C;
-  }
-
   *{box-sizing:border-box}
+  [hidden]{display:none!important}
   body{
-    background:var(--ground);
-    color:var(--ink);
-    font-family:var(--body);
-    font-size:17px;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
+    margin:0;background:var(--ground);color:var(--ink);font-family:var(--display);
+    font-size:16px;line-height:1.45;-webkit-font-smoothing:antialiased;overflow-x:hidden;
   }
-  .wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:20px}
-  h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance;letter-spacing:-.02em;line-height:1.08}
-  p{margin:0}
+  .wrap{width:100%;max-width:520px;margin-inline:auto;padding-inline:16px}
+  h1,h2,p{margin:0}
+  h1,h2{line-height:1;text-wrap:balance}
   a{color:inherit}
+  a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
 
-  .eyebrow{
-    font-family:var(--display);font-weight:700;font-size:.72rem;
-    letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2-on-steel);
-  }
+  /* kop */
+  .kop{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-block:14px 10px;
+       font-size:.78rem;color:var(--ink-2)}
+  .merk{font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+  .streep{height:6px;background:repeating-linear-gradient(135deg,var(--amber) 0 12px,var(--amber-ink) 12px 24px)}
 
-  /* header */
-  header.top{border-bottom:1px solid var(--line-steel);background:var(--steel)}
-  .top-in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:18px}
-  .mark{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;
-        font-size:1.15rem;letter-spacing:-.02em;color:var(--ink-on-steel)}
-  .mark .cog{width:24px;height:24px;flex:none}
-  .top .tel{font-size:.95rem;color:var(--ink-2-on-steel);text-decoration:none}
-  .top .tel:hover{color:var(--accent)}
+  /* rapport */
+  .rapport{padding-block:22px 26px}
+  .eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--amber)}
+  .naam{font-size:clamp(1.65rem,8.2vw,2.5rem);font-weight:900;text-transform:uppercase;
+        letter-spacing:-.02em;line-height:.95;margin-top:8px;overflow-wrap:anywhere}
+  .plaats{color:var(--ink-2);font-weight:500;margin-top:6px}
 
-  /* hero */
-  .hero{background:var(--steel);color:var(--ink-on-steel);padding-block:clamp(40px,7vw,76px) clamp(44px,8vw,84px)}
-  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,56px);align-items:center}
-  .hero h1{font-size:clamp(2.1rem,5.6vw,3.5rem);font-weight:800;color:var(--ink-on-steel)}
-  .hero h1 em{font-style:normal;color:var(--accent)}
-  .lede{margin-top:18px;font-size:1.12rem;color:var(--ink-2-on-steel);max-width:52ch}
-  .hero-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:28px}
+  /* meter */
+  .meter{margin-top:22px;background:var(--panel);border:1px solid var(--line);padding:16px 14px 12px}
+  .rij{display:grid;gap:5px}
+  .rij + .rij{margin-top:12px}
+  .lbl{font-size:.8rem;font-weight:500;color:var(--ink-2);letter-spacing:.02em;overflow-wrap:anywhere}
+  .track{position:relative;height:26px;background:var(--inset)}
+  .bar{position:absolute;left:0;top:0;bottom:0;width:calc((100% - var(--reserve)) * var(--w,0));min-width:3px}
+  .bar.jij{background:var(--ink-2)}
+  .bar.top{background:var(--amber)}
+  .bar.straks{background:repeating-linear-gradient(135deg,var(--amber) 0 6px,transparent 6px 11px);
+              border:1px solid var(--amber);border-left:0}
+  .val{position:absolute;top:0;line-height:26px;left:calc((100% - var(--reserve)) * var(--w,0) + 8px);
+       font-family:var(--mono);font-weight:800;font-size:1.15rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .rij-top .val{color:var(--amber)}
+  .rij-straks .val{color:var(--amber)}
+  .meter.leeft .bar,.meter.leeft .val{transition:width .4s ease-out,left .4s ease-out}
+  .schaal{margin-top:10px;width:calc(100% - var(--reserve))}
+  .ticks{height:8px;border-bottom:1px solid var(--dim);
+         background-image:linear-gradient(var(--dim),var(--dim));background-repeat:repeat-x;
+         background-size:1px 8px;background-position:0 0}
+  .schaal-lbl{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.7rem;
+              color:var(--dim);margin-top:4px}
 
-  .btn{
-    display:inline-block;font-family:var(--display);font-weight:700;font-size:1rem;
-    padding:14px 24px;border-radius:3px;border:2px solid transparent;text-decoration:none;cursor:pointer;
-  }
-  .btn-primary{background:var(--accent);color:var(--accent-ink)}
-  .btn-primary:hover{filter:brightness(1.08)}
-  .btn-ghost{border-color:var(--line-steel);color:var(--ink-on-steel);background:transparent}
-  .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
-  .btn:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{
-    outline:3px solid var(--accent);outline-offset:3px}
-  .fineprint{font-size:.9rem;color:var(--ink-2-on-steel)}
+  .klap{margin-top:20px;font-size:clamp(1.15rem,4.8vw,1.4rem);font-weight:700;line-height:1.25}
+  .klap em{font-style:normal;color:var(--amber);font-family:var(--mono);font-weight:800}
 
-  /* gauge */
-  .gauge{background:var(--steel-2);border:1px solid var(--line-steel);border-radius:4px;padding:22px}
-  .gauge-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:18px}
-  .gauge-head .where{font-size:.9rem;color:var(--ink-2-on-steel)}
-  .row{margin-block:16px}
-  .row-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:7px}
-  .row-name{font-family:var(--display);font-weight:600;font-size:.98rem;color:var(--ink-on-steel)}
-  .row-num{font-family:var(--mono);font-weight:700;font-size:1.05rem;font-variant-numeric:tabular-nums}
-  .bar{height:14px;background:#111820;border:1px solid var(--line-steel);border-radius:2px;overflow:hidden}
-  .fill{height:100%;display:block;transform-origin:left center;animation:grow .9s cubic-bezier(.2,.7,.3,1) both}
-  .fill.you{background:#5A6472;width:7%}
-  .fill.top{background:var(--accent);width:100%}
-  .fill.mid{background:#7C8899;width:46%}
-  @keyframes grow{from{transform:scaleX(.04)}to{transform:scaleX(1)}}
-  @media (prefers-reduced-motion:reduce){.fill{animation:none}}
-  .gauge-foot{margin-top:18px;padding-top:16px;border-top:1px solid var(--line-steel);
-              font-size:.92rem;color:var(--ink-2-on-steel)}
-  .gauge-foot strong{color:var(--accent);font-family:var(--mono);font-weight:700}
+  /* rekenaar */
+  .reken{margin-top:20px}
+  .reken-kop{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+  .reken-kop label{font-weight:700;font-size:.98rem}
+  .reken-kop output{font-family:var(--mono);font-weight:800;font-size:1.5rem;color:var(--ink);
+                    font-variant-numeric:tabular-nums;line-height:1}
+  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:36px;background:transparent;
+                    margin:6px 0 0;padding:0;cursor:pointer}
+  input[type=range]::-webkit-slider-runnable-track{height:6px;background:var(--line);border-radius:3px}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:30px;height:30px;
+    margin-top:-12px;background:var(--amber);border:2px solid var(--amber-ink);border-radius:4px;
+    box-shadow:inset 0 0 0 2px var(--amber),inset 0 0 0 4px var(--amber-ink)}
+  input[type=range]::-moz-range-track{height:6px;background:var(--line);border-radius:3px}
+  input[type=range]::-moz-range-thumb{width:26px;height:26px;background:var(--amber);
+    border:2px solid var(--amber-ink);border-radius:4px}
+  input[type=range]:focus-visible{outline:3px solid var(--amber);outline-offset:4px}
+  .uitkomst{margin-top:6px;color:var(--ink-2);font-size:.95rem;line-height:1.5}
+  .uitkomst b{display:inline-block;font-family:var(--mono);font-weight:800;font-size:1.25rem;color:var(--amber);
+              background:var(--inset);border:1px solid var(--line);padding:1px 8px;margin-right:4px;
+              font-variant-numeric:tabular-nums;line-height:1.4;vertical-align:baseline}
 
-  /* generic section */
-  section{padding-block:clamp(44px,7vw,76px)}
-  .sec-head{max-width:60ch}
-  .sec-head h2{font-size:clamp(1.6rem,3.6vw,2.3rem);font-weight:800}
-  .sec-head p{margin-top:14px;color:var(--ink-2);font-size:1.08rem}
+  /* knop */
+  .btn{display:block;width:100%;text-align:center;font-family:var(--display);font-weight:900;font-size:1.1rem;
+       text-transform:uppercase;letter-spacing:.04em;padding:18px 20px;border:0;border-radius:3px;cursor:pointer;
+       background:var(--amber);color:var(--amber-ink);text-decoration:none;
+       box-shadow:0 4px 0 var(--amber-ink)}
+  .btn:hover{filter:brightness(1.06)}
+  .btn:active{transform:translateY(2px);box-shadow:0 2px 0 var(--amber-ink)}
+  .rapport .btn{margin-top:22px}
+  .onder{margin-top:12px;font-size:.88rem;color:var(--dim)}
 
-  /* steps */
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px;counter-reset:s}
-  .step{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:24px;counter-increment:s}
-  .step::before{
-    content:counter(s,decimal-leading-zero);font-family:var(--mono);font-weight:700;font-size:.82rem;
-    color:var(--accent);display:block;margin-bottom:14px;letter-spacing:.06em;
-  }
-  .step h3{font-size:1.14rem;font-weight:700}
-  .step p{margin-top:9px;color:var(--ink-2);font-size:1rem}
+  /* uitleg */
+  .uitleg{border-top:1px solid var(--line);padding-block:26px}
+  h2{font-size:1.25rem;font-weight:900;text-transform:uppercase;letter-spacing:.01em}
+  .drie{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:0}
+  .drie li{display:grid;grid-template-columns:24px 1fr;gap:10px;padding-block:10px;border-bottom:1px solid var(--line)}
+  .drie li:last-child{border-bottom:0}
+  .drie .nr{font-family:var(--mono);font-weight:800;color:var(--amber);font-size:.9rem;padding-top:2px}
+  .drie b{font-weight:700}
+  .drie span.t{color:var(--ink-2)}
+  .prijs{margin-top:18px;color:var(--ink-2);line-height:1.5}
+  .prijs b{font-family:var(--mono);font-weight:800;font-size:1.35rem;color:var(--ink);font-variant-numeric:tabular-nums}
 
-  .koppel{margin-top:26px;padding:20px 22px;background:var(--surface);
-          border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:4px}
-  .koppel-tekst{margin-top:9px;color:var(--ink-2);font-size:1.02rem;max-width:72ch}
-  .koppel-tekst strong{color:var(--ink);font-weight:600}
+  /* formulier */
+  .aanmeld{border-top:1px solid var(--line);padding-block:26px 8px}
+  .sub{margin-top:8px;color:var(--ink-2)}
+  form{margin-top:16px;display:grid;gap:12px}
+  .veld label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+              color:var(--ink-2);margin-bottom:5px}
+  .veld input{width:100%;padding:13px 12px;border:1px solid var(--line);border-radius:3px;
+              background:var(--inset);color:var(--ink);font-family:var(--display);font-size:1rem}
+  .veld input::placeholder{color:var(--dim)}
+  .veld input.fout{border-color:var(--rood)}
+  .fout-msg{color:var(--rood);font-size:.9rem}
+  form .btn{margin-top:4px}
+  .ok{margin-top:16px;padding:16px;border:1px solid var(--amber);background:var(--panel)}
+  .ok b{color:var(--amber);font-weight:900;text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:4px}
 
-  /* included */
-  .band{background:var(--surface);border-block:1px solid var(--line)}
-  .inc{display:grid;grid-template-columns:repeat(2,1fr);gap:0 40px;margin-top:30px;list-style:none;padding:0}
-  .inc li{display:flex;gap:12px;padding-block:13px;border-bottom:1px solid var(--line);font-size:1.02rem}
-  .inc li:last-child,.inc li:nth-last-child(2){border-bottom:0}
-  .tick{flex:none;width:20px;height:20px;margin-top:3px;color:var(--good)}
+  .voet{border-top:1px solid var(--line);padding-block:18px 26px;display:flex;justify-content:space-between;
+        gap:12px;flex-wrap:wrap;font-size:.8rem;color:var(--dim)}
 
-  /* price */
-  .price-card{
-    max-width:460px;margin-top:34px;background:var(--steel);color:var(--ink-on-steel);
-    border-radius:4px;padding:30px;border:1px solid var(--line-steel);
-  }
-  .amount{display:flex;align-items:baseline;gap:8px;margin-block:10px 4px}
-  .amount .n{font-family:var(--mono);font-weight:700;font-size:3.1rem;color:var(--accent);
-             font-variant-numeric:tabular-nums;line-height:1}
-  .amount .per{color:var(--ink-2-on-steel);font-size:1rem}
-  .price-card ul{margin:20px 0 0;padding:0;list-style:none;font-size:1rem;color:var(--ink-2-on-steel)}
-  .price-card li{padding-block:7px;border-bottom:1px solid var(--line-steel)}
-  .price-card li:last-child{border-bottom:0}
-  .price-card .btn{margin-top:24px;width:100%;text-align:center}
-
-  /* faq */
-  details{border-bottom:1px solid var(--line);padding-block:4px}
-  summary{cursor:pointer;list-style:none;padding-block:17px;font-family:var(--display);
-          font-weight:600;font-size:1.06rem;display:flex;justify-content:space-between;gap:16px;align-items:center}
-  summary::-webkit-details-marker{display:none}
-  summary::after{content:"+";font-family:var(--mono);color:var(--accent);font-size:1.3rem;flex:none}
-  details[open] summary::after{content:"\2013"}
-  details p{padding-bottom:18px;color:var(--ink-2);max-width:68ch}
-
-  /* form */
-  .signup{background:var(--steel);color:var(--ink-on-steel)}
-  .signup h2{color:var(--ink-on-steel);font-size:clamp(1.6rem,3.6vw,2.2rem);font-weight:800}
-  .signup .sub{margin-top:14px;color:var(--ink-2-on-steel);max-width:54ch;font-size:1.08rem}
-  form{margin-top:28px;max-width:520px;display:grid;gap:13px}
-  label{font-size:.86rem;font-family:var(--display);font-weight:600;letter-spacing:.03em;
-        text-transform:uppercase;color:var(--ink-2-on-steel);display:block;margin-bottom:6px}
-  input{
-    width:100%;padding:13px 14px;border-radius:3px;border:1px solid var(--line-steel);
-    background:#0F141A;color:var(--ink-on-steel);font-family:var(--body);font-size:1rem;
-  }
-  input::placeholder{color:#6B7684}
-  .ok{
-    display:none;margin-top:20px;padding:18px;border-radius:4px;
-    background:var(--accent-soft);color:var(--accent-ink);border:1px solid var(--accent);max-width:520px;
-  }
-  :root[data-theme="dark"] .ok,:root:not([data-theme="light"]) .ok{color:var(--ink)}
-  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .ok{color:var(--ink-on-steel)}}
-  .ok[data-on="1"]{display:block}
-  .ok strong{font-family:var(--display)}
-
-  footer{background:var(--steel);color:var(--ink-2-on-steel);border-top:1px solid var(--line-steel);
-         padding-block:26px;font-size:.92rem}
-  .foot-in{display:flex;flex-wrap:wrap;gap:10px 22px;justify-content:space-between}
-
-  @media (max-width:820px){
-    .hero-grid{grid-template-columns:1fr}
-    .steps{grid-template-columns:1fr}
-    .inc{grid-template-columns:1fr}
-    .inc li{border-bottom:1px solid var(--line)}
-    .inc li:nth-last-child(2){border-bottom:1px solid var(--line)}
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    html{scroll-behavior:auto}
   }
 </style>
 </head>
 <body>
-<header class="top">
-  <div class="wrap top-in">
-    <span class="mark">
-      <svg class="cog" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M12 2.6l2.2 2.1 2.9-.6.9 2.8 2.7 1.2-.8 2.9 1.9 2.3-2.2 2-.2 3-3 .3-1.6 2.5-2.8-1.1-2.8 1.1-1.6-2.5-3-.3-.2-3-2.2-2L2.1 8.1 4.8 6.9l.9-2.8 2.9.6L12 2.6z"
-              stroke="#E0A017" stroke-width="1.5" stroke-linejoin="round"/>
-        <path d="M12 8.4l1.1 2.4 2.6.3-1.9 1.8.5 2.6-2.3-1.3-2.3 1.3.5-2.6-1.9-1.8 2.6-.3L12 8.4z" fill="#E0A017"/>
-      </svg>
-      Reviewmotor
-    </span>
-    <a class="tel" href="#aanmelden">Aanmelden</a>
-  </div>
+<header class="wrap kop">
+  <span class="merk">Reviewmotor</span>
+  <span>Google, gemeten <span id="datum">22 september 2026</span></span>
 </header>
+<div class="streep" aria-hidden="true"></div>
 
-<div class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <p class="eyebrow">Voor schilders, hoveniers en installateurs</p>
-      <h1 style="margin-top:14px">Factuur eruit. <em>Review</em> erin.</h1>
-      <p class="lede">Reviewmotor hangt aan je boekhoudpakket. Stuur je een factuur, dan vraagt hij je klant automatisch om een Google-review. Niets afvinken, niets invoeren, geen extra scherm dat je vergeet te openen.</p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="#aanmelden">Meld je aan als een van de eerste vijf</a>
-        <a class="btn btn-ghost" href="#werkt">Hoe het werkt</a>
-      </div>
-      <p class="fineprint" style="margin-top:16px">Geen contract. Per maand opzegbaar.</p>
+<main class="wrap rapport">
+  <p class="eyebrow">Jullie stand op Google</p>
+  <h1 class="naam" id="bedrijf">Schildersbedrijf Jansen</h1>
+  <p class="plaats" id="plaats">Arnhem</p>
+
+  <section class="meter" id="meter" aria-label="Aantal Google-reviews">
+    <div class="rij rij-jij">
+      <span class="lbl">Jullie nu</span>
+      <div class="track"><div class="bar jij" id="bar-jij"></div><span class="val" id="n-jij">6</span></div>
     </div>
-
-    <div class="gauge">
-      <div class="gauge-head">
-        <span class="eyebrow">Schilders in Arnhem</span>
-        <span class="where">Google, sep 2026</span>
-      </div>
-
-      <div class="row">
-        <div class="row-top">
-          <span class="row-name">Nummer 1 in de stad</span>
-          <span class="row-num" style="color:var(--accent)">84</span>
-        </div>
-        <div class="bar"><span class="fill top" style="animation-delay:.05s"></span></div>
-      </div>
-
-      <div class="row">
-        <div class="row-top">
-          <span class="row-name">Nummer 4</span>
-          <span class="row-num" style="color:var(--ink-2-on-steel)">39</span>
-        </div>
-        <div class="bar"><span class="fill mid" style="animation-delay:.15s"></span></div>
-      </div>
-
-      <div class="row">
-        <div class="row-top">
-          <span class="row-name">Jouw bedrijf</span>
-          <span class="row-num" style="color:var(--ink-on-steel)">6</span>
-        </div>
-        <div class="bar"><span class="fill you" style="animation-delay:.25s"></span></div>
-      </div>
-
-      <p class="gauge-foot">Je levert net zo goed werk als de nummer 1. Je vraagt er alleen nooit om. Dat scheelt je <strong>78</strong> reviews.</p>
+    <div class="rij rij-top">
+      <span class="lbl" id="top-lbl">Nummer 1 in Arnhem</span>
+      <div class="track"><div class="bar top" id="bar-top"></div><span class="val" id="n-top">84</span></div>
     </div>
-  </div>
-</div>
+    <div class="rij rij-straks">
+      <span class="lbl">Jullie over een jaar, met Reviewmotor aan</span>
+      <div class="track"><div class="bar straks" id="bar-straks"></div><span class="val" id="n-straks">78</span></div>
+    </div>
+    <div class="schaal" aria-hidden="true">
+      <div class="ticks" id="ticks"></div>
+      <div class="schaal-lbl"><span>0</span><span id="schaal-max">90</span></div>
+    </div>
+  </section>
 
-<section id="werkt" class="wrap">
-  <div class="sec-head">
-    <h2>Eén keer koppelen, daarna nooit meer omkijken</h2>
-    <p>Andere reviewtools vragen dat je elke klus zelf afvinkt. Dat vergeet je, en daarom stopt iedereen er na drie maanden mee. Reviewmotor leest gewoon mee met je facturen.</p>
-  </div>
+  <p class="klap" id="klap"><em>78 minder.</em> Niet omdat je minder werk levert, maar omdat je er nooit om vraagt.</p>
 
-  <div class="steps">
-    <article class="step">
-      <h3>Koppel je boekhoudpakket</h3>
-      <p>Twee minuten, één keer. Je logt in bij je pakket en geeft toestemming. Wij doen de rest van de inrichting.</p>
-    </article>
-    <article class="step">
-      <h3>Je factureert zoals altijd</h3>
-      <p>Verder verandert er niets aan je werkwijze. Een verstuurde factuur betekent dat de klus klaar is, en dat is het enige dat Reviewmotor hoeft te weten.</p>
-    </article>
-    <article class="step">
-      <h3>De review komt binnen</h3>
-      <p>Je klant krijgt een kort berichtje met de directe link naar jouw Google-profiel. Geen reactie na drie dagen, dan volgt nog één herinnering. Daarna houdt het op.</p>
-    </article>
+  <div class="reken">
+    <div class="reken-kop">
+      <label for="klussen">Klussen per maand</label>
+      <output id="klus-n" for="klussen">20</output>
+    </div>
+    <input type="range" id="klussen" name="klussen" min="5" max="60" step="5" value="20" aria-describedby="uitkomst">
+    <p class="uitkomst" id="uitkomst"><b id="erbij">+72</b> reviews in een jaar, gerekend met 3 van de 10 klanten die reageren.</p>
   </div>
 
-  <div class="koppel">
-    <p class="eyebrow" style="color:var(--ink-2)">Koppelingen</p>
-    <p class="koppel-tekst">We beginnen met <strong>Moneybird</strong>, het pakket met de meeste gebruikers in Nederland. <strong>e-Boekhouden</strong>, <strong>Jortt</strong>, <strong>SnelStart</strong> en <strong>Exact Online</strong> staan daarna op de rol. Werk je zonder boekhoudpakket, dan kun je een klus ook met één tik op je telefoon afvinken.</p>
+  <a class="btn" href="#aanmelden" id="cta">Zet hem aan voor ons</a>
+  <p class="onder">Eerste maand gratis. Per maand opzegbaar.</p>
+</main>
+
+<section class="wrap uitleg">
+  <h2>Wat je ervoor doet</h2>
+  <ol class="drie">
+    <li><span class="nr">1</span><span><b>Koppelen.</b> <span class="t">Je boekhoudpakket, Moneybird eerst. Twee minuten.</span></span></li>
+    <li><span class="nr">2</span><span><b>Verder niets.</b> <span class="t">Factuur de deur uit, verzoek naar je klant.</span></span></li>
+    <li><span class="nr">3</span><span><b>Reviews komen binnen.</b> <span class="t">Eén herinnering na drie dagen, daarna stil.</span></span></li>
+  </ol>
+  <p class="prijs"><b>€ 29</b> per maand voor de eerste vijf bedrijven, daarna € 49. Je houdt je prijs zolang je blijft.</p>
+</section>
+
+<section class="wrap aanmeld" id="aanmelden">
+  <h2>Zet hem aan</h2>
+  <p class="sub">We bellen binnen een werkdag om te koppelen. Daarna doe je niets meer.</p>
+
+  <form id="f" novalidate>
+    <div class="veld">
+      <label for="i-bedrijf">Bedrijfsnaam</label>
+      <input type="text" id="i-bedrijf" name="bedrijf" autocomplete="organization" placeholder="Schildersbedrijf Jansen" required>
+    </div>
+    <div class="veld">
+      <label for="i-naam">Je naam</label>
+      <input type="text" id="i-naam" name="naam" autocomplete="name" placeholder="Piet Jansen" required>
+    </div>
+    <div class="veld">
+      <label for="i-tel">Telefoon</label>
+      <input type="tel" id="i-tel" name="tel" autocomplete="tel" placeholder="06 12 34 56 78" required>
+    </div>
+    <div class="veld">
+      <label for="i-mail">E-mail</label>
+      <input type="email" id="i-mail" name="email" autocomplete="email" placeholder="piet@jansen.nl" required>
+    </div>
+    <p class="fout-msg" id="fout" hidden>Vul alle vier de velden in.</p>
+    <button class="btn" type="submit" id="verstuur">Zet hem aan voor ons</button>
+  </form>
+
+  <div class="ok" id="ok" role="status" hidden>
+    <b>Binnen.</b>
+    We bellen je binnen een werkdag om te koppelen.
   </div>
 </section>
 
-<div class="band">
-  <section class="wrap">
-    <div class="sec-head">
-      <h2>Wat erbij zit</h2>
-      <p>Eén prijs, alles inbegrepen. Geen tegels die je later apart moet bijkopen.</p>
-    </div>
-    <ul class="inc">
-      <li><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Automatisch reviewverzoek per sms of WhatsApp</span></li>
-      <li><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Eén herinnering, daarna stopt het vanzelf</span></li>
-      <li><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Berichten in jouw eigen toon, met je bedrijfsnaam</span></li>
-      <li><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Melding op je telefoon bij elke nieuwe review</span></li>
-      <li><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Maandoverzicht: hoeveel gevraagd, hoeveel binnen</span></li>
-      <li><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Wij richten het in, jij hoeft niets te installeren</span></li>
-    </ul>
-  </section>
-</div>
-
-<section class="wrap">
-  <div class="sec-head">
-    <h2>Eén prijs</h2>
-    <p>We zijn net begonnen en zoeken vijf bedrijven die als eerste meedraaien. Die vijf denken mee over wat erin komt en houden hun prijs zolang ze klant blijven.</p>
-  </div>
-
-  <div class="price-card">
-    <p class="eyebrow">De eerste vijf</p>
-    <div class="amount">
-      <span class="n">29</span>
-      <span class="per">euro per maand, excl. btw. Daarna 49.</span>
-    </div>
-    <ul>
-      <li>Onbeperkt aantal klussen</li>
-      <li>Koppeling met je boekhoudpakket, wij richten hem in</li>
-      <li>Eerste 30 dagen gratis</li>
-      <li>Per maand opzegbaar, je prijs blijft staan</li>
-    </ul>
-    <a class="btn btn-primary" href="#aanmelden">Claim een van de vijf plekken</a>
-  </div>
-</section>
-
-<div class="band">
-  <section class="wrap">
-    <div class="sec-head"><h2>Vragen die we vaker krijgen</h2></div>
-    <div style="margin-top:22px;max-width:760px">
-      <details>
-        <summary>Mag ik zomaar om een review vragen?</summary>
-        <p>Ja. Je mag je klant vragen zijn ervaring te delen. Wat niet mag is betalen voor reviews of alleen de tevreden klanten benaderen. Reviewmotor vraagt het aan iedereen, in dezelfde bewoording, en stuurt hoogstens één herinnering.</p>
-      </details>
-      <details>
-        <summary>Wat als een klant ontevreden is?</summary>
-        <p>Dan komt dat ook op Google. Dat is het eerlijke antwoord. In de praktijk levert vragen aan iedereen een hoger gemiddelde op dan niets vragen, omdat een ontevreden klant uit zichzelf schrijft en een tevreden klant niet.</p>
-      </details>
-      <details>
-        <summary>Moet ik hier software voor leren?</summary>
-        <p>Nee, en dat is het hele punt. Na de koppeling verandert er niets aan je dag. Je factureert zoals je altijd al deed. Wij zetten je account op en koppelen je Google-profiel, dat hoef je niet zelf uit te zoeken.</p>
-      </details>
-      <details>
-        <summary>Ik factureer niet zelf, mijn boekhouder doet dat</summary>
-        <p>Dan kun je een klus met één tik op je telefoon afvinken, of je laat je boekhouder de koppeling leggen. Dat regelen we tijdens de installatie, daar hoef je zelf niet in te duiken.</p>
-      </details>
-      <details>
-        <summary>Ik heb nu nauwelijks reviews, is dat een probleem?</summary>
-        <p>Nee, dat is juist het startpunt. De meeste bedrijven staan onder de vijftien en de nummer 1 in hun stad staat boven de zeventig. Dat verschil komt niet door beter werk, het komt doordat de één het vraagt en de ander niet.</p>
-      </details>
-    </div>
-  </section>
-</div>
-
-<div class="signup" id="aanmelden">
-  <section class="wrap">
-    <h2>Begin met de proefmaand</h2>
-    <p class="sub">Vul je gegevens in, dan zetten we je account op en nemen we binnen een werkdag contact op om je Google-profiel te koppelen.</p>
-
-    <form id="signup-form" novalidate>
-      <div>
-        <label for="bedrijf">Bedrijfsnaam</label>
-        <input id="bedrijf" name="bedrijf" type="text" placeholder="Schildersbedrijf Jansen" required>
-      </div>
-      <div>
-        <label for="naam">Je naam</label>
-        <input id="naam" name="naam" type="text" placeholder="Piet Jansen" required>
-      </div>
-      <div>
-        <label for="email">E-mailadres</label>
-        <input id="email" name="email" type="email" placeholder="piet@schildersbedrijfjansen.nl" required>
-      </div>
-      <div>
-        <label for="tel">Telefoonnummer</label>
-        <input id="tel" name="tel" type="tel" placeholder="06 12 34 56 78">
-      </div>
-      <button class="btn btn-primary" type="submit">Start de proefmaand</button>
-    </form>
-
-    <div class="ok" id="signup-ok" role="status">
-      <strong>Gelukt.</strong> We hebben je aanmelding binnen en nemen binnen een werkdag contact op.
-    </div>
-  </section>
-</div>
-
-<footer>
-  <div class="wrap foot-in">
-    <span>Reviewmotor</span>
-    <span>reviewmotor.nl</span>
-  </div>
-</footer>
+<footer class="wrap voet"><span>Reviewmotor</span><span>reviewmotor.nl</span></footer>
 
 <script>
   (function () {
-    var form = document.getElementById('signup-form');
-    var ok = document.getElementById('signup-ok');
-    if (!form) return;
-    form.addEventListener('submit', function (e) {
+    var q = new URLSearchParams(location.search);
+    var el = function (id) { return document.getElementById(id); };
+    var tekst = function (s) { return String(s || '').trim().slice(0, 80); };
+
+    // Gegevens uit de link in de mail, met een voorbeeld als er niets meekomt.
+    var bedrijf = tekst(q.get('b')) || 'Schildersbedrijf Jansen';
+    var plaats  = tekst(q.get('p')) || 'Arnhem';
+    var topnaam = tekst(q.get('tn'));
+    var jij = parseInt(q.get('r'), 10);
+    var top = parseInt(q.get('t'), 10);
+    if (!Number.isFinite(jij) || jij < 0) jij = 6;
+    if (!Number.isFinite(top) || top < 0) top = 84;
+
+    el('bedrijf').textContent = bedrijf;
+    el('plaats').textContent = plaats;
+    el('n-jij').textContent = jij;
+    el('n-top').textContent = top;
+    el('top-lbl').textContent = topnaam ? topnaam + ', nummer 1 in ' + plaats : 'Nummer 1 in ' + plaats;
+    if (q.get('b')) el('i-bedrijf').value = bedrijf;
+
+    el('datum').textContent = new Date().toLocaleDateString('nl-NL',
+      { day: 'numeric', month: 'long', year: 'numeric' });
+
+    // Klapzin
+    var klap = el('klap');
+    var verschil = top - jij;
+    klap.textContent = '';
+    if (verschil > 0) {
+      var em = document.createElement('em');
+      em.textContent = verschil + ' minder.';
+      klap.appendChild(em);
+      klap.appendChild(document.createTextNode(' Niet omdat je minder werk levert, maar omdat je er nooit om vraagt.'));
+    } else {
+      klap.textContent = 'Jullie staan bovenaan. Zo blijft het alleen als je erom blijft vragen.';
+    }
+
+    // Meter: drie balken op één schaal, de derde loopt mee met de schuif.
+    var RESPONS = 0.30;
+    var slider = el('klussen');
+    var meter = el('meter');
+
+    function zetBalk(id, waarde, max) {
+      var w = max > 0 ? Math.min(1, waarde / max) : 0;
+      el('bar-' + id).style.setProperty('--w', w);
+      el('n-' + id).style.setProperty('--w', w);
+      el('n-' + id).textContent = waarde;
+    }
+
+    function reken() {
+      var klussen = parseInt(slider.value, 10) || 0;
+      var erbij = Math.round(klussen * 12 * RESPONS);
+      var straks = jij + erbij;
+      el('klus-n').textContent = klussen;
+      el('erbij').textContent = '+' + erbij;
+
+      var grootste = Math.max(jij, top, straks, 1);
+      var stap = grootste > 200 ? 50 : grootste > 100 ? 20 : 10;
+      var max = Math.ceil((grootste * 1.06) / stap) * stap;
+
+      zetBalk('jij', jij, max);
+      zetBalk('top', top, max);
+      zetBalk('straks', straks, max);
+      el('ticks').style.backgroundSize = (stap / max * 100) + '% 8px';
+      el('schaal-max').textContent = max;
+    }
+    slider.addEventListener('input', reken);
+    reken();
+
+    // Pas na de eerste tekening animeren, zodat de balken bij laden meteen op lengte staan.
+    requestAnimationFrame(function () { requestAnimationFrame(function () { meter.classList.add('leeft'); }); });
+
+    // Formulier in demo-modus: er wordt niets verstuurd.
+    var f = el('f'), ok = el('ok'), fout = el('fout');
+    var velden = ['i-bedrijf', 'i-naam', 'i-tel', 'i-mail'];
+    f.addEventListener('submit', function (e) {
       e.preventDefault();
-      var bedrijf = document.getElementById('bedrijf');
-      var email = document.getElementById('email');
-      if (!bedrijf.value.trim() || !email.value.trim()) {
-        (bedrijf.value.trim() ? email : bedrijf).focus();
-        return;
+      var eerste = null;
+      for (var i = 0; i < velden.length; i++) {
+        var v = el(velden[i]);
+        var leeg = !v.value.trim() || (v.type === 'email' && !v.checkValidity());
+        v.classList.toggle('fout', leeg);
+        if (leeg && !eerste) eerste = v;
       }
-      form.hidden = true;
-      ok.setAttribute('data-on', '1');
-      ok.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      if (eerste) { fout.hidden = false; eerste.focus(); return; }
+      fout.hidden = true;
+      f.hidden = true;
+      ok.hidden = false;
+      ok.scrollIntoView({ block: 'center' });
     });
+    for (var j = 0; j < velden.length; j++) {
+      el(velden[j]).addEventListener('input', function () { this.classList.remove('fout'); });
+    }
   })();
 </script>
 </body>
