@@ -35,4 +35,7 @@ Disallow: /bijdaanbarbershop
 Disallow: /cs-schildersbedrijf
 Disallow: /nova-textiel
 
+# Klant-back-up achter pincode (Clevair), nooit indexeren
+Disallow: /clevair
+
 Sitemap: https://apdigital.nl/sitemap.xml

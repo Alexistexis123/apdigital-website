@@ -87,6 +87,8 @@
     { "source": "/cs-schildersbedrijf", "destination": "https://cs-schildersbedrijf.vercel.app/cs-schildersbedrijf" },
     { "source": "/cs-schildersbedrijf/:path*", "destination": "https://cs-schildersbedrijf.vercel.app/cs-schildersbedrijf/:path*" },
     { "source": "/nova-textiel", "destination": "https://nova-textiel.vercel.app/" },
-    { "source": "/nova-textiel/:path*", "destination": "https://nova-textiel.vercel.app/:path*" }
+    { "source": "/nova-textiel/:path*", "destination": "https://nova-textiel.vercel.app/:path*" },
+    { "source": "/clevair", "destination": "https://clevair-backup.vercel.app/clevair" },
+    { "source": "/clevair/:path*", "destination": "https://clevair-backup.vercel.app/clevair/:path*" }
   ]
 }
