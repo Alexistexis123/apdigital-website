@@ -34,6 +34,7 @@ Disallow: /kamil-klussenbedrijf
 Disallow: /bijdaanbarbershop
 Disallow: /cs-schildersbedrijf
 Disallow: /nova-textiel
+Disallow: /reviewmotor
 
 # Klant-back-up achter pincode (Clevair), nooit indexeren
 Disallow: /clevair

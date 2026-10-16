@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Jouw Google-reviews naast die van de nummer 1 in je stad, en wat Reviewmotor daaraan doet.">
+<meta property="og:title" content="Reviewmotor">
+<meta property="og:description" content="Factuur eruit, review erin. Automatisch om Google-reviews vragen zonder iets af te vinken.">
+<meta property="og:type" content="website">
+<style>img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Reviewmotor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;900&family=JetBrains+Mono:wght@700;800&display=swap">
+<style>
+  :root{
+    --ground:#121518;
+    --panel:#1B2025;
+    --inset:#0C0F12;
+    --ink:#F2EEE6;
+    --ink-2:#A6ADB3;
+    --dim:#6B747B;
+    --line:#2B3239;
+    --amber:#F4B028;
+    --amber-ink:#1B1300;
+    --rood:#E5533D;
+    --display:"Archivo",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --reserve:56px;
+  }
+  *{box-sizing:border-box}
+  [hidden]{display:none!important}
+  body{
+    margin:0;background:var(--ground);color:var(--ink);font-family:var(--display);
+    font-size:16px;line-height:1.45;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  .wrap{width:100%;max-width:520px;margin-inline:auto;padding-inline:16px}
+  h1,h2,p{margin:0}
+  h1,h2{line-height:1;text-wrap:balance}
+  a{color:inherit}
+  a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+
+  /* kop */
+  .kop{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-block:14px 10px;
+       font-size:.78rem;color:var(--ink-2)}
+  .merk{font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+  .streep{height:6px;background:repeating-linear-gradient(135deg,var(--amber) 0 12px,var(--amber-ink) 12px 24px)}
+
+  /* rapport */
+  .rapport{padding-block:22px 26px}
+  .eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--amber)}
+  .naam{font-size:clamp(1.65rem,8.2vw,2.5rem);font-weight:900;text-transform:uppercase;
+        letter-spacing:-.02em;line-height:.95;margin-top:8px;overflow-wrap:anywhere}
+  .plaats{color:var(--ink-2);font-weight:500;margin-top:6px}
+
+  /* meter */
+  .meter{margin-top:22px;background:var(--panel);border:1px solid var(--line);padding:16px 14px 12px}
+  .rij{display:grid;gap:5px}
+  .rij + .rij{margin-top:12px}
+  .lbl{font-size:.8rem;font-weight:500;color:var(--ink-2);letter-spacing:.02em;overflow-wrap:anywhere}
+  .track{position:relative;height:26px;background:var(--inset)}
+  .bar{position:absolute;left:0;top:0;bottom:0;width:calc((100% - var(--reserve)) * var(--w,0));min-width:3px}
+  .bar.jij{background:var(--ink-2)}
+  .bar.top{background:var(--amber)}
+  .bar.straks{background:repeating-linear-gradient(135deg,var(--amber) 0 6px,transparent 6px 11px);
+              border:1px solid var(--amber);border-left:0}
+  .val{position:absolute;top:0;line-height:26px;left:calc((100% - var(--reserve)) * var(--w,0) + 8px);
+       font-family:var(--mono);font-weight:800;font-size:1.15rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .rij-top .val{color:var(--amber)}
+  .rij-straks .val{color:var(--amber)}
+  .meter.leeft .bar,.meter.leeft .val{transition:width .4s ease-out,left .4s ease-out}
+  .schaal{margin-top:10px;width:calc(100% - var(--reserve))}
+  .ticks{height:8px;border-bottom:1px solid var(--dim);
+         background-image:linear-gradient(var(--dim),var(--dim));background-repeat:repeat-x;
+         background-size:1px 8px;background-position:0 0}
+  .schaal-lbl{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.7rem;
+              color:var(--dim);margin-top:4px}
+
+  .klap{margin-top:20px;font-size:clamp(1.15rem,4.8vw,1.4rem);font-weight:700;line-height:1.25}
+  .klap em{font-style:normal;color:var(--amber);font-family:var(--mono);font-weight:800}
+
+  /* rekenaar */
+  .reken{margin-top:20px}
+  .reken-kop{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+  .reken-kop label{font-weight:700;font-size:.98rem}
+  .reken-kop output{font-family:var(--mono);font-weight:800;font-size:1.5rem;color:var(--ink);
+                    font-variant-numeric:tabular-nums;line-height:1}
+  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:36px;background:transparent;
+                    margin:6px 0 0;padding:0;cursor:pointer}
+  input[type=range]::-webkit-slider-runnable-track{height:6px;background:var(--line);border-radius:3px}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:30px;height:30px;
+    margin-top:-12px;background:var(--amber);border:2px solid var(--amber-ink);border-radius:4px;
+    box-shadow:inset 0 0 0 2px var(--amber),inset 0 0 0 4px var(--amber-ink)}
+  input[type=range]::-moz-range-track{height:6px;background:var(--line);border-radius:3px}
+  input[type=range]::-moz-range-thumb{width:26px;height:26px;background:var(--amber);
+    border:2px solid var(--amber-ink);border-radius:4px}
+  input[type=range]:focus-visible{outline:3px solid var(--amber);outline-offset:4px}
+  .uitkomst{margin-top:6px;color:var(--ink-2);font-size:.95rem;line-height:1.5}
+  .uitkomst b{display:inline-block;font-family:var(--mono);font-weight:800;font-size:1.25rem;color:var(--amber);
+              background:var(--inset);border:1px solid var(--line);padding:1px 8px;margin-right:4px;
+              font-variant-numeric:tabular-nums;line-height:1.4;vertical-align:baseline}
+
+  /* knop */
+  .btn{display:block;width:100%;text-align:center;font-family:var(--display);font-weight:900;font-size:1.1rem;
+       text-transform:uppercase;letter-spacing:.04em;padding:18px 20px;border:0;border-radius:3px;cursor:pointer;
+       background:var(--amber);color:var(--amber-ink);text-decoration:none;
+       box-shadow:0 4px 0 var(--amber-ink)}
+  .btn:hover{filter:brightness(1.06)}
+  .btn:active{transform:translateY(2px);box-shadow:0 2px 0 var(--amber-ink)}
+  .rapport .btn{margin-top:22px}
+  .onder{margin-top:12px;font-size:.88rem;color:var(--dim)}
+
+  /* uitleg */
+  .uitleg{border-top:1px solid var(--line);padding-block:26px}
+  h2{font-size:1.25rem;font-weight:900;text-transform:uppercase;letter-spacing:.01em}
+  .drie{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:0}
+  .drie li{display:grid;grid-template-columns:24px 1fr;gap:10px;padding-block:10px;border-bottom:1px solid var(--line)}
+  .drie li:last-child{border-bottom:0}
+  .drie .nr{font-family:var(--mono);font-weight:800;color:var(--amber);font-size:.9rem;padding-top:2px}
+  .drie b{font-weight:700}
+  .drie span.t{color:var(--ink-2)}
+  .prijs{margin-top:18px;color:var(--ink-2);line-height:1.5}
+  .prijs b{font-family:var(--mono);font-weight:800;font-size:1.35rem;color:var(--ink);font-variant-numeric:tabular-nums}
+
+  /* formulier */
+  .aanmeld{border-top:1px solid var(--line);padding-block:26px 8px}
+  .sub{margin-top:8px;color:var(--ink-2)}
+  form{margin-top:16px;display:grid;gap:12px}
+  .veld label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+              color:var(--ink-2);margin-bottom:5px}
+  .veld input{width:100%;padding:13px 12px;border:1px solid var(--line);border-radius:3px;
+              background:var(--inset);color:var(--ink);font-family:var(--display);font-size:1rem}
+  .veld input::placeholder{color:var(--dim)}
+  .veld input.fout{border-color:var(--rood)}
+  .fout-msg{color:var(--rood);font-size:.9rem}
+  form .btn{margin-top:4px}
+  .ok{margin-top:16px;padding:16px;border:1px solid var(--amber);background:var(--panel)}
+  .ok b{color:var(--amber);font-weight:900;text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:4px}
+
+  .voet{border-top:1px solid var(--line);padding-block:18px 26px;display:flex;justify-content:space-between;
+        gap:12px;flex-wrap:wrap;font-size:.8rem;color:var(--dim)}
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+<header class="wrap kop">
+  <span class="merk">Reviewmotor</span>
+  <span>Google, gemeten <span id="datum">22 september 2026</span></span>
+</header>
+<div class="streep" aria-hidden="true"></div>
+
+<main class="wrap rapport">
+  <p class="eyebrow">Jullie stand op Google</p>
+  <h1 class="naam" id="bedrijf">Schildersbedrijf Jansen</h1>
+  <p class="plaats" id="plaats">Arnhem</p>
+
+  <section class="meter" id="meter" aria-label="Aantal Google-reviews">
+    <div class="rij rij-jij">
+      <span class="lbl">Jullie nu</span>
+      <div class="track"><div class="bar jij" id="bar-jij"></div><span class="val" id="n-jij">6</span></div>
+    </div>
+    <div class="rij rij-top">
+      <span class="lbl" id="top-lbl">Nummer 1 in Arnhem</span>
+      <div class="track"><div class="bar top" id="bar-top"></div><span class="val" id="n-top">84</span></div>
+    </div>
+    <div class="rij rij-straks">
+      <span class="lbl">Jullie over een jaar, met Reviewmotor aan</span>
+      <div class="track"><div class="bar straks" id="bar-straks"></div><span class="val" id="n-straks">78</span></div>
+    </div>
+    <div class="schaal" aria-hidden="true">
+      <div class="ticks" id="ticks"></div>
+      <div class="schaal-lbl"><span>0</span><span id="schaal-max">90</span></div>
+    </div>
+  </section>
+
+  <p class="klap" id="klap"><em>78 minder.</em> Niet omdat je minder werk levert, maar omdat je er nooit om vraagt.</p>
+
+  <div class="reken">
+    <div class="reken-kop">
+      <label for="klussen">Klussen per maand</label>
+      <output id="klus-n" for="klussen">20</output>
+    </div>
+    <input type="range" id="klussen" name="klussen" min="5" max="60" step="5" value="20" aria-describedby="uitkomst">
+    <p class="uitkomst" id="uitkomst"><b id="erbij">+72</b> reviews in een jaar, gerekend met 3 van de 10 klanten die reageren.</p>
+  </div>
+
+  <a class="btn" href="#aanmelden" id="cta">Zet hem aan voor ons</a>
+  <p class="onder">Eerste maand gratis. Per maand opzegbaar.</p>
+</main>
+
+<section class="wrap uitleg">
+  <h2>Wat je ervoor doet</h2>
+  <ol class="drie">
+    <li><span class="nr">1</span><span><b>Koppelen.</b> <span class="t">Je boekhoudpakket, Moneybird eerst. Twee minuten.</span></span></li>
+    <li><span class="nr">2</span><span><b>Verder niets.</b> <span class="t">Factuur de deur uit, verzoek naar je klant.</span></span></li>
+    <li><span class="nr">3</span><span><b>Reviews komen binnen.</b> <span class="t">Eén herinnering na drie dagen, daarna stil.</span></span></li>
+  </ol>
+  <p class="prijs"><b>€ 29</b> per maand voor de eerste vijf bedrijven, daarna € 49. Je houdt je prijs zolang je blijft.</p>
+</section>
+
+<section class="wrap aanmeld" id="aanmelden">
+  <h2>Zet hem aan</h2>
+  <p class="sub">We bellen binnen een werkdag om te koppelen. Daarna doe je niets meer.</p>
+
+  <form id="f" novalidate>
+    <div class="veld">
+      <label for="i-bedrijf">Bedrijfsnaam</label>
+      <input type="text" id="i-bedrijf" name="bedrijf" autocomplete="organization" placeholder="Schildersbedrijf Jansen" required>
+    </div>
+    <div class="veld">
+      <label for="i-naam">Je naam</label>
+      <input type="text" id="i-naam" name="naam" autocomplete="name" placeholder="Piet Jansen" required>
+    </div>
+    <div class="veld">
+      <label for="i-tel">Telefoon</label>
+      <input type="tel" id="i-tel" name="tel" autocomplete="tel" placeholder="06 12 34 56 78" required>
+    </div>
+    <div class="veld">
+      <label for="i-mail">E-mail</label>
+      <input type="email" id="i-mail" name="email" autocomplete="email" placeholder="piet@jansen.nl" required>
+    </div>
+    <p class="fout-msg" id="fout" hidden>Vul alle vier de velden in.</p>
+    <button class="btn" type="submit" id="verstuur">Zet hem aan voor ons</button>
+  </form>
+
+  <div class="ok" id="ok" role="status" hidden>
+    <b>Binnen.</b>
+    We bellen je binnen een werkdag om te koppelen.
+  </div>
+</section>
+
+<footer class="wrap voet"><span>Reviewmotor</span><span>reviewmotor.nl</span></footer>
+
+<script>
+  (function () {
+    var q = new URLSearchParams(location.search);
+    var el = function (id) { return document.getElementById(id); };
+    var tekst = function (s) { return String(s || '').trim().slice(0, 80); };
+
+    // Gegevens uit de link in de mail, met een voorbeeld als er niets meekomt.
+    var bedrijf = tekst(q.get('b')) || 'Schildersbedrijf Jansen';
+    var plaats  = tekst(q.get('p')) || 'Arnhem';
+    var topnaam = tekst(q.get('tn'));
+    var jij = parseInt(q.get('r'), 10);
+    var top = parseInt(q.get('t'), 10);
+    if (!Number.isFinite(jij) || jij < 0) jij = 6;
+    if (!Number.isFinite(top) || top < 0) top = 84;
+
+    el('bedrijf').textContent = bedrijf;
+    el('plaats').textContent = plaats;
+    el('n-jij').textContent = jij;
+    el('n-top').textContent = top;
+    el('top-lbl').textContent = topnaam ? topnaam + ', nummer 1 in ' + plaats : 'Nummer 1 in ' + plaats;
+    if (q.get('b')) el('i-bedrijf').value = bedrijf;
+
+    el('datum').textContent = new Date().toLocaleDateString('nl-NL',
+      { day: 'numeric', month: 'long', year: 'numeric' });
+
+    // Klapzin
+    var klap = el('klap');
+    var verschil = top - jij;
+    klap.textContent = '';
+    if (verschil > 0) {
+      var em = document.createElement('em');
+      em.textContent = verschil + ' minder.';
+      klap.appendChild(em);
+      klap.appendChild(document.createTextNode(' Niet omdat je minder werk levert, maar omdat je er nooit om vraagt.'));
+    } else {
+      klap.textContent = 'Jullie staan bovenaan. Zo blijft het alleen als je erom blijft vragen.';
+    }
+
+    // Meter: drie balken op één schaal, de derde loopt mee met de schuif.
+    var RESPONS = 0.30;
+    var slider = el('klussen');
+    var meter = el('meter');
+
+    function zetBalk(id, waarde, max) {
+      var w = max > 0 ? Math.min(1, waarde / max) : 0;
+      el('bar-' + id).style.setProperty('--w', w);
+      el('n-' + id).style.setProperty('--w', w);
+      el('n-' + id).textContent = waarde;
+    }
+
+    function reken() {
+      var klussen = parseInt(slider.value, 10) || 0;
+      var erbij = Math.round(klussen * 12 * RESPONS);
+      var straks = jij + erbij;
+      el('klus-n').textContent = klussen;
+      el('erbij').textContent = '+' + erbij;
+
+      var grootste = Math.max(jij, top, straks, 1);
+      var stap = grootste > 200 ? 50 : grootste > 100 ? 20 : 10;
+      var max = Math.ceil((grootste * 1.06) / stap) * stap;
+
+      zetBalk('jij', jij, max);
+      zetBalk('top', top, max);
+      zetBalk('straks', straks, max);
+      el('ticks').style.backgroundSize = (stap / max * 100) + '% 8px';
+      el('schaal-max').textContent = max;
+    }
+    slider.addEventListener('input', reken);
+    reken();
+
+    // Pas na de eerste tekening animeren, zodat de balken bij laden meteen op lengte staan.
+    requestAnimationFrame(function () { requestAnimationFrame(function () { meter.classList.add('leeft'); }); });
+
+    // Formulier in demo-modus: er wordt niets verstuurd.
+    var f = el('f'), ok = el('ok'), fout = el('fout');
+    var velden = ['i-bedrijf', 'i-naam', 'i-tel', 'i-mail'];
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var eerste = null;
+      for (var i = 0; i < velden.length; i++) {
+        var v = el(velden[i]);
+        var leeg = !v.value.trim() || (v.type === 'email' && !v.checkValidity());
+        v.classList.toggle('fout', leeg);
+        if (leeg && !eerste) eerste = v;
+      }
+      if (eerste) { fout.hidden = false; eerste.focus(); return; }
+      fout.hidden = true;
+      f.hidden = true;
+      ok.hidden = false;
+      ok.scrollIntoView({ block: 'center' });
+    });
+    for (var j = 0; j < velden.length; j++) {
+      el(velden[j]).addEventListener('input', function () { this.classList.remove('fout'); });
+    }
+  })();
+</script>
+</body>
+</html>
