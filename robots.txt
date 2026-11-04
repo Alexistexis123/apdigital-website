@@ -38,3 +38,6 @@ Disallow: /cs-schildersbedrijf
 Disallow: /clevair
 
 Sitemap: https://apdigital.nl/sitemap.xml
+
+# Ontwerp herstart (alleen ter beoordeling)
+Disallow: /ontwerp
