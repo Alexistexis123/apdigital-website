@@ -462,7 +462,7 @@ body.notes-uit .cijfers .note { display: none; }
 .verhaal small { display: block; font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--geel); margin-bottom: 4px; }
 .verhaal p { margin: 0; font-size: 15px; color: var(--wit); line-height: 1.45; }
 @media (hover: hover) and (min-width: 861px) {
-  .verhaal { position: absolute; left: 0; right: 0; top: 0; aspect-ratio: 16/10; z-index: 2; padding: 28px 30px; align-content: center; background: linear-gradient(160deg, rgba(14,14,14,.97), rgba(10,10,10,.93)); border-bottom: 1px solid rgba(255,214,10,.4); opacity: 0; transform: translateY(14px); pointer-events: none; transition: opacity .35s, transform .45s cubic-bezier(.2,.8,.2,1); }
+  .verhaal { position: absolute; left: 0; right: 0; top: 0; aspect-ratio: 16/10; z-index: 2; padding: 28px 30px; align-content: center; background: linear-gradient(160deg, #121212, #0b0b0b); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,214,10,.4); opacity: 0; transform: translateY(14px); pointer-events: none; transition: opacity .35s, transform .45s cubic-bezier(.2,.8,.2,1); }
   .verhaal > div { opacity: 0; transform: translateY(8px); transition: opacity .35s, transform .45s; }
   .verhaal-case:hover .verhaal, .verhaal-case.open .verhaal { opacity: 1; transform: none; pointer-events: auto; }
   .verhaal-case:hover .verhaal > div, .verhaal-case.open .verhaal > div { opacity: 1; transform: none; }
@@ -470,7 +470,7 @@ body.notes-uit .cijfers .note { display: none; }
   .verhaal-case:hover .verhaal > div:nth-child(3), .verhaal-case.open .verhaal > div:nth-child(3) { transition-delay: .16s; }
 }
 @media not all and (hover: hover) and (min-width: 861px) {
-  .verhaal { order: 3; max-height: 0; overflow: hidden; padding: 0 26px; transition: max-height .5s cubic-bezier(.2,.8,.2,1), padding .4s; background: #0d0d0d; border-top: 1px solid transparent; }
+  .verhaal { order: 3; position: relative; z-index: 2; max-height: 0; overflow: hidden; padding: 0 26px; transition: max-height .5s cubic-bezier(.2,.8,.2,1), padding .4s; background: #0d0d0d; border-top: 1px solid transparent; }
   .verhaal-case.open .verhaal { max-height: 640px; padding: 20px 26px 22px; border-top-color: rgba(255,214,10,.35); }
   .verhaal-case .tekst { order: 2; }
 }
