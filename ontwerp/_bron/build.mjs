@@ -3,7 +3,7 @@
 import { writeFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
-import { projecten, pijlers } from './data.mjs'
+import { projecten, pijlers, verhalen } from './data.mjs'
 import { doorlichting, gscTotaal } from './doorlichting.mjs'
 
 const UIT = join(dirname(fileURLToPath(import.meta.url)), '..')
@@ -19,7 +19,7 @@ const ICO = {
 function kop(actief) {
   const l = (href, t, k) => `<a href="${B}${href}"${actief === k ? ' class="actief"' : ''}>${t}</a>`
   return `
-<div class="ontwerpbalk"><div class="wrap"><span>Ontwerp herstart · niet live · alleen voor Alex</span><span class="knoppen"><button type="button" id="notes-knop">Notities uit</button><a href="${B}/doorlichting">Doorlichting</a></span></div></div>
+<div class="ontwerpbalk"><div class="wrap"><span>Ontwerp herstart · niet live · alleen voor Alex</span><span class="knoppen"><button type="button" id="notes-knop">Notities aan</button><a href="${B}/doorlichting">Doorlichting</a></span></div></div>
 <header class="kop"><div class="wrap">
   <a class="logo" href="${B}/"><span class="blok">AP</span><span class="woord">AP Digital</span></a>
   <nav class="nav" id="nav">
@@ -40,8 +40,9 @@ function voet() {
   <div class="kolommen">
     <div>
       <a class="logo" href="${B}/"><span class="blok">AP</span><span class="woord">AP Digital</span></a>
-      <div class="tagline">Digitaal werk dat gewoon werkt.</div>
-      <p style="font-size:15px">Websites, apps en automatisering voor ondernemers. Vanuit Arnhem.</p>
+      <div class="tagline">Eerst voor ons eigen werk. Nu voor het jouwe.</div>
+      <p style="font-size:15px">Websites, apps en automatisering voor ondernemers. Gebouwd in Arnhem.</p>
+      <span class="note">Footer-regel vervangt de brandbook-tagline "Digitaal werk dat gewoon werkt". Brandbook aanpassen of terugzetten: Alex.</span>
     </div>
     <div><h4>Wat we bouwen</h4><a href="${B}/websites">Websites</a><a href="${B}/apps">Apps op maat</a><a href="${B}/automatisering">Processen en automatisering</a><a href="${B}/portfolio">Portfolio</a></div>
     <div><h4>AP Digital</h4><a href="${B}/over">Over ons</a><a href="${B}/kennismaking">Gratis kennismaking</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/voorwaarden">Voorwaarden</a></div>
@@ -66,15 +67,16 @@ function pagina({ titel, beschrijving, actief, body }) {
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="${B}/ontwerp.css?v=1" />
+<link rel="stylesheet" href="${B}/ontwerp.css?v=2" />
+<script>document.documentElement.classList.add('js')</script>
 </head>
-<body>
+<body class="notes-uit">
 ${kop(actief)}
 <main>
 ${body}
 </main>
 ${voet()}
-<script src="${B}/ontwerp.js?v=1"></script>
+<script src="${B}/ontwerp.js?v=2"></script>
 </body>
 </html>
 `
@@ -86,13 +88,19 @@ function beeld(p) {
     return `<div class="beeld"><div class="tekstpaneel">${p.punten.map((t, i) => `<div class="rij"><b>${i + 1}</b><span>${t[0]}<small>${t[1]}</small></span></div>`).join('')}</div></div>`
   }
   if (p.beeld === 'nep') {
-    return `<div class="beeld"><div class="nepscherm"><div class="zij"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="hoofd"><div class="titel">${p.titel}</div><div class="tegels"><b></b><b></b><b></b></div><div class="grafiek"><i style="height:40%"></i><i style="height:62%"></i><i style="height:48%"></i><i style="height:86%"></i><i style="height:58%"></i><i style="height:70%"></i></div></div><div class="stempel">Screenshot volgt · nepdata</div></div></div>`
+    // Voorlopig beeld tot de echte schermen (nepdata) binnen zijn: menu = wat we bouwden, geen verzonnen cijfers.
+    const menu = p.gebouwd.map((g, i) => `<span${i === 0 ? ' class="aan"' : ''}>${g}</span>`).join('')
+    const h = [44, 66, 52, 88, 61, 74, 57]
+    return `<div class="beeld"><div class="nepscherm"><div class="zij"><em>${p.titel.split(' ')[0]}</em>${menu}</div><div class="hoofd"><div class="titel">${p.gebouwd[0]}</div><div class="tegels"><b></b><b></b><b></b></div><div class="grafiek">${h.map(x => `<i style="--h:${x}%"></i>`).join('')}</div></div><div class="stempel">Echt scherm volgt · nepdata</div></div></div>`
+  }
+  if (p.beeld === 'telefoons') {
+    return `<div class="beeld telefoons">${p.telefoons.map((f, i) => `<div class="tel tel-${i + 1}"><img src="${B}/img/${f}" alt="${i === 0 ? p.alt : ''}" decoding="async" loading="lazy" /></div>`).join('')}</div>`
   }
   if (p.beeld === 'telefoon') {
     return `<div class="beeld" style="display:grid;place-items:center;background:radial-gradient(closest-side,rgba(255,214,10,.12),#141414)"><div class="telefoon" style="width:44%;margin-top:26px;box-shadow:none"><img src="${B}/img/${p.img}" alt="${p.alt}" decoding="async" style="aspect-ratio:534/520" /></div></div>`
   }
-  const mini = p.mobiel ? `<div class="mini"><img src="${B}/img/${p.mobiel}" alt="" decoding="async" /></div>` : ''
-  return `<div class="beeld"><img src="${B}/img/${p.img}" alt="${p.alt}" decoding="async" />${mini}</div>`
+  const mini = p.mobiel ? `<div class="mini"><img src="${B}/img/${p.mobiel}" alt="" decoding="async" loading="lazy" /></div>` : ''
+  return `<div class="beeld"><img src="${B}/img/${p.img}" alt="${p.alt}" decoding="async" loading="lazy" />${mini}</div>`
 }
 
 function kaart(p) {
@@ -101,18 +109,43 @@ function kaart(p) {
     ? `<a class="link" href="${p.url}" target="_blank" rel="noopener">${p.linktekst || 'Bekijk de site'} ↗</a>`
     : `<span class="link stil">${p.geenlink || 'Werkt achter inlog, demo op aanvraag'}</span>`
   const notitie = p.notitie ? `<span class="note">${p.notitie}</span>` : ''
-  return `<article class="case" data-pijler="${p.pijler}">
+  const v = verhalen[p.id] || null
+  if (!v) {
+    return `<article class="case" data-pijler="${p.pijler}" data-reveal>
   ${beeld(p)}
   <div class="tekst">
     <div class="meta"><span class="pil">${p.soort}</span>${status}</div>
     <h3>${p.titel}</h3>
     <p>${p.kort}</p>
+    ${p.cijfer ? `<div class="bewijs klein-bewijs"><strong>${p.cijfer[0]}</strong><span>${p.cijfer[1]}</span></div><span class="note">Bron: ${p.bron}</span>` : ''}
     <div class="gebouwd">${p.gebouwd.map(g => `<span>${g}</span>`).join('')}</div>
     ${notitie}
     ${link}
   </div>
 </article>`
+  }
+  const vid = `v-${p.id}-${++kaartTeller}`
+  const cijfer = v.cijfer ? `<div class="bewijs"><strong${/^[\d.]+$/.test(v.cijfer[0]) ? ` data-tel="${v.cijfer[0].replace(/\./g, '')}"` : ''}>${v.cijfer[0]}</strong><span>${v.cijfer[1]}</span></div>` : ''
+  return `<article class="case verhaal-case" data-pijler="${p.pijler}" data-reveal>
+  ${beeld(p)}
+  <div class="verhaal" id="${vid}">
+    <div><small>01 · Het probleem</small><p>${v.probleem}</p></div>
+    <div><small>02 · Wat we bouwden</small><p>${v.gebouwd}</p></div>
+    <div><small>03 · Wat het opleverde</small><p>${v.opgeleverd}</p></div>
+  </div>
+  <div class="tekst">
+    <div class="meta"><span class="pil">${p.soort}</span>${status}</div>
+    <h3>${p.titel}</h3>
+    <p>${p.kort}</p>
+    ${cijfer}
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="${vid}"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <span class="note">Bron: ${v.bron}</span>
+    ${notitie}
+    ${link}
+  </div>
+</article>`
 }
+let kaartTeller = 0
 
 const perPijler = k => projecten.filter(p => p.pijler === k)
 const uitgelicht = k => perPijler(k).filter(p => p.top)
@@ -126,12 +159,65 @@ const ctaBand = (titel = 'Benieuwd wat er bij jou <span class="serif">te winnen 
 </div></div></section>`
 
 const stappen = `
-<div class="stappen">
-  <div class="stap"><div class="nr">01</div><h3>Kennismaking</h3><p>We horen wat je doet en waar het knelt. Gratis en zonder verplichting.</p></div>
-  <div class="stap"><div class="nr">02</div><h3>Voorstel</h3><p>Wat we bouwen, wat het kost en wanneer het af is. Op papier, voordat we beginnen.</p></div>
-  <div class="stap"><div class="nr">03</div><h3>Bouwen</h3><p>Je ziet tussentijds wat er staat en geeft feedback, niet pas aan het eind.</p></div>
-  <div class="stap"><div class="nr">04</div><h3>Live en verder</h3><p>We zetten het live en blijven bereikbaar. ${ph('Onderhoud en support: aanbod nog te besluiten')}</p></div>
-</div>`
+<ol class="stappen">
+  <li class="stap" data-reveal><div class="nr">01</div><h3>Jij vertelt waar het knelt</h3><p>Aan de telefoon of aan tafel. Wat kost je tijd, wat loopt vast, wat wil je anders.</p></li>
+  <li class="stap" data-reveal><div class="nr">02</div><h3>Wij zeggen wat we zouden bouwen</h3><p>En wat we níet zouden doen. Soms is een betere site genoeg, soms is het een app.</p></li>
+  <li class="stap" data-reveal><div class="nr">03</div><h3>Je krijgt het op papier</h3><p>Wat we bouwen, wanneer het af is en wat het kost. Pas na jouw ja beginnen we.</p></li>
+  <li class="stap" data-reveal><div class="nr">04</div><h3>We bouwen, jij kijkt mee</h3><p>Je ziet tussendoor wat er staat. Daarna live, en we blijven bereikbaar. ${ph('Onderhoud en support: aanbod nog te besluiten')}</p></li>
+</ol>`
+
+// Hero-machine: een aanvraag loopt van website naar planning naar offerte + mail. Nepdata, puur illustratie.
+const machine = `
+<div class="machine" id="machine" data-stap="0" role="img" aria-label="Voorbeeld met nepdata: een aanvraag komt binnen via de website, staat daarna in de planning en levert vanzelf een offerte en een mail op.">
+  <div class="m-raam m-site" data-raam="1">
+    <div class="m-balk"><i></i><i></i><i></i><span>jouwbedrijf.nl/offerte</span></div>
+    <div class="m-inhoud">
+      <div class="m-kop">Offerte aanvragen</div>
+      <div class="m-veld"><small>Naam</small><span data-typ="M. de Vries"></span></div>
+      <div class="m-veld"><small>Klus</small><span data-typ="Schilderwerk buiten"></span></div>
+      <div class="m-veld m-veld-plaats"><small>Plaats</small><span data-typ="Velp"></span></div>
+      <div class="m-knop">Aanvraag versturen</div>
+    </div>
+  </div>
+  <div class="m-draad" data-draad="1"><b></b></div>
+  <div class="m-raam m-plan" data-raam="2">
+    <div class="m-balk"><i></i><i></i><i></i><span>Planning · deze week</span></div>
+    <div class="m-inhoud">
+      <div class="m-week">
+        <div><small>ma</small><i></i><i class="l"></i></div>
+        <div><small>di</small><i class="l"></i></div>
+        <div><small>wo</small><i></i><i></i></div>
+        <div class="m-do"><small>do</small><i class="l"></i><b class="m-nieuw"><em>De Vries</em><span>Velp</span></b></div>
+        <div><small>vr</small><i></i></div>
+      </div>
+      <div class="m-status"><span class="m-pil">Nieuwe aanvraag</span><span class="m-pil ok">Ingepland do 08:00</span></div>
+    </div>
+  </div>
+  <div class="m-draad" data-draad="2"><b></b></div>
+  <div class="m-raam m-offerte" data-raam="3">
+    <div class="m-balk"><i></i><i></i><i></i><span>Offerte · automatisch</span></div>
+    <div class="m-inhoud">
+      <div class="m-doc">
+        <div class="m-doc-kop"><span class="m-logo"></span><div><b>Offerte</b><small>M. de Vries · Velp</small></div></div>
+        <i style="--w:86%"></i><i style="--w:64%"></i><i style="--w:74%"></i><i class="m-tot" style="--w:40%"></i>
+      </div>
+      <div class="m-mail"><span class="m-vink"></span><div><b>Mail verstuurd</b><small>Offerte staat in de inbox van M. de Vries</small></div></div>
+    </div>
+  </div>
+</div>
+<ol class="m-stappen" aria-hidden="true">
+  <li data-s="1"><b>01</b>Aanvraag via je website</li>
+  <li data-s="2"><b>02</b>Staat meteen in je planning</li>
+  <li data-s="3"><b>03</b>Offerte en mail gaan vanzelf de deur uit</li>
+</ol>`
+
+// Cijfers met bron. Alleen wat we zelf gezien hebben (04-11-2026).
+const cijfers = [
+  ['13.337', 'kaarten van de PostLeads-machine bij mensen op de mat, in 19 weken', 'Bevestigde drukkersopdrachten week 27 t/m 45 2026 (postleads data/weekcijfers.json), aangeleverd door Pim, niet zelf ingezien.'],
+  ['52', 'oude adressen van Flo-Rent netjes doorgestuurd, niemand loopt dood', 'florent/site/vercel.json, live steekproef 04-11.'],
+  ['€0', 'hosting per maand voor Her-bergen, alleen het domein kost geld', 'Vault her-berg/Current.md, nagemeten 15-10 (Cloudflare Worker, gratis plan).'],
+  ['100', 'van 100 voor de SEO-basis in Google Lighthouse, Flo-Rent en RH Scooter', 'Eigen Lighthouse-meting 04-11-2026, mobiel, 2 runs per site, allebei 100. Snelheidsscore was 77-88: die noemen we bewust niet.'],
+]
 
 // ---------- HOME ----------
 const home = pagina({
@@ -139,57 +225,62 @@ const home = pagina({
   beschrijving: 'Ontwerp nieuwe homepage AP Digital.',
   actief: 'home',
   body: `
-<section class="hero raster"><div class="wrap hero-grid">
-  <div>
-    <div class="label geel">Websites · Apps · Automatisering</div>
-    <h1>Digitaal werk <span class="serif">dat gewoon werkt.</span></h1>
-    <p class="lead">We bouwen je website, de app waar je bedrijf op draait en de koppelingen die handwerk overnemen. Alles in ons portfolio draait echt, bij echte bedrijven en in ons eigen werk.</p>
-    <div class="knoppen-rij"><a class="knop" href="${B}/kennismaking">Plan een gratis kennismaking</a><a class="knop-2" href="${B}/portfolio">Bekijk ons werk</a></div>
-    <div class="hero-feit">
-      <div><strong>Websites</strong>voor lokale bedrijven</div>
-      <div><strong>Apps op maat</strong>planning, uren, kassa</div>
-      <div><strong>Automatisering</strong>minder handwerk</div>
+<section class="hero2"><div class="wrap">
+  <div class="hero-kop">
+    <div>
+      <div class="label geel">Websites · Apps · Automatisering</div>
+      <h1>Eerst gebouwd voor <span class="streep">ons eigen werk.</span> <span class="serif">Nu voor het jouwe.</span></h1>
     </div>
-    <span class="note">Hero-tekst bewust zonder prijs en zonder "7 dagen": het aanbod per pijler is nog niet besloten. Tagline komt uit het brandbook.</span>
+    <div class="hero-rechts">
+      <p class="lead">Bij een verhuisbedrijf en in onze eigen leadservice draait elke dag software die wij bouwden. Dat bouwen we nu voor jou: een site die aanvragen binnenhaalt, een app die past op je werk, en het handwerk ertussen dat vanzelf gaat.</p>
+      <div class="knoppen-rij"><a class="knop" href="${B}/kennismaking">Plan een gratis kennismaking</a><a class="knop-2" href="#verhalen">Bekijk wat we bouwden</a></div>
+    </div>
   </div>
-  <div class="collage" aria-hidden="true">
-    <div class="browser"><div class="balk"><i></i><i></i><i></i><span>flo-rent.nl</span></div><img src="${B}/img/florent-d.webp" alt="" /></div>
-    <div class="dash"><img src="${B}/img/postleads-dashboard.webp" alt="" /></div>
-    <div class="telefoon"><img src="${B}/img/urenapp-registreren.webp" alt="" style="aspect-ratio:534/620;object-position:top left" /></div>
-  </div>
+  <span class="note">Kernboodschap op verzoek van Harvey/Alex. "Een verhuisbedrijf" = Jacobs Heteren (uren-app, website), "onze eigen leadservice" = PostLeads. Mogen we zo naar Jacobs verwijzen, ook als de maat meedoet? Beslispunt Alex. Geen prijs en geen "7 dagen": aanbod nog niet besloten.</span>
+  ${machine}
+  <p class="m-uitleg">Zo loopt een aanvraag als je site, planning en offertes aan elkaar hangen. <span>Voorbeeld met nepdata.</span></p>
 </div></section>
+
+<div class="tape" aria-hidden="true"><div class="tape-rol"><span>Websites</span><span>Apps op maat</span><span>Automatisering</span><span>Gebouwd in Arnhem</span><span>Eerst getest in eigen werk</span><span>Websites</span><span>Apps op maat</span><span>Automatisering</span><span>Gebouwd in Arnhem</span><span>Eerst getest in eigen werk</span></div></div>
 
 <section class="sectie"><div class="wrap">
-  <div class="sectie-kop"><div><div class="label">Wat we bouwen</div><h2 style="margin-top:12px">Drie dingen, <span class="serif">één team.</span></h2><p class="lead">Begin met een betere website. Loop je daarna vast op Excel, papier of dubbel overtypen, dan bouwen we dat ook.</p></div></div>
+  <div class="sectie-kop" data-reveal><div><div class="label">Wat we bouwen</div><h2 style="margin-top:12px">Begin bij je site. <span class="serif">Stop waar het knelt.</span></h2><p class="lead">De meeste klanten komen voor een betere website. Loop je daarna vast op Excel, papier of dubbel overtypen, dan bouwen we dat er gewoon achteraan.</p></div></div>
   <div class="pijlers">
-    ${pijlers.map(p => `<a class="pijler" href="${B}/${p.slug}"><div class="ico">${ICO[p.key]}</div><h3>${p.naam}</h3><p>${p.kort}</p><ul>${p.voorbeelden.map(v => `<li>${v}</li>`).join('')}</ul><span class="meer">Meer over ${p.naam.toLowerCase()} →</span></a>`).join('')}
+    ${pijlers.map((p, i) => `<a class="pijler" href="${B}/${p.slug}" data-reveal style="--d:${i * 90}ms"><div class="ico">${ICO[p.key]}</div><div class="pijler-nr">0${i + 1}</div><h3>${p.naam}</h3><p>${p.kort}</p><ul>${p.voorbeelden.map(v => `<li>${v}</li>`).join('')}</ul><span class="meer">Meer over ${p.naam.toLowerCase()} →</span></a>`).join('')}
   </div>
 </div></section>
 
-<section class="sectie" style="padding-top:0"><div class="wrap">
-  <div class="sectie-kop"><div><div class="label">Uitgelicht werk</div><h2 style="margin-top:12px">Werk dat <span class="serif">echt draait.</span></h2></div><a class="knop-2" href="${B}/portfolio">Alle projecten →</a></div>
-  <div class="cases">
-    ${['florent', 'urenapp', 'postleads-dashboard', 'cockpit'].map(id => kaart(projecten.find(p => p.id === id))).join('')}
+<section class="sectie cijfer-sectie raster"><div class="wrap">
+  <div class="sectie-kop" data-reveal><div><div class="label">In cijfers</div><h2 style="margin-top:12px">Geen beloftes. <span class="serif">Dit staat er al.</span></h2></div></div>
+  <div class="cijfers">
+    ${cijfers.map((c, i) => `<div data-reveal style="--d:${i * 80}ms"><strong${/^[\d.]+$/.test(c[0]) ? ` data-tel="${c[0].replace(/\./g, '')}"` : ''}>${c[0]}</strong><span>${c[1]}</span><span class="note">Bron: ${c[2]}</span></div>`).join('')}
   </div>
-  <span class="note">Keuze van deze vier is een voorstel: een website, een app, een klantportaal en een automatisering. Alex kiest de definitieve vier.</span>
+</div></section>
+
+<section class="sectie" id="verhalen"><div class="wrap">
+  <div class="sectie-kop" data-reveal><div><div class="label">Uitgelicht werk</div><h2 style="margin-top:12px">Vier klussen, <span class="serif">vier verhalen.</span></h2><p class="lead">Wat er mis was, wat we bouwden en wat het opleverde. Beweeg over een project of tik op het verhaal.</p></div><a class="knop-2" href="${B}/portfolio">Alle projecten →</a></div>
+  <div class="cases">
+    ${['florent', 'kassa', 'postleads-machine', 'cockpit'].map(id => kaart(projecten.find(p => p.id === id))).join('')}
+  </div>
+  <span class="note">Keuze van deze vier is een voorstel (nu met echte schermen en elk een cijfer): een website, een app, en twee automatiseringen. Uren-app en PostLeads-klantportaal staan op de pijlerpagina Apps. Alex kiest de definitieve vier.</span>
 </div></section>
 
 <section class="sectie raster"><div class="wrap">
-  <div class="sectie-kop"><div><div class="label">Waarom AP Digital</div><h2 style="margin-top:12px">Meer dan <span class="serif">een webbouwer.</span></h2></div></div>
+  <div class="sectie-kop" data-reveal><div><div class="label">Waarom wij</div><h2 style="margin-top:12px">Geen <s class="doorhaal">webbureau.</s> <span class="serif">Bouwers die zelf ondernemen.</span></h2></div></div>
   <div class="drie">
-    <div><div class="nr">01</div><h3>We bouwen ook wat achter je site zit</h3><p>Een offerteformulier is mooi. Een systeem dat die aanvraag meteen in je planning zet is beter. Dat bouwen we allebei.</p></div>
-    <div><div class="nr">02</div><h3>Bewezen in eigen werk</h3><p>Onze eigen bedrijven draaien op apps en automatisering die we zelf bouwden. Wat we verkopen, gebruiken we elke dag.</p></div>
-    <div><div class="nr">03</div><h3>Je praat met de bouwers</h3><p>Geen accountmanager ertussen. Wie je belt, weet hoe je site of app in elkaar zit.</p></div>
+    <div data-reveal><div class="nr">01</div><h3>We gebruiken het zelf</h3><p>We verkopen niets wat we zelf niet gebruiken. Onze uren- en leadsoftware draait elke dag. Wat niet handig werkt, merken we zelf als eerste.</p></div>
+    <div data-reveal style="--d:90ms"><div class="nr">02</div><h3>Site en systeem uit één hand</h3><p>Een formulier op je site is stap één. Dat die aanvraag daarna vanzelf in je planning staat, is stap twee. Wij doen allebei, dus er zit geen gat tussen.</p></div>
+    <div data-reveal style="--d:180ms"><div class="nr">03</div><h3>Je belt met wie het bouwt</h3><p>Geen accountmanager ertussen. Wie je aan de lijn hebt, heeft je site of app zelf in elkaar gezet.</p></div>
   </div>
-  <span class="note">Punt 02 klopt alleen als PostLeads en de cockpit als "eigen bedrijf/eigen werk" genoemd mogen worden. Graag bevestigen.</span>
+  <span class="note">Punt 01 zegt "uren- en leadsoftware" en niet "planning": MoveFlow-gebruik valt buiten de AP Digital-tak en is niet nagekeken. Punt 03 klopt zolang Alex en de maat zelf bouwen en bellen.</span>
 </div></section>
 
 <section class="sectie"><div class="wrap">
-  <div class="sectie-kop"><div><div class="label">Zo werken we</div><h2 style="margin-top:12px">Van eerste gesprek <span class="serif">tot live.</span></h2></div></div>
+  <div class="sectie-kop" data-reveal><div><div class="label">Zo gaat het</div><h2 style="margin-top:12px">Vier gesprekken, <span class="serif">geen verrassingen.</span></h2></div></div>
   ${stappen}
 </div></section>
 
-<section class="sectie smal" style="padding-top:0"><div class="wrap">
+<section class="sectie smal alleen-notes" style="padding-top:0"><div class="wrap">
   <div class="sectie-kop"><div><div class="label">Wat klanten zeggen</div><h2 style="margin-top:12px">Reviews</h2></div><a class="knop-2" href="https://g.page/r/CW935XvUw1JkEBM/review" target="_blank" rel="noopener">Bekijk ons Google-profiel ↗</a></div>
   <span class="note">Hier komen de echte Google-reviews, met een getal dat live wordt opgehaald of met de hand gecontroleerd voor livegang. Geen aantal of score uit oude notities overnemen.</span>
 </div></section>

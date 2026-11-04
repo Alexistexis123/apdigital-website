@@ -11,11 +11,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/ontwerp/ontwerp.css?v=1" />
+<link rel="stylesheet" href="/ontwerp/ontwerp.css?v=2" />
+<script>document.documentElement.classList.add('js')</script>
 </head>
-<body>
+<body class="notes-uit">
 
-<div class="ontwerpbalk"><div class="wrap"><span>Ontwerp herstart · niet live · alleen voor Alex</span><span class="knoppen"><button type="button" id="notes-knop">Notities uit</button><a href="/ontwerp/doorlichting">Doorlichting</a></span></div></div>
+<div class="ontwerpbalk"><div class="wrap"><span>Ontwerp herstart · niet live · alleen voor Alex</span><span class="knoppen"><button type="button" id="notes-knop">Notities aan</button><a href="/ontwerp/doorlichting">Doorlichting</a></span></div></div>
 <header class="kop"><div class="wrap">
   <a class="logo" href="/ontwerp/"><span class="blok">AP</span><span class="woord">AP Digital</span></a>
   <nav class="nav" id="nav">
@@ -50,76 +51,101 @@
 
 <section class="sectie smal" id="werk"><div class="wrap">
   <div class="sectie-kop"><div><div class="label">Voorbeelden</div><h2 style="margin-top:12px">Zo ziet dat er <span class="serif">in het echt uit.</span></h2></div><a class="knop-2" href="/ontwerp/portfolio#apps">Heel het portfolio →</a></div>
-  <div class="cases"><article class="case" data-pijler="apps">
+  <div class="cases"><article class="case" data-pijler="apps" data-reveal>
   <div class="beeld"><div class="tekstpaneel"><div class="rij"><b>1</b><span>Offertes met rekenmotor<small>Prijs berekend, netjes de deur uit.</small></span></div><div class="rij"><b>2</b><span>Planning en werkbonnen<small>Van agenda naar de bon voor de ploeg.</small></span></div><div class="rij"><b>3</b><span>Klant- en dossierbeheer<small>Elke verhuizing op een plek.</small></span></div><div class="rij"><b>4</b><span>Alles in een dashboard<small>Overzicht en cijfers.</small></span></div></div></div>
   <div class="tekst">
     <div class="meta"><span class="pil">App op maat</span></div>
     <h3>MoveFlow</h3>
     <p>Het systeem waar een verhuisbedrijf op draait: van aanvraag en offerte tot planning en werkbon voor de ploeg.</p>
+    
     <div class="gebouwd"><span>Offertes</span><span>Planning</span><span>Dossiers</span><span>Dashboard</span></div>
     <span class="note">BESLISPUNT: MoveFlow valt onder de Bas-licentie (IP en geheimhouding tot minimaal 2031). Daarom bewust geen schermen, alleen deze vier punten in onze eigen huisstijl (zelfde tekst als de social-post van juli). Mag MoveFlow met naam erin, zonder naam ("planningssysteem voor een verhuisbedrijf"), of helemaal niet?</span>
     <span class="link stil">Bedrijfssoftware, geen publieke demo</span>
   </div>
-</article><article class="case" data-pijler="apps">
+</article><article class="case verhaal-case" data-pijler="apps" data-reveal>
   <div class="beeld" style="display:grid;place-items:center;background:radial-gradient(closest-side,rgba(255,214,10,.12),#141414)"><div class="telefoon" style="width:44%;margin-top:26px;box-shadow:none"><img src="/ontwerp/img/urenapp-registreren.webp" alt="Uren-app: uren registreren" decoding="async" style="aspect-ratio:534/520" /></div></div>
+  <div class="verhaal" id="v-urenapp-15">
+    <div><small>01 · Het probleem</small><p>Uren op briefjes, verlof via de telefoon en kantoor dat alles overtikt voor de loonadministratie.</p></div>
+    <div><small>02 · Wat we bouwden</small><p>Een app waarin medewerkers uren, verlof en declaraties op hun telefoon invullen. Kantoor keurt goed in één overzicht.</p></div>
+    <div><small>03 · Wat het opleverde</small><p>De export voor de loonadministratie rolt eruit, zonder overtypen. Inmiddels ook als witte versie voor andere bedrijven.</p></div>
+  </div>
   <div class="tekst">
     <div class="meta"><span class="pil">App op maat</span></div>
     <h3>Uren-app</h3>
     <p>Urenregistratie voor een verhuisbedrijf. Medewerkers schrijven uren op hun telefoon, kantoor keurt goed en ziet verlof, declaraties en voertuigen. Ook als witte versie voor andere bedrijven.</p>
-    <div class="gebouwd"><span>Uren op telefoon</span><span>Goedkeuren</span><span>Verlof en declaraties</span><span>Witte versie</span></div>
+    
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-urenapp-15"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <span class="note">Bron: Verhaal uit de goedgekeurde social-post 08-urenapp (caption.md). Geen cijfer: geen bron binnen de AP Digital-tak. Aantal gebruikers of geregistreerde uren via Jacob opvragen als we hier een cijfer willen.</span>
     <span class="note">Screenshot is de afgeschermde versie uit de social-post (naam weggepoetst). Logo van Jacobs is klein zichtbaar: akkoord Jacobs nodig, of een whitelabel-screenshot met nepdata.</span>
     <span class="link stil">Werkt achter inlog, demo op aanvraag</span>
   </div>
-</article><article class="case" data-pijler="apps">
-  <div class="beeld"><img src="/ontwerp/img/postleads-dashboard.webp" alt="PostLeads klantportaal met demobedrijf" decoding="async" /></div>
+</article><article class="case verhaal-case" data-pijler="apps" data-reveal>
+  <div class="beeld"><img src="/ontwerp/img/postleads-dashboard.webp" alt="PostLeads klantportaal met demobedrijf" decoding="async" loading="lazy" /></div>
+  <div class="verhaal" id="v-postleads-dashboard-16">
+    <div><small>01 · Het probleem</small><p>Klanten van een postkaartenservice willen zien wat er in hun gebied gebeurt, zonder dat ze daarvoor moeten mailen of bellen.</p></div>
+    <div><small>02 · Wat we bouwden</small><p>Een klantportaal met een kaart van het eigen gebied, de verstuurde kaarten en de aanvragen die binnenkwamen.</p></div>
+    <div><small>03 · Wat het opleverde</small><p>Elke klant heeft één inlog en ziet zelf wat zijn kaarten opleveren.</p></div>
+  </div>
   <div class="tekst">
     <div class="meta"><span class="pil">Klantportaal</span></div>
     <h3>PostLeads dashboard en CRM</h3>
     <p>Klantportaal voor een leadservice met postkaarten. Elke klant ziet zijn gebied, verstuurde kaarten, aanvragen en wat het opleverde.</p>
-    <div class="gebouwd"><span>Klantportaal</span><span>Kaart per gebied</span><span>Aanvragen volgen</span></div>
+    
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-postleads-dashboard-16"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <span class="note">Bron: Geen cijfer: PostLeads-data valt buiten de AP Digital-tak. Aantal klanten of kaarten via Pim opvragen als we hier een cijfer willen.</span>
     <span class="note">Screenshot toont "Demo bedrijf" met nepcijfers en staat nu al op de live site.</span>
     <span class="link stil">Klantportaal, demo op aanvraag</span>
   </div>
-</article><article class="case" data-pijler="apps">
-  <div class="beeld"><div class="nepscherm"><div class="zij"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="hoofd"><div class="titel">Kassa- en voorraadapp</div><div class="tegels"><b></b><b></b><b></b></div><div class="grafiek"><i style="height:40%"></i><i style="height:62%"></i><i style="height:48%"></i><i style="height:86%"></i><i style="height:58%"></i><i style="height:70%"></i></div></div><div class="stempel">Screenshot volgt · nepdata</div></div></div>
+</article><article class="case verhaal-case" data-pijler="apps" data-reveal>
+  <div class="beeld"><img src="/ontwerp/img/kassa-d.webp" alt="Kassa-app met nepdata: producten afrekenen" decoding="async" loading="lazy" /><div class="mini"><img src="/ontwerp/img/kassa-m.webp" alt="" decoding="async" loading="lazy" /></div></div>
+  <div class="verhaal" id="v-kassa-17">
+    <div><small>01 · Het probleem</small><p>Een winkel die ook online verkoopt, met meerdere verkopers. Afrekenen, voorraad en kortingen moesten op één plek, ook op de telefoon.</p></div>
+    <div><small>02 · Wat we bouwden</small><p>Een kassa-app voor telefoon en computer: afrekenen, voorraad tellen, inkoop binnenmelden en een bestel-advies voor wat er bij moet.</p></div>
+    <div><small>03 · Wat het opleverde</small><p>De voorraad loopt elke 10 minuten gelijk met de webshop. En een verkoper kan nooit onder de groothandelsprijs korten.</p></div>
+  </div>
   <div class="tekst">
     <div class="meta"><span class="pil">App op maat</span></div>
-    <h3>Kassa- en voorraadapp</h3>
-    <p>Voor een winkel: afrekenen, voorraad tellen, inkoop binnenmelden en een bestel-advies voor wat er bij moet.</p>
-    <div class="gebouwd"><span>Kassa</span><span>Voorraad</span><span>Inkoop</span><span>Bestel-advies</span></div>
-    <span class="note">Bewust zonder naam of merk van de winkel. Screenshot met nepdata en zonder logo laten maken door Walter.</span>
+    <h3>Kassa</h3>
+    <p>Kassa- en voorraadapp voor een winkel die ook online verkoopt: afrekenen, voorraad tellen, inkoop binnenmelden en een bestel-advies voor wat er bij moet.</p>
+    <div class="bewijs"><strong>10 min</strong><span>en winkel en webshop hebben dezelfde voorraad</span></div>
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-kassa-17"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <span class="note">Bron: Sync elke 10 min en korten nooit onder groothandelsprijs: vault memory/project_snoep_app.md, aangeleverd door Walter (niet zelf ingezien, valt onder Walter).</span>
+    <span class="note">Bewust zonder naam of merk van de winkel (besluit Alex). Schermen met nepdata van Walter (namen Sanne, Milan, Noor zijn verzonnen).</span>
     <span class="link stil">Bedrijfssoftware, geen publieke demo</span>
   </div>
 </article></div>
-  <div class="label sub" style="margin:40px 0 16px">Meer apps</div><div class="klein"><article class="case" data-pijler="apps">
-  <div class="beeld"><div class="nepscherm"><div class="zij"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="hoofd"><div class="titel">OccasionIQ</div><div class="tegels"><b></b><b></b><b></b></div><div class="grafiek"><i style="height:40%"></i><i style="height:62%"></i><i style="height:48%"></i><i style="height:86%"></i><i style="height:58%"></i><i style="height:70%"></i></div></div><div class="stempel">Screenshot volgt · nepdata</div></div></div>
+  <div class="label sub" style="margin:40px 0 16px">Meer apps</div><div class="klein"><article class="case" data-pijler="apps" data-reveal>
+  <div class="beeld"><img src="/ontwerp/img/occasioniq-d.webp" alt="OccasionIQ met nepdata: advies per veilingauto" decoding="async" loading="lazy" /><div class="mini"><img src="/ontwerp/img/occasioniq-m.webp" alt="" decoding="async" loading="lazy" /></div></div>
   <div class="tekst">
     <div class="meta"><span class="pil">App op maat</span></div>
     <h3>OccasionIQ</h3>
-    <p><span class="ph">Omschrijving in 1-2 zinnen via Walter</span></p>
-    <div class="gebouwd"><span>Webapp</span></div>
-    <span class="note">occasioniq.vercel.app vraagt om toegang (/toegang), dus geen publieke screenshot gemaakt.</span>
-    <span class="link stil">Achter inlog</span>
+    <p>Inkooptool voor autohandelaren. Per veilingauto een advies: hoeveel je maximaal biedt, wat je eraan overhoudt en hoe snel hij verkoopt.</p>
+    <div class="bewijs klein-bewijs"><strong>€0,44</strong><span>kost een analyse per auto</span></div><span class="note">Bron: Circa 0,44 per analyse: apps/occasion-inkoop/CLAUDE.md, aangeleverd door Walter (niet zelf ingezien, gegevensscheiding). Het 11,4%/15,1%-cijfer bewust NIET gebruikt: BCA-datalicentie open, beslispunt Alex.</span>
+    <div class="gebouwd"><span>Veilingadvies</span><span>Marktvergelijking</span><span>Risico's per auto</span></div>
+    
+    <span class="link stil">Achter inlog, demo op aanvraag</span>
   </div>
-</article><article class="case" data-pijler="apps">
-  <div class="beeld"><div class="nepscherm"><div class="zij"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="hoofd"><div class="titel">PT-app</div><div class="tegels"><b></b><b></b><b></b></div><div class="grafiek"><i style="height:40%"></i><i style="height:62%"></i><i style="height:48%"></i><i style="height:86%"></i><i style="height:58%"></i><i style="height:70%"></i></div></div><div class="stempel">Screenshot volgt · nepdata</div></div></div>
+</article><article class="case" data-pijler="apps" data-reveal>
+  <div class="beeld telefoons"><div class="tel tel-1"><img src="/ontwerp/img/pt-1.webp" alt="PT-app met nepdata" decoding="async" loading="lazy" /></div><div class="tel tel-2"><img src="/ontwerp/img/pt-2.webp" alt="" decoding="async" loading="lazy" /></div><div class="tel tel-3"><img src="/ontwerp/img/pt-3.webp" alt="" decoding="async" loading="lazy" /></div></div>
   <div class="tekst">
     <div class="meta"><span class="pil">App op maat</span></div>
     <h3>PT-app</h3>
-    <p>App voor personal training. <span class="ph">omschrijving en screenshot met nepdata via Brock</span></p>
-    <div class="gebouwd"><span>Webapp</span></div>
+    <p>Trainingsapp waarin sporten voelt als een spel: levels, bosses en voortgang per oefening. Alle beelden zijn met code getekend.</p>
+    <div class="bewijs klein-bewijs"><strong>1,8 MB</strong><span>was 14 MB, doordat alle beelden met code getekend zijn</span></div><span class="note">Bron: Van ~14 MB naar 1,8 MB en versleutelde sync (AES-GCM): apps/pt-app/CLAUDE.md, aangeleverd door Brock (niet zelf ingezien, gegevensscheiding).</span>
+    <div class="gebouwd"><span>Trainingen loggen</span><span>Voortgang</span><span>Levels en bosses</span></div>
     
     <span class="link stil">Demo op aanvraag</span>
   </div>
-</article><article class="case" data-pijler="apps">
-  <div class="beeld"><div class="nepscherm"><div class="zij"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="hoofd"><div class="titel">Babyapp</div><div class="tegels"><b></b><b></b><b></b></div><div class="grafiek"><i style="height:40%"></i><i style="height:62%"></i><i style="height:48%"></i><i style="height:86%"></i><i style="height:58%"></i><i style="height:70%"></i></div></div><div class="stempel">Screenshot volgt · nepdata</div></div></div>
+</article><article class="case" data-pijler="apps" data-reveal>
+  <div class="beeld telefoons"><div class="tel tel-1"><img src="/ontwerp/img/baby-1.webp" alt="Babyapp met nepdata" decoding="async" loading="lazy" /></div><div class="tel tel-2"><img src="/ontwerp/img/baby-2.webp" alt="" decoding="async" loading="lazy" /></div><div class="tel tel-3"><img src="/ontwerp/img/baby-3.webp" alt="" decoding="async" loading="lazy" /></div></div>
   <div class="tekst">
     <div class="meta"><span class="pil">App op maat</span></div>
     <h3>Babyapp</h3>
-    <p><span class="ph">Omschrijving en screenshot met nepdata via Laura</span></p>
-    <div class="gebouwd"><span>Webapp</span></div>
-    <span class="note">Privé-app: alleen tonen met volledig nepdata, geen namen of datums van echte personen.</span>
-    <span class="link stil">Privé-app, alleen met nepdata te tonen</span>
+    <p>Voor jonge ouders: voeding, slaap en gewicht in een paar tikken, met een vrolijk figuurtje dat meegroeit en elke mijlpaal viert.</p>
+    
+    <div class="gebouwd"><span>Snel invoeren</span><span>Groeigrafiek</span><span>Mijlpalen</span></div>
+    <span class="note">Privé-app: schermen met volledig nepdata van Laura, geen naam of datum van een echt kind. Bewust geen cijfers.</span>
+    <span class="link stil">Privé-app, getoond met nepdata</span>
   </div>
 </article></div>
 </div></section>
@@ -133,12 +159,12 @@
 <section class="sectie smal"><div class="wrap">
   <div class="sectie-kop"><div><div class="label">Zo werken we</div><h2 style="margin-top:12px">In vier stappen</h2></div></div>
   
-<div class="stappen">
-  <div class="stap"><div class="nr">01</div><h3>Kennismaking</h3><p>We horen wat je doet en waar het knelt. Gratis en zonder verplichting.</p></div>
-  <div class="stap"><div class="nr">02</div><h3>Voorstel</h3><p>Wat we bouwen, wat het kost en wanneer het af is. Op papier, voordat we beginnen.</p></div>
-  <div class="stap"><div class="nr">03</div><h3>Bouwen</h3><p>Je ziet tussentijds wat er staat en geeft feedback, niet pas aan het eind.</p></div>
-  <div class="stap"><div class="nr">04</div><h3>Live en verder</h3><p>We zetten het live en blijven bereikbaar. <span class="ph">Onderhoud en support: aanbod nog te besluiten</span></p></div>
-</div>
+<ol class="stappen">
+  <li class="stap" data-reveal><div class="nr">01</div><h3>Jij vertelt waar het knelt</h3><p>Aan de telefoon of aan tafel. Wat kost je tijd, wat loopt vast, wat wil je anders.</p></li>
+  <li class="stap" data-reveal><div class="nr">02</div><h3>Wij zeggen wat we zouden bouwen</h3><p>En wat we níet zouden doen. Soms is een betere site genoeg, soms is het een app.</p></li>
+  <li class="stap" data-reveal><div class="nr">03</div><h3>Je krijgt het op papier</h3><p>Wat we bouwen, wanneer het af is en wat het kost. Pas na jouw ja beginnen we.</p></li>
+  <li class="stap" data-reveal><div class="nr">04</div><h3>We bouwen, jij kijkt mee</h3><p>Je ziet tussendoor wat er staat. Daarna live, en we blijven bereikbaar. <span class="ph">Onderhoud en support: aanbod nog te besluiten</span></p></li>
+</ol>
 </div></section>
 
 <section class="sectie smal"><div class="wrap twee">
@@ -159,8 +185,9 @@
   <div class="kolommen">
     <div>
       <a class="logo" href="/ontwerp/"><span class="blok">AP</span><span class="woord">AP Digital</span></a>
-      <div class="tagline">Digitaal werk dat gewoon werkt.</div>
-      <p style="font-size:15px">Websites, apps en automatisering voor ondernemers. Vanuit Arnhem.</p>
+      <div class="tagline">Eerst voor ons eigen werk. Nu voor het jouwe.</div>
+      <p style="font-size:15px">Websites, apps en automatisering voor ondernemers. Gebouwd in Arnhem.</p>
+      <span class="note">Footer-regel vervangt de brandbook-tagline "Digitaal werk dat gewoon werkt". Brandbook aanpassen of terugzetten: Alex.</span>
     </div>
     <div><h4>Wat we bouwen</h4><a href="/ontwerp/websites">Websites</a><a href="/ontwerp/apps">Apps op maat</a><a href="/ontwerp/automatisering">Processen en automatisering</a><a href="/ontwerp/portfolio">Portfolio</a></div>
     <div><h4>AP Digital</h4><a href="/ontwerp/over">Over ons</a><a href="/ontwerp/kennismaking">Gratis kennismaking</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/voorwaarden">Voorwaarden</a></div>
@@ -169,6 +196,6 @@
   <div class="klein-tekst"><span>AP Digital · KVK 42080619 · Arnhem</span><span>Ontwerp 2026-11-04</span></div>
 </div></footer>
 <div class="vast-cta"><a class="knop" href="/ontwerp/kennismaking">Gratis kennismaking</a><a class="knop-2" href="tel:+31614160265" aria-label="Bellen">Bel</a></div>
-<script src="/ontwerp/ontwerp.js?v=1"></script>
+<script src="/ontwerp/ontwerp.js?v=2"></script>
 </body>
 </html>

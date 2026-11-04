@@ -11,11 +11,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/ontwerp/ontwerp.css?v=1" />
+<link rel="stylesheet" href="/ontwerp/ontwerp.css?v=2" />
+<script>document.documentElement.classList.add('js')</script>
 </head>
-<body>
+<body class="notes-uit">
 
-<div class="ontwerpbalk"><div class="wrap"><span>Ontwerp herstart · niet live · alleen voor Alex</span><span class="knoppen"><button type="button" id="notes-knop">Notities uit</button><a href="/ontwerp/doorlichting">Doorlichting</a></span></div></div>
+<div class="ontwerpbalk"><div class="wrap"><span>Ontwerp herstart · niet live · alleen voor Alex</span><span class="knoppen"><button type="button" id="notes-knop">Notities aan</button><a href="/ontwerp/doorlichting">Doorlichting</a></span></div></div>
 <header class="kop"><div class="wrap">
   <a class="logo" href="/ontwerp/"><span class="blok">AP</span><span class="woord">AP Digital</span></a>
   <nav class="nav" id="nav">
@@ -50,55 +51,78 @@
 
 <section class="sectie smal" id="werk"><div class="wrap">
   <div class="sectie-kop"><div><div class="label">Voorbeelden</div><h2 style="margin-top:12px">Zo ziet dat er <span class="serif">in het echt uit.</span></h2></div><a class="knop-2" href="/ontwerp/portfolio#automatisering">Heel het portfolio →</a></div>
-  <div class="cases"><article class="case" data-pijler="automatisering">
-  <div class="beeld"><div class="nepscherm"><div class="zij"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="hoofd"><div class="titel">Bedrijfscockpit</div><div class="tegels"><b></b><b></b><b></b></div><div class="grafiek"><i style="height:40%"></i><i style="height:62%"></i><i style="height:48%"></i><i style="height:86%"></i><i style="height:58%"></i><i style="height:70%"></i></div></div><div class="stempel">Screenshot volgt · nepdata</div></div></div>
+  <div class="cases"><article class="case verhaal-case" data-pijler="automatisering" data-reveal>
+  <div class="beeld"><img src="/ontwerp/img/cockpit-d.webp" alt="Bedrijfscockpit met nepdata: de dagstart" decoding="async" loading="lazy" /><div class="mini"><img src="/ontwerp/img/cockpit-m.webp" alt="" decoding="async" loading="lazy" /></div></div>
+  <div class="verhaal" id="v-cockpit-18">
+    <div><small>01 · Het probleem</small><p>Meerdere bedrijven tegelijk runnen, met mail, taken, agenda en cijfers verspreid over tien tabbladen.</p></div>
+    <div><small>02 · Wat we bouwden</small><p>Eén scherm voor alles, met een AI-assistent die meeleest en taken klaarzet. Beslissen blijft mensenwerk.</p></div>
+    <div><small>03 · Wat het opleverde</small><p>Elke ochtend staat het dagoverzicht klaar: wat er speelt, wat vandaag moet en wat blijft liggen. De takenlijst ging van 198 open punten naar 46 echte acties.</p></div>
+  </div>
   <div class="tekst">
     <div class="meta"><span class="pil">Automatisering</span></div>
     <h3>Bedrijfscockpit</h3>
     <p>Eén scherm voor meerdere bedrijven: taken, mail, agenda, cijfers en een ochtendoverzicht dat elke dag om 07:00 klaarstaat.</p>
-    <div class="gebouwd"><span>Dashboard</span><span>Dagstart</span><span>AI-assistent</span></div>
-    <span class="note">Intern heet dit de Harvey-cockpit. Op de site alleen met nepdata en zonder privé-gegevens. Naam "Harvey" tonen of neutraal "bedrijfscockpit": Alex.</span>
+    <div class="bewijs"><strong>07:00</strong><span>dagoverzicht klaar, elke ochtend</span></div>
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-cockpit-18"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <span class="note">Bron: 07:00 = vaste dagstart-run op de ProDesk (root-CLAUDE.md, sectie Triggers). 198 naar 46: opschoning 19-08-2026 (vault memory/feedback_taken_ssot_cockpit.md, zelf gelezen). Inhoud van de dagstart bewust niet ingezien.</span>
+    <span class="note">Schermen met nepdata van Jarvis. Er staat nog "Harvey" in beeld: naam tonen of neutraal "bedrijfscockpit", beslispunt Alex.</span>
     <span class="link stil">Intern systeem</span>
   </div>
-</article><article class="case" data-pijler="automatisering">
-  <div class="beeld"><div class="nepscherm"><div class="zij"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="hoofd"><div class="titel">PostLeads-machine</div><div class="tegels"><b></b><b></b><b></b></div><div class="grafiek"><i style="height:40%"></i><i style="height:62%"></i><i style="height:48%"></i><i style="height:86%"></i><i style="height:58%"></i><i style="height:70%"></i></div></div><div class="stempel">Screenshot volgt · nepdata</div></div></div>
+</article><article class="case verhaal-case" data-pijler="automatisering" data-reveal>
+  <div class="beeld"><img src="/ontwerp/img/postleads-stroom.webp" alt="Schema van de PostLeads-machine" decoding="async" loading="lazy" /></div>
+  <div class="verhaal" id="v-postleads-machine-19">
+    <div><small>01 · Het probleem</small><p>Elke week een nieuwe adressenlijst maken voor de drukker, per klant en per gebied, uit duizenden nieuwe woningen.</p></div>
+    <div><small>02 · Wat we bouwden</small><p>Een machine die elke week 6.135 tot 7.240 nieuwe woningen scant, ze koppelt aan het gebied van elke klant, dubbele adressen eruit haalt en de lijsten plus mails klaarzet.</p></div>
+    <div><small>03 · Wat het opleverde</small><p>Sinds week 27 gingen er 13.337 kaarten de deur uit, de laatste vier weken gemiddeld zo'n 700 per week. Een mens kijkt elke lijst na voor hij weggaat.</p></div>
+  </div>
   <div class="tekst">
     <div class="meta"><span class="pil">Automatisering</span></div>
     <h3>PostLeads-machine</h3>
-    <p>Haalt elke week het nieuwe woningaanbod op, koppelt het aan het gebied van elke klant en maakt de lijst voor de drukker. Klant- en drukkersmails gaan automatisch.</p>
-    <div class="gebouwd"><span>Data ophalen</span><span>Weekbatches</span><span>Postcode-match</span><span>Automatische mails</span></div>
-    <span class="note">Screenshot met nepdata nog maken (Pim). Geen echte adressen of klantnamen in beeld.</span>
+    <p>Haalt elke week het nieuwe woningaanbod op, koppelt het aan het gebied van elke klant en maakt de lijst voor de drukker. Klant- en drukkersmails staan vanzelf klaar.</p>
+    <div class="bewijs"><strong data-tel="13337">13.337</strong><span>kaarten de deur uit in 19 weken</span></div>
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-postleads-machine-19"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <span class="note">Bron: 13.337 kaarten via bevestigde drukkersopdrachten, week 27 t/m 45 2026, laatste 4 weken gem. ~700/week: postleads data/weekcijfers.json. 6.135-7.240 nieuwe woningen per week: Woningmarkt monitor wk 38-40. Beide aangeleverd door Pim (niet zelf ingezien, gegevensscheiding). Geen urenbesparing geclaimd.</span>
+    <span class="note">Beeld = het stroomschema van Pim. Het weekrun-scherm (02) bewust niet gebruikt: daar staan verzonnen cijfers in die als feit gelezen kunnen worden.</span>
     <span class="link stil">Intern systeem</span>
   </div>
-</article><article class="case" data-pijler="automatisering">
-  <div class="beeld"><div class="nepscherm"><div class="zij"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="hoofd"><div class="titel">Social Manager</div><div class="tegels"><b></b><b></b><b></b></div><div class="grafiek"><i style="height:40%"></i><i style="height:62%"></i><i style="height:48%"></i><i style="height:86%"></i><i style="height:58%"></i><i style="height:70%"></i></div></div><div class="stempel">Screenshot volgt · nepdata</div></div></div>
+</article><article class="case verhaal-case" data-pijler="automatisering" data-reveal>
+  <div class="beeld"><img src="/ontwerp/img/social-d.webp" alt="Social Manager met nepdata: wachtrij en cijfers" decoding="async" loading="lazy" /><div class="mini"><img src="/ontwerp/img/social-m.webp" alt="" decoding="async" loading="lazy" /></div></div>
+  <div class="verhaal" id="v-social-manager-20">
+    <div><small>01 · Het probleem</small><p>Elke week posts maken, inplannen en apart op Instagram en Facebook zetten. Dat schiet er als eerste bij in.</p></div>
+    <div><small>02 · Wat we bouwden</small><p>Een wachtrij die posts op vaste momenten plaatst. Vooraf komt er een voorbeeld in Telegram: GO om te plaatsen, SKIP om tegen te houden.</p></div>
+    <div><small>03 · Wat het opleverde</small><p>50 plaatsingen voor AP Digital, zonder handmatig plaatsen in de app van Instagram of Facebook.</p></div>
+  </div>
   <div class="tekst">
     <div class="meta"><span class="pil">Automatisering</span></div>
     <h3>Social Manager</h3>
-    <p>Plant en publiceert posts op vaste momenten op Instagram en Facebook. Vooraf komt er een voorbeeld binnen, met een noodrem om een post tegen te houden.</p>
-    <div class="gebouwd"><span>Inplannen</span><span>Automatisch posten</span><span>Controle vooraf</span></div>
-    <span class="note">Let op: sinds september staat het eigen Meta-account van AP Digital stil. Het systeem bestaat en heeft gedraaid, maar "publiceert nu" niet claimen.</span>
+    <p>Plant en plaatst posts op vaste momenten op Instagram en Facebook. Vooraf komt er een voorbeeld in Telegram, met een noodrem om een post tegen te houden.</p>
+    <div class="bewijs"><strong data-tel="50">50</strong><span>plaatsingen voor AP Digital</span></div>
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-social-manager-20"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <span class="note">Bron: 50 plaatsingen, IG en FB apart geteld, stand 04-11-2026: aangeleverd door Jarvis (niet zelf ingezien). Werkwijze zonder handwerk: vault memory/reference_social_publiceert_via_social_manager.md (zelf gelezen).</span>
+    <span class="note">Schermen met nepdata (Studio Noord) van Jarvis; de Telegram-chat is nagebouwd. Let op: sinds september staat het Meta-account van AP Digital stil, dus "publiceert nu" niet claimen.</span>
     <span class="link stil">Intern systeem</span>
   </div>
 </article></div>
-  <div class="label sub" style="margin:40px 0 16px">Meer automatisering</div><div class="klein"><article class="case" data-pijler="automatisering">
-  <div class="beeld"><div class="nepscherm"><div class="zij"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="hoofd"><div class="titel">GEO-monitor</div><div class="tegels"><b></b><b></b><b></b></div><div class="grafiek"><i style="height:40%"></i><i style="height:62%"></i><i style="height:48%"></i><i style="height:86%"></i><i style="height:58%"></i><i style="height:70%"></i></div></div><div class="stempel">Screenshot volgt · nepdata</div></div></div>
+  <div class="label sub" style="margin:40px 0 16px">Meer automatisering</div><div class="klein"><article class="case" data-pijler="automatisering" data-reveal>
+  <div class="beeld"><img src="/ontwerp/img/geo-d.webp" alt="GEO-monitor met nepdata" decoding="async" loading="lazy" /><div class="mini"><img src="/ontwerp/img/geo-m.webp" alt="" decoding="async" loading="lazy" /></div></div>
   <div class="tekst">
     <div class="meta"><span class="pil">Automatisering</span></div>
     <h3>GEO-monitor</h3>
-    <p>Meet of een bedrijf genoemd wordt in de antwoorden van AI-zoekmachines zoals ChatGPT en Google.</p>
-    <div class="gebouwd"><span>AI-zichtbaarheid</span><span>Meting</span></div>
+    <p>Meet elke week of een bedrijf genoemd wordt als iemand een AI om advies vraagt, en wie er anders genoemd wordt.</p>
+    <div class="bewijs klein-bewijs"><strong>19</strong><span>automatische metingen sinds 30 juni</span></div><span class="note">Bron: 19 metingen sinds 30-06-2026: aangeleverd door Jarvis (niet zelf ingezien). Scherm is eerlijk: 2 engines gemeten, 2 niet.</span>
+    <div class="gebouwd"><span>AI-zichtbaarheid</span><span>Concurrenten</span><span>Wat te doen</span></div>
     
     <span class="link stil">Intern systeem</span>
   </div>
-</article><article class="case" data-pijler="automatisering">
-  <div class="beeld"><div class="nepscherm"><div class="zij"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="hoofd"><div class="titel">SEO-rapportages per klant</div><div class="tegels"><b></b><b></b><b></b></div><div class="grafiek"><i style="height:40%"></i><i style="height:62%"></i><i style="height:48%"></i><i style="height:86%"></i><i style="height:58%"></i><i style="height:70%"></i></div></div><div class="stempel">Screenshot volgt · nepdata</div></div></div>
+</article><article class="case" data-pijler="automatisering" data-reveal>
+  <div class="beeld"><img src="/ontwerp/img/seo-rapport-d.webp" alt="Voorbeeld SEO-maandrapport met verzonnen cijfers" decoding="async" loading="lazy" /></div>
   <div class="tekst">
     <div class="meta"><span class="pil">Automatisering</span></div>
     <h3>SEO-rapportages per klant</h3>
-    <p>Search Console-cijfers worden dagelijks binnengehaald; per klant komt er een maandoverzicht in onze huisstijl.</p>
-    <div class="gebouwd"><span>Dagelijkse meting</span><span>Maandrapport</span></div>
+    <p>Search Console-cijfers worden dagelijks binnengehaald; per klant komt er een maandoverzicht in onze huisstijl: wat steeg, wat zakte en de drie acties voor volgende maand.</p>
     
+    <div class="gebouwd"><span>Dagelijkse meting</span><span>Maandrapport</span><span>Acties per maand</span></div>
+    <span class="note">Beeld = pagina uit onze eigen rapportgenerator (seo-roadmap-template/generate_briefing.py), gevuld met verzonnen klant Studio Noord. Let op: het voorblad van die generator toont nog de oude tagline "Digital work, geen fluff".</span>
     <span class="link stil">Voorbeeldrapport op aanvraag</span>
   </div>
 </article></div>
@@ -113,12 +137,12 @@
 <section class="sectie smal"><div class="wrap">
   <div class="sectie-kop"><div><div class="label">Zo werken we</div><h2 style="margin-top:12px">In vier stappen</h2></div></div>
   
-<div class="stappen">
-  <div class="stap"><div class="nr">01</div><h3>Kennismaking</h3><p>We horen wat je doet en waar het knelt. Gratis en zonder verplichting.</p></div>
-  <div class="stap"><div class="nr">02</div><h3>Voorstel</h3><p>Wat we bouwen, wat het kost en wanneer het af is. Op papier, voordat we beginnen.</p></div>
-  <div class="stap"><div class="nr">03</div><h3>Bouwen</h3><p>Je ziet tussentijds wat er staat en geeft feedback, niet pas aan het eind.</p></div>
-  <div class="stap"><div class="nr">04</div><h3>Live en verder</h3><p>We zetten het live en blijven bereikbaar. <span class="ph">Onderhoud en support: aanbod nog te besluiten</span></p></div>
-</div>
+<ol class="stappen">
+  <li class="stap" data-reveal><div class="nr">01</div><h3>Jij vertelt waar het knelt</h3><p>Aan de telefoon of aan tafel. Wat kost je tijd, wat loopt vast, wat wil je anders.</p></li>
+  <li class="stap" data-reveal><div class="nr">02</div><h3>Wij zeggen wat we zouden bouwen</h3><p>En wat we níet zouden doen. Soms is een betere site genoeg, soms is het een app.</p></li>
+  <li class="stap" data-reveal><div class="nr">03</div><h3>Je krijgt het op papier</h3><p>Wat we bouwen, wanneer het af is en wat het kost. Pas na jouw ja beginnen we.</p></li>
+  <li class="stap" data-reveal><div class="nr">04</div><h3>We bouwen, jij kijkt mee</h3><p>Je ziet tussendoor wat er staat. Daarna live, en we blijven bereikbaar. <span class="ph">Onderhoud en support: aanbod nog te besluiten</span></p></li>
+</ol>
 </div></section>
 
 <section class="sectie smal"><div class="wrap twee">
@@ -139,8 +163,9 @@
   <div class="kolommen">
     <div>
       <a class="logo" href="/ontwerp/"><span class="blok">AP</span><span class="woord">AP Digital</span></a>
-      <div class="tagline">Digitaal werk dat gewoon werkt.</div>
-      <p style="font-size:15px">Websites, apps en automatisering voor ondernemers. Vanuit Arnhem.</p>
+      <div class="tagline">Eerst voor ons eigen werk. Nu voor het jouwe.</div>
+      <p style="font-size:15px">Websites, apps en automatisering voor ondernemers. Gebouwd in Arnhem.</p>
+      <span class="note">Footer-regel vervangt de brandbook-tagline "Digitaal werk dat gewoon werkt". Brandbook aanpassen of terugzetten: Alex.</span>
     </div>
     <div><h4>Wat we bouwen</h4><a href="/ontwerp/websites">Websites</a><a href="/ontwerp/apps">Apps op maat</a><a href="/ontwerp/automatisering">Processen en automatisering</a><a href="/ontwerp/portfolio">Portfolio</a></div>
     <div><h4>AP Digital</h4><a href="/ontwerp/over">Over ons</a><a href="/ontwerp/kennismaking">Gratis kennismaking</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/voorwaarden">Voorwaarden</a></div>
@@ -149,6 +174,6 @@
   <div class="klein-tekst"><span>AP Digital · KVK 42080619 · Arnhem</span><span>Ontwerp 2026-11-04</span></div>
 </div></footer>
 <div class="vast-cta"><a class="knop" href="/ontwerp/kennismaking">Gratis kennismaking</a><a class="knop-2" href="tel:+31614160265" aria-label="Bellen">Bel</a></div>
-<script src="/ontwerp/ontwerp.js?v=1"></script>
+<script src="/ontwerp/ontwerp.js?v=2"></script>
 </body>
 </html>

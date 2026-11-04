@@ -11,11 +11,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/ontwerp/ontwerp.css?v=1" />
+<link rel="stylesheet" href="/ontwerp/ontwerp.css?v=2" />
+<script>document.documentElement.classList.add('js')</script>
 </head>
-<body>
+<body class="notes-uit">
 
-<div class="ontwerpbalk"><div class="wrap"><span>Ontwerp herstart · niet live · alleen voor Alex</span><span class="knoppen"><button type="button" id="notes-knop">Notities uit</button><a href="/ontwerp/doorlichting">Doorlichting</a></span></div></div>
+<div class="ontwerpbalk"><div class="wrap"><span>Ontwerp herstart · niet live · alleen voor Alex</span><span class="knoppen"><button type="button" id="notes-knop">Notities aan</button><a href="/ontwerp/doorlichting">Doorlichting</a></span></div></div>
 <header class="kop"><div class="wrap">
   <a class="logo" href="/ontwerp/"><span class="blok">AP</span><span class="woord">AP Digital</span></a>
   <nav class="nav" id="nav">
@@ -50,73 +51,92 @@
 
 <section class="sectie smal" id="werk"><div class="wrap">
   <div class="sectie-kop"><div><div class="label">Voorbeelden</div><h2 style="margin-top:12px">Zo ziet dat er <span class="serif">in het echt uit.</span></h2></div><a class="knop-2" href="/ontwerp/portfolio#websites">Heel het portfolio →</a></div>
-  <div class="cases"><article class="case" data-pijler="websites">
-  <div class="beeld"><img src="/ontwerp/img/florent-d.webp" alt="Website Flo-Rent Verhuizingen" decoding="async" /><div class="mini"><img src="/ontwerp/img/florent-m.webp" alt="" decoding="async" /></div></div>
+  <div class="cases"><article class="case verhaal-case" data-pijler="websites" data-reveal>
+  <div class="beeld"><img src="/ontwerp/img/florent-d.webp" alt="Website Flo-Rent Verhuizingen" decoding="async" loading="lazy" /><div class="mini"><img src="/ontwerp/img/florent-m.webp" alt="" decoding="async" loading="lazy" /></div></div>
+  <div class="verhaal" id="v-florent-13">
+    <div><small>01 · Het probleem</small><p>De oude site draaide op een websitebouwer, en daarvoor op WordPress. Google kende tientallen oude adressen die nergens meer heen zouden gaan.</p></div>
+    <div><small>02 · Wat we bouwden</small><p>Een nieuwe site van 8 pagina's met een offerte-aanvraag in stappen. Aanvragen komen direct in de mailbox van het bedrijf.</p></div>
+    <div><small>03 · Wat het opleverde</small><p>Elk oud adres stuurt door naar de juiste nieuwe pagina. Wie via Google binnenkomt, loopt niet dood op een foutpagina.</p></div>
+  </div>
   <div class="tekst">
     <div class="meta"><span class="pil">Website</span></div>
     <h3>Flo-Rent Verhuizingen</h3>
     <p>Verhuisbedrijf uit Heteren. Nieuwe site met een offerte-aanvraag in stappen, zodat mensen hun verhuizing makkelijk doorgeven.</p>
-    <div class="gebouwd"><span>Redesign</span><span>Offerte-aanvraag</span><span>Mobiel eerst</span></div>
+    <div class="bewijs"><strong data-tel="52">52</strong><span>oude adressen netjes doorgestuurd</span></div>
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-florent-13"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <span class="note">Bron: 52 = aantal doorverwijzingen voor oude pagina's in florent/site/vercel.json (54 regels, min 2 voor www). Steekproef live 04-11: /verhuizen, /seniorenverhuizing, /verhuisbedrijf-ede, /offerteaanvraag geven 301. 8 pagina's = sitemap.xml van flo-rent.nl (04-11).</span>
     
     <a class="link" href="https://www.flo-rent.nl/" target="_blank" rel="noopener">Bekijk de site ↗</a>
   </div>
-</article><article class="case" data-pijler="websites">
-  <div class="beeld"><img src="/ontwerp/img/jacobs-d.webp" alt="Website Jacobs Heteren" decoding="async" /><div class="mini"><img src="/ontwerp/img/jacobs-m.webp" alt="" decoding="async" /></div></div>
+</article><article class="case" data-pijler="websites" data-reveal>
+  <div class="beeld"><img src="/ontwerp/img/jacobs-d.webp" alt="Website Jacobs Heteren" decoding="async" loading="lazy" /><div class="mini"><img src="/ontwerp/img/jacobs-m.webp" alt="" decoding="async" loading="lazy" /></div></div>
   <div class="tekst">
     <div class="meta"><span class="pil">Website</span></div>
     <h3>Jacobs Heteren</h3>
     <p>Erkend verhuisbedrijf in Gelderland. Website met de offerte-aanvraag direct naast de eerste indruk.</p>
+    
     <div class="gebouwd"><span>Website</span><span>Offerteformulier</span><span>SEO</span></div>
     <span class="note">Omschrijving wat wij precies aan deze site deden graag laten checken (Jacob/Alex). Geen claim over eigen mensen of aantallen.</span>
     <a class="link" href="https://www.jacobsheteren.nl/" target="_blank" rel="noopener">Bekijk de site ↗</a>
   </div>
-</article><article class="case" data-pijler="websites">
-  <div class="beeld"><img src="/ontwerp/img/herbergen-d.webp" alt="Website Her-bergen" decoding="async" /><div class="mini"><img src="/ontwerp/img/herbergen-m.webp" alt="" decoding="async" /></div></div>
+</article><article class="case verhaal-case" data-pijler="websites" data-reveal>
+  <div class="beeld"><img src="/ontwerp/img/herbergen-d.webp" alt="Website Her-bergen" decoding="async" loading="lazy" /><div class="mini"><img src="/ontwerp/img/herbergen-m.webp" alt="" decoding="async" loading="lazy" /></div></div>
+  <div class="verhaal" id="v-herbergen-14">
+    <div><small>01 · Het probleem</small><p>Een coachingspraktijk in twee talen, op WordPress-hosting die na de introductieprijs elke maand geld ging kosten.</p></div>
+    <div><small>02 · Wat we bouwden</small><p>Een rustige site in het Nederlands en Engels met echte foto's. Daarna omgezet naar een snelle statische site, zonder WordPress eronder.</p></div>
+    <div><small>03 · Wat het opleverde</small><p>Geen hostingkosten meer, alleen het domein. En niets meer om bij te werken of te beveiligen.</p></div>
+  </div>
   <div class="tekst">
     <div class="meta"><span class="pil">Website</span></div>
     <h3>Her-bergen</h3>
     <p>Praktijk voor systemische coaching. Rustige, warme site in het Nederlands en Engels, met echte foto's in plaats van stockbeeld.</p>
-    <div class="gebouwd"><span>Tweetalig NL/EN</span><span>Eigen huisstijl</span><span>Contactformulier</span></div>
+    <div class="bewijs"><strong>€0</strong><span>hosting per maand</span></div>
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-herbergen-14"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <span class="note">Bron: €0 = Cloudflare Worker op het gratis plan, alleen domeinregistratie betaald (vault her-berg/Current.md, nagemeten 15-10). Oude hosting: introprijs liep af naar 9,99 per maand (zelfde bron). 12 pagina's = sitemap.xml her-bergen.nl (04-11).</span>
     
     <a class="link" href="https://her-bergen.nl/" target="_blank" rel="noopener">Bekijk de site ↗</a>
   </div>
-</article><article class="case" data-pijler="websites">
-  <div class="beeld"><img src="/ontwerp/img/casa5-d.webp" alt="Website Casa Agosto Azul" decoding="async" /><div class="mini"><img src="/ontwerp/img/casa5-m.webp" alt="" decoding="async" /></div></div>
+</article><article class="case" data-pijler="websites" data-reveal>
+  <div class="beeld"><img src="/ontwerp/img/casa5-d.webp" alt="Website Casa Agosto Azul" decoding="async" loading="lazy" /><div class="mini"><img src="/ontwerp/img/casa5-m.webp" alt="" decoding="async" loading="lazy" /></div></div>
   <div class="tekst">
     <div class="meta"><span class="pil">Website</span></div>
     <h3>Casa Agosto Azul</h3>
     <p>Vakantieappartement in de Algarve. Site in vier talen met foto's, prijzen en beschikbaarheid, zodat gasten direct kunnen boeken.</p>
+    
     <div class="gebouwd"><span>Vier talen</span><span>Prijzen en beschikbaarheid</span><span>Reserveren</span></div>
     <span class="note">In onze mappen heet dit project Casa 5; de site zelf heet Casa Agosto Azul. Draait nu op apdigital.nl/casa5, casa5.eu toont nog de oude site. Welke link we tonen: Alex.</span>
     <a class="link" href="https://apdigital.nl/casa5" target="_blank" rel="noopener">Bekijk de site ↗</a>
   </div>
 </article></div>
-  <div class="label sub" style="margin:40px 0 16px">Meer websites</div><div class="klein"><article class="case" data-pijler="websites">
-  <div class="beeld"><img src="/ontwerp/img/rhscooter-d.webp" alt="Website RH Scooter Service" decoding="async" /></div>
+  <div class="label sub" style="margin:40px 0 16px">Meer websites</div><div class="klein"><article class="case" data-pijler="websites" data-reveal>
+  <div class="beeld"><img src="/ontwerp/img/rhscooter-d.webp" alt="Website RH Scooter Service" decoding="async" loading="lazy" /></div>
   <div class="tekst">
     <div class="meta"><span class="pil">Website</span></div>
     <h3>RH Scooter Service</h3>
     <p>Scooterwerkplaats in Arnhem. Pagina's per merk en per plaats, zodat mensen hem vinden op wat ze zoeken.</p>
+    
     <div class="gebouwd"><span>Website</span><span>Lokale SEO</span><span>Bel- en app-knop</span></div>
     
     <a class="link" href="https://rhscooterservicearnhem.nl/" target="_blank" rel="noopener">Bekijk de site ↗</a>
   </div>
-</article><article class="case" data-pijler="websites">
-  <div class="beeld"><img src="/ontwerp/img/marketingfit-d.webp" alt="Website Marketing Fit" decoding="async" /></div>
+</article><article class="case" data-pijler="websites" data-reveal>
+  <div class="beeld"><img src="/ontwerp/img/marketingfit-d.webp" alt="Website Marketing Fit" decoding="async" loading="lazy" /></div>
   <div class="tekst">
     <div class="meta"><span class="pil">Website</span></div>
     <h3>Marketing Fit</h3>
     <p>Contentstrateeg. WordPress-site met diensten, cases en een duidelijke knop voor een kennismaking.</p>
+    
     <div class="gebouwd"><span>WordPress</span><span>Diensten en cases</span></div>
     
     <a class="link" href="https://marketing-fit.nl/" target="_blank" rel="noopener">Bekijk de site ↗</a>
   </div>
-</article><article class="case" data-pijler="websites">
-  <div class="beeld"><img src="/ontwerp/img/jmc-d.webp" alt="Ontwerp website Jacobs Motor Company" decoding="async" /></div>
+</article><article class="case" data-pijler="websites" data-reveal>
+  <div class="beeld"><img src="/ontwerp/img/jmc-d.webp" alt="Ontwerp website Jacobs Motor Company" decoding="async" loading="lazy" /></div>
   <div class="tekst">
     <div class="meta"><span class="pil">Website</span><span class="pil geel">Ontwerp</span></div>
     <h3>Jacobs Motor Company</h3>
     <p>Handel in gebruikte bedrijfswagens en export. Site met voorraad en aanvraag, nu nog in ontwerp.</p>
+    
     <div class="gebouwd"><span>Voorraad</span><span>Export-aanvraag</span></div>
     <span class="note">Staat nog niet live (alleen op vercel.app, de site toont zelf "Ontwerp, nog niet live"). Tonen als ontwerp of pas na livegang: Alex.</span>
     <a class="link" href="https://jacobs-motor-company-site.vercel.app/" target="_blank" rel="noopener">Bekijk het ontwerp ↗</a>
@@ -133,12 +153,12 @@
 <section class="sectie smal"><div class="wrap">
   <div class="sectie-kop"><div><div class="label">Zo werken we</div><h2 style="margin-top:12px">In vier stappen</h2></div></div>
   
-<div class="stappen">
-  <div class="stap"><div class="nr">01</div><h3>Kennismaking</h3><p>We horen wat je doet en waar het knelt. Gratis en zonder verplichting.</p></div>
-  <div class="stap"><div class="nr">02</div><h3>Voorstel</h3><p>Wat we bouwen, wat het kost en wanneer het af is. Op papier, voordat we beginnen.</p></div>
-  <div class="stap"><div class="nr">03</div><h3>Bouwen</h3><p>Je ziet tussentijds wat er staat en geeft feedback, niet pas aan het eind.</p></div>
-  <div class="stap"><div class="nr">04</div><h3>Live en verder</h3><p>We zetten het live en blijven bereikbaar. <span class="ph">Onderhoud en support: aanbod nog te besluiten</span></p></div>
-</div>
+<ol class="stappen">
+  <li class="stap" data-reveal><div class="nr">01</div><h3>Jij vertelt waar het knelt</h3><p>Aan de telefoon of aan tafel. Wat kost je tijd, wat loopt vast, wat wil je anders.</p></li>
+  <li class="stap" data-reveal><div class="nr">02</div><h3>Wij zeggen wat we zouden bouwen</h3><p>En wat we níet zouden doen. Soms is een betere site genoeg, soms is het een app.</p></li>
+  <li class="stap" data-reveal><div class="nr">03</div><h3>Je krijgt het op papier</h3><p>Wat we bouwen, wanneer het af is en wat het kost. Pas na jouw ja beginnen we.</p></li>
+  <li class="stap" data-reveal><div class="nr">04</div><h3>We bouwen, jij kijkt mee</h3><p>Je ziet tussendoor wat er staat. Daarna live, en we blijven bereikbaar. <span class="ph">Onderhoud en support: aanbod nog te besluiten</span></p></li>
+</ol>
 </div></section>
 
 <section class="sectie smal"><div class="wrap twee">
@@ -159,8 +179,9 @@
   <div class="kolommen">
     <div>
       <a class="logo" href="/ontwerp/"><span class="blok">AP</span><span class="woord">AP Digital</span></a>
-      <div class="tagline">Digitaal werk dat gewoon werkt.</div>
-      <p style="font-size:15px">Websites, apps en automatisering voor ondernemers. Vanuit Arnhem.</p>
+      <div class="tagline">Eerst voor ons eigen werk. Nu voor het jouwe.</div>
+      <p style="font-size:15px">Websites, apps en automatisering voor ondernemers. Gebouwd in Arnhem.</p>
+      <span class="note">Footer-regel vervangt de brandbook-tagline "Digitaal werk dat gewoon werkt". Brandbook aanpassen of terugzetten: Alex.</span>
     </div>
     <div><h4>Wat we bouwen</h4><a href="/ontwerp/websites">Websites</a><a href="/ontwerp/apps">Apps op maat</a><a href="/ontwerp/automatisering">Processen en automatisering</a><a href="/ontwerp/portfolio">Portfolio</a></div>
     <div><h4>AP Digital</h4><a href="/ontwerp/over">Over ons</a><a href="/ontwerp/kennismaking">Gratis kennismaking</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/voorwaarden">Voorwaarden</a></div>
@@ -169,6 +190,6 @@
   <div class="klein-tekst"><span>AP Digital · KVK 42080619 · Arnhem</span><span>Ontwerp 2026-11-04</span></div>
 </div></footer>
 <div class="vast-cta"><a class="knop" href="/ontwerp/kennismaking">Gratis kennismaking</a><a class="knop-2" href="tel:+31614160265" aria-label="Bellen">Bel</a></div>
-<script src="/ontwerp/ontwerp.js?v=1"></script>
+<script src="/ontwerp/ontwerp.js?v=2"></script>
 </body>
 </html>

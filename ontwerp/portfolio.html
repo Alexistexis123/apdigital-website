@@ -11,11 +11,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/ontwerp/ontwerp.css?v=1" />
+<link rel="stylesheet" href="/ontwerp/ontwerp.css?v=2" />
+<script>document.documentElement.classList.add('js')</script>
 </head>
-<body>
+<body class="notes-uit">
 
-<div class="ontwerpbalk"><div class="wrap"><span>Ontwerp herstart · niet live · alleen voor Alex</span><span class="knoppen"><button type="button" id="notes-knop">Notities uit</button><a href="/ontwerp/doorlichting">Doorlichting</a></span></div></div>
+<div class="ontwerpbalk"><div class="wrap"><span>Ontwerp herstart · niet live · alleen voor Alex</span><span class="knoppen"><button type="button" id="notes-knop">Notities aan</button><a href="/ontwerp/doorlichting">Doorlichting</a></span></div></div>
 <header class="kop"><div class="wrap">
   <a class="logo" href="/ontwerp/"><span class="blok">AP</span><span class="woord">AP Digital</span></a>
   <nav class="nav" id="nav">
@@ -41,74 +42,93 @@
   
   <section class="pijlerblok" id="websites" data-blok="websites">
     <div class="sectie-kop" style="margin-bottom:24px"><div><div class="label">Pijler 1 · Websites</div><h2 style="margin-top:10px">Websites</h2></div><a class="knop-2" href="/ontwerp/websites">Over websites →</a></div>
-    <div class="cases"><article class="case" data-pijler="websites">
-  <div class="beeld"><img src="/ontwerp/img/florent-d.webp" alt="Website Flo-Rent Verhuizingen" decoding="async" /><div class="mini"><img src="/ontwerp/img/florent-m.webp" alt="" decoding="async" /></div></div>
+    <div class="cases"><article class="case verhaal-case" data-pijler="websites" data-reveal>
+  <div class="beeld"><img src="/ontwerp/img/florent-d.webp" alt="Website Flo-Rent Verhuizingen" decoding="async" loading="lazy" /><div class="mini"><img src="/ontwerp/img/florent-m.webp" alt="" decoding="async" loading="lazy" /></div></div>
+  <div class="verhaal" id="v-florent-5">
+    <div><small>01 · Het probleem</small><p>De oude site draaide op een websitebouwer, en daarvoor op WordPress. Google kende tientallen oude adressen die nergens meer heen zouden gaan.</p></div>
+    <div><small>02 · Wat we bouwden</small><p>Een nieuwe site van 8 pagina's met een offerte-aanvraag in stappen. Aanvragen komen direct in de mailbox van het bedrijf.</p></div>
+    <div><small>03 · Wat het opleverde</small><p>Elk oud adres stuurt door naar de juiste nieuwe pagina. Wie via Google binnenkomt, loopt niet dood op een foutpagina.</p></div>
+  </div>
   <div class="tekst">
     <div class="meta"><span class="pil">Website</span></div>
     <h3>Flo-Rent Verhuizingen</h3>
     <p>Verhuisbedrijf uit Heteren. Nieuwe site met een offerte-aanvraag in stappen, zodat mensen hun verhuizing makkelijk doorgeven.</p>
-    <div class="gebouwd"><span>Redesign</span><span>Offerte-aanvraag</span><span>Mobiel eerst</span></div>
+    <div class="bewijs"><strong data-tel="52">52</strong><span>oude adressen netjes doorgestuurd</span></div>
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-florent-5"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <span class="note">Bron: 52 = aantal doorverwijzingen voor oude pagina's in florent/site/vercel.json (54 regels, min 2 voor www). Steekproef live 04-11: /verhuizen, /seniorenverhuizing, /verhuisbedrijf-ede, /offerteaanvraag geven 301. 8 pagina's = sitemap.xml van flo-rent.nl (04-11).</span>
     
     <a class="link" href="https://www.flo-rent.nl/" target="_blank" rel="noopener">Bekijk de site ↗</a>
   </div>
-</article><article class="case" data-pijler="websites">
-  <div class="beeld"><img src="/ontwerp/img/jacobs-d.webp" alt="Website Jacobs Heteren" decoding="async" /><div class="mini"><img src="/ontwerp/img/jacobs-m.webp" alt="" decoding="async" /></div></div>
+</article><article class="case" data-pijler="websites" data-reveal>
+  <div class="beeld"><img src="/ontwerp/img/jacobs-d.webp" alt="Website Jacobs Heteren" decoding="async" loading="lazy" /><div class="mini"><img src="/ontwerp/img/jacobs-m.webp" alt="" decoding="async" loading="lazy" /></div></div>
   <div class="tekst">
     <div class="meta"><span class="pil">Website</span></div>
     <h3>Jacobs Heteren</h3>
     <p>Erkend verhuisbedrijf in Gelderland. Website met de offerte-aanvraag direct naast de eerste indruk.</p>
+    
     <div class="gebouwd"><span>Website</span><span>Offerteformulier</span><span>SEO</span></div>
     <span class="note">Omschrijving wat wij precies aan deze site deden graag laten checken (Jacob/Alex). Geen claim over eigen mensen of aantallen.</span>
     <a class="link" href="https://www.jacobsheteren.nl/" target="_blank" rel="noopener">Bekijk de site ↗</a>
   </div>
-</article><article class="case" data-pijler="websites">
-  <div class="beeld"><img src="/ontwerp/img/herbergen-d.webp" alt="Website Her-bergen" decoding="async" /><div class="mini"><img src="/ontwerp/img/herbergen-m.webp" alt="" decoding="async" /></div></div>
+</article><article class="case verhaal-case" data-pijler="websites" data-reveal>
+  <div class="beeld"><img src="/ontwerp/img/herbergen-d.webp" alt="Website Her-bergen" decoding="async" loading="lazy" /><div class="mini"><img src="/ontwerp/img/herbergen-m.webp" alt="" decoding="async" loading="lazy" /></div></div>
+  <div class="verhaal" id="v-herbergen-6">
+    <div><small>01 · Het probleem</small><p>Een coachingspraktijk in twee talen, op WordPress-hosting die na de introductieprijs elke maand geld ging kosten.</p></div>
+    <div><small>02 · Wat we bouwden</small><p>Een rustige site in het Nederlands en Engels met echte foto's. Daarna omgezet naar een snelle statische site, zonder WordPress eronder.</p></div>
+    <div><small>03 · Wat het opleverde</small><p>Geen hostingkosten meer, alleen het domein. En niets meer om bij te werken of te beveiligen.</p></div>
+  </div>
   <div class="tekst">
     <div class="meta"><span class="pil">Website</span></div>
     <h3>Her-bergen</h3>
     <p>Praktijk voor systemische coaching. Rustige, warme site in het Nederlands en Engels, met echte foto's in plaats van stockbeeld.</p>
-    <div class="gebouwd"><span>Tweetalig NL/EN</span><span>Eigen huisstijl</span><span>Contactformulier</span></div>
+    <div class="bewijs"><strong>€0</strong><span>hosting per maand</span></div>
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-herbergen-6"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <span class="note">Bron: €0 = Cloudflare Worker op het gratis plan, alleen domeinregistratie betaald (vault her-berg/Current.md, nagemeten 15-10). Oude hosting: introprijs liep af naar 9,99 per maand (zelfde bron). 12 pagina's = sitemap.xml her-bergen.nl (04-11).</span>
     
     <a class="link" href="https://her-bergen.nl/" target="_blank" rel="noopener">Bekijk de site ↗</a>
   </div>
-</article><article class="case" data-pijler="websites">
-  <div class="beeld"><img src="/ontwerp/img/casa5-d.webp" alt="Website Casa Agosto Azul" decoding="async" /><div class="mini"><img src="/ontwerp/img/casa5-m.webp" alt="" decoding="async" /></div></div>
+</article><article class="case" data-pijler="websites" data-reveal>
+  <div class="beeld"><img src="/ontwerp/img/casa5-d.webp" alt="Website Casa Agosto Azul" decoding="async" loading="lazy" /><div class="mini"><img src="/ontwerp/img/casa5-m.webp" alt="" decoding="async" loading="lazy" /></div></div>
   <div class="tekst">
     <div class="meta"><span class="pil">Website</span></div>
     <h3>Casa Agosto Azul</h3>
     <p>Vakantieappartement in de Algarve. Site in vier talen met foto's, prijzen en beschikbaarheid, zodat gasten direct kunnen boeken.</p>
+    
     <div class="gebouwd"><span>Vier talen</span><span>Prijzen en beschikbaarheid</span><span>Reserveren</span></div>
     <span class="note">In onze mappen heet dit project Casa 5; de site zelf heet Casa Agosto Azul. Draait nu op apdigital.nl/casa5, casa5.eu toont nog de oude site. Welke link we tonen: Alex.</span>
     <a class="link" href="https://apdigital.nl/casa5" target="_blank" rel="noopener">Bekijk de site ↗</a>
   </div>
 </article></div>
     <div class="label sub">Meer websites</div>
-    <div class="klein"><article class="case" data-pijler="websites">
-  <div class="beeld"><img src="/ontwerp/img/rhscooter-d.webp" alt="Website RH Scooter Service" decoding="async" /></div>
+    <div class="klein"><article class="case" data-pijler="websites" data-reveal>
+  <div class="beeld"><img src="/ontwerp/img/rhscooter-d.webp" alt="Website RH Scooter Service" decoding="async" loading="lazy" /></div>
   <div class="tekst">
     <div class="meta"><span class="pil">Website</span></div>
     <h3>RH Scooter Service</h3>
     <p>Scooterwerkplaats in Arnhem. Pagina's per merk en per plaats, zodat mensen hem vinden op wat ze zoeken.</p>
+    
     <div class="gebouwd"><span>Website</span><span>Lokale SEO</span><span>Bel- en app-knop</span></div>
     
     <a class="link" href="https://rhscooterservicearnhem.nl/" target="_blank" rel="noopener">Bekijk de site ↗</a>
   </div>
-</article><article class="case" data-pijler="websites">
-  <div class="beeld"><img src="/ontwerp/img/marketingfit-d.webp" alt="Website Marketing Fit" decoding="async" /></div>
+</article><article class="case" data-pijler="websites" data-reveal>
+  <div class="beeld"><img src="/ontwerp/img/marketingfit-d.webp" alt="Website Marketing Fit" decoding="async" loading="lazy" /></div>
   <div class="tekst">
     <div class="meta"><span class="pil">Website</span></div>
     <h3>Marketing Fit</h3>
     <p>Contentstrateeg. WordPress-site met diensten, cases en een duidelijke knop voor een kennismaking.</p>
+    
     <div class="gebouwd"><span>WordPress</span><span>Diensten en cases</span></div>
     
     <a class="link" href="https://marketing-fit.nl/" target="_blank" rel="noopener">Bekijk de site ↗</a>
   </div>
-</article><article class="case" data-pijler="websites">
-  <div class="beeld"><img src="/ontwerp/img/jmc-d.webp" alt="Ontwerp website Jacobs Motor Company" decoding="async" /></div>
+</article><article class="case" data-pijler="websites" data-reveal>
+  <div class="beeld"><img src="/ontwerp/img/jmc-d.webp" alt="Ontwerp website Jacobs Motor Company" decoding="async" loading="lazy" /></div>
   <div class="tekst">
     <div class="meta"><span class="pil">Website</span><span class="pil geel">Ontwerp</span></div>
     <h3>Jacobs Motor Company</h3>
     <p>Handel in gebruikte bedrijfswagens en export. Site met voorraad en aanvraag, nu nog in ontwerp.</p>
+    
     <div class="gebouwd"><span>Voorraad</span><span>Export-aanvraag</span></div>
     <span class="note">Staat nog niet live (alleen op vercel.app, de site toont zelf "Ontwerp, nog niet live"). Tonen als ontwerp of pas na livegang: Alex.</span>
     <a class="link" href="https://jacobs-motor-company-site.vercel.app/" target="_blank" rel="noopener">Bekijk het ontwerp ↗</a>
@@ -117,132 +137,180 @@
   </section>
   <section class="pijlerblok" id="apps" data-blok="apps">
     <div class="sectie-kop" style="margin-bottom:24px"><div><div class="label">Pijler 2 · Apps op maat</div><h2 style="margin-top:10px">Apps</h2></div><a class="knop-2" href="/ontwerp/apps">Over apps →</a></div>
-    <div class="cases"><article class="case" data-pijler="apps">
+    <div class="cases"><article class="case" data-pijler="apps" data-reveal>
   <div class="beeld"><div class="tekstpaneel"><div class="rij"><b>1</b><span>Offertes met rekenmotor<small>Prijs berekend, netjes de deur uit.</small></span></div><div class="rij"><b>2</b><span>Planning en werkbonnen<small>Van agenda naar de bon voor de ploeg.</small></span></div><div class="rij"><b>3</b><span>Klant- en dossierbeheer<small>Elke verhuizing op een plek.</small></span></div><div class="rij"><b>4</b><span>Alles in een dashboard<small>Overzicht en cijfers.</small></span></div></div></div>
   <div class="tekst">
     <div class="meta"><span class="pil">App op maat</span></div>
     <h3>MoveFlow</h3>
     <p>Het systeem waar een verhuisbedrijf op draait: van aanvraag en offerte tot planning en werkbon voor de ploeg.</p>
+    
     <div class="gebouwd"><span>Offertes</span><span>Planning</span><span>Dossiers</span><span>Dashboard</span></div>
     <span class="note">BESLISPUNT: MoveFlow valt onder de Bas-licentie (IP en geheimhouding tot minimaal 2031). Daarom bewust geen schermen, alleen deze vier punten in onze eigen huisstijl (zelfde tekst als de social-post van juli). Mag MoveFlow met naam erin, zonder naam ("planningssysteem voor een verhuisbedrijf"), of helemaal niet?</span>
     <span class="link stil">Bedrijfssoftware, geen publieke demo</span>
   </div>
-</article><article class="case" data-pijler="apps">
+</article><article class="case verhaal-case" data-pijler="apps" data-reveal>
   <div class="beeld" style="display:grid;place-items:center;background:radial-gradient(closest-side,rgba(255,214,10,.12),#141414)"><div class="telefoon" style="width:44%;margin-top:26px;box-shadow:none"><img src="/ontwerp/img/urenapp-registreren.webp" alt="Uren-app: uren registreren" decoding="async" style="aspect-ratio:534/520" /></div></div>
+  <div class="verhaal" id="v-urenapp-7">
+    <div><small>01 · Het probleem</small><p>Uren op briefjes, verlof via de telefoon en kantoor dat alles overtikt voor de loonadministratie.</p></div>
+    <div><small>02 · Wat we bouwden</small><p>Een app waarin medewerkers uren, verlof en declaraties op hun telefoon invullen. Kantoor keurt goed in één overzicht.</p></div>
+    <div><small>03 · Wat het opleverde</small><p>De export voor de loonadministratie rolt eruit, zonder overtypen. Inmiddels ook als witte versie voor andere bedrijven.</p></div>
+  </div>
   <div class="tekst">
     <div class="meta"><span class="pil">App op maat</span></div>
     <h3>Uren-app</h3>
     <p>Urenregistratie voor een verhuisbedrijf. Medewerkers schrijven uren op hun telefoon, kantoor keurt goed en ziet verlof, declaraties en voertuigen. Ook als witte versie voor andere bedrijven.</p>
-    <div class="gebouwd"><span>Uren op telefoon</span><span>Goedkeuren</span><span>Verlof en declaraties</span><span>Witte versie</span></div>
+    
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-urenapp-7"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <span class="note">Bron: Verhaal uit de goedgekeurde social-post 08-urenapp (caption.md). Geen cijfer: geen bron binnen de AP Digital-tak. Aantal gebruikers of geregistreerde uren via Jacob opvragen als we hier een cijfer willen.</span>
     <span class="note">Screenshot is de afgeschermde versie uit de social-post (naam weggepoetst). Logo van Jacobs is klein zichtbaar: akkoord Jacobs nodig, of een whitelabel-screenshot met nepdata.</span>
     <span class="link stil">Werkt achter inlog, demo op aanvraag</span>
   </div>
-</article><article class="case" data-pijler="apps">
-  <div class="beeld"><img src="/ontwerp/img/postleads-dashboard.webp" alt="PostLeads klantportaal met demobedrijf" decoding="async" /></div>
+</article><article class="case verhaal-case" data-pijler="apps" data-reveal>
+  <div class="beeld"><img src="/ontwerp/img/postleads-dashboard.webp" alt="PostLeads klantportaal met demobedrijf" decoding="async" loading="lazy" /></div>
+  <div class="verhaal" id="v-postleads-dashboard-8">
+    <div><small>01 · Het probleem</small><p>Klanten van een postkaartenservice willen zien wat er in hun gebied gebeurt, zonder dat ze daarvoor moeten mailen of bellen.</p></div>
+    <div><small>02 · Wat we bouwden</small><p>Een klantportaal met een kaart van het eigen gebied, de verstuurde kaarten en de aanvragen die binnenkwamen.</p></div>
+    <div><small>03 · Wat het opleverde</small><p>Elke klant heeft één inlog en ziet zelf wat zijn kaarten opleveren.</p></div>
+  </div>
   <div class="tekst">
     <div class="meta"><span class="pil">Klantportaal</span></div>
     <h3>PostLeads dashboard en CRM</h3>
     <p>Klantportaal voor een leadservice met postkaarten. Elke klant ziet zijn gebied, verstuurde kaarten, aanvragen en wat het opleverde.</p>
-    <div class="gebouwd"><span>Klantportaal</span><span>Kaart per gebied</span><span>Aanvragen volgen</span></div>
+    
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-postleads-dashboard-8"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <span class="note">Bron: Geen cijfer: PostLeads-data valt buiten de AP Digital-tak. Aantal klanten of kaarten via Pim opvragen als we hier een cijfer willen.</span>
     <span class="note">Screenshot toont "Demo bedrijf" met nepcijfers en staat nu al op de live site.</span>
     <span class="link stil">Klantportaal, demo op aanvraag</span>
   </div>
-</article><article class="case" data-pijler="apps">
-  <div class="beeld"><div class="nepscherm"><div class="zij"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="hoofd"><div class="titel">Kassa- en voorraadapp</div><div class="tegels"><b></b><b></b><b></b></div><div class="grafiek"><i style="height:40%"></i><i style="height:62%"></i><i style="height:48%"></i><i style="height:86%"></i><i style="height:58%"></i><i style="height:70%"></i></div></div><div class="stempel">Screenshot volgt · nepdata</div></div></div>
+</article><article class="case verhaal-case" data-pijler="apps" data-reveal>
+  <div class="beeld"><img src="/ontwerp/img/kassa-d.webp" alt="Kassa-app met nepdata: producten afrekenen" decoding="async" loading="lazy" /><div class="mini"><img src="/ontwerp/img/kassa-m.webp" alt="" decoding="async" loading="lazy" /></div></div>
+  <div class="verhaal" id="v-kassa-9">
+    <div><small>01 · Het probleem</small><p>Een winkel die ook online verkoopt, met meerdere verkopers. Afrekenen, voorraad en kortingen moesten op één plek, ook op de telefoon.</p></div>
+    <div><small>02 · Wat we bouwden</small><p>Een kassa-app voor telefoon en computer: afrekenen, voorraad tellen, inkoop binnenmelden en een bestel-advies voor wat er bij moet.</p></div>
+    <div><small>03 · Wat het opleverde</small><p>De voorraad loopt elke 10 minuten gelijk met de webshop. En een verkoper kan nooit onder de groothandelsprijs korten.</p></div>
+  </div>
   <div class="tekst">
     <div class="meta"><span class="pil">App op maat</span></div>
-    <h3>Kassa- en voorraadapp</h3>
-    <p>Voor een winkel: afrekenen, voorraad tellen, inkoop binnenmelden en een bestel-advies voor wat er bij moet.</p>
-    <div class="gebouwd"><span>Kassa</span><span>Voorraad</span><span>Inkoop</span><span>Bestel-advies</span></div>
-    <span class="note">Bewust zonder naam of merk van de winkel. Screenshot met nepdata en zonder logo laten maken door Walter.</span>
+    <h3>Kassa</h3>
+    <p>Kassa- en voorraadapp voor een winkel die ook online verkoopt: afrekenen, voorraad tellen, inkoop binnenmelden en een bestel-advies voor wat er bij moet.</p>
+    <div class="bewijs"><strong>10 min</strong><span>en winkel en webshop hebben dezelfde voorraad</span></div>
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-kassa-9"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <span class="note">Bron: Sync elke 10 min en korten nooit onder groothandelsprijs: vault memory/project_snoep_app.md, aangeleverd door Walter (niet zelf ingezien, valt onder Walter).</span>
+    <span class="note">Bewust zonder naam of merk van de winkel (besluit Alex). Schermen met nepdata van Walter (namen Sanne, Milan, Noor zijn verzonnen).</span>
     <span class="link stil">Bedrijfssoftware, geen publieke demo</span>
   </div>
 </article></div>
     <div class="label sub">Meer apps</div>
-    <div class="klein"><article class="case" data-pijler="apps">
-  <div class="beeld"><div class="nepscherm"><div class="zij"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="hoofd"><div class="titel">OccasionIQ</div><div class="tegels"><b></b><b></b><b></b></div><div class="grafiek"><i style="height:40%"></i><i style="height:62%"></i><i style="height:48%"></i><i style="height:86%"></i><i style="height:58%"></i><i style="height:70%"></i></div></div><div class="stempel">Screenshot volgt · nepdata</div></div></div>
+    <div class="klein"><article class="case" data-pijler="apps" data-reveal>
+  <div class="beeld"><img src="/ontwerp/img/occasioniq-d.webp" alt="OccasionIQ met nepdata: advies per veilingauto" decoding="async" loading="lazy" /><div class="mini"><img src="/ontwerp/img/occasioniq-m.webp" alt="" decoding="async" loading="lazy" /></div></div>
   <div class="tekst">
     <div class="meta"><span class="pil">App op maat</span></div>
     <h3>OccasionIQ</h3>
-    <p><span class="ph">Omschrijving in 1-2 zinnen via Walter</span></p>
-    <div class="gebouwd"><span>Webapp</span></div>
-    <span class="note">occasioniq.vercel.app vraagt om toegang (/toegang), dus geen publieke screenshot gemaakt.</span>
-    <span class="link stil">Achter inlog</span>
+    <p>Inkooptool voor autohandelaren. Per veilingauto een advies: hoeveel je maximaal biedt, wat je eraan overhoudt en hoe snel hij verkoopt.</p>
+    <div class="bewijs klein-bewijs"><strong>€0,44</strong><span>kost een analyse per auto</span></div><span class="note">Bron: Circa 0,44 per analyse: apps/occasion-inkoop/CLAUDE.md, aangeleverd door Walter (niet zelf ingezien, gegevensscheiding). Het 11,4%/15,1%-cijfer bewust NIET gebruikt: BCA-datalicentie open, beslispunt Alex.</span>
+    <div class="gebouwd"><span>Veilingadvies</span><span>Marktvergelijking</span><span>Risico's per auto</span></div>
+    
+    <span class="link stil">Achter inlog, demo op aanvraag</span>
   </div>
-</article><article class="case" data-pijler="apps">
-  <div class="beeld"><div class="nepscherm"><div class="zij"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="hoofd"><div class="titel">PT-app</div><div class="tegels"><b></b><b></b><b></b></div><div class="grafiek"><i style="height:40%"></i><i style="height:62%"></i><i style="height:48%"></i><i style="height:86%"></i><i style="height:58%"></i><i style="height:70%"></i></div></div><div class="stempel">Screenshot volgt · nepdata</div></div></div>
+</article><article class="case" data-pijler="apps" data-reveal>
+  <div class="beeld telefoons"><div class="tel tel-1"><img src="/ontwerp/img/pt-1.webp" alt="PT-app met nepdata" decoding="async" loading="lazy" /></div><div class="tel tel-2"><img src="/ontwerp/img/pt-2.webp" alt="" decoding="async" loading="lazy" /></div><div class="tel tel-3"><img src="/ontwerp/img/pt-3.webp" alt="" decoding="async" loading="lazy" /></div></div>
   <div class="tekst">
     <div class="meta"><span class="pil">App op maat</span></div>
     <h3>PT-app</h3>
-    <p>App voor personal training. <span class="ph">omschrijving en screenshot met nepdata via Brock</span></p>
-    <div class="gebouwd"><span>Webapp</span></div>
+    <p>Trainingsapp waarin sporten voelt als een spel: levels, bosses en voortgang per oefening. Alle beelden zijn met code getekend.</p>
+    <div class="bewijs klein-bewijs"><strong>1,8 MB</strong><span>was 14 MB, doordat alle beelden met code getekend zijn</span></div><span class="note">Bron: Van ~14 MB naar 1,8 MB en versleutelde sync (AES-GCM): apps/pt-app/CLAUDE.md, aangeleverd door Brock (niet zelf ingezien, gegevensscheiding).</span>
+    <div class="gebouwd"><span>Trainingen loggen</span><span>Voortgang</span><span>Levels en bosses</span></div>
     
     <span class="link stil">Demo op aanvraag</span>
   </div>
-</article><article class="case" data-pijler="apps">
-  <div class="beeld"><div class="nepscherm"><div class="zij"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="hoofd"><div class="titel">Babyapp</div><div class="tegels"><b></b><b></b><b></b></div><div class="grafiek"><i style="height:40%"></i><i style="height:62%"></i><i style="height:48%"></i><i style="height:86%"></i><i style="height:58%"></i><i style="height:70%"></i></div></div><div class="stempel">Screenshot volgt · nepdata</div></div></div>
+</article><article class="case" data-pijler="apps" data-reveal>
+  <div class="beeld telefoons"><div class="tel tel-1"><img src="/ontwerp/img/baby-1.webp" alt="Babyapp met nepdata" decoding="async" loading="lazy" /></div><div class="tel tel-2"><img src="/ontwerp/img/baby-2.webp" alt="" decoding="async" loading="lazy" /></div><div class="tel tel-3"><img src="/ontwerp/img/baby-3.webp" alt="" decoding="async" loading="lazy" /></div></div>
   <div class="tekst">
     <div class="meta"><span class="pil">App op maat</span></div>
     <h3>Babyapp</h3>
-    <p><span class="ph">Omschrijving en screenshot met nepdata via Laura</span></p>
-    <div class="gebouwd"><span>Webapp</span></div>
-    <span class="note">Privé-app: alleen tonen met volledig nepdata, geen namen of datums van echte personen.</span>
-    <span class="link stil">Privé-app, alleen met nepdata te tonen</span>
+    <p>Voor jonge ouders: voeding, slaap en gewicht in een paar tikken, met een vrolijk figuurtje dat meegroeit en elke mijlpaal viert.</p>
+    
+    <div class="gebouwd"><span>Snel invoeren</span><span>Groeigrafiek</span><span>Mijlpalen</span></div>
+    <span class="note">Privé-app: schermen met volledig nepdata van Laura, geen naam of datum van een echt kind. Bewust geen cijfers.</span>
+    <span class="link stil">Privé-app, getoond met nepdata</span>
   </div>
 </article></div>
   </section>
   <section class="pijlerblok" id="automatisering" data-blok="automatisering">
     <div class="sectie-kop" style="margin-bottom:24px"><div><div class="label">Pijler 3 · Processen en automatisering</div><h2 style="margin-top:10px">Automatisering</h2></div><a class="knop-2" href="/ontwerp/automatisering">Over automatisering →</a></div>
-    <div class="cases"><article class="case" data-pijler="automatisering">
-  <div class="beeld"><div class="nepscherm"><div class="zij"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="hoofd"><div class="titel">Bedrijfscockpit</div><div class="tegels"><b></b><b></b><b></b></div><div class="grafiek"><i style="height:40%"></i><i style="height:62%"></i><i style="height:48%"></i><i style="height:86%"></i><i style="height:58%"></i><i style="height:70%"></i></div></div><div class="stempel">Screenshot volgt · nepdata</div></div></div>
+    <div class="cases"><article class="case verhaal-case" data-pijler="automatisering" data-reveal>
+  <div class="beeld"><img src="/ontwerp/img/cockpit-d.webp" alt="Bedrijfscockpit met nepdata: de dagstart" decoding="async" loading="lazy" /><div class="mini"><img src="/ontwerp/img/cockpit-m.webp" alt="" decoding="async" loading="lazy" /></div></div>
+  <div class="verhaal" id="v-cockpit-10">
+    <div><small>01 · Het probleem</small><p>Meerdere bedrijven tegelijk runnen, met mail, taken, agenda en cijfers verspreid over tien tabbladen.</p></div>
+    <div><small>02 · Wat we bouwden</small><p>Eén scherm voor alles, met een AI-assistent die meeleest en taken klaarzet. Beslissen blijft mensenwerk.</p></div>
+    <div><small>03 · Wat het opleverde</small><p>Elke ochtend staat het dagoverzicht klaar: wat er speelt, wat vandaag moet en wat blijft liggen. De takenlijst ging van 198 open punten naar 46 echte acties.</p></div>
+  </div>
   <div class="tekst">
     <div class="meta"><span class="pil">Automatisering</span></div>
     <h3>Bedrijfscockpit</h3>
     <p>Eén scherm voor meerdere bedrijven: taken, mail, agenda, cijfers en een ochtendoverzicht dat elke dag om 07:00 klaarstaat.</p>
-    <div class="gebouwd"><span>Dashboard</span><span>Dagstart</span><span>AI-assistent</span></div>
-    <span class="note">Intern heet dit de Harvey-cockpit. Op de site alleen met nepdata en zonder privé-gegevens. Naam "Harvey" tonen of neutraal "bedrijfscockpit": Alex.</span>
+    <div class="bewijs"><strong>07:00</strong><span>dagoverzicht klaar, elke ochtend</span></div>
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-cockpit-10"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <span class="note">Bron: 07:00 = vaste dagstart-run op de ProDesk (root-CLAUDE.md, sectie Triggers). 198 naar 46: opschoning 19-08-2026 (vault memory/feedback_taken_ssot_cockpit.md, zelf gelezen). Inhoud van de dagstart bewust niet ingezien.</span>
+    <span class="note">Schermen met nepdata van Jarvis. Er staat nog "Harvey" in beeld: naam tonen of neutraal "bedrijfscockpit", beslispunt Alex.</span>
     <span class="link stil">Intern systeem</span>
   </div>
-</article><article class="case" data-pijler="automatisering">
-  <div class="beeld"><div class="nepscherm"><div class="zij"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="hoofd"><div class="titel">PostLeads-machine</div><div class="tegels"><b></b><b></b><b></b></div><div class="grafiek"><i style="height:40%"></i><i style="height:62%"></i><i style="height:48%"></i><i style="height:86%"></i><i style="height:58%"></i><i style="height:70%"></i></div></div><div class="stempel">Screenshot volgt · nepdata</div></div></div>
+</article><article class="case verhaal-case" data-pijler="automatisering" data-reveal>
+  <div class="beeld"><img src="/ontwerp/img/postleads-stroom.webp" alt="Schema van de PostLeads-machine" decoding="async" loading="lazy" /></div>
+  <div class="verhaal" id="v-postleads-machine-11">
+    <div><small>01 · Het probleem</small><p>Elke week een nieuwe adressenlijst maken voor de drukker, per klant en per gebied, uit duizenden nieuwe woningen.</p></div>
+    <div><small>02 · Wat we bouwden</small><p>Een machine die elke week 6.135 tot 7.240 nieuwe woningen scant, ze koppelt aan het gebied van elke klant, dubbele adressen eruit haalt en de lijsten plus mails klaarzet.</p></div>
+    <div><small>03 · Wat het opleverde</small><p>Sinds week 27 gingen er 13.337 kaarten de deur uit, de laatste vier weken gemiddeld zo'n 700 per week. Een mens kijkt elke lijst na voor hij weggaat.</p></div>
+  </div>
   <div class="tekst">
     <div class="meta"><span class="pil">Automatisering</span></div>
     <h3>PostLeads-machine</h3>
-    <p>Haalt elke week het nieuwe woningaanbod op, koppelt het aan het gebied van elke klant en maakt de lijst voor de drukker. Klant- en drukkersmails gaan automatisch.</p>
-    <div class="gebouwd"><span>Data ophalen</span><span>Weekbatches</span><span>Postcode-match</span><span>Automatische mails</span></div>
-    <span class="note">Screenshot met nepdata nog maken (Pim). Geen echte adressen of klantnamen in beeld.</span>
+    <p>Haalt elke week het nieuwe woningaanbod op, koppelt het aan het gebied van elke klant en maakt de lijst voor de drukker. Klant- en drukkersmails staan vanzelf klaar.</p>
+    <div class="bewijs"><strong data-tel="13337">13.337</strong><span>kaarten de deur uit in 19 weken</span></div>
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-postleads-machine-11"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <span class="note">Bron: 13.337 kaarten via bevestigde drukkersopdrachten, week 27 t/m 45 2026, laatste 4 weken gem. ~700/week: postleads data/weekcijfers.json. 6.135-7.240 nieuwe woningen per week: Woningmarkt monitor wk 38-40. Beide aangeleverd door Pim (niet zelf ingezien, gegevensscheiding). Geen urenbesparing geclaimd.</span>
+    <span class="note">Beeld = het stroomschema van Pim. Het weekrun-scherm (02) bewust niet gebruikt: daar staan verzonnen cijfers in die als feit gelezen kunnen worden.</span>
     <span class="link stil">Intern systeem</span>
   </div>
-</article><article class="case" data-pijler="automatisering">
-  <div class="beeld"><div class="nepscherm"><div class="zij"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="hoofd"><div class="titel">Social Manager</div><div class="tegels"><b></b><b></b><b></b></div><div class="grafiek"><i style="height:40%"></i><i style="height:62%"></i><i style="height:48%"></i><i style="height:86%"></i><i style="height:58%"></i><i style="height:70%"></i></div></div><div class="stempel">Screenshot volgt · nepdata</div></div></div>
+</article><article class="case verhaal-case" data-pijler="automatisering" data-reveal>
+  <div class="beeld"><img src="/ontwerp/img/social-d.webp" alt="Social Manager met nepdata: wachtrij en cijfers" decoding="async" loading="lazy" /><div class="mini"><img src="/ontwerp/img/social-m.webp" alt="" decoding="async" loading="lazy" /></div></div>
+  <div class="verhaal" id="v-social-manager-12">
+    <div><small>01 · Het probleem</small><p>Elke week posts maken, inplannen en apart op Instagram en Facebook zetten. Dat schiet er als eerste bij in.</p></div>
+    <div><small>02 · Wat we bouwden</small><p>Een wachtrij die posts op vaste momenten plaatst. Vooraf komt er een voorbeeld in Telegram: GO om te plaatsen, SKIP om tegen te houden.</p></div>
+    <div><small>03 · Wat het opleverde</small><p>50 plaatsingen voor AP Digital, zonder handmatig plaatsen in de app van Instagram of Facebook.</p></div>
+  </div>
   <div class="tekst">
     <div class="meta"><span class="pil">Automatisering</span></div>
     <h3>Social Manager</h3>
-    <p>Plant en publiceert posts op vaste momenten op Instagram en Facebook. Vooraf komt er een voorbeeld binnen, met een noodrem om een post tegen te houden.</p>
-    <div class="gebouwd"><span>Inplannen</span><span>Automatisch posten</span><span>Controle vooraf</span></div>
-    <span class="note">Let op: sinds september staat het eigen Meta-account van AP Digital stil. Het systeem bestaat en heeft gedraaid, maar "publiceert nu" niet claimen.</span>
+    <p>Plant en plaatst posts op vaste momenten op Instagram en Facebook. Vooraf komt er een voorbeeld in Telegram, met een noodrem om een post tegen te houden.</p>
+    <div class="bewijs"><strong data-tel="50">50</strong><span>plaatsingen voor AP Digital</span></div>
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-social-manager-12"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <span class="note">Bron: 50 plaatsingen, IG en FB apart geteld, stand 04-11-2026: aangeleverd door Jarvis (niet zelf ingezien). Werkwijze zonder handwerk: vault memory/reference_social_publiceert_via_social_manager.md (zelf gelezen).</span>
+    <span class="note">Schermen met nepdata (Studio Noord) van Jarvis; de Telegram-chat is nagebouwd. Let op: sinds september staat het Meta-account van AP Digital stil, dus "publiceert nu" niet claimen.</span>
     <span class="link stil">Intern systeem</span>
   </div>
 </article></div>
     <div class="label sub">Meer automatisering</div>
-    <div class="klein"><article class="case" data-pijler="automatisering">
-  <div class="beeld"><div class="nepscherm"><div class="zij"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="hoofd"><div class="titel">GEO-monitor</div><div class="tegels"><b></b><b></b><b></b></div><div class="grafiek"><i style="height:40%"></i><i style="height:62%"></i><i style="height:48%"></i><i style="height:86%"></i><i style="height:58%"></i><i style="height:70%"></i></div></div><div class="stempel">Screenshot volgt · nepdata</div></div></div>
+    <div class="klein"><article class="case" data-pijler="automatisering" data-reveal>
+  <div class="beeld"><img src="/ontwerp/img/geo-d.webp" alt="GEO-monitor met nepdata" decoding="async" loading="lazy" /><div class="mini"><img src="/ontwerp/img/geo-m.webp" alt="" decoding="async" loading="lazy" /></div></div>
   <div class="tekst">
     <div class="meta"><span class="pil">Automatisering</span></div>
     <h3>GEO-monitor</h3>
-    <p>Meet of een bedrijf genoemd wordt in de antwoorden van AI-zoekmachines zoals ChatGPT en Google.</p>
-    <div class="gebouwd"><span>AI-zichtbaarheid</span><span>Meting</span></div>
+    <p>Meet elke week of een bedrijf genoemd wordt als iemand een AI om advies vraagt, en wie er anders genoemd wordt.</p>
+    <div class="bewijs klein-bewijs"><strong>19</strong><span>automatische metingen sinds 30 juni</span></div><span class="note">Bron: 19 metingen sinds 30-06-2026: aangeleverd door Jarvis (niet zelf ingezien). Scherm is eerlijk: 2 engines gemeten, 2 niet.</span>
+    <div class="gebouwd"><span>AI-zichtbaarheid</span><span>Concurrenten</span><span>Wat te doen</span></div>
     
     <span class="link stil">Intern systeem</span>
   </div>
-</article><article class="case" data-pijler="automatisering">
-  <div class="beeld"><div class="nepscherm"><div class="zij"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="hoofd"><div class="titel">SEO-rapportages per klant</div><div class="tegels"><b></b><b></b><b></b></div><div class="grafiek"><i style="height:40%"></i><i style="height:62%"></i><i style="height:48%"></i><i style="height:86%"></i><i style="height:58%"></i><i style="height:70%"></i></div></div><div class="stempel">Screenshot volgt · nepdata</div></div></div>
+</article><article class="case" data-pijler="automatisering" data-reveal>
+  <div class="beeld"><img src="/ontwerp/img/seo-rapport-d.webp" alt="Voorbeeld SEO-maandrapport met verzonnen cijfers" decoding="async" loading="lazy" /></div>
   <div class="tekst">
     <div class="meta"><span class="pil">Automatisering</span></div>
     <h3>SEO-rapportages per klant</h3>
-    <p>Search Console-cijfers worden dagelijks binnengehaald; per klant komt er een maandoverzicht in onze huisstijl.</p>
-    <div class="gebouwd"><span>Dagelijkse meting</span><span>Maandrapport</span></div>
+    <p>Search Console-cijfers worden dagelijks binnengehaald; per klant komt er een maandoverzicht in onze huisstijl: wat steeg, wat zakte en de drie acties voor volgende maand.</p>
     
+    <div class="gebouwd"><span>Dagelijkse meting</span><span>Maandrapport</span><span>Acties per maand</span></div>
+    <span class="note">Beeld = pagina uit onze eigen rapportgenerator (seo-roadmap-template/generate_briefing.py), gevuld met verzonnen klant Studio Noord. Let op: het voorblad van die generator toont nog de oude tagline "Digital work, geen fluff".</span>
     <span class="link stil">Voorbeeldrapport op aanvraag</span>
   </div>
 </article></div>
@@ -261,8 +329,9 @@
   <div class="kolommen">
     <div>
       <a class="logo" href="/ontwerp/"><span class="blok">AP</span><span class="woord">AP Digital</span></a>
-      <div class="tagline">Digitaal werk dat gewoon werkt.</div>
-      <p style="font-size:15px">Websites, apps en automatisering voor ondernemers. Vanuit Arnhem.</p>
+      <div class="tagline">Eerst voor ons eigen werk. Nu voor het jouwe.</div>
+      <p style="font-size:15px">Websites, apps en automatisering voor ondernemers. Gebouwd in Arnhem.</p>
+      <span class="note">Footer-regel vervangt de brandbook-tagline "Digitaal werk dat gewoon werkt". Brandbook aanpassen of terugzetten: Alex.</span>
     </div>
     <div><h4>Wat we bouwen</h4><a href="/ontwerp/websites">Websites</a><a href="/ontwerp/apps">Apps op maat</a><a href="/ontwerp/automatisering">Processen en automatisering</a><a href="/ontwerp/portfolio">Portfolio</a></div>
     <div><h4>AP Digital</h4><a href="/ontwerp/over">Over ons</a><a href="/ontwerp/kennismaking">Gratis kennismaking</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/voorwaarden">Voorwaarden</a></div>
@@ -271,6 +340,6 @@
   <div class="klein-tekst"><span>AP Digital · KVK 42080619 · Arnhem</span><span>Ontwerp 2026-11-04</span></div>
 </div></footer>
 <div class="vast-cta"><a class="knop" href="/ontwerp/kennismaking">Gratis kennismaking</a><a class="knop-2" href="tel:+31614160265" aria-label="Bellen">Bel</a></div>
-<script src="/ontwerp/ontwerp.js?v=1"></script>
+<script src="/ontwerp/ontwerp.js?v=2"></script>
 </body>
 </html>
