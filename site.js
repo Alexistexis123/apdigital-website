@@ -157,7 +157,7 @@
                 m.classList.add('doc-in')
                 na(850, function () {
                   m.classList.add('mail-in')
-                  na(2600, function () {
+                  na(3600, function () {
                     m.classList.add('reset')
                     na(420, function () {
                       loopt = false
@@ -174,14 +174,25 @@
     })
   }
 
+  // De schermen staan al gevuld in de HTML (eindstand). Eerst even zo laten staan, dan pas de animatie.
   if (rustig) { eindstand(); return }
+  var eerste = true
+  function start() {
+    if (!eerste) return ronde()
+    eerste = false
+    loopt = true
+    na(2400, function () {
+      m.classList.add('reset')
+      na(420, function () { loopt = false; if (inBeeld && !document.hidden) ronde(); else eindstand() })
+    })
+  }
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(function (items) {
       inBeeld = items[0].isIntersecting
-      if (inBeeld && !loopt && !document.hidden) ronde()
+      if (inBeeld && !loopt && !document.hidden) start()
     }, { threshold: 0.2 }).observe(m)
   } else {
-    ronde()
+    start()
   }
   document.addEventListener('visibilitychange', function () {
     if (!document.hidden && inBeeld && !loopt) ronde()

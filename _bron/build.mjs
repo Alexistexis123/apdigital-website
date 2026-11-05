@@ -14,7 +14,7 @@ const ROOT = join(D, '..')
 const OUD = join(D, 'oud')
 const SITE = 'https://apdigital.nl'
 const VANDAAG = process.env.BOUWDATUM || new Date().toISOString().slice(0, 10)
-const V = '3' // cache-buster site.css / site.js
+const V = '4' // cache-buster site.css / site.js
 const steden = JSON.parse(readFileSync(join(D, 'steden.json'), 'utf8'))
 const oud = f => readFileSync(join(OUD, f), 'utf8')
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;')
@@ -259,18 +259,18 @@ const contactRegels = (waTekst) => `<div class="contact-regels">
 
 // ---------- HOME ----------
 const machine = `
-<div class="machine" id="machine" data-stap="0" role="img" aria-label="Voorbeeld met nepdata: een aanvraag komt binnen via de website, staat daarna in de planning en levert vanzelf een offerte en een mail op.">
+<div class="machine plan-in ingepland doc-in mail-in" id="machine" data-stap="0" role="img" aria-label="Voorbeeld met nepdata: een aanvraag komt binnen via de website, staat daarna in de planning en levert vanzelf een offerte en een mail op.">
   <div class="m-raam m-site" data-raam="1">
     <div class="m-balk"><i></i><i></i><i></i><span>jouwbedrijf.nl/offerte</span></div>
     <div class="m-inhoud">
       <div class="m-kop">Offerte aanvragen</div>
-      <div class="m-veld"><small>Naam</small><span data-typ="M. de Vries"></span></div>
-      <div class="m-veld"><small>Klus</small><span data-typ="Schilderwerk buiten"></span></div>
-      <div class="m-veld m-veld-plaats"><small>Plaats</small><span data-typ="Velp"></span></div>
+      <div class="m-veld"><small>Naam</small><span data-typ="M. de Vries">M. de Vries</span></div>
+      <div class="m-veld"><small>Klus</small><span data-typ="Schilderwerk buiten">Schilderwerk buiten</span></div>
+      <div class="m-veld m-veld-plaats"><small>Plaats</small><span data-typ="Velp">Velp</span></div>
       <div class="m-knop">Aanvraag versturen</div>
     </div>
   </div>
-  <div class="m-draad" data-draad="1"><b></b></div>
+  <div class="m-draad vol" data-draad="1"><b></b></div>
   <div class="m-raam m-plan" data-raam="2">
     <div class="m-balk"><i></i><i></i><i></i><span>Planning · deze week</span></div>
     <div class="m-inhoud">
@@ -284,7 +284,7 @@ const machine = `
       <div class="m-status"><span class="m-pil">Nieuwe aanvraag</span><span class="m-pil ok">Ingepland do 08:00</span></div>
     </div>
   </div>
-  <div class="m-draad" data-draad="2"><b></b></div>
+  <div class="m-draad vol" data-draad="2"><b></b></div>
   <div class="m-raam m-offerte" data-raam="3">
     <div class="m-balk"><i></i><i></i><i></i><span>Offerte · automatisch</span></div>
     <div class="m-inhoud">
@@ -297,16 +297,16 @@ const machine = `
   </div>
 </div>
 <ol class="m-stappen" aria-hidden="true">
-  <li data-s="1"><b>01</b>Aanvraag via je website</li>
-  <li data-s="2"><b>02</b>Staat meteen in je planning</li>
-  <li data-s="3"><b>03</b>Offerte en mail gaan vanzelf de deur uit</li>
+  <li class="aan" data-s="1"><b>01</b>Aanvraag via je website</li>
+  <li class="aan" data-s="2"><b>02</b>Staat meteen in je planning</li>
+  <li class="aan" data-s="3"><b>03</b>Offerte en mail gaan vanzelf de deur uit</li>
 </ol>`
 
 // Cijfers met bron (bron staat in het ontwerp en in de vault, niet op de site).
 const cijfers = [
   ['13.337', 'kaarten van de PostLeads-machine bij mensen op de mat, in 19 weken'],
   ['52', 'oude adressen van Flo-Rent netjes doorgestuurd, niemand loopt dood'],
-  ['€0', 'hosting per maand voor Her-bergen, alleen het domein kost geld'],
+  ['5', 'dagen van eerste gesprek tot live, voor de B&amp;B-site van Casa 5'],
   ['100', 'van 100 voor de SEO-basis in Google Lighthouse, Flo-Rent en RH Scooter'],
 ]
 
@@ -326,8 +326,8 @@ const reviewsBlok = `
 const home = pagina({
   pad: '/',
   titel: 'Website laten maken in 7 dagen, vanaf 299 euro | AP Digital',
-  beschrijving: 'Website laten maken vanaf €299, live binnen 7 dagen. Plus apps en automatisering op maat: gebouwd voor Jacobs Heteren, nu voor jouw bedrijf.',
-  og: { titel: 'AP Digital | Websites, apps en automatisering', beschrijving: 'Gebouwd voor Jacobs Heteren, waar het elke dag draait. Nu voor jouw bedrijf.' },
+  beschrijving: 'Website laten maken vanaf €299, live binnen 7 dagen. Plus apps en automatisering op maat voor ondernemers in Arnhem en omgeving. Vaste prijs, één aanspreekpunt.',
+  og: { titel: 'AP Digital | Websites, apps en automatisering', beschrijving: 'Digitaal werk dat gewoon werkt. Websites, apps en automatisering voor ondernemers in Arnhem en omgeving.' },
   actief: 'home',
   kopExtra: '<meta name="google-site-verification" content="CgNNQrAZwi1S_UNIU0qI0KRWeE4KUXG3Hbb" />',
   jsonld: [
@@ -340,10 +340,10 @@ const home = pagina({
   <div class="hero-kop">
     <div>
       <div class="label geel">Websites · Apps · Automatisering</div>
-      <h1>Gebouwd voor <span class="streep">Jacobs Heteren,</span> waar het elke dag draait. <span class="serif">Nu voor jouw bedrijf.</span></h1>
+      <h1><span class="streep">Digitaal werk</span> dat <span class="serif">gewoon werkt.</span></h1>
     </div>
     <div class="hero-rechts">
-      <p class="lead">Bij verhuisbedrijf Jacobs Heteren draait elke dag software die wij bouwden: de website, de offertes en planning, de uren van de ploeg. Dat bouwen we nu voor jou: een site die aanvragen binnenhaalt, een app die past op je werk, en het handwerk ertussen dat vanzelf gaat.</p>
+      <p class="lead">Websites, apps en automatisering voor ondernemers in Arnhem en omgeving. Eén aanspreekpunt, een vaste prijs, en je ziet eerst wat je krijgt.</p>
       <div class="knoppen-rij"><a class="knop" href="/contact">Plan een gratis kennismaking</a><a class="knop-2" href="#verhalen">Bekijk wat we bouwden</a></div>
     </div>
   </div>
@@ -351,7 +351,7 @@ const home = pagina({
   <p class="m-uitleg">Zo loopt een aanvraag als je site, planning en offertes aan elkaar hangen. <span>Voorbeeld met nepdata.</span></p>
 </div></section>
 
-<div class="tape" aria-hidden="true"><div class="tape-rol"><span>Websites</span><span>Apps op maat</span><span>Automatisering</span><span>Gebouwd in Arnhem</span><span>Elke dag in gebruik bij Jacobs Heteren</span><span>Websites</span><span>Apps op maat</span><span>Automatisering</span><span>Gebouwd in Arnhem</span><span>Elke dag in gebruik bij Jacobs Heteren</span></div></div>
+<div class="tape" aria-hidden="true"><div class="tape-rol"><span>Websites</span><span>Apps op maat</span><span>Automatisering</span><span>Gebouwd in Arnhem</span><span>Vaste prijs</span><span>Eén aanspreekpunt</span><span>Websites</span><span>Apps op maat</span><span>Automatisering</span><span>Gebouwd in Arnhem</span><span>Vaste prijs</span><span>Eén aanspreekpunt</span></div></div>
 
 <section class="sectie"><div class="wrap">
   <div class="sectie-kop" data-reveal><div><div class="label">Wat we bouwen</div><h2 style="margin-top:12px">Begin bij je site. <span class="serif">Stop waar het knelt.</span></h2><p class="lead">De meeste klanten komen voor een betere website. Loop je daarna vast op Excel, papier of dubbel overtypen, dan bouwen we dat er gewoon achteraan.</p></div></div>
@@ -368,7 +368,7 @@ const home = pagina({
 </div></section>
 
 <section class="sectie" id="verhalen"><div class="wrap">
-  <div class="sectie-kop" data-reveal><div><div class="label">Uitgelicht werk</div><h2 style="margin-top:12px">Vier klussen, <span class="serif">vier verhalen.</span></h2><p class="lead">Wat er mis was, wat we bouwden en wat het opleverde. Beweeg over een project of tik op het verhaal.</p></div><a class="knop-2" href="/portfolio">Alle projecten →</a></div>
+  <div class="sectie-kop" data-reveal><div><div class="label">Uitgelicht werk</div><h2 style="margin-top:12px">Vier klussen, <span class="serif">vier verhalen.</span></h2><p class="lead">Wat er mis was, wat we bouwden en wat het opleverde. Open een project voor het hele verhaal.</p></div><a class="knop-2" href="/portfolio">Alle projecten →</a></div>
   <div class="cases">
     ${['florent', 'moveflow', 'postleads-machine', 'cockpit'].map(id => kaart(proj(id), { rustig: id === 'moveflow', klasse: 'hc-card' })).join('')}
   </div>
@@ -377,7 +377,7 @@ const home = pagina({
 <section class="sectie raster"><div class="wrap">
   <div class="sectie-kop" data-reveal><div><div class="label">Waarom wij</div><h2 style="margin-top:12px">Geen <s class="doorhaal">webbureau.</s> <span class="serif">Bouwers die de werkvloer kennen.</span></h2></div></div>
   <div class="drie">
-    <div data-reveal><div class="nr">01</div><h3>Getest op een echte werkvloer</h3><p>Onze apps draaien elke dag bij Jacobs Heteren, met kantoor, planners en de ploeg op de weg. Wat niet handig werkt, horen we meteen.</p></div>
+    <div data-reveal><div class="nr">01</div><h3>Getest op een echte werkvloer</h3><p>Onze apps draaien elke dag bij een verhuisbedrijf, Jacobs Heteren. Wat niet handig werkt, horen we meteen.</p></div>
     <div data-reveal style="--d:90ms"><div class="nr">02</div><h3>Site en systeem uit één hand</h3><p>Een formulier op je site is stap één. Dat die aanvraag daarna vanzelf in je planning staat, is stap twee. Wij doen allebei, dus er zit geen gat tussen.</p></div>
     <div data-reveal style="--d:180ms"><div class="nr">03</div><h3>Je belt met wie het bouwt</h3><p>Geen accountmanager ertussen. Wie je aan de lijn hebt, heeft je site of app zelf in elkaar gezet.</p></div>
   </div>

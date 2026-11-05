@@ -385,6 +385,14 @@ main { overflow-x: clip; }
   .verhaal-case.open .verhaal { max-height: 640px; padding: 20px 26px 22px; border-top-color: rgba(255,214,10,.35); }
   .verhaal-case .tekst { order: 2; }
 }
+/* Home (Uitgelicht werk): het scherm blijft altijd zichtbaar; het verhaal klapt alleen via de knop open, onder de tekst */
+@media (hover: hover) and (min-width: 861px) {
+  .hc-card .verhaal { order: 3; position: relative; left: auto; right: auto; top: auto; aspect-ratio: auto; max-height: 0; overflow: hidden; padding: 0 26px; align-content: start; background: #0d0d0d; -webkit-backdrop-filter: none; backdrop-filter: none; border-bottom: 0; border-top: 1px solid transparent; opacity: 1; transform: none; pointer-events: auto; transition: max-height .5s cubic-bezier(.2,.8,.2,1), padding .4s; }
+  .hc-card .verhaal > div { opacity: 1; transform: none; }
+  .hc-card.open .verhaal { max-height: 640px; padding: 20px 26px 22px; border-top-color: rgba(255,214,10,.35); }
+  .hc-card .tekst { order: 2; }
+  .hc-card .g-knoppen button { pointer-events: auto; cursor: pointer; }
+}
 
 /* Doorhaal-woord */
 .doorhaal { text-decoration: none; position: relative; color: var(--grijs); white-space: nowrap; }
