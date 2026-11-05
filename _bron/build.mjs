@@ -624,11 +624,11 @@ const ABO = [
   { naam: 'Goud', prijs: '€199,99', punten: ['5 aanpassingen per maand', '2 tot 3 extra pagina\'s per maand', 'Maandelijks SEO-rapport', 'Maandelijks performance-rapport', 'Per kwartaal een upgrade-ronde', 'Alles uit Zilver'] },
 ]
 // FAQ 1-op-1 van de oude pakkettenpagina. Gewijzigd: bugfix-antwoord volgt nu de pakketten (30/60/90 dagen) i.p.v. "eerste jaar gratis".
-// Hosting en domein eerste jaar: ongewijzigd laten staan, beslispunt Alex (staat niet in de Starter-lijst).
+// Besluit Alex 05-11: hosting en domein zitten NIET bij de websiteprijs, die regelen we apart (aanbod: /onderhoud-en-hosting).
 const PAKKET_FAQ = [
-  ['Wat zit er allemaal bij de prijs?', 'Hosting, domein 1 jaar, design, bouw en basis SEO. Geen verborgen kosten.'],
+  ['Wat zit er allemaal bij de prijs?', 'Ontwerp, bouw en basis SEO, zoals per pakket hierboven staat. Hosting en domein regelen we apart, bijvoorbeeld via <a class="tekst-link" href="/onderhoud-en-hosting">onderhoud en hosting</a>. Geen verborgen kosten.'],
   ['Wat als ik later wijzigingen wil?', 'Aanpassingen tegen uurtarief (€85), of via een maandabonnement (Brons vanaf €49,99, Zilver €99,99, Goud €199,99). Zo blijft je site fris zonder verrassingen.'],
-  ['Hoe zit het met hosting na het eerste jaar?', 'Na het eerste jaar kun je kiezen, wij blijven hosting en domein voor je beheren, of je neemt het zelf over. We zorgen dat alles soepel overgedragen wordt.'],
+  ['Hoe regel ik hosting en domein?', 'Zelf, bij een partij naar keuze, of via ons met een maandabonnement: daar zitten hosting, SSL en domeinbeheer in. Zie <a class="tekst-link" href="/onderhoud-en-hosting">onderhoud en hosting</a>.'],
   ['Hoe lang duurt het echt?', 'Starter binnen 7 dagen, vaak sneller. Groei tussen 7 en 14 dagen. Premium 3 tot 6 weken, afhankelijk van de omvang.'],
   ['Wat moet ik aanleveren?', 'Wij regelen de basis: logo, tekst en beelden. Heb je eigen materiaal? Lever het aan. Geen foto\'s of video\'s? Wij schieten ze tegen meerprijs. Hoe minimaal of betrokken je wil zijn is aan jou.'],
   ['Krijg ik de website in eigen beheer?', 'Ja. Bij alle pakketten kan een CMS, dan beheer je tekst en foto\'s zelf. Liever niet zelf? Wij doen het via uurtarief of het maandabonnement.'],
@@ -832,6 +832,18 @@ const FIXES = [
   [/Een web-app of klantportaal start vanaf 2\.500 euro\./g, 'Voor een web-app of klantportaal krijg je na een gratis gesprek een vaste prijs.', 'besluit Alex 05-11: apps zonder bedrag'],
   [/Webshops en maatwerk op offerte, web-apps vanaf 2\.500 euro/g, 'Webshops en maatwerk op offerte, web-apps een vaste prijs na een gratis gesprek', 'besluit Alex 05-11: apps zonder bedrag'],
   [/web-apps starten vanaf 2\.500 euro/g, 'voor web-apps krijg je na een gratis gesprek een vaste prijs', 'besluit Alex 05-11: apps zonder bedrag'],
+  // Besluit Alex 05-11: hosting en domein zitten niet bij de websiteprijs, die regelen we apart.
+  [/ Hosting en domein voor het eerste jaar zitten erbij in\./g, ' Hosting en domein regelen we apart, bijvoorbeeld via <a href="/onderhoud-en-hosting">onderhoud en hosting</a>.', 'hosting/domein apart (besluit Alex 05-11)'],
+  [/<li>Hosting, domein en SSL eerste jaar inbegrepen<\/li>/g, '<li>Hosting en domein regelen we apart, via <a href="/onderhoud-en-hosting">onderhoud en hosting</a> of bij een partij naar keuze</li>', 'hosting/domein apart (besluit Alex 05-11)'],
+  [/Logo, foto, tekst, contactformulier, hosting en domein eerste jaar inbegrepen\./g, 'Logo, foto, tekst en contactformulier. Hosting en domein regelen we apart.', 'hosting/domein apart (besluit Alex 05-11)'],
+  [/\s*<li>Hosting voor het eerste jaar, vanaf jaar 2 vaak rond 12 tot 18 euro per maand\.<\/li>\s*<li>Domeinregistratie voor het eerste jaar, daarna ongeveer 12 euro per jaar\.<\/li>/g, '\n      <li>Hosting en domein zitten niet in de pakketprijs. Die regelen we apart, bijvoorbeeld via <a href="/onderhoud-en-hosting">onderhoud en hosting</a>.</li>', 'hosting/domein apart (besluit Alex 05-11)'],
+  [/Bij elk pakket dat we leveren zitten een paar zaken standaard inbegrepen\. Dat scheelt verrassingen achteraf\./g, 'Bij elk pakket zitten een paar zaken standaard, en één ding regelen we apart. Dat scheelt verrassingen achteraf.', 'hosting/domein apart (besluit Alex 05-11)'],
+  [/Is hosting en domein bij de prijs inbegrepen\?/g, 'Zitten hosting en domein bij de prijs?', 'hosting/domein apart (besluit Alex 05-11)'],
+  [/Bij ons zit hosting en domein voor het eerste jaar standaard in elk pakket\. Vanaf jaar 2 reken je op ongeveer 12 tot 30 euro per maand voor hosting en 12 euro per jaar voor je domein\./g, 'Nee. Hosting en domein regelen we apart van de bouw. Wil je dat wij het voor je regelen, kijk dan bij <a href="/onderhoud-en-hosting">onderhoud en hosting</a>.', 'hosting/domein apart (besluit Alex 05-11)'],
+  [/ Hosting en domein zitten het eerste jaar in elk pakket\./g, ' Hosting en domein regelen we apart, zie <a href="/onderhoud-en-hosting">onderhoud en hosting</a>.', 'hosting/domein apart (besluit Alex 05-11)'],
+  [/ Hosting en domein eerste jaar inbegrepen\./g, ' Hosting en domein regelen we apart.', 'hosting/domein apart (besluit Alex 05-11)'],
+  // Voorwaarden art. 8 (juridisch, concept ter goedkeuring Alex voor livegang).
+  [/<p>Bij elk pakket is hosting en domein voor één jaar inbegrepen\. Na het eerste jaar kan de klant kiezen:<\/p>\s*<ul>\s*<li>Doorlopende hosting via AP Digital tegen jaartarief \(op aanvraag\)<\/li>\s*<li>Zelf overnemen van hosting en domein, met technische ondersteuning bij overdracht<\/li>\s*<\/ul>/g, '<p>Hosting en domein vallen niet onder de prijs van een website of pakket en worden apart geregeld. De klant kan kiezen:</p>\n      <ul>\n        <li>Hosting en domein via AP Digital, met een maandabonnement of tegen een tarief op aanvraag</li>\n        <li>Hosting en domein zelf afnemen bij een partij naar keuze, met technische ondersteuning van AP Digital bij het koppelen van de website</li>\n      </ul>', 'voorwaarden art. 8 (besluit Alex 05-11, ter goedkeuring)'],
   [/\s*[—–]\s*/g, ', ', 'geen em-dashes'],
 ]
 const FIX_LOG = {}
