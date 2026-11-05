@@ -824,6 +824,7 @@ const nietGevonden = pagina({
 const FIXES = [
   [/href="\/webshops"/g, `href="${P.websites}"`, '/webshops krijgt een 301 naar /websites-laten-maken'],
   [/href="\/horeca-websites"/g, 'href="/restaurant-websites"', '/horeca-websites krijgt een 301 naar /restaurant-websites'],
+  [/href="\/casa5\/"/g, 'href="/casa5"', 'zonder slash, anders een extra doorverwijzing'],
   [/href="\/diensten#websites"/g, `href="${P.websites}"`, 'pijlerpagina Websites'],
   [/href="https:\/\/apdigital\.nl\/webshops"/g, `href="${SITE}${P.websites}"`, '301'],
   [/href="(https:\/\/apdigital\.nl)?\/marketing-fit"([^>]*)>apdigital\.nl\/marketing-fit</g, 'href="https://marketing-fit.nl/"$2>marketing-fit.nl<', 'Marketing Fit staat live op eigen domein'],
