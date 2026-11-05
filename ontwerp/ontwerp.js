@@ -91,6 +91,27 @@
     })
   })
 
+  // ---------- galerij: schermen wisselen vanzelf (niet bij hover, buiten beeld of reduced-motion) ----------
+  var rustigeBeweging = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  document.querySelectorAll('[data-galerij]').forEach(function (g) {
+    var beelden = g.querySelectorAll('.g-beeld'), knoppen = g.querySelectorAll('.g-knoppen button')
+    var nu = 0, klok = null, zichtbaar = false, hover = false
+    function toon(i) {
+      nu = (i + beelden.length) % beelden.length
+      beelden.forEach(function (b, j) { b.classList.toggle('aan', j === nu) })
+      knoppen.forEach(function (k, j) { k.classList.toggle('aan', j === nu); k.setAttribute('aria-pressed', j === nu ? 'true' : 'false') })
+    }
+    function stop() { if (klok) { clearInterval(klok); klok = null } }
+    function start() { stop(); if (!rustigeBeweging && zichtbaar && !hover) klok = setInterval(function () { toon(nu + 1) }, 3400) }
+    knoppen.forEach(function (k) { k.addEventListener('click', function (e) { e.stopPropagation(); toon(+k.dataset.i); start() }) })
+    var kaart = g.closest('.case') || g
+    kaart.addEventListener('mouseenter', function () { hover = true; stop() })
+    kaart.addEventListener('mouseleave', function () { hover = false; start() })
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) { es.forEach(function (e) { zichtbaar = e.isIntersecting; zichtbaar ? start() : stop() }) }, { threshold: 0.4 }).observe(g)
+    }
+  })
+
   // ---------- hero-machine ----------
   var m = document.getElementById('machine')
   if (!m) return

@@ -556,3 +556,15 @@ body.notes-uit .beeld .stempel-volgt { display: none; }
 .persoon-foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .persoon p { margin: 0 0 14px; }
 @media (min-width: 861px) { .persoon.omgekeerd > :first-child { order: 2; } }
+
+/* Galerij (MoveFlow op portfolio en pijler Apps): meerdere schermen die wisselen */
+.case .beeld.galerij .g-beeld { position: absolute; inset: 0; opacity: 0; transition: opacity .7s ease, transform .5s; }
+.case .beeld.galerij .g-beeld.aan { opacity: 1; }
+.g-knoppen { position: absolute; left: 12px; bottom: 12px; z-index: 1; display: flex; gap: 6px; }
+.g-knoppen button { font-family: var(--mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--wit); background: rgba(10,10,10,.82); border: 1px solid var(--lijn-2); border-radius: 999px; padding: 6px 10px; cursor: pointer; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); transition: background .25s, color .25s, border-color .25s; }
+.g-knoppen button.aan { background: var(--geel); color: var(--zwart); border-color: var(--geel); }
+.g-knoppen button:focus-visible { outline: 2px solid var(--geel); outline-offset: 2px; }
+@media (max-width: 480px) { .g-knoppen { left: 8px; bottom: 8px; gap: 4px; } .g-knoppen button { font-size: 9.5px; padding: 5px 8px; } }
+@media (prefers-reduced-motion: reduce) { .case .beeld.galerij .g-beeld { transition: none; } }
+/* Desktop: bij hover ligt het verhaal over het beeld, dus de knoppen zijn daar alleen een wijzer; tikken werkt op touch */
+@media (hover: hover) { .g-knoppen button { pointer-events: none; cursor: default; } }

@@ -67,7 +67,7 @@ function pagina({ titel, beschrijving, actief, body }) {
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="${B}/ontwerp.css?v=4" />
+<link rel="stylesheet" href="${B}/ontwerp.css?v=5" />
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body class="notes-uit">
@@ -76,7 +76,7 @@ ${kop(actief)}
 ${body}
 </main>
 ${voet()}
-<script src="${B}/ontwerp.js?v=2"></script>
+<script src="${B}/ontwerp.js?v=3"></script>
 </body>
 </html>
 `
@@ -101,6 +101,12 @@ function beeld(p) {
     return `<div class="beeld" style="display:grid;place-items:center;background:radial-gradient(closest-side,rgba(255,214,10,.12),#141414)"><div class="telefoon" style="width:44%;margin-top:26px;box-shadow:none"><img src="${B}/img/${p.img}" alt="${p.alt}" decoding="async" style="aspect-ratio:534/520" /></div></div>`
   }
   const mini = p.mobiel ? `<div class="mini"><img src="${B}/img/${p.mobiel}" alt="" decoding="async" loading="lazy" /></div>` : ''
+  if (p.galerij) {
+    // Meerdere schermen: wisselen vanzelf (pauze bij hover of buiten beeld), knoppen om zelf te kiezen. Zie ontwerp.js.
+    const beelden = p.galerij.map((g, i) => `<img class="g-beeld${i ? '' : ' aan'}" src="${B}/img/${g[0]}" alt="${g[2]}" decoding="async" loading="lazy" />`).join('')
+    const knoppen = p.galerij.map((g, i) => `<button type="button"${i ? '' : ' class="aan"'} data-i="${i}" aria-label="Toon scherm ${g[1]}">${g[1]}</button>`).join('')
+    return `<div class="beeld galerij" data-galerij>${beelden}${mini}<div class="g-knoppen">${knoppen}</div></div>`
+  }
   return `<div class="beeld"><img src="${B}/img/${p.img}" alt="${p.alt}" decoding="async" loading="lazy" />${mini}</div>`
 }
 
@@ -147,6 +153,8 @@ function kaart(p) {
 </article>`
 }
 let kaartTeller = 0
+// Home: MoveFlow als rustige kaart met één beeld (geen telefoon, geen galerij); de rest zoals op de pijlerpagina.
+const kaartRustig = p => kaart({ ...p, mobiel: null, galerij: null })
 
 const perPijler = k => projecten.filter(p => p.pijler === k)
 const uitgelicht = k => perPijler(k).filter(p => p.top)
@@ -261,7 +269,7 @@ const home = pagina({
 <section class="sectie" id="verhalen"><div class="wrap">
   <div class="sectie-kop" data-reveal><div><div class="label">Uitgelicht werk</div><h2 style="margin-top:12px">Vier klussen, <span class="serif">vier verhalen.</span></h2><p class="lead">Wat er mis was, wat we bouwden en wat het opleverde. Beweeg over een project of tik op het verhaal.</p></div><a class="knop-2" href="${B}/portfolio">Alle projecten →</a></div>
   <div class="cases">
-    ${['florent', 'moveflow', 'postleads-machine', 'cockpit'].map(id => kaart(projecten.find(p => p.id === id))).join('')}
+    ${['florent', 'moveflow', 'postleads-machine', 'cockpit'].map(id => (id === 'moveflow' ? kaartRustig : kaart)(projecten.find(p => p.id === id))).join('')}
   </div>
   <span class="note">De vier van Alex (05-11): Flo-Rent, MoveFlow, PostLeads-machine, AI-cockpit. Kassa, uren-app en PostLeads-klantportaal staan op de pijlerpagina Apps.</span>
 </div></section>
