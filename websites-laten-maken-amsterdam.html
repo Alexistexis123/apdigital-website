@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="nl">
 <head>
 <meta charset="utf-8" />
@@ -11,21 +11,43 @@
 <meta property="og:url" content="https://apdigital.nl/websites-laten-maken-amsterdam" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="nl_NL" />
+<meta property="og:site_name" content="AP Digital" />
 <meta property="og:image" content="https://apdigital.nl/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="AP Digital - Live binnen 7 dagen, vanaf 299 euro" />
+<meta property="og:image:alt" content="AP Digital, websites, apps en automatisering" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://apdigital.nl/og-image.png" />
+<meta name="theme-color" content="#0A0A0A" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="preload" href="/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="/site.css?v=2" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://apdigital.nl/" },
-    { "@type": "ListItem", "position": 2, "name": "Diensten", "item": "https://apdigital.nl/diensten" },
-    { "@type": "ListItem", "position": 3, "name": "Website laten maken in Amsterdam", "item": "https://apdigital.nl/websites-laten-maken-amsterdam" }
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://apdigital.nl/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Websites laten maken",
+      "item": "https://apdigital.nl/websites-laten-maken"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Website laten maken in Amsterdam",
+      "item": "https://apdigital.nl/websites-laten-maken-amsterdam"
+    }
   ]
-}</script>
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -38,382 +60,188 @@
     "@id": "https://apdigital.nl/#business",
     "name": "AP Digital",
     "legalName": "AP Digital",
-    "identifier": { "@type": "PropertyValue", "propertyID": "KVK", "value": "42080619" },
+    "identifier": {
+      "@type": "PropertyValue",
+      "propertyID": "KVK",
+      "value": "42080619"
+    },
     "url": "https://apdigital.nl/",
     "email": "info@apdigital.nl",
     "telephone": "+31614160265",
     "priceRange": "€€",
-    "address": { "@type": "PostalAddress", "addressLocality": "Arnhem", "addressCountry": "NL" }
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Arnhem",
+      "addressCountry": "NL"
+    }
   },
-  "areaServed": { "@type": "City", "name": "Amsterdam" },
+  "areaServed": {
+    "@type": "City",
+    "name": "Amsterdam"
+  },
   "url": "https://apdigital.nl/websites-laten-maken-amsterdam"
 }
 </script>
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<meta name="theme-color" content="#1a1a2e" />
-<link rel="stylesheet" href="style.css" />
-<style>
-  .loc-hero { padding: 140px 40px 80px; text-align: center; min-height: auto; }
-  .loc-hero h1 { font-size: clamp(36px, 5vw, 64px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 20px; }
-  .loc-hero h1 em { font-style: italic; font-weight: 400; color: var(--accent); }
-  .loc-hero p.lead { font-size: 18px; color: var(--fg-2); max-width: 640px; margin: 0 auto 32px; line-height: 1.55; }
-  .loc-hero p.lead-kicker { font-size: 18px; color: var(--fg-2); max-width: 640px; margin: 0 auto 14px; line-height: 1.5; font-weight: 500; }
-  .loc-hero .loc-trust { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--fg-3); letter-spacing: 0.02em; margin: 22px auto 0; max-width: 640px; }
-  .loc-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 32px 0; }
-  .loc-steps .step { padding: 22px; border-radius: 14px; border: 1px solid var(--line); background: oklch(0.20 0.005 250 / 0.5); }
-  .loc-steps .step .num { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--accent); margin-bottom: 8px; }
-  .loc-steps .step h3 { font-size: 17px; font-weight: 600; margin-bottom: 6px; }
-  .loc-steps .step p { font-size: 13.5px; color: var(--fg-3); margin: 0; line-height: 1.5; }
-  .loc-content { max-width: 760px; margin: 0 auto; padding: 0 40px 80px; text-align: left; }
-  .loc-content h2 { font-size: clamp(26px, 2.8vw, 36px); font-weight: 600; letter-spacing: -0.02em; margin: 48px 0 16px; }
-  .loc-content p { color: var(--fg-2); font-size: 16px; line-height: 1.65; margin-bottom: 16px; }
-  .loc-services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 32px 0; }
-  .loc-services a { display: block; padding: 24px; border-radius: 14px; border: 1px solid var(--line); background: oklch(0.20 0.005 250 / 0.5); text-decoration: none; color: var(--fg); transition: border-color .25s ease, transform .25s ease; }
-  .loc-services a:hover { border-color: var(--accent); transform: translateY(-3px); }
-  .loc-services h3 { font-size: 18px; font-weight: 600; margin-bottom: 6px; }
-  .loc-services p { font-size: 13.5px; color: var(--fg-3); margin: 0; line-height: 1.5; }
-  .loc-cta { text-align: center; padding: 40px 0; }
-  .footer-strip { position: static; }
-  @media (max-width: 700px) {
-    .loc-hero { padding: 100px 24px 60px; }
-    .loc-content { padding: 0 24px 60px; }
-    .loc-services { grid-template-columns: 1fr; }
-    .loc-steps { grid-template-columns: 1fr; }
-  }
 
-  /* offerte-formulier inline op landingspagina (AP Digital) */
-  .loc-offerte { max-width: 760px; margin: -32px auto 0; padding: 0 40px 8px; }
-  .loc-offerte-card { background: oklch(0.16 0.005 250 / 0.6); border: 1px solid var(--line); border-radius: 18px; padding: 32px; box-shadow: 0 18px 60px oklch(0 0 0 / 0.35); }
-  .loc-offerte-card h2 { font-size: clamp(22px, 2.6vw, 30px); font-weight: 600; letter-spacing: -0.02em; margin: 0 0 6px; text-align: center; }
-  .loc-offerte-card .loc-offerte-sub { text-align: center; color: var(--fg-2); font-size: 15px; margin: 0 0 24px; }
-  @media (max-width: 700px) {
-    .loc-offerte { padding: 0 24px 8px; margin-top: -16px; }
-    .loc-offerte-card { padding: 22px; }
-  }
-</style>
+<script>document.documentElement.classList.add('js')</script>
 </head>
-<body class="loading has-sticky-cta">
-<a class="skip-link" href="#main">Naar hoofdinhoud</a>
-<nav class="nav" id="nav">
-  <a href="/" class="logo" aria-label="AP Digital home">
-    <span class="logo-mark">AP</span>
-    <span>AP Digital</span>
-  </a>
-  <div class="nav-links">
-    <a href="/diensten">Diensten</a>
-    <a href="/pakketten">Pakketten</a>
+<body>
+<a class="skip-link" href="#main">Naar de inhoud</a>
+<header class="kop"><div class="wrap">
+  <a class="logo" href="/" aria-label="AP Digital, naar de homepage"><span class="blok">AP</span><span class="woord">AP Digital</span></a>
+  <nav class="nav" id="nav" aria-label="Hoofdmenu">
+    <a href="/websites-laten-maken" class="actief" aria-current="page">Websites</a>
+    <a href="/apps-laten-maken">Apps</a>
+    <a href="/processen-automatiseren">Automatisering</a>
     <a href="/portfolio">Portfolio</a>
-    <a href="/websites-laten-maken">Regio's</a>
-    <a href="/over">Over</a>
-    <a href="/contact">Contact</a>
-  </div>
-  <a class="nav-cta" href="/contact">Plan kennismaking</a>
-  <button class="nav-toggle" id="navToggle" aria-label="Menu">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-  </button>
-</nav>
+    <a href="/over">Over ons</a>
+    <a class="knop" href="/contact">Gratis kennismaking</a>
+  </nav>
+  <button class="hamburger" id="hamburger" type="button" aria-label="Menu" aria-controls="nav" aria-expanded="false"><span></span><span></span><span></span></button>
+</div></header>
+<main id="main" tabindex="-1">
 
-<div class="nav-mobile-overlay" id="navMobile">
-  <button class="nav-mobile-close" id="navMobileClose" aria-label="Sluiten">
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-  </button>
-  <a href="/diensten">Diensten</a>
-  <a href="/pakketten">Pakketten</a>
-  <a href="/portfolio">Portfolio</a>
-    <a href="/websites-laten-maken">Regio's</a>
-  <a href="/over">Over</a>
-  <a href="/contact">Contact</a>
-</div>
-
-<a id="main" tabindex="-1" aria-hidden="true"></a>
-<section class="loc-hero">
-  <h1>Website laten maken in <em>Amsterdam</em></h1>
-  <p class="lead-kicker">Een website laten maken in Amsterdam die nieuwe klanten oplevert.</p>
+<section class="pkop raster"><div class="wrap">
+  <div class="kruimel"><a href="/websites-laten-maken">Websites</a><span>/</span>Amsterdam</div>
+  <h1>Website laten maken in <span class="serif">Amsterdam</span></h1>
+  <p class="kicker">Een website laten maken in Amsterdam die nieuwe klanten oplevert.</p>
   <p class="lead">Ben je ondernemer in Amsterdam en wil je opvallen in een drukke, competitieve markt? Van een speciaalzaak in De Pijp tot een bureau op de Zuidas: wij bouwen websites die aanvoelen alsof ze bij jouw zaak horen, niet bij een template uit de kast.</p>
-  <div class="cta-row" style="justify-content:center;">
-    <a class="btn btn-primary" href="#offerte">Vraag gratis offerte aan</a>
-    <a class="btn btn-ghost" href="https://wa.me/31614160265?text=Hoi%20AP%20Digital%2C%20ik%20wil%20een%20website%20laten%20maken%20in%20Amsterdam." target="_blank" rel="noopener">WhatsApp ons</a>
-    <a class="btn btn-ghost" href="tel:+31614160265">Bel 06 14160265</a>
+  <div class="knoppen-rij" style="margin-top:26px"><a class="knop" href="#offerte">Vraag een gratis offerte aan</a><a class="knop-2" href="https://wa.me/31614160265?text=Hoi%20AP%20Digital%2C%20ik%20wil%20een%20website%20laten%20maken%20in%20Amsterdam." target="_blank" rel="noopener">WhatsApp ons</a><a class="knop-2" href="tel:+31614160265">Bel 06 1416 0265</a></div>
+  <ul class="feiten"><li><strong>Live binnen 7 dagen</strong></li><li>Vaste prijs <strong>vanaf €299</strong></li><li>Reactie binnen 1 werkdag</li><li>Gebouwd in Arnhem</li></ul>
+</div></section>
+
+<section class="sectie smal"><div class="wrap twee">
+  <div><div class="label">Ondernemen in Amsterdam</div><h2 style="margin-top:12px">Waarom een goede website belangrijk is in Amsterdam</h2></div>
+  <div class="prose"><p>Amsterdam is de drukste en meest competitieve markt van Nederland. In De Pijp en de Jordaan vechten horeca en speciaalzaken om aandacht, op de Zuidas zit zakelijke dienstverlening, en in Noord en West groeit een nieuwe generatie makers en startups. Juist omdat de concurrentie zo groot is, bepaalt jouw website of een klant op jou klikt of op de zaak ernaast.</p><p>Een goede website laat in een paar seconden zien wie je bent, wat je doet en waarom Amsterdammers juist bij jou moeten zijn. Dat geldt voor een koffiezaak in Oost net zo goed als voor een adviesbureau op de Zuidas.</p></div>
+</div></section>
+
+<section class="sectie smal"><div class="wrap">
+  <div class="sectie-kop"><div><div class="label">Wat je krijgt</div><h2 style="margin-top:12px">Een instapsite <span class="serif">vanaf €299.</span></h2></div><a class="knop-2" href="/pakketten">Alle pakketten →</a></div>
+  <div class="aanbod-grens" style="margin-top:0"><h3>Dit zit in de instapsite</h3><ul class="vinklijst"><li>1 tot 3 pagina's</li><li>Template met je huisstijl</li><li>Mobiel geoptimaliseerd</li><li>Basis-SEO: titels, meta en sitemap</li><li>Contactformulier met spamfilter</li><li>Snelle laadtijd, 90+ op mobiel</li><li>Live binnen 7 dagen</li><li>30 dagen bugfix-support</li></ul><p>Meer nodig? Alles daarboven valt onder Groei, vanaf €499.</p></div>
+  <div class="prose" style="margin-top:34px"><h3 style="margin-bottom:10px">Wat kost een website laten maken in Amsterdam?</h3><p>Geen verrassingen achteraf, je weet vooraf wat je betaalt. Een eenvoudige website laten maken begint bij 299 euro, een uitgebreidere zakelijke site met meer pagina's en functies ligt hoger. Hosting en domein voor het eerste jaar zitten erbij in. Je krijgt altijd eerst een offerte op maat, zodat de prijs past bij wat jij nodig hebt.</p></div>
+</div></section>
+
+<section class="sectie smal"><div class="wrap">
+  <div class="sectie-kop"><div><div class="label">Voorbeelden</div><h2 style="margin-top:12px">Websites die we <span class="serif">bouwden.</span></h2></div><a class="knop-2" href="/portfolio#websites">Heel het portfolio →</a></div>
+  <div class="klein"><article class="case verhaal-case" data-pijler="websites" data-reveal>
+  <div class="beeld"><img src="/img/werk/florent-d.webp" alt="Website Flo-Rent Verhuizingen" width="1200" height="750" decoding="async" loading="lazy" /></div>
+  <div class="verhaal" id="v-florent-14">
+    <div><small>01 · Het probleem</small><p>De oude site draaide op een websitebouwer, en daarvoor op WordPress. Google kende tientallen oude adressen die nergens meer heen zouden gaan.</p></div>
+    <div><small>02 · Wat we bouwden</small><p>Een nieuwe site van 8 pagina's met een offerte-aanvraag in stappen. Aanvragen komen direct in de mailbox van het bedrijf.</p></div>
+    <div><small>03 · Wat het opleverde</small><p>Elk oud adres stuurt door naar de juiste nieuwe pagina. Wie via Google binnenkomt, loopt niet dood op een foutpagina.</p></div>
   </div>
-  <div class="loc-badges">
-    <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><strong>Binnen 7 dagen live</strong></span>
-    <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Vaste prijs <strong>vanaf 299 euro</strong></span>
-    <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Reactie binnen 1 werkdag</span>
-    <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Lokaal in Amsterdam, KVK 42080619</span>
+  <div class="tekst">
+    <div class="meta"><span class="pil">Website</span></div>
+    <h3>Flo-Rent Verhuizingen</h3>
+    <p>Verhuisbedrijf uit Heteren. Nieuwe site met een offerte-aanvraag in stappen, zodat mensen hun verhuizing makkelijk doorgeven.</p>
+    <div class="bewijs"><strong data-tel="52">52</strong><span>oude adressen netjes doorgestuurd</span></div>
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-florent-14"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <div class="links"><a class="link" href="https://www.flo-rent.nl/" target="_blank" rel="noopener">Bekijk de site ↗</a></div>
   </div>
-</section>
-
-<section class="loc-offerte" id="offerte">
-  <div class="loc-offerte-card">
-    <h2>Vraag je offerte aan</h2>
-    <p class="loc-offerte-sub">Binnen 1 werkdag reactie, vaste prijs vooraf, geen verkooppraatje.</p>
-    <form class="contact-form" id="contactForm" novalidate>
-      <input type="hidden" id="pakket" name="pakket" value="" />
-      <input type="hidden" id="abo" name="abo" value="" />
-      <input type="hidden" id="stad" name="stad" value="Amsterdam" />
-      <div id="formFields">
-        <div class="row">
-          <div class="field">
-            <label for="name">Naam</label>
-            <input type="text" id="name" name="name" placeholder="Je naam" required aria-describedby="name-error" />
-            <div class="field-error" id="name-error">Vul je naam in</div>
-          </div>
-          <div class="field">
-            <label for="company">Bedrijfsnaam</label>
-            <input type="text" id="company" name="company" placeholder="Optioneel" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="field">
-            <label for="email">E-mailadres</label>
-            <input type="email" id="email" name="email" placeholder="jij@bedrijf.nl" required aria-describedby="email-error" />
-            <div class="field-error" id="email-error">Geldig e-mailadres graag</div>
-          </div>
-          <div class="field">
-            <label for="phone">Telefoonnummer</label>
-            <input type="tel" id="phone" name="phone" placeholder="Optioneel" />
-          </div>
-        </div>
-        <div class="field">
-          <label for="looking_for">Waar ben je naar op zoek? (optioneel)</label>
-          <select id="looking_for" name="looking_for" aria-describedby="looking-for-error">
-            <option value="">Kies een optie</option>
-            <option>Website laten maken</option>
-            <option>Website verbeteren</option>
-            <option>App ontwikkeling</option>
-            <option>Social content beheer</option>
-            <option>Automatisering</option>
-            <option>Nog niet zeker</option>
-          </select>
-          <div class="field-error" id="looking-for-error">Kies waar je naar op zoek bent</div>
-        </div>
-        <div class="field">
-          <label for="message">Bericht</label>
-          <textarea id="message" name="message" placeholder="Vertel kort wat je nodig hebt..." required aria-describedby="message-error"></textarea>
-          <div class="field-error" id="message-error">Beschrijf je project even</div>
-        </div>
-        <p class="form-trust">Geen glad salesgesprek. Gewoon eerlijk kijken wat slim is voor jouw bedrijf.</p>
-        <button type="submit" class="submit-btn" id="submitBtn">
-          <span>Vraag website aan</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </button>
-      </div>
-      <div class="form-success" id="formSuccess">
-        <div class="check-circle">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg>
-        </div>
-        <h4>Verstuurd. Bedankt!</h4>
-        <p>We reageren binnen 24 uur, meestal sneller.</p>
-      </div>
-    </form>
-    <div class="loc-offerte-alt" style="text-align:center;margin-top:18px;">
-      <a class="btn btn-ghost" href="https://wa.me/31614160265?text=Hoi%20AP%20Digital%2C%20ik%20wil%20een%20website%20laten%20maken%20in%20Amsterdam." target="_blank" rel="noopener">Liever WhatsApp? Stuur een bericht</a>
-    </div>
+</article><article class="case verhaal-case" data-pijler="websites" data-reveal>
+  <div class="beeld"><img src="/img/werk/herbergen-d.webp" alt="Website Her-bergen" width="1200" height="750" decoding="async" loading="lazy" /></div>
+  <div class="verhaal" id="v-herbergen-15">
+    <div><small>01 · Het probleem</small><p>Een coachingspraktijk in twee talen, op WordPress-hosting die na de introductieprijs elke maand geld ging kosten.</p></div>
+    <div><small>02 · Wat we bouwden</small><p>Een rustige site in het Nederlands en Engels met echte foto's. Daarna omgezet naar een snelle statische site, zonder WordPress eronder.</p></div>
+    <div><small>03 · Wat het opleverde</small><p>Geen hostingkosten meer, alleen het domein. En niets meer om bij te werken of te beveiligen.</p></div>
   </div>
-</section>
-
-
-<div class="loc-content">
-  <h2>Waarom een goede website belangrijk is in Amsterdam</h2>
-  <p>Amsterdam is de drukste en meest competitieve markt van Nederland. In De Pijp en de Jordaan vechten horeca en speciaalzaken om aandacht, op de Zuidas zit zakelijke dienstverlening, en in Noord en West groeit een nieuwe generatie makers en startups. Juist omdat de concurrentie zo groot is, bepaalt jouw website of een klant op jou klikt of op de zaak ernaast.</p>
-  <p>Een goede website laat in een paar seconden zien wie je bent, wat je doet en waarom Amsterdammers juist bij jou moeten zijn. Dat geldt voor een koffiezaak in Oost net zo goed als voor een adviesbureau op de Zuidas.</p>
-
-  <div class="loc-cta">
-    <p style="font-size:15px;color:var(--fg-2);margin:0 0 14px;">Binnen 1 werkdag reactie, vaste prijs vooraf, geen verkooppraatje.</p>
-    <a class="btn btn-primary" href="/contact">Vraag offerte aan</a>
-    <a class="btn btn-ghost" href="https://wa.me/31614160265?text=Hoi%20AP%20Digital%2C%20ik%20wil%20een%20website%20laten%20maken%20in%20Amsterdam." target="_blank" rel="noopener">WhatsApp ons</a>
+  <div class="tekst">
+    <div class="meta"><span class="pil">Website</span></div>
+    <h3>Her-bergen</h3>
+    <p>Praktijk voor systemische coaching. Rustige, warme site in het Nederlands en Engels, met echte foto's in plaats van stockbeeld.</p>
+    <div class="bewijs"><strong>€0</strong><span>hosting per maand</span></div>
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-herbergen-15"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <div class="links"><a class="link" href="https://her-bergen.nl/" target="_blank" rel="noopener">Bekijk de site ↗</a></div>
   </div>
-
-  <h2>Wat je krijgt</h2>
-  <div class="loc-services">
-    <a href="/diensten#websites">
-      <h3>Modern ontwerp</h3>
-      <p>Een eigentijds ontwerp dat bij jouw zaak past, geen verouderde template.</p>
-    </a>
-    <a href="/diensten#websites">
-      <h3>Snelle website</h3>
-      <p>Lichte code, goede scores in Core Web Vitals.</p>
-    </a>
-    <a href="/diensten#websites">
-      <h3>Mobiel geoptimaliseerd</h3>
-      <p>Werkt op telefoon, tablet en laptop zonder gedoe.</p>
-    </a>
-    <a href="/diensten#websites">
-      <h3>Basis SEO</h3>
-      <p>Title, meta, structuur en sitemap netjes ingesteld.</p>
-    </a>
-    <a href="/diensten#websites">
-      <h3>Duidelijke contactflow</h3>
-      <p>WhatsApp, mail en formulier waar ze horen te staan.</p>
-    </a>
-    <a href="/diensten#websites">
-      <h3>Conversiegerichte opbouw</h3>
-      <p>Iedere sectie heeft een doel, niets staat er voor de show.</p>
-    </a>
+</article><article class="case" data-pijler="websites" data-reveal>
+  <div class="beeld"><img src="/img/werk/rhscooter-d.webp" alt="Website RH Scooter Service" width="1200" height="750" decoding="async" loading="lazy" /></div>
+  <div class="tekst">
+    <div class="meta"><span class="pil">Website</span></div>
+    <h3>RH Scooter Service</h3>
+    <p>Scooterwerkplaats in Arnhem. Pagina's per merk en per plaats, zodat mensen hem vinden op wat ze zoeken.</p>
+    
+    <div class="gebouwd"><span>Website</span><span>Lokale SEO</span><span>Bel- en app-knop</span></div>
+    <div class="links"><a class="link" href="https://rhscooterservicearnhem.nl/" target="_blank" rel="noopener">Bekijk de site ↗</a></div>
   </div>
+</article></div>
+</div></section>
 
-  <h2>Wat kost een website laten maken in Amsterdam?</h2>
-  <p>Geen verrassingen achteraf, je weet vooraf wat je betaalt. Een eenvoudige website laten maken begint bij 299 euro, een uitgebreidere zakelijke site met meer pagina's en functies ligt hoger. Hosting en domein voor het eerste jaar zitten erbij in. Je krijgt altijd eerst een offerte op maat, zodat de prijs past bij wat jij nodig hebt.</p>
+<section class="sectie smal"><div class="wrap twee">
+  <div><div class="label">Voor wie</div><h2 style="margin:12px 0 16px">Voor wie werken we in Amsterdam?</h2><div class="prose"><p>Onze focus in Amsterdam ligt bij horeca en retail in De Pijp, de Jordaan en Oost, zakelijke dienstverleners en ZZP'ers rond de Zuidas en het centrum, en makers en startups in Noord en West. Voor <a href="/restaurant-websites">restaurants</a> bouwen we sites met menukaart en reserveerflow, voor webwinkels een <a href="/websites-laten-maken">webshop</a>, en voor zaken met een verouderde site loopt het via een <a href="/website-redesign">redesign traject</a>.</p></div></div>
+  <div class="tip"><div class="label geel">Tip</div><h2>Praktische tip voor Amsterdamse ondernemers</h2><p>Veel Amsterdammers zoeken lokaal: "lunch De Pijp", "kapper Jordaan" of "koffie Amsterdam Oost". Zet daarom je Google Bedrijfsprofiel goed neer met actuele openingstijden en echte foto's, en laat je website daar logisch op aansluiten. Dan kloppen de twee plekken waar mensen je het eerst zien.</p></div>
+</div></section>
 
-  <h2>Zo werkt het, van offerte tot live in 7 dagen</h2>
-  <div class="loc-steps">
-    <div class="step">
-      <div class="num">Stap 1</div>
-      <h3>Kennismaking</h3>
-      <p>Korte call of WhatsApp over je zaak en doelen. Binnen 1 werkdag reactie, geen verkooppraatje.</p>
-    </div>
-    <div class="step">
-      <div class="num">Stap 2</div>
-      <h3>Ontwerp en bouw</h3>
-      <p>Je krijgt een ontwerp op maat en wij bouwen de website met snelle, lichte code.</p>
-    </div>
-    <div class="step">
-      <div class="num">Stap 3</div>
-      <h3>Live binnen 7 dagen</h3>
-      <p>Na jouw akkoord zetten we de site live, inclusief hosting, domein en basis SEO.</p>
-    </div>
-  </div>
+<section class="sectie smal"><div class="wrap">
+  <div class="sectie-kop"><div><div class="label">Meer dan een website</div><h2 style="margin-top:12px">Loopt je bedrijf vast op <span class="serif">Excel en losse lijstjes?</span></h2><p class="lead">Dan bouwen we dat er gewoon achteraan. Een app die past op je werk, of automatisering voor het handwerk dat elke week terugkomt. Zo draait het al elke dag bij Jacobs Heteren.</p></div></div>
+  <div class="knoppen-rij"><a class="knop-2" href="/apps-laten-maken">Apps op maat →</a><a class="knop-2" href="/processen-automatiseren">Processen automatiseren →</a></div>
+</div></section>
 
-  <p>Wil je voorbeelden zien van eerder werk? Bekijk het <a href="/portfolio">portfolio</a> met live projecten.</p>
+<section class="sectie smal"><div class="wrap">
+  <div class="sectie-kop"><div><div class="label">Zo werken we</div><h2 style="margin-top:12px">Van eerste gesprek <span class="serif">tot live.</span></h2></div></div>
+  
+<ol class="stappen">
+  <li class="stap" data-reveal><div class="nr">01</div><h3>Jij vertelt waar het knelt</h3><p>Aan de telefoon of aan tafel. Wat kost je tijd, wat loopt vast, wat wil je anders.</p></li>
+  <li class="stap" data-reveal><div class="nr">02</div><h3>Wij zeggen wat we zouden bouwen</h3><p>En wat we níet zouden doen. Soms is een betere site genoeg, soms is het een app.</p></li>
+  <li class="stap" data-reveal><div class="nr">03</div><h3>Je krijgt het op papier</h3><p>Wat we bouwen, wanneer het af is en wat het kost. Pas na jouw ja beginnen we.</p></li>
+  <li class="stap" data-reveal><div class="nr">04</div><h3>We bouwen, jij kijkt mee</h3><p>Je ziet tussendoor wat er staat. Daarna live, en we blijven bereikbaar.</p></li>
+</ol>
+</div></section>
 
-  <h2>Voor wie werken we in Amsterdam?</h2>
-  <p>Onze focus in Amsterdam ligt bij horeca en retail in De Pijp, de Jordaan en Oost, zakelijke dienstverleners en ZZP'ers rond de Zuidas en het centrum, en makers en startups in Noord en West. Voor <a href="/restaurant-websites">restaurants</a> bouwen we sites met menukaart en reserveerflow, voor webwinkels een <a href="/webshops">webshop</a>, en voor zaken met een verouderde site loopt het via een <a href="/website-redesign">redesign traject</a>.</p>
-
-  <h2>Praktische tip voor Amsterdamse ondernemers</h2>
-  <p>Veel Amsterdammers zoeken lokaal: "lunch De Pijp", "kapper Jordaan" of "koffie Amsterdam Oost". Zet daarom je Google Bedrijfsprofiel goed neer met actuele openingstijden en echte foto's, en laat je website daar logisch op aansluiten. Dan kloppen de twee plekken waar mensen je het eerst zien.</p>
-
-  <h2>Website laten maken in Amsterdam?</h2>
-  <p>Plan een kennismaking, binnen 1 werkdag reactie en geen verkoopgesprek. Heb je al een site? Stuur de link door voor een gratis korte scan, dan hoor je eerlijk wat ik zou verbeteren. Bekijk anders eerst de <a href="/pakketten">pakketten</a> of het <a href="/portfolio">portfolio</a>.</p>
-
-  <div class="loc-cta">
-    <p style="font-size:15px;color:var(--fg-2);margin:0 0 14px;">Binnen 1 werkdag reactie, vaste prijs vooraf, geen verkooppraatje.</p>
-    <a class="btn btn-primary" href="/contact">Vraag offerte aan</a>
-    <a class="btn btn-ghost" href="https://wa.me/31614160265?text=Hoi%20AP%20Digital%2C%20ik%20wil%20een%20website%20laten%20maken%20in%20Amsterdam." target="_blank" rel="noopener">WhatsApp ons</a>
-  </div>
+<section class="sectie smal" id="offerte"><div class="wrap twee">
+  <div>
+    <div class="label geel">Offerte</div>
+    <h2 style="margin:12px 0 16px">Website laten maken in Amsterdam?</h2>
+    <p>Vertel kort wat je nodig hebt. Je hoort binnen 1 werkdag van ons, met een vaste prijs vooraf en zonder verkooppraatje. Heb je al een site? Zet de link erbij, dan kijken we er eerst naar.</p>
+    <div class="contact-regels">
+  <a href="tel:+31614160265"><small>Bellen</small>06 1416 0265</a>
+  <a href="https://wa.me/31614160265?text=Hoi%20AP%20Digital%2C%20ik%20wil%20een%20website%20laten%20maken%20in%20Amsterdam." target="_blank" rel="noopener"><small>WhatsApp</small>Stuur een bericht</a>
+  <a href="mailto:info@apdigital.nl"><small>Mail</small>info@apdigital.nl</a>
 </div>
-
-<div class="loc-sticky-cta" aria-label="Snel contact">
-  <a class="sc-primary" href="/contact">Vraag offerte aan</a>
-  <a class="sc-wa" href="https://wa.me/31614160265?text=Hoi%20AP%20Digital%2C%20ik%20wil%20een%20website%20laten%20maken%20in%20Amsterdam." target="_blank" rel="noopener"><svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zM223.9 438.7c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6z"/></svg> WhatsApp</a>
-</div>
-
-<!-- SITE FOOTER (SEO hub) -->
-<footer class="site-footer">
-  <div class="sf-inner">
-    <div class="sf-brand">
-      <span class="logo-mark">AP</span>
-      <p>Snelle, eerlijke websites voor ondernemers. Live binnen 7 dagen, vaste prijs vanaf 299 euro.</p>
-      <p class="sf-legal">AP Digital · Arnhem · KVK 42080619</p>
-    </div>
-    <div class="sf-services">
-      <h4>Diensten</h4>
-      <ul>
-        <li><a href="/diensten#websites">Websites</a></li>
-        <li><a href="/webshops">Webshops</a></li>
-        <li><a href="/app-laten-maken-arnhem">Apps</a></li>
-        <li><a href="/horeca-websites">Horeca websites</a></li>
-        <li><a href="/restaurant-websites">Restaurant websites</a></li>
-        <li><a href="/bb-websites">B&amp;B websites</a></li>
-        <li><a href="/website-redesign">Website redesign</a></li>
-        <li><a href="/onderhoud-en-hosting">Onderhoud &amp; hosting</a></li>
-      </ul>
-    </div>
-    <div class="sf-cities">
-      <h4><a href="/websites-laten-maken" style="color:inherit;text-decoration:none;">Websites laten maken in</a></h4>
-      <ul>
-        <li><a href="/websites-laten-maken-arnhem">Arnhem</a></li>
-        <li><a href="/websites-laten-maken-amsterdam">Amsterdam</a></li>
-        <li><a href="/websites-laten-maken-utrecht">Utrecht</a></li>
-        <li><a href="/websites-laten-maken-den-haag">Den Haag</a></li>
-        <li><a href="/websites-laten-maken-eindhoven">Eindhoven</a></li>
-        <li><a href="/websites-laten-maken-groningen">Groningen</a></li>
-        <li><a href="/websites-laten-maken-breda">Breda</a></li>
-        <li><a href="/websites-laten-maken-alkmaar">Alkmaar</a></li>
-        <li><a href="/websites-laten-maken-nijmegen">Nijmegen</a></li>
-        <li><a href="/websites-laten-maken-zwolle">Zwolle</a></li>
-        <li><a href="/websites-laten-maken-amersfoort">Amersfoort</a></li>
-        <li><a href="/websites-laten-maken-leiden">Leiden</a></li>
-        <li><a href="/websites-laten-maken-den-bosch">Den Bosch</a></li>
-        <li><a href="/websites-laten-maken-almere">Almere</a></li>
-      </ul>
-    </div>
-    <div class="sf-company">
-      <h4>Bedrijf</h4>
-      <ul>
-        <li><a href="/over">Over</a></li>
-        <li><a href="/portfolio">Portfolio</a></li>
-        <li><a href="/pakketten">Pakketten</a></li>
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/contact">Contact</a></li>
-      </ul>
-    </div>
   </div>
-  <div class="sf-bottom">
-    <div>&copy; 2026 AP Digital</div>
-    <div><a href="/privacy">Privacy</a> <span class="dot">&middot;</span> <a href="/voorwaarden">Voorwaarden</a></div>
+  <form class="form" id="contactForm" novalidate>
+  <input type="hidden" id="pakket" name="pakket" value="" />
+  <input type="hidden" id="abo" name="abo" value="" />
+  <input type="hidden" id="stad" name="stad" value="Amsterdam" />
+  <input type="hidden" id="looking_for" name="looking_for" value="Website laten maken" />
+  <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+  <div id="formFields" style="display:grid;gap:16px">
+    <div class="rij2"><label class="veld">Naam<input id="name" name="name" autocomplete="name" required /><span class="veld-fout">Vul je naam in</span></label><label class="veld">Bedrijf<input id="company" name="company" autocomplete="organization" /></label></div>
+    <div class="rij2"><label class="veld">Telefoon<input id="phone" name="phone" type="tel" autocomplete="tel" /></label><label class="veld">E-mail<input id="email" name="email" type="email" autocomplete="email" /><span class="veld-fout">Vul een e-mailadres of telefoonnummer in</span></label></div>
+    
+    <label class="veld">Wat heb je nodig?<textarea id="message" name="message" rows="4"></textarea></label>
+    <button class="knop" type="submit">Vraag offerte aan</button>
+    <p class="klein-tekst">We gebruiken je gegevens alleen om contact met je op te nemen. Zie ons <a class="tekst-link" href="/privacy">privacybeleid</a>.</p>
   </div>
-</footer>
+  <div class="form-success" id="formSuccess" role="status"><div class="vink"></div><h3>Verstuurd. Bedankt!</h3><p>We reageren binnen 1 werkdag, meestal sneller.</p></div>
+</form>
+</div></section>
 
-<script>
-  document.getElementById('navToggle').addEventListener('click', () => document.getElementById('navMobile').classList.add('open'));
-  document.getElementById('navMobileClose').addEventListener('click', () => document.getElementById('navMobile').classList.remove('open'));
-  document.body.classList.remove('loading');
-</script>
+<section class="sectie smal" style="padding-top:0"><div class="wrap">
+  <div class="label" style="margin-bottom:14px">Ook in de buurt en daarbuiten</div>
+  <ul class="stad-lijst"><li><a href="/websites-laten-maken-alkmaar">Alkmaar</a></li><li><a href="/websites-laten-maken-almere">Almere</a></li><li><a href="/websites-laten-maken-amersfoort">Amersfoort</a></li><li><a href="/websites-laten-maken-amstelveen">Amstelveen</a></li><li><a href="/websites-laten-maken-apeldoorn">Apeldoorn</a></li><li><a href="/websites-laten-maken-arnhem">Arnhem</a></li><li><a href="/websites-laten-maken-breda">Breda</a></li><li><a href="/websites-laten-maken-den-bosch">Den Bosch</a></li><li><a href="/websites-laten-maken-den-haag">Den Haag</a></li><li><a href="/websites-laten-maken-doetinchem">Doetinchem</a></li><li><a href="/websites-laten-maken-ede">Ede</a></li><li><a href="/websites-laten-maken-eindhoven">Eindhoven</a></li><li><a href="/websites-laten-maken-groningen">Groningen</a></li><li><a href="/websites-laten-maken-hilversum">Hilversum</a></li><li><a href="/websites-laten-maken-leiden">Leiden</a></li><li><a href="/websites-laten-maken-nijmegen">Nijmegen</a></li><li><a href="/websites-laten-maken-oss">Oss</a></li><li><a href="/websites-laten-maken-tiel">Tiel</a></li><li><a href="/websites-laten-maken-utrecht">Utrecht</a></li><li><a href="/websites-laten-maken-veenendaal">Veenendaal</a></li><li><a href="/websites-laten-maken-wageningen">Wageningen</a></li><li><a href="/websites-laten-maken-zaltbommel">Zaltbommel</a></li><li><a href="/websites-laten-maken-zwolle">Zwolle</a></li></ul>
+</div></section>
+
+</main>
+<footer class="voet"><div class="wrap">
+  <div class="kolommen">
+    <div>
+      <a class="logo" href="/"><span class="blok">AP</span><span class="woord">AP Digital</span></a>
+      <div class="tagline"><span class="wit">Digitaal werk</span> dat gewoon werkt.</div>
+      <p style="font-size:15px">Websites, apps en automatisering voor ondernemers. Gebouwd in Arnhem.</p>
+    </div>
+    <div><h4>Wat we bouwen</h4><a href="/websites-laten-maken">Websites</a><a href="/apps-laten-maken">Apps op maat</a><a href="/processen-automatiseren">Processen en automatisering</a><a href="/website-redesign">Website vernieuwen</a><a href="/onderhoud-en-hosting">Onderhoud en hosting</a><a href="/pakketten">Pakketten en prijzen</a></div>
+    <div><h4>AP Digital</h4><a href="/portfolio">Portfolio</a><a href="/over">Over ons</a><a href="/diensten">Diensten</a><a href="/gratis-concept">Je gratis concept</a><a href="/blog">Blog</a></div>
+    <div><h4>Contact</h4><a href="/contact">Gratis kennismaking</a><a href="mailto:info@apdigital.nl">info@apdigital.nl</a><a href="tel:+31614160265">06 1416 0265</a><a href="https://wa.me/31614160265?text=Hoi%20AP%20Digital%2C%20ik%20heb%20een%20vraag." target="_blank" rel="noopener">WhatsApp</a></div>
+  </div>
+  <div class="voet-steden"><h4>Website laten maken in</h4><ul class="stad-lijst"><li><a href="/websites-laten-maken-alkmaar">Alkmaar</a></li><li><a href="/websites-laten-maken-almere">Almere</a></li><li><a href="/websites-laten-maken-amersfoort">Amersfoort</a></li><li><a href="/websites-laten-maken-amstelveen">Amstelveen</a></li><li><a href="/websites-laten-maken-amsterdam">Amsterdam</a></li><li><a href="/websites-laten-maken-apeldoorn">Apeldoorn</a></li><li><a href="/websites-laten-maken-arnhem">Arnhem</a></li><li><a href="/websites-laten-maken-breda">Breda</a></li><li><a href="/websites-laten-maken-den-bosch">Den Bosch</a></li><li><a href="/websites-laten-maken-den-haag">Den Haag</a></li><li><a href="/websites-laten-maken-doetinchem">Doetinchem</a></li><li><a href="/websites-laten-maken-ede">Ede</a></li><li><a href="/websites-laten-maken-eindhoven">Eindhoven</a></li><li><a href="/websites-laten-maken-groningen">Groningen</a></li><li><a href="/websites-laten-maken-hilversum">Hilversum</a></li><li><a href="/websites-laten-maken-leiden">Leiden</a></li><li><a href="/websites-laten-maken-nijmegen">Nijmegen</a></li><li><a href="/websites-laten-maken-oss">Oss</a></li><li><a href="/websites-laten-maken-tiel">Tiel</a></li><li><a href="/websites-laten-maken-utrecht">Utrecht</a></li><li><a href="/websites-laten-maken-veenendaal">Veenendaal</a></li><li><a href="/websites-laten-maken-wageningen">Wageningen</a></li><li><a href="/websites-laten-maken-zaltbommel">Zaltbommel</a></li><li><a href="/websites-laten-maken-zwolle">Zwolle</a></li></ul></div>
+  <div class="klein-tekst"><span>© 2026 AP Digital · KVK 42080619 · Arnhem</span><span><a href="/privacy" style="display:inline">Privacy</a> · <a href="/voorwaarden" style="display:inline">Voorwaarden</a></span></div>
+</div></footer>
+<div class="vast-cta"><a class="knop" href="/contact">Gratis kennismaking</a><a class="knop-2" href="tel:+31614160265" aria-label="Bel AP Digital">Bel</a></div>
+<script defer src="/site.js?v=2"></script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script defer src="/_vercel/speed-insights/script.js"></script>
-
-<script>
-  // Inline offerte-formulier: zelfde submit-logica + success-mechaniek als contact.html.
-  // events.js detecteert de formSuccess display-wissel (.visible -> display:block) en vuurt de Ads lead-conversie.
-  (function () {
-    var form = document.getElementById('contactForm');
-    if (!form) return;
-    form.addEventListener('submit', async function (e) {
-      e.preventDefault();
-      var valid = true;
-      var name = document.getElementById('name'), email = document.getElementById('email'), message = document.getElementById('message'), lookingFor = document.getElementById('looking_for');
-      [name, email, message, lookingFor].forEach(function (el) { el.parentElement.classList.remove('error'); });
-      if (!name.value.trim()) { name.parentElement.classList.add('error'); valid = false; }
-      if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) { email.parentElement.classList.add('error'); valid = false; }
-      if (!message.value.trim()) { message.parentElement.classList.add('error'); valid = false; }
-      if (!valid) return;
-      var btn = document.getElementById('submitBtn');
-      btn.disabled = true; btn.querySelector('span').textContent = 'Versturen...';
-      var data = new FormData(form);
-      data.append('access_key', 'd33cb3a8-8112-40a2-a85d-9501a91cdeea');
-      data.append('subject', 'Nieuwe aanvraag via AP Digital');
-      data.append('from_name', 'AP Digital contactformulier');
-      var mailtoFallback = function () {
-        var body =
-          'Naam: ' + (name.value || '') + '\n' +
-          'Bedrijf: ' + (document.getElementById('company') ? document.getElementById('company').value : '') + '\n' +
-          'E-mail: ' + (email.value || '') + '\n' +
-          'Telefoon: ' + (document.getElementById('phone') ? document.getElementById('phone').value : '') + '\n' +
-          'Stad: ' + (document.getElementById('stad') ? document.getElementById('stad').value : '') + '\n' +
-          'Op zoek naar: ' + (lookingFor.value || '') + '\n\n' +
-          'Bericht:\n' + (message.value || '');
-        window.location.href = 'mailto:info@apdigital.nl'
-          + '?subject=' + encodeURIComponent('Nieuwe aanvraag via AP Digital')
-          + '&body=' + encodeURIComponent(body);
-        document.getElementById('formFields').style.display = 'none';
-        document.getElementById('formSuccess').classList.add('visible');
-      };
-      try {
-        var res = await fetch('https://api.web3forms.com/submit', {
-          method: 'POST', headers: { 'Accept': 'application/json' }, body: data
-        });
-        var json = await res.json();
-        if (json.success === 'true' || json.success === true) {
-          document.getElementById('formFields').style.display = 'none';
-          document.getElementById('formSuccess').classList.add('visible');
-        } else { mailtoFallback(); }
-      } catch (err) { mailtoFallback(); }
-    });
-  })();
-</script>
-
 <script defer src="/events.js"></script>
-<script type="text/javascript">
+<script>
 (function(c,l,a,r,i,t,y){
   c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
   t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;

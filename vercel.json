@@ -8,6 +8,8 @@
     { "source": "/case-rubens", "destination": "/portfolio", "permanent": true },
     { "source": "/case-devide", "destination": "/portfolio", "permanent": true },
     { "source": "/websites", "destination": "/websites-laten-maken", "permanent": true },
+    { "source": "/webshops", "destination": "/websites-laten-maken", "statusCode": 301 },
+    { "source": "/horeca-websites", "destination": "/restaurant-websites", "statusCode": 301 },
     { "source": "/rhscooter", "destination": "https://rhscooterservicearnhem.nl/", "permanent": false },
     { "source": "/rhscooter/:path*", "destination": "https://rhscooterservicearnhem.nl/:path*", "permanent": false },
     { "source": "/marketing-fit", "destination": "https://marketing-fit.vercel.app", "permanent": false },

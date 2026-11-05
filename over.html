@@ -1,35 +1,48 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="nl">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Over Alexander Prijs & AP Digital | Websitebureau Arnhem</title>
-<meta name="description" content="Maak kennis met Alexander Prijs en AP Digital: een modern digitaal bureau uit Arnhem voor websites, apps, content en slimme online systemen." />
+<title>Over AP Digital en Alexander Prijs | Arnhem</title>
+<meta name="description" content="Wie er achter AP Digital zit: bouwen voor de werkvloer, eerst bij Jacobs Heteren, nu voor jouw bedrijf. Websites, apps en automatisering uit Arnhem." />
 <link rel="canonical" href="https://apdigital.nl/over" />
-<meta property="og:title" content="Over Alexander Prijs & AP Digital | Websitebureau Arnhem" />
-<meta property="og:description" content="Maak kennis met Alexander Prijs en AP Digital: een modern digitaal bureau uit Arnhem voor websites, apps, content en slimme online systemen." />
+<meta property="og:title" content="Over AP Digital en Alexander Prijs | Arnhem" />
+<meta property="og:description" content="Wie er achter AP Digital zit: bouwen voor de werkvloer, eerst bij Jacobs Heteren, nu voor jouw bedrijf. Websites, apps en automatisering uit Arnhem." />
 <meta property="og:url" content="https://apdigital.nl/over" />
-<meta property="og:type" content="profile" />
+<meta property="og:type" content="website" />
 <meta property="og:locale" content="nl_NL" />
+<meta property="og:site_name" content="AP Digital" />
 <meta property="og:image" content="https://apdigital.nl/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="AP Digital - Live binnen 7 dagen, vanaf 299 euro" />
+<meta property="og:image:alt" content="AP Digital, websites, apps en automatisering" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://apdigital.nl/og-image.png" />
+<meta name="theme-color" content="#0A0A0A" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="preload" href="/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="/site.css?v=2" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "AboutPage",
-  "name": "Over Alexander Prijs en AP Digital",
+  "name": "Over AP Digital",
   "url": "https://apdigital.nl/over",
-  "mainEntity": {
-    "@type": "Person",
-    "name": "Alexander Prijs",
-    "jobTitle": "Founder, AP Digital",
-    "image": "https://apdigital.nl/img/alex-1.webp",
-    "address": { "@type": "PostalAddress", "addressLocality": "Arnhem", "addressCountry": "NL" },
-    "worksFor": { "@type": "Organization", "name": "AP Digital", "url": "https://apdigital.nl/" }
+  "about": {
+    "@id": "https://apdigital.nl/#business"
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Alexander Prijs",
+  "jobTitle": "Oprichter AP Digital",
+  "worksFor": {
+    "@id": "https://apdigital.nl/#business"
+  },
+  "url": "https://apdigital.nl/over"
 }
 </script>
 <script type="application/ld+json">
@@ -37,308 +50,81 @@
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://apdigital.nl/" },
-    { "@type": "ListItem", "position": 2, "name": "Over", "item": "https://apdigital.nl/over" }
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://apdigital.nl/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Over ons",
+      "item": "https://apdigital.nl/over"
+    }
   ]
 }
 </script>
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<meta name="theme-color" content="#1a1a2e" />
-<link rel="stylesheet" href="style.css" />
-<style>
-  #about {
-    padding: 140px 40px 100px; position: relative; overflow: hidden;
-    background: var(--bg-0);
-  }
-  #about::before {
-    content: ""; position: absolute; inset: 0;
-    background-image: radial-gradient(circle, oklch(0.45 0.008 250 / 0.3) 1px, transparent 1px);
-    background-size: 32px 32px;
-    mask-image: radial-gradient(ellipse 70% 80% at 50% 30%, black 10%, transparent 75%);
-    -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 30%, black 10%, transparent 75%);
-    opacity: 0.4; pointer-events: none; z-index: 0;
-  }
-  #about > .container { position: relative; z-index: 1; max-width: 1080px; }
-  .about-grid {
-    display: grid; grid-template-columns: 1fr 0.85fr;
-    gap: 64px; align-items: start; margin-bottom: 72px;
-  }
-  .about-text { text-align: left; }
-  .about-hero { margin-bottom: 36px; }
-  .about-hero .label {
-    font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase;
-    letter-spacing: 0.15em; color: var(--accent); margin-bottom: 16px;
-  }
-  .about-hero h1 {
-    font-size: clamp(40px, 5.5vw, 64px); font-weight: 700; letter-spacing: -0.03em;
-    line-height: 1.05; margin-bottom: 18px;
-  }
-  .about-hero h1 em { color: var(--accent); font-style: normal; }
-  .about-hero p.lead {
-    font-size: 19px; color: var(--fg-2); line-height: 1.5;
-  }
-  .about-body { display: flex; flex-direction: column; gap: 22px; }
-  .about-body p {
-    font-size: 17px; line-height: 1.65; color: var(--fg);
-  }
-  .about-body p:first-child { font-size: 19px; line-height: 1.55; }
-  .about-credibility {
-    list-style: none;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 12px 22px;
-    margin-top: 28px; padding-top: 24px;
-    border-top: 1px solid var(--line-soft);
-  }
-  .about-credibility li {
-    display: flex; align-items: flex-start; gap: 10px;
-    font-size: 15px; color: var(--fg-2); line-height: 1.5;
-  }
-  .about-credibility .check {
-    width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px;
-    color: var(--accent);
-  }
-  .about-quote {
-    margin-top: 28px; padding: 20px 22px;
-    border-left: 3px solid var(--accent);
-    background: oklch(0.92 0.18 100 / 0.04);
-    border-radius: 0 12px 12px 0;
-    font-size: 18px; line-height: 1.5;
-    color: var(--fg); font-style: italic;
-  }
-  @media (max-width: 700px) {
-    .about-credibility { grid-template-columns: 1fr; gap: 10px; }
-    .about-quote { font-size: 16px; padding: 16px 18px; }
-  }
-  .about-photo {
-    position: relative; border-radius: 20px; overflow: hidden;
-    border: 1px solid var(--line);
-    box-shadow: 0 24px 64px oklch(0 0 0 / 0.4);
-    aspect-ratio: 4/5; position: sticky; top: 100px;
-  }
-  .about-photo img {
-    width: 100%; height: 100%; object-fit: cover; display: block;
-    filter: brightness(1.02) saturate(0.96);
-  }
-  .about-photo::after {
-    content: ""; position: absolute; inset: 0; pointer-events: none;
-    background: linear-gradient(180deg, transparent 50%, oklch(0.92 0.18 100 / 0.07));
-  }
-  .about-cta {
-    text-align: center; padding: 44px 0 0;
-    border-top: 1px solid var(--line-soft);
-    max-width: 720px; margin: 0 auto;
-  }
-  .about-cta h3 {
-    font-size: 24px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 20px;
-  }
-  .about-cta-row { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
-  @media (max-width: 880px) {
-    .about-grid {
-      grid-template-columns: 1fr; gap: 40px; margin-bottom: 56px;
-    }
-    .about-photo { aspect-ratio: 4/3; max-width: 480px; margin: 0 auto; position: static; top: auto; }
-    .about-text { text-align: center; }
-    .about-hero p.lead, .about-body { text-align: left; }
-  }
-  @media (max-width: 700px) {
-    #about { padding: 100px 24px 80px; }
-    .about-hero { margin-bottom: 28px; }
-    .about-body p { font-size: 16px; }
-    .about-body p:first-child { font-size: 18px; }
-  }
-</style>
+
+<script>document.documentElement.classList.add('js')</script>
 </head>
-
-<body class="loading">
-<a class="skip-link" href="#main">Naar hoofdinhoud</a>
-<div class="cursor-dot" id="cursorDot"></div>
-<div class="scroll-prog" id="scrollProg"></div>
-
-<nav class="nav" id="nav">
-  <a href="/" class="logo" aria-label="AP Digital home">
-    <span class="logo-mark">AP</span>
-    <span>AP Digital</span>
-  </a>
-  <div class="nav-links">
-    <a href="/diensten">Diensten</a>
-    <a href="/pakketten">Pakketten</a>
+<body>
+<a class="skip-link" href="#main">Naar de inhoud</a>
+<header class="kop"><div class="wrap">
+  <a class="logo" href="/" aria-label="AP Digital, naar de homepage"><span class="blok">AP</span><span class="woord">AP Digital</span></a>
+  <nav class="nav" id="nav" aria-label="Hoofdmenu">
+    <a href="/websites-laten-maken">Websites</a>
+    <a href="/apps-laten-maken">Apps</a>
+    <a href="/processen-automatiseren">Automatisering</a>
     <a href="/portfolio">Portfolio</a>
-    <a href="/websites-laten-maken">Regio's</a>
-    <a href="/over" class="active">Over</a>
-    <a href="/contact">Contact</a>
+    <a href="/over" class="actief" aria-current="page">Over ons</a>
+    <a class="knop" href="/contact">Gratis kennismaking</a>
+  </nav>
+  <button class="hamburger" id="hamburger" type="button" aria-label="Menu" aria-controls="nav" aria-expanded="false"><span></span><span></span><span></span></button>
+</div></header>
+<main id="main" tabindex="-1">
+
+<section class="pkop raster"><div class="wrap">
+  <div class="label geel">Over ons</div>
+  <h1>Gebouwd op de werkvloer, <span class="serif">niet in een vergaderzaal.</span></h1>
+  <p class="lead">AP Digital komt uit Arnhem. We bouwen websites, apps en automatisering voor bedrijven waar het werk buiten de deur gebeurt: op de weg, op de bouw, in de winkel.</p>
+</div></section>
+
+<section class="sectie smal"><div class="wrap twee persoon">
+  <div class="persoon-foto"><img src="/img/alex-1.webp" alt="Alex Prijs" width="600" height="750" loading="eager" decoding="async" /></div>
+  <div>
+    <div class="label">Alex Prijs · Oprichter · bouwt en belt</div>
+    <h2 style="margin:12px 0 16px">Van de verhuisvloer <span class="serif">naar software op maat.</span></h2>
+    <p>Alex werkt bij Jacobs Heteren, een verhuisbedrijf in de Betuwe. Daar zag hij elke dag waar het werk bleef hangen: uren op briefjes, aanvragen in de mail en een planning in losse lijsten.</p><p>Dus bouwde hij het zelf: een uren-app, een planningssysteem en een website die aanvragen binnenhaalt. Dat draait er nu elke dag. Met AP Digital bouwt hij hetzelfde voor jouw bedrijf.</p>
   </div>
-  <a class="nav-cta" href="/contact">Plan kennismaking</a>
-  <button class="nav-toggle" id="navToggle" aria-label="Menu">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-  </button>
-</nav>
+</div></section>
 
-<div class="nav-mobile-overlay" id="navMobile">
-  <button class="nav-mobile-close" id="navMobileClose" aria-label="Sluiten">
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-  </button>
-  <a href="/diensten">Diensten</a>
-  <a href="/pakketten">Pakketten</a>
-  <a href="/portfolio">Portfolio</a>
-    <a href="/websites-laten-maken">Regio's</a>
-  <a href="/over" class="active">Over</a>
-  <a href="/contact">Contact</a>
-</div>
+<section class="sectie smal"><div class="wrap"><div class="cta-band">
+  <div><h2>Benieuwd wat er bij jou <span class="serif">te winnen valt?</span></h2><p>In een kennismaking kijken we samen naar je site en je werkdag. Je hoort eerlijk wat zin heeft en wat niet.</p></div>
+  <div class="acties"><a class="knop" href="/contact">Plan een gratis kennismaking</a><a class="tel" href="tel:+31614160265">of bel 06 1416 0265</a></div>
+</div></div></section>
 
-<a id="main" tabindex="-1" aria-hidden="true"></a>
-<section id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-text">
-        <div class="about-hero">
-          <div class="label">Over</div>
-          <h1>Hi, ik ben <em>Alex.</em></h1>
-          <p class="lead">Vanuit Arnhem run ik AP Digital, een digitaal bureau voor moderne websites voor lokale bedrijven.</p>
-        </div>
-
-        <div class="about-body">
-          <p>Mijn achtergrond ligt in fotografie en design. Daardoor kijk ik niet alleen naar hoe een website eruitziet, maar vooral naar wat vertrouwen wekt en duidelijk overkomt voor klanten.</p>
-          <p>Een goede website moet duidelijk zijn, vertrouwen wekken en klanten opleveren. Geen onnodige complexiteit, maar een website die duidelijk laat zien wat een bedrijf doet en waarom klanten contact moeten opnemen.</p>
-          <p>Wat ik belangrijk vind: persoonlijk contact, snel schakelen en korte lijnen. Geen groot bureau met accountmanagers, maar direct samenwerken van idee tot livegang.</p>
-          <p>En als de website live gaat? Dan vieren we dat gewoon met koffie, taart of een biertje.</p>
-        </div>
-
-        <blockquote class="about-quote">
-          Een goede website moet vooral duidelijk zijn en klanten opleveren.
-        </blockquote>
-
-        <ul class="about-credibility">
-          <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg> Websites live binnen 7 dagen</li>
-          <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg> Focus op lokale bedrijven</li>
-          <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg> Vaste prijzen zonder verrassingen</li>
-          <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg> Direct contact, geen groot bureau</li>
-        </ul>
-      </div>
-
-      <figure class="about-photo">
-        <img src="/img/alex-1.webp" alt="Alexander Prijs, oprichter AP Digital, in studio in Arnhem" width="1100" height="793" />
-      </figure>
+</main>
+<footer class="voet"><div class="wrap">
+  <div class="kolommen">
+    <div>
+      <a class="logo" href="/"><span class="blok">AP</span><span class="woord">AP Digital</span></a>
+      <div class="tagline"><span class="wit">Digitaal werk</span> dat gewoon werkt.</div>
+      <p style="font-size:15px">Websites, apps en automatisering voor ondernemers. Gebouwd in Arnhem.</p>
     </div>
-
-    <div class="about-cta">
-      <h3>Zin om te bouwen?</h3>
-      <div class="about-cta-row">
-        <a class="btn btn-primary" href="https://wa.me/31614160265" target="_blank" rel="noopener">
-          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-          WhatsApp ons
-        </a>
-        <a class="btn btn-ghost" href="/contact">
-          Plan kennismaking
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-      </div>
-    </div>
+    <div><h4>Wat we bouwen</h4><a href="/websites-laten-maken">Websites</a><a href="/apps-laten-maken">Apps op maat</a><a href="/processen-automatiseren">Processen en automatisering</a><a href="/website-redesign">Website vernieuwen</a><a href="/onderhoud-en-hosting">Onderhoud en hosting</a><a href="/pakketten">Pakketten en prijzen</a></div>
+    <div><h4>AP Digital</h4><a href="/portfolio">Portfolio</a><a href="/over">Over ons</a><a href="/diensten">Diensten</a><a href="/gratis-concept">Je gratis concept</a><a href="/blog">Blog</a></div>
+    <div><h4>Contact</h4><a href="/contact">Gratis kennismaking</a><a href="mailto:info@apdigital.nl">info@apdigital.nl</a><a href="tel:+31614160265">06 1416 0265</a><a href="https://wa.me/31614160265?text=Hoi%20AP%20Digital%2C%20ik%20heb%20een%20vraag." target="_blank" rel="noopener">WhatsApp</a></div>
   </div>
-</section>
-
-<script>
-  // Cursor dot
-  const cd = document.getElementById('cursorDot');
-  let cdX = 0, cdY = 0, mx = 0, my = 0;
-  document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; });
-  (function animateCD() { cdX += (mx - cdX) * 0.2; cdY += (my - cdY) * 0.2; if (cd) cd.style.transform = `translate(${cdX}px, ${cdY}px) translate(-50%, -50%)`; requestAnimationFrame(animateCD); })();
-  document.querySelectorAll('a, button').forEach(el => {
-    el.addEventListener('mouseenter', () => cd && cd.classList.add('lg'));
-    el.addEventListener('mouseleave', () => cd && cd.classList.remove('lg'));
-  });
-
-  // Nav scroll + progress
-  const nav = document.getElementById('nav');
-  const prog = document.getElementById('scrollProg');
-  window.addEventListener('scroll', () => {
-    const st = window.scrollY;
-    nav.style.background = st > 40 ? 'oklch(0.14 0.004 250 / 0.85)' : 'oklch(0.16 0.004 250 / 0.55)';
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    if (prog) prog.style.width = (max > 0 ? (st / max) * 100 : 0) + '%';
-  }, { passive: true });
-
-  // Mobile nav
-  const navToggle = document.getElementById('navToggle');
-  const navMobile = document.getElementById('navMobile');
-  const navMobileClose = document.getElementById('navMobileClose');
-  if (navToggle && navMobile) {
-    navToggle.addEventListener('click', () => navMobile.classList.add('open'));
-    navMobileClose.addEventListener('click', () => navMobile.classList.remove('open'));
-    navMobile.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navMobile.classList.remove('open')));
-  }
-
-  // Loading mask
-  window.addEventListener('load', () => { setTimeout(() => document.body.classList.remove('loading'), 800); });
-</script>
-<!-- SITE FOOTER (SEO hub) -->
-<footer class="site-footer">
-  <div class="sf-inner">
-    <div class="sf-brand">
-      <span class="logo-mark">AP</span>
-      <p>Snelle, eerlijke websites voor ondernemers. Live binnen 7 dagen, vaste prijs vanaf 299 euro.</p>
-      <p class="sf-legal">AP Digital · Arnhem · KVK 42080619</p>
-    </div>
-    <div class="sf-services">
-      <h4>Diensten</h4>
-      <ul>
-        <li><a href="/diensten#websites">Websites</a></li>
-        <li><a href="/webshops">Webshops</a></li>
-        <li><a href="/app-laten-maken-arnhem">Apps</a></li>
-        <li><a href="/horeca-websites">Horeca websites</a></li>
-        <li><a href="/restaurant-websites">Restaurant websites</a></li>
-        <li><a href="/bb-websites">B&amp;B websites</a></li>
-        <li><a href="/website-redesign">Website redesign</a></li>
-        <li><a href="/onderhoud-en-hosting">Onderhoud &amp; hosting</a></li>
-      </ul>
-    </div>
-    <div class="sf-cities">
-      <h4><a href="/websites-laten-maken" style="color:inherit;text-decoration:none;">Websites laten maken in</a></h4>
-      <ul>
-        <li><a href="/websites-laten-maken-arnhem">Arnhem</a></li>
-        <li><a href="/websites-laten-maken-nijmegen">Nijmegen</a></li>
-        <li><a href="/websites-laten-maken-ede">Ede</a></li>
-        <li><a href="/websites-laten-maken-wageningen">Wageningen</a></li>
-        <li><a href="/websites-laten-maken-veenendaal">Veenendaal</a></li>
-        <li><a href="/websites-laten-maken-apeldoorn">Apeldoorn</a></li>
-        <li><a href="/websites-laten-maken-doetinchem">Doetinchem</a></li>
-        <li><a href="/websites-laten-maken-utrecht">Utrecht</a></li>
-        <li><a href="/websites-laten-maken-amersfoort">Amersfoort</a></li>
-        <li><a href="/websites-laten-maken-amstelveen">Amstelveen</a></li>
-        <li><a href="/websites-laten-maken-hilversum">Hilversum</a></li>
-        <li><a href="/websites-laten-maken-almere">Almere</a></li>
-        <li><a href="/websites-laten-maken-leiden">Leiden</a></li>
-        <li><a href="/websites-laten-maken-den-bosch">Den Bosch</a></li>
-        <li><a href="/websites-laten-maken-oss">Oss</a></li>
-        <li><a href="/websites-laten-maken-tiel">Tiel</a></li>
-        <li><a href="/websites-laten-maken-zaltbommel">Zaltbommel</a></li>
-        <li><a href="/websites-laten-maken-zwolle">Zwolle</a></li>
-              <li><a href="/websites-laten-maken-amsterdam">Amsterdam</a></li>
-        <li><a href="/websites-laten-maken-den-haag">Den Haag</a></li>
-        <li><a href="/websites-laten-maken-eindhoven">Eindhoven</a></li>
-        <li><a href="/websites-laten-maken-groningen">Groningen</a></li>
-        <li><a href="/websites-laten-maken-breda">Breda</a></li>
-        <li><a href="/websites-laten-maken-alkmaar">Alkmaar</a></li>
-      </ul>
-    </div>
-    <div class="sf-company">
-      <h4>Bedrijf</h4>
-      <ul>
-        <li><a href="/over">Over</a></li>
-        <li><a href="/portfolio">Portfolio</a></li>
-        <li><a href="/pakketten">Pakketten</a></li>
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/contact">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="sf-bottom">
-    <div>© 2026 AP Digital</div>
-    <div><a href="/privacy">Privacy</a> <span class="dot">·</span> <a href="/voorwaarden">Voorwaarden</a></div>
-  </div>
-</footer>
+  <div class="voet-steden"><h4>Website laten maken in</h4><ul class="stad-lijst"><li><a href="/websites-laten-maken-alkmaar">Alkmaar</a></li><li><a href="/websites-laten-maken-almere">Almere</a></li><li><a href="/websites-laten-maken-amersfoort">Amersfoort</a></li><li><a href="/websites-laten-maken-amstelveen">Amstelveen</a></li><li><a href="/websites-laten-maken-amsterdam">Amsterdam</a></li><li><a href="/websites-laten-maken-apeldoorn">Apeldoorn</a></li><li><a href="/websites-laten-maken-arnhem">Arnhem</a></li><li><a href="/websites-laten-maken-breda">Breda</a></li><li><a href="/websites-laten-maken-den-bosch">Den Bosch</a></li><li><a href="/websites-laten-maken-den-haag">Den Haag</a></li><li><a href="/websites-laten-maken-doetinchem">Doetinchem</a></li><li><a href="/websites-laten-maken-ede">Ede</a></li><li><a href="/websites-laten-maken-eindhoven">Eindhoven</a></li><li><a href="/websites-laten-maken-groningen">Groningen</a></li><li><a href="/websites-laten-maken-hilversum">Hilversum</a></li><li><a href="/websites-laten-maken-leiden">Leiden</a></li><li><a href="/websites-laten-maken-nijmegen">Nijmegen</a></li><li><a href="/websites-laten-maken-oss">Oss</a></li><li><a href="/websites-laten-maken-tiel">Tiel</a></li><li><a href="/websites-laten-maken-utrecht">Utrecht</a></li><li><a href="/websites-laten-maken-veenendaal">Veenendaal</a></li><li><a href="/websites-laten-maken-wageningen">Wageningen</a></li><li><a href="/websites-laten-maken-zaltbommel">Zaltbommel</a></li><li><a href="/websites-laten-maken-zwolle">Zwolle</a></li></ul></div>
+  <div class="klein-tekst"><span>© 2026 AP Digital · KVK 42080619 · Arnhem</span><span><a href="/privacy" style="display:inline">Privacy</a> · <a href="/voorwaarden" style="display:inline">Voorwaarden</a></span></div>
+</div></footer>
+<div class="vast-cta"><a class="knop" href="/contact">Gratis kennismaking</a><a class="knop-2" href="tel:+31614160265" aria-label="Bel AP Digital">Bel</a></div>
+<script defer src="/site.js?v=2"></script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script defer src="/_vercel/speed-insights/script.js"></script>
 <script defer src="/events.js"></script>
-<script type="text/javascript">
+<script>
 (function(c,l,a,r,i,t,y){
   c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
   t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;

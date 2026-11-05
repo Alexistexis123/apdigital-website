@@ -118,7 +118,7 @@
     var build = function () {
       if (document.getElementById('ap-consent')) return;
       var st = document.createElement('style');
-      st.textContent = '#ap-consent{position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;max-width:560px;margin:0 auto;background:#0a1628;color:#e7eefb;border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:18px 20px;box-shadow:0 12px 40px rgba(0,0,0,.4);font:15px/1.5 system-ui,sans-serif;}#ap-consent p{margin:0 0 12px;}#ap-consent a{color:#f08a5d;}#ap-consent .ap-c-btns{display:flex;gap:10px;flex-wrap:wrap;}#ap-consent button{cursor:pointer;border:0;border-radius:10px;padding:10px 18px;font-weight:600;font-size:14px;}#ap-consent .ap-ok{background:#f08a5d;color:#0a1628;}#ap-consent .ap-no{background:transparent;color:#e7eefb;border:1px solid rgba(255,255,255,.25);}';
+      st.textContent = '#ap-consent{position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;max-width:560px;margin:0 auto;background:#111111;color:#ffffff;border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:18px 20px;box-shadow:0 12px 40px rgba(0,0,0,.5);font:15px/1.5 Geist,system-ui,sans-serif;}#ap-consent p{margin:0 0 12px;color:rgba(255,255,255,.8);}#ap-consent a{color:#FFD60A;}#ap-consent .ap-c-btns{display:flex;gap:10px;flex-wrap:wrap;}#ap-consent button{cursor:pointer;border:0;border-radius:99px;padding:10px 18px;font:600 14px Geist,system-ui,sans-serif;}#ap-consent .ap-ok{background:#FFD60A;color:#0A0A0A;}#ap-consent .ap-no{background:transparent;color:#ffffff;border:1px solid rgba(255,255,255,.25);}';
       document.head.appendChild(st);
       var bar = document.createElement('div');
       bar.id = 'ap-consent';

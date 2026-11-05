@@ -1,9 +1,20 @@
 # AP Digital — apdigital.nl
 
-Bureau website voor AP Digital (websites, apps & social content).  
+Bureau website voor AP Digital (websites, apps en automatisering).  
 Live op **https://apdigital.nl/** — gehost op Vercel, repo: github.com/Alexistexis123/apdigital-website
 
-## Stack
+## Herstart 11-2026 (branch herstart-bouw, nog niet live)
+
+Alle pagina's komen uit een generator: `node _bron/build.mjs` (vanuit de repo-root). Daarna committen; niet met de hand in de .html's werken.
+- `_bron/data.mjs`: pijlers, portfolio, verhalen, team (teksten uit het goedgekeurde ontwerp, branch `ontwerp-herstart`).
+- `_bron/steden.json`: de stad-eigen teksten van de 24 stadspagina's (eenmalig uit de oude pagina's gehaald met `extract-steden.mjs`).
+- `_bron/oud/`: de oude pagina's. Blogs, sectorpagina's, cases en juridisch houden die inhoud en krijgen de nieuwe kop, voet en stijl; tekstfixes in `FIXES` in build.mjs.
+- Stijl `site.css`, gedrag `site.js`, schermen in `img/werk/`, fonts zelf gehost in `fonts/` (Geist, Geist Mono, Instrument Serif).
+- Meten blijft `events.js` (GA4, Ads, Consent Mode, Meta Pixel na consent) + Vercel Analytics + Clarity. Formulier: Web3Forms, ids `contactForm`/`formSuccess`/`looking_for` niet hernoemen (events.js leunt erop).
+- `_bron/`, CLAUDE.md en de werk-md's staan in `.vercelignore` en worden niet gepubliceerd.
+- 301's: /webshops naar /websites-laten-maken, /horeca-websites naar /restaurant-websites (vercel.json).
+
+## Stack (oud, voor de herstart)
 
 Puur statische HTML/CSS/JS — geen framework. Bestanden:
 - `index.html` — homepage met hero, animaties, scroll-reveal

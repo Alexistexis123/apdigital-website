@@ -1,0 +1,393 @@
+﻿<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Blog over websites, lokale SEO en conversie | AP Digital</title>
+<meta name="description" content="Praktische artikelen over websites, lokale SEO, conversie en wat werkt voor lokale ondernemers. Geschreven zonder marketingjargon." />
+<link rel="canonical" href="https://apdigital.nl/blog" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="theme-color" content="#1a1a2e" />
+<link rel="stylesheet" href="style.css" />
+<style>
+  .blog-hero { padding: 140px 0 40px; }
+  .blog-hero h1 { font-size: clamp(36px, 5vw, 56px); font-weight: 600; letter-spacing: -0.025em; line-height: 1.05; margin-bottom: 18px; }
+  .blog-hero p { color: var(--fg-2); font-size: 18px; line-height: 1.6; max-width: 720px; }
+  .blog-grid { padding: 32px 0 80px; }
+  .blog-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  @media (max-width: 960px) { .blog-cards { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .blog-cards { grid-template-columns: 1fr; } }
+  .blog-card {
+    background: var(--bg-1); border: 1px solid var(--line);
+    border-radius: 16px; overflow: hidden; display: flex; flex-direction: column;
+    text-decoration: none; color: var(--fg); position: relative;
+    transition: border-color .3s ease, transform .3s ease, box-shadow .3s ease;
+  }
+  .blog-card:hover { border-color: oklch(0.92 0.18 100 / 0.55); transform: translateY(-3px); box-shadow: 0 18px 50px oklch(0 0 0 / 0.35); }
+  .blog-thumb {
+    aspect-ratio: 16/10; position: relative; overflow: hidden;
+    border-bottom: 1px solid var(--line);
+  }
+  .blog-thumb-1 { background: linear-gradient(135deg, oklch(0.24 0.06 250) 0%, oklch(0.16 0.02 250) 100%); }
+  .blog-thumb-2 { background: linear-gradient(135deg, oklch(0.26 0.05 30) 0%, oklch(0.16 0.02 30) 100%); }
+  .blog-thumb-3 { background: linear-gradient(135deg, oklch(0.24 0.07 60) 0%, oklch(0.16 0.02 60) 100%); }
+  .blog-thumb-4 { background: linear-gradient(135deg, oklch(0.24 0.06 180) 0%, oklch(0.16 0.02 180) 100%); }
+  .blog-thumb-5 { background: linear-gradient(135deg, oklch(0.26 0.06 320) 0%, oklch(0.16 0.02 320) 100%); }
+  .blog-thumb-6 { background: linear-gradient(135deg, oklch(0.24 0.06 140) 0%, oklch(0.16 0.02 140) 100%); }
+  .blog-thumb-7 { background: linear-gradient(135deg, oklch(0.24 0.07 280) 0%, oklch(0.16 0.02 280) 100%); }
+  .blog-thumb-8 { background: linear-gradient(135deg, oklch(0.24 0.06 220) 0%, oklch(0.16 0.02 220) 100%); }
+  .blog-thumb::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 20% 20%, oklch(0.92 0.18 100 / 0.20), transparent 50%),
+      radial-gradient(circle at 80% 80%, oklch(0.92 0.18 100 / 0.10), transparent 50%);
+  }
+  .blog-cat {
+    position: absolute; top: 14px; left: 14px; z-index: 2;
+    padding: 5px 10px; border-radius: 999px;
+    background: oklch(0.14 0.004 250 / 0.78); backdrop-filter: blur(6px);
+    border: 1px solid oklch(0.92 0.18 100 / 0.35);
+    font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent);
+  }
+  .blog-card h2 {
+    padding: 18px 22px 8px; font-size: 19px; font-weight: 600;
+    letter-spacing: -0.015em; line-height: 1.3;
+  }
+  .blog-card p.teaser {
+    padding: 0 22px 14px; color: var(--fg-2); font-size: 14px; line-height: 1.55;
+    margin: 0;
+  }
+  .blog-meta-row {
+    padding: 0 22px 14px; display: flex; align-items: center; gap: 10px;
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    letter-spacing: 0.08em; color: var(--fg-3, var(--fg-2)); opacity: 0.75;
+  }
+  .blog-meta-row .dot { width: 3px; height: 3px; border-radius: 50%; background: currentColor; opacity: 0.6; }
+  .blog-card .read-more {
+    margin: auto 22px 22px; font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--accent); display: inline-flex; align-items: center; gap: 8px;
+  }
+  .blog-card .read-more svg { width: 14px; height: 14px; transition: transform .3s ease; }
+  .blog-card:hover .read-more svg { transform: translateX(4px); }
+
+  .blog-cta { padding: 60px 0 120px; }
+  .blog-cta-box {
+    border: 1px solid var(--line); border-radius: 20px;
+    background: linear-gradient(135deg, oklch(0.16 0.004 250) 0%, oklch(0.14 0.004 250) 100%);
+    padding: 48px 40px; display: flex; flex-direction: column; align-items: center;
+    text-align: center; gap: 18px;
+  }
+  .blog-cta-box h2 { font-size: clamp(22px, 3vw, 30px); font-weight: 600; letter-spacing: -0.015em; line-height: 1.25; max-width: 640px; }
+  .blog-cta-box p { color: var(--fg-2); font-size: 15px; line-height: 1.6; max-width: 540px; margin: 0; }
+  @media (max-width: 600px) { .blog-cta-box { padding: 36px 24px; } }
+</style>
+<meta property="og:image" content="https://apdigital.nl/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:image" content="https://apdigital.nl/og-image.png" /></head>
+
+<body class="loading">
+<a class="skip-link" href="#main">Naar hoofdinhoud</a>
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="scroll-prog" id="scrollProg"></div>
+
+<nav class="nav" id="nav">
+  <a href="/" class="logo" aria-label="AP Digital home">
+    <span class="logo-mark">AP</span>
+    <span>AP Digital</span>
+  </a>
+  <div class="nav-links">
+    <a href="/diensten">Diensten</a>
+    <a href="/pakketten">Pakketten</a>
+    <a href="/portfolio">Portfolio</a>
+    <a href="/websites-laten-maken">Regio's</a>
+    <a href="/over">Over</a>
+    <a href="/contact">Contact</a>
+  </div>
+  <a class="nav-cta" href="/contact">Plan kennismaking</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+</nav>
+
+<div class="nav-mobile-overlay" id="navMobile">
+  <button class="nav-mobile-close" id="navMobileClose" aria-label="Sluiten">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <a href="/diensten">Diensten</a>
+  <a href="/pakketten">Pakketten</a>
+  <a href="/portfolio">Portfolio</a>
+    <a href="/websites-laten-maken">Regio's</a>
+  <a href="/over">Over</a>
+  <a href="/contact">Contact</a>
+</div>
+
+<a id="main" tabindex="-1" aria-hidden="true"></a>
+
+<section class="blog-hero">
+  <div class="container">
+    <h1>Blog</h1>
+    <p>Praktische artikelen over websites, lokale SEO, conversie en wat werkt voor lokale ondernemers.</p>
+  </div>
+</section>
+
+<section class="blog-grid">
+  <div class="container">
+    <div class="blog-cards">
+
+      <a class="blog-card" href="/blog-casa5-in-5-dagen-live">
+        <div class="blog-thumb blog-thumb-6">
+          <span class="blog-cat">Achter de schermen</span>
+        </div>
+        <h2>Hoe ik Casa 5 in 5 dagen live kreeg</h2>
+        <p class="teaser">Van eerste gesprek tot live B&amp;B-website in 5 werkdagen. Per dag een kijkje achter de schermen, en waar de tijd echt zit bij een snel traject.</p>
+        <div class="blog-meta-row">
+          <span>6 min lezen</span>
+          <span class="dot"></span>
+          <span>2026</span>
+        </div>
+        <span class="read-more">Lees verder <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="blog-card" href="/blog-website-laten-maken-arnhem">
+        <div class="blog-thumb blog-thumb-1">
+          <span class="blog-cat">Lokaal</span>
+        </div>
+        <h2>Website laten maken in Arnhem: wat krijg je en wat kost het?</h2>
+        <p class="teaser">Wat krijg je nou eigenlijk als je een website laat maken in Arnhem? We zetten op een rij wat erbij hoort, wat het kost en waarom een lokale partner verschil maakt.</p>
+        <div class="blog-meta-row">
+          <span>6 min lezen</span>
+          <span class="dot"></span>
+          <span>2026</span>
+        </div>
+        <span class="read-more">Lees verder <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="blog-card" href="/blog-waarom-lokale-bedrijven-slechte-websites-hebben">
+        <div class="blog-thumb blog-thumb-2">
+          <span class="blog-cat">Inzicht</span>
+        </div>
+        <h2>Waarom hebben lokale bedrijven zo vaak slechte websites?</h2>
+        <p class="teaser">Veel MKB-sites zijn verouderd, traag of gebouwd door een neefje. Hoe komt dat, wat kost het je aan klanten en wat kun je eraan doen?</p>
+        <div class="blog-meta-row">
+          <span>7 min lezen</span>
+          <span class="dot"></span>
+          <span>2026</span>
+        </div>
+        <span class="read-more">Lees verder <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="blog-card" href="/blog-restaurant-website-voorbeelden">
+        <div class="blog-thumb blog-thumb-3">
+          <span class="blog-cat">Voorbeelden</span>
+        </div>
+        <h2>Restaurant website voorbeelden: wat werkt en wat niet</h2>
+        <p class="teaser">Restaurant website voorbeelden uit de praktijk. Wat maakt een goede horeca-site, welke patronen werken en welke moet je vermijden?</p>
+        <div class="blog-meta-row">
+          <span>7 min lezen</span>
+          <span class="dot"></span>
+          <span>2026</span>
+        </div>
+        <span class="read-more">Lees verder <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="blog-card" href="/blog-moderne-website-vs-oude-website">
+        <div class="blog-thumb blog-thumb-4">
+          <span class="blog-cat">Vergelijking</span>
+        </div>
+        <h2>Moderne website vs oude website: waar zit het verschil?</h2>
+        <p class="teaser">Wat is het verschil tussen een moderne en een verouderde website? Design, snelheid, mobiel, SEO en conversie. Met een korte checklist.</p>
+        <div class="blog-meta-row">
+          <span>6 min lezen</span>
+          <span class="dot"></span>
+          <span>2026</span>
+        </div>
+        <span class="read-more">Lees verder <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="blog-card" href="/blog-waarom-snelheid-belangrijk-is">
+        <div class="blog-thumb blog-thumb-5">
+          <span class="blog-cat">Performance</span>
+        </div>
+        <h2>Waarom snelheid van je website belangrijk is (en hoe je het meet)</h2>
+        <p class="teaser">Snelheid bepaalt of je bezoeker blijft of wegklikt. Wat snelheid beïnvloedt, hoe je het meet en 5 quick wins die je vandaag nog kan doen.</p>
+        <div class="blog-meta-row">
+          <span>7 min lezen</span>
+          <span class="dot"></span>
+          <span>2026</span>
+        </div>
+        <span class="read-more">Lees verder <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="blog-card" href="/blog-wat-kost-een-website-laten-maken">
+        <div class="blog-thumb blog-thumb-6">
+          <span class="blog-cat">Prijzen</span>
+        </div>
+        <h2>Wat kost een website laten maken in 2026?</h2>
+        <p class="teaser">Een complete uitleg van pakketten, prijsfactoren en wat erbij hoort. Plus wat je qua proces en doorlooptijd kunt verwachten.</p>
+        <div class="blog-meta-row">
+          <span>6 min lezen</span>
+          <span class="dot"></span>
+          <span>2026</span>
+        </div>
+        <span class="read-more">Lees verder <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="blog-card" href="/blog-website-laten-maken-of-zelf-bouwen">
+        <div class="blog-thumb blog-thumb-7">
+          <span class="blog-cat">Inzicht</span>
+        </div>
+        <h2>Website laten maken of zelf bouwen? Dit moet je weten</h2>
+        <p class="teaser">Wix, Squarespace, WordPress of custom bouw. Voor- en nadelen op een rij plus wat past bij welke ondernemer.</p>
+        <div class="blog-meta-row">
+          <span>6 min lezen</span>
+          <span class="dot"></span>
+          <span>2026</span>
+        </div>
+        <span class="read-more">Lees verder <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="blog-card" href="/blog-waarom-snelle-websites-meer-aanvragen-opleveren">
+        <div class="blog-thumb blog-thumb-8">
+          <span class="blog-cat">Performance</span>
+        </div>
+        <h2>Waarom snelle websites meer aanvragen opleveren</h2>
+        <p class="teaser">Hoe laadtijd je bounce rate, vertrouwen, vindbaarheid en conversie beïnvloedt. Met concrete handvatten.</p>
+        <div class="blog-meta-row">
+          <span>6 min lezen</span>
+          <span class="dot"></span>
+          <span>2026</span>
+        </div>
+        <span class="read-more">Lees verder <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="blog-cta">
+  <div class="container">
+    <div class="blog-cta-box">
+      <h2>Direct contact in plaats van lezen?</h2>
+      <p>Korte kennismaking, geen verplichting. Vertel wat je nodig hebt en je krijgt eerlijk advies.</p>
+      <a class="btn btn-primary" href="/contact">Plan kennismaking
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Nav scroll + progress
+  const nav = document.getElementById('nav');
+  const prog = document.getElementById('scrollProg');
+  window.addEventListener('scroll', () => {
+    const st = window.scrollY;
+    nav.style.background = st > 40 ? 'oklch(0.14 0.004 250 / 0.85)' : 'oklch(0.16 0.004 250 / 0.55)';
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    if (prog) prog.style.width = (max > 0 ? (st / max) * 100 : 0) + '%';
+  }, { passive: true });
+
+  // Mobile nav
+  const navToggle = document.getElementById('navToggle');
+  const navMobile = document.getElementById('navMobile');
+  const navMobileClose = document.getElementById('navMobileClose');
+  if (navToggle && navMobile) {
+    navToggle.addEventListener('click', () => navMobile.classList.add('open'));
+    navMobileClose.addEventListener('click', () => navMobile.classList.remove('open'));
+    navMobile.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navMobile.classList.remove('open')));
+  }
+
+  // Cursor dot
+  const cd = document.getElementById('cursorDot');
+  let cdX = 0, cdY = 0, mx = 0, my = 0;
+  document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; });
+  (function animateCD() { cdX += (mx - cdX) * 0.2; cdY += (my - cdY) * 0.2; if (cd) cd.style.transform = `translate(${cdX}px, ${cdY}px) translate(-50%, -50%)`; requestAnimationFrame(animateCD); })();
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => cd && cd.classList.add('lg'));
+    el.addEventListener('mouseleave', () => cd && cd.classList.remove('lg'));
+  });
+
+  // Loading mask
+  window.addEventListener('load', () => { setTimeout(() => document.body.classList.remove('loading'), 1000); });
+</script>
+<!-- SITE FOOTER (SEO hub) -->
+<footer class="site-footer">
+  <div class="sf-inner">
+    <div class="sf-brand">
+      <span class="logo-mark">AP</span>
+      <p>Snelle, eerlijke websites voor ondernemers. Live binnen 7 dagen, vaste prijs vanaf 299 euro.</p>
+      <p class="sf-legal">AP Digital · Arnhem · KVK 42080619</p>
+    </div>
+    <div class="sf-services">
+      <h4>Diensten</h4>
+      <ul>
+        <li><a href="/diensten#websites">Websites</a></li>
+        <li><a href="/webshops">Webshops</a></li>
+        <li><a href="/app-laten-maken-arnhem">Apps</a></li>
+        <li><a href="/horeca-websites">Horeca websites</a></li>
+        <li><a href="/restaurant-websites">Restaurant websites</a></li>
+        <li><a href="/bb-websites">B&amp;B websites</a></li>
+        <li><a href="/website-redesign">Website redesign</a></li>
+        <li><a href="/onderhoud-en-hosting">Onderhoud &amp; hosting</a></li>
+      </ul>
+    </div>
+    <div class="sf-cities">
+      <h4><a href="/websites-laten-maken" style="color:inherit;text-decoration:none;">Websites laten maken in</a></h4>
+      <ul>
+        <li><a href="/websites-laten-maken-arnhem">Arnhem</a></li>
+        <li><a href="/websites-laten-maken-nijmegen">Nijmegen</a></li>
+        <li><a href="/websites-laten-maken-ede">Ede</a></li>
+        <li><a href="/websites-laten-maken-wageningen">Wageningen</a></li>
+        <li><a href="/websites-laten-maken-veenendaal">Veenendaal</a></li>
+        <li><a href="/websites-laten-maken-apeldoorn">Apeldoorn</a></li>
+        <li><a href="/websites-laten-maken-doetinchem">Doetinchem</a></li>
+        <li><a href="/websites-laten-maken-utrecht">Utrecht</a></li>
+        <li><a href="/websites-laten-maken-amersfoort">Amersfoort</a></li>
+        <li><a href="/websites-laten-maken-amstelveen">Amstelveen</a></li>
+        <li><a href="/websites-laten-maken-hilversum">Hilversum</a></li>
+        <li><a href="/websites-laten-maken-almere">Almere</a></li>
+        <li><a href="/websites-laten-maken-leiden">Leiden</a></li>
+        <li><a href="/websites-laten-maken-den-bosch">Den Bosch</a></li>
+        <li><a href="/websites-laten-maken-oss">Oss</a></li>
+        <li><a href="/websites-laten-maken-tiel">Tiel</a></li>
+        <li><a href="/websites-laten-maken-zaltbommel">Zaltbommel</a></li>
+        <li><a href="/websites-laten-maken-zwolle">Zwolle</a></li>
+              <li><a href="/websites-laten-maken-amsterdam">Amsterdam</a></li>
+        <li><a href="/websites-laten-maken-den-haag">Den Haag</a></li>
+        <li><a href="/websites-laten-maken-eindhoven">Eindhoven</a></li>
+        <li><a href="/websites-laten-maken-groningen">Groningen</a></li>
+        <li><a href="/websites-laten-maken-breda">Breda</a></li>
+        <li><a href="/websites-laten-maken-alkmaar">Alkmaar</a></li>
+      </ul>
+    </div>
+    <div class="sf-company">
+      <h4>Bedrijf</h4>
+      <ul>
+        <li><a href="/over">Over</a></li>
+        <li><a href="/portfolio">Portfolio</a></li>
+        <li><a href="/pakketten">Pakketten</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="sf-bottom">
+    <div>© 2026 AP Digital</div>
+    <div><a href="/privacy">Privacy</a> <span class="dot">·</span> <a href="/voorwaarden">Voorwaarden</a></div>
+  </div>
+</footer>
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/events.js"></script>
+<script type="text/javascript">
+(function(c,l,a,r,i,t,y){
+  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "wlzolill5t");
+</script>
+</body>
+</html>

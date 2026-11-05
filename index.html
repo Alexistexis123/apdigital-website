@@ -4,21 +4,24 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Website laten maken in 7 dagen, vanaf 299 euro | AP Digital</title>
-<meta name="description" content="Website laten maken vanaf €299, live binnen 7 dagen. Snelle, moderne sites voor ondernemers door heel Nederland. Vaste prijs, geen verrassingen." />
-
+<meta name="description" content="Website laten maken vanaf €299, live binnen 7 dagen. Plus apps en automatisering op maat: gebouwd voor Jacobs Heteren, nu voor jouw bedrijf." />
 <link rel="canonical" href="https://apdigital.nl/" />
-<meta property="og:title" content="AP Digital | Websites in 7 dagen, vanaf €299" />
-<meta property="og:description" content="Snelle moderne websites voor lokale bedrijven. Professioneel gebouwd en binnen 7 dagen live." />
+<meta property="og:title" content="AP Digital | Websites, apps en automatisering" />
+<meta property="og:description" content="Gebouwd voor Jacobs Heteren, waar het elke dag draait. Nu voor jouw bedrijf." />
 <meta property="og:url" content="https://apdigital.nl/" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="nl_NL" />
+<meta property="og:site_name" content="AP Digital" />
 <meta property="og:image" content="https://apdigital.nl/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="AP Digital - Live binnen 7 dagen, vanaf 299 euro" />
-<meta name="twitter:image" content="https://apdigital.nl/og-image.png" />
+<meta property="og:image:alt" content="AP Digital, websites, apps en automatisering" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="google-site-verification" content="CgNNQrAZwi1S_UNIU0qI0KRWeE4KUXG3Hbb" />
+<meta name="twitter:image" content="https://apdigital.nl/og-image.png" />
+<meta name="theme-color" content="#0A0A0A" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="preload" href="/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="/site.css?v=2" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -26,21 +29,46 @@
   "@id": "https://apdigital.nl/#business",
   "name": "AP Digital",
   "legalName": "AP Digital",
-  "identifier": { "@type": "PropertyValue", "propertyID": "KVK", "value": "42080619" },
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "KVK",
+    "value": "42080619"
+  },
   "url": "https://apdigital.nl/",
-  "description": "AP Digital bouwt snelle moderne websites voor lokale bedrijven door heel Nederland.",
   "email": "info@apdigital.nl",
   "telephone": "+31614160265",
+  "priceRange": "€€",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Arnhem",
+    "addressCountry": "NL"
+  },
+  "description": "AP Digital uit Arnhem bouwt websites, apps op maat en automatisering voor ondernemers.",
   "areaServed": [
-    { "@type": "City", "name": "Arnhem" },
-    { "@type": "City", "name": "Ede" },
-    { "@type": "City", "name": "Nijmegen" },
-    { "@type": "City", "name": "Wageningen" },
-    { "@type": "Country", "name": "Nederland" }
+    {
+      "@type": "City",
+      "name": "Arnhem"
+    },
+    {
+      "@type": "City",
+      "name": "Ede"
+    },
+    {
+      "@type": "City",
+      "name": "Nijmegen"
+    },
+    {
+      "@type": "City",
+      "name": "Wageningen"
+    },
+    {
+      "@type": "Country",
+      "name": "Nederland"
+    }
   ],
-  "address": { "@type": "PostalAddress", "addressCountry": "NL" },
-  "sameAs": ["https://wa.me/31614160265"],
-  "priceRange": "€€"
+  "sameAs": [
+    "https://wa.me/31614160265"
+  ]
 }
 </script>
 <script type="application/ld+json">
@@ -49,7 +77,9 @@
   "@type": "WebSite",
   "url": "https://apdigital.nl/",
   "name": "AP Digital",
-  "publisher": { "@id": "https://apdigital.nl/#business" },
+  "publisher": {
+    "@id": "https://apdigital.nl/#business"
+  },
   "inLanguage": "nl-NL"
 }
 </script>
@@ -67,915 +97,217 @@
   ]
 }
 </script>
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<meta name="theme-color" content="#1a1a2e" />
-<link rel="stylesheet" href="style.css" />
-<style>
-  /* HERO CAROUSEL */
-  .hero-carousel {
-    position: relative; z-index: 2; width: 100%; margin-top: auto; padding-top: 56px;
-    overflow-x: auto; overflow-y: hidden;
-    scrollbar-width: none; -ms-overflow-style: none;
-    cursor: grab; user-select: none; -webkit-user-select: none;
-    touch-action: pan-x;
-    mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent);
-    -webkit-mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent);
-  }
-  .hero-carousel::-webkit-scrollbar { display: none; }
-  .hero-carousel.dragging { cursor: grabbing; }
-  .hero-carousel.dragging a { pointer-events: none; }
-  .hero-carousel-track {
-    display: flex; gap: 22px; width: max-content;
-  }
-
-  .hc-card {
-    flex: 0 0 320px; border-radius: 18px; overflow: hidden;
-    background: oklch(0.20 0.005 250 / 0.55); border: 1px solid var(--line);
-    text-decoration: none; color: var(--fg); display: flex; flex-direction: column;
-    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-    transition: transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s ease, box-shadow .3s ease;
-  }
-  a.hc-card:hover {
-    transform: translateY(-6px);
-    border-color: oklch(0.92 0.18 100 / 0.5);
-    box-shadow: 0 24px 60px oklch(0 0 0 / 0.4);
-  }
-  .hc-thumb { aspect-ratio: 16/10; position: relative; overflow: hidden; background: #0a1628; }
-  .hc-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; transition: transform .5s ease; }
-  a.hc-card:hover .hc-thumb img { transform: scale(1.05); }
-  a.hc-card .hc-thumb::after {
-    content: ""; position: absolute; inset: 0;
-    background: oklch(0.92 0.18 100 / 0.28);
-    transition: opacity .5s ease; pointer-events: none;
-  }
-  a.hc-card:hover .hc-thumb::after { opacity: 0; }
-  .hc-info { padding: 14px 18px; display: flex; flex-direction: column; gap: 6px; }
-  .hc-tags { display: flex; gap: 6px; flex-wrap: wrap; }
-  .hc-tags span {
-    font-family: 'JetBrains Mono', monospace; font-size: 9px; text-transform: uppercase;
-    letter-spacing: 0.12em; padding: 3px 8px; border: 1px solid var(--line);
-    border-radius: 999px; color: var(--fg-3);
-  }
-  a.hc-card .hc-tags span { border-color: oklch(0.92 0.18 100 / 0.4); color: var(--accent); }
-  .hc-info h3 { font-size: 17px; font-weight: 600; letter-spacing: -0.02em; }
-
-  @media (max-width: 700px) {
-    .hero-carousel { margin-top: 16px; }
-    .hero-carousel-track { gap: 14px; }
-    .hc-card { flex: 0 0 200px; }
-    .hc-info { padding: 10px 14px; }
-    .hc-info h3 { font-size: 15px; }
-  }
-
-  /* USP GRID */
-  .usp-section { padding: 48px 0 20px; position: relative; z-index: 2; }
-  .usp-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
-  }
-  .usp-card {
-    background: var(--bg-1); border: 1px solid var(--line);
-    border-radius: 16px; padding: 28px 26px;
-  }
-  .usp-card .usp-label {
-    font-family: 'JetBrains Mono', monospace; font-size: 11px;
-    text-transform: uppercase; letter-spacing: 0.14em;
-    color: var(--accent); margin-bottom: 12px; display: block;
-  }
-  .usp-card h3 {
-    font-size: 20px; font-weight: 600; letter-spacing: -0.02em;
-    margin-bottom: 8px; color: var(--fg);
-  }
-  .usp-card p { color: var(--fg-2, var(--fg)); font-size: 15px; line-height: 1.55; opacity: 0.82; }
-  @media (max-width: 800px) {
-    .usp-grid { grid-template-columns: 1fr; gap: 14px; }
-    .usp-section { padding: 40px 0 16px; }
-    .usp-card { padding: 22px 20px; }
-  }
-
-  /* Section shared */
-  .section-head { margin-bottom: 22px; }
-  .section-eyebrow {
-    font-family: 'JetBrains Mono', monospace; font-size: 11px;
-    text-transform: uppercase; letter-spacing: 0.18em;
-    color: var(--accent); display: inline-block; margin-bottom: 14px;
-  }
-  .section-title {
-    font-size: clamp(26px, 3.6vw, 38px); font-weight: 600;
-    letter-spacing: -0.025em; line-height: 1.15;
-  }
-
-  /* DIENSTEN-snippet */
-  .diensten-section { padding: 40px 0 32px; }
-  .diensten-primary {
-    background: var(--bg-1); border: 1px solid var(--line);
-    border-radius: 18px; padding: 30px 32px;
-    max-width: 820px; margin-left: auto; margin-right: auto;
-    text-align: center;
-  }
-  .diensten-primary h2 {
-    font-size: clamp(22px, 2.8vw, 30px); font-weight: 600;
-    letter-spacing: -0.02em; margin-bottom: 10px;
-  }
-  .diensten-primary p { color: var(--fg); opacity: 0.85; font-size: 16px; line-height: 1.6; margin-bottom: 16px; }
-  .diensten-link {
-    display: inline-flex; align-items: center; gap: 8px;
-    color: var(--accent); text-decoration: none; font-weight: 500;
-    border-bottom: 1px solid oklch(0.92 0.18 100 / 0.4);
-    padding-bottom: 2px; font-size: 15px;
-  }
-  .diensten-link:hover { border-bottom-color: var(--accent); }
-  .diensten-tertiary {
-    margin-top: 24px; color: var(--fg); opacity: 0.6;
-    font-size: 14px; line-height: 1.55; max-width: 720px;
-    margin-left: auto; margin-right: auto; text-align: center;
-  }
-  .specialisaties {
-    margin-top: 22px; display: flex; align-items: center;
-    flex-wrap: wrap; gap: 10px; max-width: 820px;
-    justify-content: center; margin-left: auto; margin-right: auto;
-  }
-  .specialisaties-label {
-    font-family: 'JetBrains Mono', monospace; font-size: 11px;
-    text-transform: uppercase; letter-spacing: 0.14em;
-    color: var(--accent); margin-right: 6px;
-  }
-  .specialisaties-list {
-    list-style: none; display: flex; flex-wrap: wrap; gap: 8px;
-    margin: 0; padding: 0;
-  }
-  .specialisaties-list a {
-    display: inline-block; padding: 6px 12px; font-size: 13px;
-    color: var(--fg-2); border: 1px solid var(--line);
-    border-radius: 999px; text-decoration: none;
-    transition: border-color .2s ease, color .2s ease;
-  }
-  .specialisaties-list a:hover {
-    border-color: var(--accent); color: var(--accent);
-  }
-  @media (max-width: 700px) {
-    .diensten-primary { padding: 26px 22px; }
-  }
-  @media (max-width: 600px) {
-    .specialisaties { gap: 8px; }
-    .specialisaties-list a { font-size: 12px; padding: 5px 10px; }
-  }
-
-  /* PORTFOLIO-link onder carousel */
-  .portfolio-link-row {
-    padding: 20px 0 8px; display: flex; justify-content: center;
-    position: relative; z-index: 2;
-  }
-
-  /* HOE HET WERKT */
-  .stappen-section { padding: 56px 0 48px; }
-  .stappen-list {
-    display: grid; grid-template-columns: 1fr; gap: 14px;
-  }
-  .stap-item {
-    display: grid; grid-template-columns: 64px 1fr; gap: 22px;
-    align-items: start; padding: 22px 24px;
-    background: var(--bg-1); border: 1px solid var(--line);
-    border-radius: 14px;
-  }
-  .stap-num {
-    font-family: 'JetBrains Mono', monospace; font-size: 28px;
-    color: var(--accent); font-weight: 500;
-  }
-  .stap-body h3 {
-    font-size: 18px; font-weight: 600; letter-spacing: -0.01em;
-    margin-bottom: 6px;
-  }
-  .stap-body p { color: var(--fg); opacity: 0.82; font-size: 15px; line-height: 1.55; }
-  @media (max-width: 560px) {
-    .stap-item { grid-template-columns: 48px 1fr; gap: 16px; padding: 18px; }
-    .stap-num { font-size: 22px; }
-  }
-
-  /* TESTIMONIALS placeholder */
-  .testimonials-section { padding: 40px 0 40px; }
-
-  /* Google review-badge (hero) */
-  .ap-rev-badge-row { margin-top: 18px; position: relative; z-index: 2; }
-  .ap-rev-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 7px 14px; border-radius: 999px;
-    border: 1px solid var(--line); background: oklch(0.20 0.005 250 / 0.6);
-    font-size: 13.5px; font-weight: 600; color: var(--fg-2, var(--fg));
-    text-decoration: none; transition: border-color .2s ease, color .2s ease;
-  }
-  .ap-rev-badge:hover { border-color: var(--accent); color: var(--fg); }
-  .ap-rev-badge .g-logo { width: 15px; height: 15px; display: inline-flex; }
-  .ap-rev-badge .g-logo svg { width: 100%; height: 100%; }
-  .ap-rev-badge .ap-rev-stars svg { width: 13px; height: 13px; }
-  .ap-rev-badge strong { color: var(--fg); }
-
-  /* Google reviews */
-  .ap-rev-top {
-    display: flex; align-items: center; flex-wrap: wrap;
-    gap: 10px; margin-bottom: 22px;
-  }
-  .ap-rev-top .g-logo { width: 22px; height: 22px; display: inline-flex; }
-  .ap-rev-top .g-logo svg { width: 100%; height: 100%; }
-  .ap-rev-top strong { font-size: 21px; font-weight: 700; }
-  .ap-rev-stars { display: inline-flex; gap: 2px; color: var(--accent); }
-  .ap-rev-stars svg { width: 17px; height: 17px; }
-  .ap-rev-top .on-g { color: var(--fg); opacity: 0.7; font-size: 15px; }
-  .ap-rev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: start; margin-bottom: 22px; }
-  .ap-rev-card {
-    display: flex; flex-direction: column; gap: 12px;
-    padding: 22px 20px; border-radius: 14px; text-align: left;
-    border: 1px solid var(--line); background: var(--bg-1); margin: 0;
-  }
-  .ap-rev-card .ap-rev-stars svg { width: 15px; height: 15px; }
-  .ap-rev-card blockquote { margin: 0; font-size: 14.5px; line-height: 1.55; color: var(--fg); opacity: 0.82; }
-  .ap-rev-card .who { font-size: 13.5px; font-weight: 700; color: var(--fg); }
-  .ap-rev-card .who span { display: block; font-weight: 400; opacity: 0.55; font-size: 12.5px; margin-top: 2px; }
-  .ap-rev-links { font-size: 14px; color: var(--fg); opacity: 0.65; margin-bottom: 26px; }
-  .ap-rev-links a { color: inherit; text-decoration: underline; }
-  .ap-rev-links a:hover { color: var(--accent); opacity: 1; }
-  @media (max-width: 800px) { .ap-rev-grid { grid-template-columns: 1fr; } }
-  .testimonials-card {
-    background: var(--bg-1); border: 1px solid var(--line);
-    border-radius: 18px; padding: 36px 36px;
-    max-width: 820px; margin-left: auto; margin-right: auto;
-    text-align: center;
-  }
-  .testimonials-card h2 {
-    font-size: clamp(22px, 2.8vw, 30px); font-weight: 600;
-    letter-spacing: -0.02em; margin-bottom: 14px;
-  }
-  .testimonials-card p { color: var(--fg); opacity: 0.85; font-size: 16px; line-height: 1.6; margin-bottom: 22px; }
-  @media (max-width: 700px) {
-    .testimonials-card { padding: 26px 22px; }
-  }
-
-  /* FOUNDER TOUCH (rustig blok boven footer-CTA) */
-  .founder-section { padding: 32px 0 24px; }
-  .founder-card {
-    display: grid; grid-template-columns: 180px 1fr; gap: 28px;
-    align-items: center; max-width: 720px; margin: 0 auto;
-    padding: 28px 30px; background: var(--bg-1);
-    border: 1px solid var(--line); border-radius: 18px;
-  }
-  .founder-photo {
-    position: relative; border-radius: 14px; overflow: hidden;
-    aspect-ratio: 4/5; box-shadow: 0 14px 36px oklch(0 0 0 / 0.32);
-    border: 1px solid var(--line);
-  }
-  .founder-photo img {
-    width: 100%; height: 100%; object-fit: cover; display: block;
-    filter: brightness(1.02) saturate(0.96);
-  }
-  .founder-photo::after {
-    content: ""; position: absolute; inset: 0; pointer-events: none;
-    background: linear-gradient(180deg, transparent 55%, oklch(0.92 0.18 100 / 0.07));
-  }
-  .founder-text { text-align: center; }
-  .founder-quote {
-    font-size: 17px; line-height: 1.55; color: var(--fg);
-    margin-bottom: 14px; letter-spacing: -0.005em;
-  }
-  .founder-sig {
-    font-family: 'JetBrains Mono', monospace; font-size: 11px;
-    text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent);
-  }
-  @media (max-width: 600px) {
-    .founder-card { grid-template-columns: 1fr; gap: 22px; padding: 24px; text-align: center; }
-    .founder-photo { max-width: 200px; margin: 0 auto; aspect-ratio: 4/4; }
-    .founder-text { text-align: center; }
-  }
-
-  /* FOOTER CTA-blok */
-  .footer-cta { padding: 32px 0 64px; text-align: center; }
-  .footer-cta-card {
-    background: linear-gradient(180deg, var(--bg-1), oklch(0.13 0.004 250));
-    border: 1px solid var(--line);
-    border-radius: 24px;
-    padding: 48px 40px;
-    max-width: 720px;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-  }
-  .footer-cta-card::before {
-    content: ""; position: absolute; inset: 0;
-    background: radial-gradient(ellipse 70% 60% at 50% 0%, oklch(0.92 0.18 100 / 0.10), transparent 70%);
-    pointer-events: none;
-  }
-  .footer-cta-card > * { position: relative; }
-  .footer-cta h2 {
-    font-size: clamp(28px, 4vw, 40px); font-weight: 600;
-    letter-spacing: -0.025em; margin-bottom: 14px;
-  }
-  .footer-cta p { color: var(--fg); opacity: 0.78; margin-bottom: 28px; font-size: 16px; }
-  .footer-cta .cta-row { justify-content: center; }
-  @media (max-width: 700px) {
-    .footer-cta-card { padding: 36px 24px; border-radius: 20px; }
-  }
-</style>
+<meta name="google-site-verification" content="CgNNQrAZwi1S_UNIU0qI0KRWeE4KUXG3Hbb" />
+<script>document.documentElement.classList.add('js')</script>
 </head>
-
-<body class="loading">
-<a class="skip-link" href="#main">Naar hoofdinhoud</a>
-<div class="cursor-dot" id="cursorDot"></div>
-<div class="scroll-prog" id="scrollProg"></div>
-
-<nav class="nav" id="nav">
-  <a href="/" class="logo" aria-label="AP Digital home">
-    <span class="logo-mark">AP</span>
-    <span>AP Digital</span>
-  </a>
-  <div class="nav-links">
-    <a href="/diensten">Diensten</a>
-    <a href="/pakketten">Pakketten</a>
+<body>
+<a class="skip-link" href="#main">Naar de inhoud</a>
+<header class="kop"><div class="wrap">
+  <a class="logo" href="/" aria-label="AP Digital, naar de homepage"><span class="blok">AP</span><span class="woord">AP Digital</span></a>
+  <nav class="nav" id="nav" aria-label="Hoofdmenu">
+    <a href="/websites-laten-maken">Websites</a>
+    <a href="/apps-laten-maken">Apps</a>
+    <a href="/processen-automatiseren">Automatisering</a>
     <a href="/portfolio">Portfolio</a>
-    <a href="/websites-laten-maken">Regio's</a>
-    <a href="/over">Over</a>
-    <a href="/contact">Contact</a>
-  </div>
-  <a class="nav-cta" href="/contact">Plan kennismaking</a>
-  <button class="nav-toggle" id="navToggle" aria-label="Menu">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-  </button>
-</nav>
+    <a href="/over">Over ons</a>
+    <a class="knop" href="/contact">Gratis kennismaking</a>
+  </nav>
+  <button class="hamburger" id="hamburger" type="button" aria-label="Menu" aria-controls="nav" aria-expanded="false"><span></span><span></span><span></span></button>
+</div></header>
+<main id="main" tabindex="-1">
 
-<div class="nav-mobile-overlay" id="navMobile">
-  <button class="nav-mobile-close" id="navMobileClose" aria-label="Sluiten">
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-  </button>
-  <a href="/diensten">Diensten</a>
-  <a href="/pakketten">Pakketten</a>
-  <a href="/portfolio">Portfolio</a>
-    <a href="/websites-laten-maken">Regio's</a>
-  <a href="/over">Over</a>
-  <a href="/contact">Contact</a>
+<section class="hero2"><div class="wrap">
+  <div class="hero-kop">
+    <div>
+      <div class="label geel">Websites · Apps · Automatisering</div>
+      <h1>Gebouwd voor <span class="streep">Jacobs Heteren,</span> waar het elke dag draait. <span class="serif">Nu voor jouw bedrijf.</span></h1>
+    </div>
+    <div class="hero-rechts">
+      <p class="lead">Bij verhuisbedrijf Jacobs Heteren draait elke dag software die wij bouwden: de website, de offertes en planning, de uren van de ploeg. Dat bouwen we nu voor jou: een site die aanvragen binnenhaalt, een app die past op je werk, en het handwerk ertussen dat vanzelf gaat.</p>
+      <div class="knoppen-rij"><a class="knop" href="/contact">Plan een gratis kennismaking</a><a class="knop-2" href="#verhalen">Bekijk wat we bouwden</a></div>
+    </div>
+  </div>
+  
+<div class="machine" id="machine" data-stap="0" role="img" aria-label="Voorbeeld met nepdata: een aanvraag komt binnen via de website, staat daarna in de planning en levert vanzelf een offerte en een mail op.">
+  <div class="m-raam m-site" data-raam="1">
+    <div class="m-balk"><i></i><i></i><i></i><span>jouwbedrijf.nl/offerte</span></div>
+    <div class="m-inhoud">
+      <div class="m-kop">Offerte aanvragen</div>
+      <div class="m-veld"><small>Naam</small><span data-typ="M. de Vries"></span></div>
+      <div class="m-veld"><small>Klus</small><span data-typ="Schilderwerk buiten"></span></div>
+      <div class="m-veld m-veld-plaats"><small>Plaats</small><span data-typ="Velp"></span></div>
+      <div class="m-knop">Aanvraag versturen</div>
+    </div>
+  </div>
+  <div class="m-draad" data-draad="1"><b></b></div>
+  <div class="m-raam m-plan" data-raam="2">
+    <div class="m-balk"><i></i><i></i><i></i><span>Planning · deze week</span></div>
+    <div class="m-inhoud">
+      <div class="m-week">
+        <div><small>ma</small><i></i><i class="l"></i></div>
+        <div><small>di</small><i class="l"></i></div>
+        <div><small>wo</small><i></i><i></i></div>
+        <div class="m-do"><small>do</small><i class="l"></i><b class="m-nieuw"><em>De Vries</em><span>Velp</span></b></div>
+        <div><small>vr</small><i></i></div>
+      </div>
+      <div class="m-status"><span class="m-pil">Nieuwe aanvraag</span><span class="m-pil ok">Ingepland do 08:00</span></div>
+    </div>
+  </div>
+  <div class="m-draad" data-draad="2"><b></b></div>
+  <div class="m-raam m-offerte" data-raam="3">
+    <div class="m-balk"><i></i><i></i><i></i><span>Offerte · automatisch</span></div>
+    <div class="m-inhoud">
+      <div class="m-doc">
+        <div class="m-doc-kop"><span class="m-logo"></span><div><b>Offerte</b><small>M. de Vries · Velp</small></div></div>
+        <i style="--w:86%"></i><i style="--w:64%"></i><i style="--w:74%"></i><i class="m-tot" style="--w:40%"></i>
+      </div>
+      <div class="m-mail"><span class="m-vink"></span><div><b>Mail verstuurd</b><small>Offerte staat in de inbox van M. de Vries</small></div></div>
+    </div>
+  </div>
 </div>
+<ol class="m-stappen" aria-hidden="true">
+  <li data-s="1"><b>01</b>Aanvraag via je website</li>
+  <li data-s="2"><b>02</b>Staat meteen in je planning</li>
+  <li data-s="3"><b>03</b>Offerte en mail gaan vanzelf de deur uit</li>
+</ol>
+  <p class="m-uitleg">Zo loopt een aanvraag als je site, planning en offertes aan elkaar hangen. <span>Voorbeeld met nepdata.</span></p>
+</div></section>
 
-<!-- 1. HERO -->
-<a id="main" tabindex="-1" aria-hidden="true"></a>
-<section id="hero">
-  <div class="hero-bg">
-    <div class="hero-grid"></div>
-    <div class="orb a"></div>
-    <div class="orb b"></div>
-    <div class="orb c"></div>
+<div class="tape" aria-hidden="true"><div class="tape-rol"><span>Websites</span><span>Apps op maat</span><span>Automatisering</span><span>Gebouwd in Arnhem</span><span>Elke dag in gebruik bij Jacobs Heteren</span><span>Websites</span><span>Apps op maat</span><span>Automatisering</span><span>Gebouwd in Arnhem</span><span>Elke dag in gebruik bij Jacobs Heteren</span></div></div>
+
+<section class="sectie"><div class="wrap">
+  <div class="sectie-kop" data-reveal><div><div class="label">Wat we bouwen</div><h2 style="margin-top:12px">Begin bij je site. <span class="serif">Stop waar het knelt.</span></h2><p class="lead">De meeste klanten komen voor een betere website. Loop je daarna vast op Excel, papier of dubbel overtypen, dan bouwen we dat er gewoon achteraan.</p></div></div>
+  <div class="pijlers specialisaties-list">
+    <a class="pijler" href="/websites-laten-maken" data-reveal style="--d:0ms"><div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></div><div class="pijler-nr">01</div><h3>Websites</h3><p>Een site die klanten oplevert, op je telefoon net zo goed als op je laptop.</p><ul><li>Nieuwe site of vernieuwing</li><li>Offerte- en contactformulieren</li><li>Vindbaar in Google, ook lokaal</li></ul><div class="pijler-prijs">Vanaf €299, live in 7 dagen</div><span class="meer">Meer over websites →</span></a><a class="pijler" href="/apps-laten-maken" data-reveal style="--d:90ms"><div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></div><div class="pijler-nr">02</div><h3>Apps</h3><p>Software die past op hoe jouw bedrijf werkt, in plaats van andersom.</p><ul><li>Planning en werkbonnen</li><li>Urenregistratie</li><li>Kassa, voorraad, klantportaal</li></ul><div class="pijler-prijs">Vaste prijs na een gratis gesprek</div><span class="meer">Meer over apps →</span></a><a class="pijler" href="/processen-automatiseren" data-reveal style="--d:180ms"><div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M4 17h6M14 7a3 3 0 1 0 6 0 3 3 0 0 0-6 0zM10 17a3 3 0 1 0 6 0 3 3 0 0 0-6 0zM16 17h4"/></svg></div><div class="pijler-nr">03</div><h3>Automatisering</h3><p>Werk dat elke week terugkomt, laten we automatisch lopen.</p><ul><li>Rapportages die zichzelf maken</li><li>Mails en posts op de juiste tijd</li><li>Eén dashboard voor alles</li></ul><div class="pijler-prijs">Vaste prijs na een gratis gesprek</div><span class="meer">Meer over automatisering →</span></a>
   </div>
-  <div class="noise"></div>
-  <div class="container hero-content">
-    <h1 class="hero-title" id="heroTitle" data-line1="Website laten maken" data-line2="die klanten oplevert."></h1>
-    <p class="hero-tagline reveal d4">
-      Laat je website maken tegen een vaste prijs vanaf &euro;299, live binnen 7 dagen. Voor ondernemers door heel Nederland.
-    </p>
-    <div class="cta-row reveal d5">
-      <a class="btn btn-primary" href="/pakketten">
-        Bekijk pakketten
-        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-      <a class="btn btn-ghost" href="/contact">
-        Plan kennismaking
-        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-    </div>
-    <div class="ap-rev-badge-row reveal d5">
-      <a class="ap-rev-badge" href="https://maps.google.com/?cid=7229055669262186351" target="_blank" rel="noopener" aria-label="5,0 op Google, 3 reviews, bekijk het profiel">
-        <span class="g-logo" aria-hidden="true"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/><path fill="#FF3D00" d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z"/><path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0 1 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"/><path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 0 1-4.087 5.571l.003-.002 6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"/></svg></span>
-        <span class="ap-rev-stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
-        <span><strong>5,0</strong> op Google (3 reviews)</span>
-      </a>
-    </div>
+</div></section>
+
+<section class="sectie cijfer-sectie raster"><div class="wrap">
+  <div class="sectie-kop" data-reveal><div><div class="label">In cijfers</div><h2 style="margin-top:12px">Geen beloftes. <span class="serif">Dit staat er al.</span></h2></div></div>
+  <div class="cijfers">
+    <div data-reveal style="--d:0ms"><strong data-tel="13337">13.337</strong><span>kaarten van de PostLeads-machine bij mensen op de mat, in 19 weken</span></div><div data-reveal style="--d:80ms"><strong data-tel="52">52</strong><span>oude adressen van Flo-Rent netjes doorgestuurd, niemand loopt dood</span></div><div data-reveal style="--d:160ms"><strong>€0</strong><span>hosting per maand voor Her-bergen, alleen het domein kost geld</span></div><div data-reveal style="--d:240ms"><strong data-tel="100">100</strong><span>van 100 voor de SEO-basis in Google Lighthouse, Flo-Rent en RH Scooter</span></div>
   </div>
+</div></section>
 
-  <!-- HERO WORK CAROUSEL -->
-  <div class="hero-carousel reveal d6">
-    <div class="hero-carousel-track">
-      <a class="hc-card" href="/casa5" target="_blank" rel="noopener">
-        <div class="hc-thumb"><img width="1440" height="900" src="/img/portfolio/casa5.webp" alt="Casa 5 bed and breakfast website door AP Digital terrasfoto" loading="lazy" /></div>
-        <div class="hc-info"><div class="hc-tags"><span>Website</span><span>B&amp;B</span></div><h3>Casa 5</h3></div>
-      </a>
-      <a class="hc-card" href="/rhscooter" target="_blank" rel="noopener">
-        <div class="hc-thumb"><img width="1440" height="900" src="/img/portfolio/rhscooter.webp" alt="RH Scooter Service Arnhem website door AP Digital, scooter en fatbike reparatie" loading="lazy" /></div>
-        <div class="hc-info"><div class="hc-tags"><span>Website</span><span>Scooter</span></div><h3>RH Scooter Service</h3></div>
-      </a>
-      <a class="hc-card" href="/marketing-fit" target="_blank" rel="noopener">
-        <div class="hc-thumb"><img width="1440" height="900" src="/img/portfolio/marketingfit.webp" alt="Marketing Fit marketingbureau website door AP Digital homepage screenshot" loading="lazy" /></div>
-        <div class="hc-info"><div class="hc-tags"><span>Website</span><span>Marketing</span></div><h3>Marketing Fit</h3></div>
-      </a>
-      <a class="hc-card" href="/casa5" target="_blank" rel="noopener" aria-hidden="true">
-        <div class="hc-thumb"><img width="1440" height="900" src="/img/portfolio/casa5.webp" alt="" loading="lazy" /></div>
-        <div class="hc-info"><div class="hc-tags"><span>Website</span><span>B&amp;B</span></div><h3>Casa 5</h3></div>
-      </a>
-      <a class="hc-card" href="/rhscooter" target="_blank" rel="noopener" aria-hidden="true">
-        <div class="hc-thumb"><img width="1440" height="900" src="/img/portfolio/rhscooter.webp" alt="" loading="lazy" /></div>
-        <div class="hc-info"><div class="hc-tags"><span>Website</span><span>Scooter</span></div><h3>RH Scooter Service</h3></div>
-      </a>
-      <a class="hc-card" href="/marketing-fit" target="_blank" rel="noopener" aria-hidden="true">
-        <div class="hc-thumb"><img width="1440" height="900" src="/img/portfolio/marketingfit.webp" alt="" loading="lazy" /></div>
-        <div class="hc-info"><div class="hc-tags"><span>Website</span><span>Marketing</span></div><h3>Marketing Fit</h3></div>
-      </a>
-    </div>
+<section class="sectie" id="verhalen"><div class="wrap">
+  <div class="sectie-kop" data-reveal><div><div class="label">Uitgelicht werk</div><h2 style="margin-top:12px">Vier klussen, <span class="serif">vier verhalen.</span></h2><p class="lead">Wat er mis was, wat we bouwden en wat het opleverde. Beweeg over een project of tik op het verhaal.</p></div><a class="knop-2" href="/portfolio">Alle projecten →</a></div>
+  <div class="cases">
+    <article class="case verhaal-case hc-card" data-pijler="websites" data-reveal>
+  <div class="beeld"><img src="/img/werk/florent-d.webp" alt="Website Flo-Rent Verhuizingen" width="1200" height="750" decoding="async" loading="lazy" /><div class="mini"><img src="/img/werk/florent-m.webp" alt="" width="390" height="844" decoding="async" loading="lazy" /></div></div>
+  <div class="verhaal" id="v-florent-1">
+    <div><small>01 · Het probleem</small><p>De oude site draaide op een websitebouwer, en daarvoor op WordPress. Google kende tientallen oude adressen die nergens meer heen zouden gaan.</p></div>
+    <div><small>02 · Wat we bouwden</small><p>Een nieuwe site van 8 pagina's met een offerte-aanvraag in stappen. Aanvragen komen direct in de mailbox van het bedrijf.</p></div>
+    <div><small>03 · Wat het opleverde</small><p>Elk oud adres stuurt door naar de juiste nieuwe pagina. Wie via Google binnenkomt, loopt niet dood op een foutpagina.</p></div>
   </div>
-
-  <!-- 4b. PORTFOLIO link onder carousel -->
-  <div class="portfolio-link-row">
-    <a class="btn btn-ghost" href="/portfolio">
-      Meer projecten bekijken
-      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </a>
+  <div class="tekst">
+    <div class="meta"><span class="pil">Website</span></div>
+    <h3>Flo-Rent Verhuizingen</h3>
+    <p>Verhuisbedrijf uit Heteren. Nieuwe site met een offerte-aanvraag in stappen, zodat mensen hun verhuizing makkelijk doorgeven.</p>
+    <div class="bewijs"><strong data-tel="52">52</strong><span>oude adressen netjes doorgestuurd</span></div>
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-florent-1"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <div class="links"><a class="link" href="https://www.flo-rent.nl/" target="_blank" rel="noopener">Bekijk de site ↗</a></div>
   </div>
-</section>
-
-<!-- 2. USP GRID -->
-<section class="usp-section">
-  <div class="container">
-    <div class="usp-grid">
-      <div class="usp-card reveal d1">
-        <span class="usp-label">01 / Snel live</span>
-        <h3>Binnen 7 dagen live</h3>
-        <p>Professioneel gebouwd zonder maandenlange trajecten.</p>
-      </div>
-      <div class="usp-card reveal d2">
-        <span class="usp-label">02 / Vaste prijs</span>
-        <h3>Vanaf &euro;299</h3>
-        <p>Duidelijke pakketten zonder verrassingen achteraf.</p>
-      </div>
-      <div class="usp-card reveal d3">
-        <span class="usp-label">03 / Resultaat</span>
-        <h3>Modern &amp; conversiegericht</h3>
-        <p>Snel, mobiel-vriendelijk en gericht op aanvragen.</p>
-      </div>
-    </div>
+</article><article class="case verhaal-case hc-card" data-pijler="apps" data-reveal>
+  <div class="beeld"><img src="/img/werk/moveflow-d.webp" alt="MoveFlow met nepdata: een verhuisdossier met de stappen van aanvraag tot afgerond" width="1440" height="900" decoding="async" loading="lazy" /></div>
+  <div class="verhaal" id="v-moveflow-2">
+    <div><small>01 · Het probleem</small><p>Bij een verhuisbedrijf hangt alles aan elkaar: de aanvraag, de offerte, de planning en de bon voor de ploeg. Staat dat in losse lijsten, dan typ je alles drie keer over.</p></div>
+    <div><small>02 · Wat we bouwden</small><p>MoveFlow, gebouwd voor Jacobs Heteren: offertes met een rekenmotor, planning en werkbonnen, en per verhuizing één dossier met alles erin.</p></div>
+    <div><small>03 · Wat het opleverde</small><p>Elk dossier loopt langs vaste stappen, en de status volgt vanzelf uit offerte, planning en factuur. Een getekende offerte blijft precies zoals de klant hem tekende. Het draait er elke dag.</p></div>
   </div>
-</section>
-
-<!-- 3. DIENSTEN-snippet -->
-<section class="diensten-section">
-  <div class="container">
-    <div class="diensten-primary reveal d1">
-      <h2>Website laten maken voor lokale bedrijven</h2>
-      <p>Voor horeca, retail en dienstverleners door heel Nederland. Overzichtelijke sites die meteen duidelijk maken wat je doet en hoe klanten contact opnemen. Vaste prijs, live binnen 7 dagen.</p>
-      <a class="diensten-link" href="/diensten">
-        Bekijk diensten
-        <svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-    </div>
-    <div class="specialisaties reveal d2">
-      <span class="specialisaties-label">Specialisaties</span>
-      <ul class="specialisaties-list">
-        <li><a href="/restaurant-websites">Restaurant websites</a></li>
-        <li><a href="/horeca-websites">Horeca websites</a></li>
-        <li><a href="/webshops">Webshops</a></li>
-        <li><a href="/website-redesign">Website redesign</a></li>
-        <li><a href="/onderhoud-en-hosting">Onderhoud &amp; hosting</a></li>
-      </ul>
-    </div>
-    <p class="diensten-tertiary reveal d2">
-      Ook maatwerk webapps, social content en automatisering mogelijk op aanvraag.
-    </p>
+  <div class="tekst">
+    <div class="meta"><span class="pil">App op maat</span></div>
+    <h3>MoveFlow</h3>
+    <p>Het systeem waar Jacobs Heteren op draait: van aanvraag en offerte tot planning en werkbon voor de ploeg, in één dossier per verhuizing.</p>
+    <div class="bewijs"><strong data-tel="9">9</strong><span>vaste stappen, van aanvraag tot afgerond</span></div>
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-moveflow-2"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <div class="links"><span class="link stil">Bedrijfssoftware, demo op aanvraag</span></div>
   </div>
-</section>
-
-<!-- 5. HOE HET WERKT -->
-<section class="stappen-section">
-  <div class="container">
-    <div class="section-head reveal d1">
-      <span class="section-eyebrow">Werkwijze</span>
-      <h2 class="section-title">Hoe het werkt</h2>
-    </div>
-    <div class="stappen-list">
-      <div class="stap-item reveal d1">
-        <div class="stap-num">01</div>
-        <div class="stap-body">
-          <h3>Kennismaking</h3>
-          <p>We bespreken kort wat je nodig hebt en wat slim is.</p>
-        </div>
-      </div>
-      <div class="stap-item reveal d2">
-        <div class="stap-num">02</div>
-        <div class="stap-body">
-          <h3>Voorstel</h3>
-          <p>Je krijgt een duidelijk voorstel met vaste prijs en planning.</p>
-        </div>
-      </div>
-      <div class="stap-item reveal d3">
-        <div class="stap-num">03</div>
-        <div class="stap-body">
-          <h3>Design en bouw</h3>
-          <p>We bouwen je website snel en professioneel.</p>
-        </div>
-      </div>
-      <div class="stap-item reveal d4">
-        <div class="stap-num">04</div>
-        <div class="stap-body">
-          <h3>Livegang</h3>
-          <p>Alles wordt getest, gekoppeld en netjes live gezet.</p>
-        </div>
-      </div>
-      <div class="stap-item reveal d5">
-        <div class="stap-num">05</div>
-        <div class="stap-body">
-          <h3>Doorontwikkeling</h3>
-          <p>Indien gewenst helpen we met content, SEO en doorontwikkeling.</p>
-        </div>
-      </div>
-    </div>
+</article><article class="case verhaal-case hc-card" data-pijler="automatisering" data-reveal>
+  <div class="beeld"><img src="/img/werk/postleads-stroom.webp" alt="Schema van de PostLeads-machine" width="1440" height="900" decoding="async" loading="lazy" /></div>
+  <div class="verhaal" id="v-postleads-machine-3">
+    <div><small>01 · Het probleem</small><p>Elke week een nieuwe adressenlijst maken voor de drukker, per klant en per gebied, uit duizenden nieuwe woningen.</p></div>
+    <div><small>02 · Wat we bouwden</small><p>Een machine die elke week 6.135 tot 7.240 nieuwe woningen scant, ze koppelt aan het gebied van elke klant, dubbele adressen eruit haalt en de lijsten plus mails klaarzet.</p></div>
+    <div><small>03 · Wat het opleverde</small><p>Sinds week 27 gingen er 13.337 kaarten de deur uit, de laatste vier weken gemiddeld zo'n 700 per week. Een mens kijkt elke lijst na voor hij weggaat.</p></div>
   </div>
-</section>
-
-<!-- 6. TESTIMONIALS placeholder -->
-<section class="testimonials-section">
-  <div class="container">
-    <div class="section-head reveal d1">
-      <span class="section-eyebrow">Klanten</span>
-      <h2 class="section-title">Klanten van AP Digital</h2>
-    </div>
-    <div class="ap-rev-top reveal d1">
-      <span class="g-logo" aria-hidden="true"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/><path fill="#FF3D00" d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z"/><path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0 1 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"/><path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 0 1-4.087 5.571l.003-.002 6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"/></svg></span>
-      <strong>5,0</strong>
-      <span class="ap-rev-stars" role="img" aria-label="5 van 5 sterren"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
-      <span class="on-g">op Google</span>
-    </div>
-    <div class="ap-rev-grid">
-      <figure class="ap-rev-card reveal d1">
-        <span class="ap-rev-stars" role="img" aria-label="5 sterren"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
-        <blockquote>Topbedrijf! Vanaf de eerste stap tot en met de oplevering ben ik ontzettend goed geholpen. Alles werd duidelijk uitgelegd en er werd echt met mij meegedacht. Een ervaren en professionele man die goed luistert naar de wensen van de klant en deze perfect weet om te zetten in een prachtige website. Ik raad dit bedrijf dan ook aan iedereen aan. Bedankt voor onze topwebsite!</blockquote>
-        <figcaption class="who">RH Scooter Service Arnhem<span>Google-review</span></figcaption>
-      </figure>
-      <figure class="ap-rev-card reveal d2">
-        <span class="ap-rev-stars" role="img" aria-label="5 sterren"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
-        <blockquote>Top ervaring met APDigital. Duidelijke communicatie, snel geschakeld en het resultaat mag er zijn: professioneel, snel en werkt perfect op desktop en mobiel. Er werd ook goed meegedacht, ze doen meer dan alleen uitvoeren. Aanrader voor iedereen die een betrouwbare partij zoekt voor een nieuwe website.</blockquote>
-        <figcaption class="who">Laisser-faire<span>Google-review</span></figcaption>
-      </figure>
-      <figure class="ap-rev-card reveal d3">
-        <span class="ap-rev-stars" role="img" aria-label="5 sterren"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
-        <blockquote>Fantastische service!</blockquote>
-        <figcaption class="who">Gijs R.<span>Google-review</span></figcaption>
-      </figure>
-    </div>
-    <p class="ap-rev-links reveal d3">
-      <a href="https://maps.google.com/?cid=7229055669262186351" target="_blank" rel="noopener">Bekijk op Google</a>
-      <span class="dot">·</span>
-      <a href="https://g.page/r/CW935XvUw1JkEBM/review" target="_blank" rel="noopener">Laat een review achter</a>
-    </p>
-    <div class="testimonials-card reveal d1">
-      <p>We werken voor lokale ondernemers in horeca, retail en dienstverlening. Bekijk wat we voor anderen hebben gebouwd.</p>
-      <a class="diensten-link" href="/portfolio">
-        Bekijk portfolio
-        <svg class="icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-    </div>
+  <div class="tekst">
+    <div class="meta"><span class="pil">Automatisering</span></div>
+    <h3>PostLeads-machine</h3>
+    <p>Haalt elke week het nieuwe woningaanbod op, koppelt het aan het gebied van elke klant en maakt de lijst voor de drukker. Klant- en drukkersmails staan vanzelf klaar.</p>
+    <div class="bewijs"><strong data-tel="13337">13.337</strong><span>kaarten de deur uit in 19 weken</span></div>
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-postleads-machine-3"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <div class="links"><span class="link stil">Intern systeem</span></div>
   </div>
-</section>
-
-<!-- 6b. FOUNDER TOUCH -->
-<section class="founder-section">
-  <div class="container">
-    <div class="founder-card reveal d1">
-      <figure class="founder-photo">
-        <img src="/img/alex-2.webp" alt="Alex, oprichter AP Digital" width="800" height="640" loading="lazy" />
-      </figure>
-      <div class="founder-text">
-        <p class="founder-quote">AP Digital is gebouwd om lokale bedrijven snel professioneel online zichtbaar te maken.</p>
-        <p class="founder-sig">Alex, oprichter AP Digital</p>
-      </div>
-    </div>
+</article><article class="case verhaal-case hc-card" data-pijler="automatisering" data-reveal>
+  <div class="beeld"><img src="/img/werk/cockpit-d.webp" alt="AI-cockpit met nepdata: de dagstart" width="1440" height="900" decoding="async" loading="lazy" /><div class="mini"><img src="/img/werk/cockpit-m.webp" alt="" width="420" height="909" decoding="async" loading="lazy" /></div></div>
+  <div class="verhaal" id="v-cockpit-4">
+    <div><small>01 · Het probleem</small><p>Meerdere bedrijven tegelijk runnen, met mail, taken, agenda en cijfers verspreid over tien tabbladen.</p></div>
+    <div><small>02 · Wat we bouwden</small><p>Eén scherm voor alles, met een AI-assistent die meeleest en taken klaarzet. Beslissen blijft mensenwerk.</p></div>
+    <div><small>03 · Wat het opleverde</small><p>Elke ochtend staat het dagoverzicht klaar: wat er speelt, wat vandaag moet en wat blijft liggen. De takenlijst ging van 198 open punten naar 46 echte acties.</p></div>
   </div>
-</section>
-
-<!-- 7. FOOTER CTA BOTTOM -->
-<style>
-  .home-contact-form { max-width: 560px; margin: 22px auto 0; text-align: left; }
-  .hcf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
-  .home-contact-form input, .home-contact-form textarea {
-    width: 100%; padding: 13px 15px; border-radius: 12px; box-sizing: border-box;
-    border: 1px solid var(--line); background: oklch(0.16 0.005 250 / 0.6);
-    color: var(--fg); font: inherit; font-size: 15px;
-  }
-  .home-contact-form textarea { resize: vertical; margin-bottom: 14px; min-height: 84px; }
-  .home-contact-form input::placeholder, .home-contact-form textarea::placeholder { color: var(--fg-3); }
-  .home-contact-form input:focus, .home-contact-form textarea:focus { outline: none; border-color: var(--accent); }
-  .hcf-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: center; }
-  .hcf-trust { font-size: 13px; color: var(--fg-3); margin: 12px 0 0; text-align: center; }
-  .home-form-success { max-width: 560px; margin: 22px auto 0; padding: 26px; border-radius: 14px; border: 1px solid var(--accent); background: oklch(0.18 0.006 250 / 0.6); text-align: center; }
-  .home-form-success h3 { margin: 0 0 6px; }
-  .home-form-success p { margin: 0; color: var(--fg-2); }
-  @media (max-width: 600px) { .hcf-row { grid-template-columns: 1fr; } }
-</style>
-<section class="footer-cta">
-  <div class="container">
-    <div class="footer-cta-card reveal d1">
-      <h2>Klaar om te starten?</h2>
-      <p>Laat kort je idee achter, je krijgt snel een reactie. Of bekijk eerst de pakketten.</p>
-      <form id="homeContactForm" class="home-contact-form" novalidate>
-        <div class="hcf-row">
-          <input type="text" id="hcfName" name="name" placeholder="Je naam" required aria-label="Je naam" />
-          <input type="email" id="hcfEmail" name="email" placeholder="E-mailadres" required aria-label="E-mailadres" />
-        </div>
-        <textarea id="hcfMessage" name="message" placeholder="Vertel kort wat je nodig hebt..." required aria-label="Bericht"></textarea>
-        <div class="hcf-actions">
-          <button type="submit" class="btn btn-primary" id="hcfSubmit">
-            <span>Verstuur aanvraag</span>
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-          <a class="btn btn-ghost" href="/pakketten">Bekijk pakketten</a>
-        </div>
-        <p class="hcf-trust">Geen verplichtingen, gewoon eerlijk advies.</p>
-      </form>
-      <div class="home-form-success" id="hcfSuccess" hidden>
-        <h3>Verstuurd. Bedankt!</h3>
-        <p>We reageren binnen 24 uur, meestal sneller.</p>
-      </div>
-    </div>
+  <div class="tekst">
+    <div class="meta"><span class="pil">Automatisering</span></div>
+    <h3>AI-cockpit</h3>
+    <p>Eén scherm voor meerdere bedrijven: taken, mail, agenda, cijfers en een ochtendoverzicht dat elke dag om 07:00 klaarstaat.</p>
+    <div class="bewijs"><strong>07:00</strong><span>dagoverzicht klaar, elke ochtend</span></div>
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-cockpit-4"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <div class="links"><span class="link stil">Intern systeem</span></div>
   </div>
-</section>
-<script>
-(function () {
-  var form = document.getElementById('homeContactForm');
-  if (!form) return;
-  form.addEventListener('submit', async function (e) {
-    e.preventDefault();
-    var name = document.getElementById('hcfName'), email = document.getElementById('hcfEmail'), message = document.getElementById('hcfMessage');
-    var ok = true;
-    [name, email, message].forEach(function (el) { el.style.borderColor = ''; });
-    if (!name.value.trim()) { name.style.borderColor = '#e5484d'; ok = false; }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) { email.style.borderColor = '#e5484d'; ok = false; }
-    if (!message.value.trim()) { message.style.borderColor = '#e5484d'; ok = false; }
-    if (!ok) return;
-    var btn = document.getElementById('hcfSubmit');
-    btn.disabled = true; btn.querySelector('span').textContent = 'Versturen...';
-    var data = new FormData();
-    data.append('access_key', 'd33cb3a8-8112-40a2-a85d-9501a91cdeea');
-    data.append('name', name.value);
-    data.append('email', email.value);
-    data.append('message', message.value);
-    data.append('subject', 'Nieuwe aanvraag via homepage AP Digital');
-    data.append('from_name', 'AP Digital homepage');
-    var showSuccess = function () {
-      form.style.display = 'none';
-      document.getElementById('hcfSuccess').hidden = false;
-      try { window.va && window.va('event', { name: 'form_submit', data: { bron: 'homepage' } }); } catch (e) {}
-      try { window.apAdsConversion && window.apAdsConversion('lead'); } catch (e) {}
-    };
-    var mailtoFallback = function () {
-      var body = 'Naam: ' + name.value + '\nE-mail: ' + email.value + '\n\nBericht:\n' + message.value;
-      window.location.href = 'mailto:info@apdigital.nl?subject=' + encodeURIComponent('Nieuwe aanvraag via homepage AP Digital') + '&body=' + encodeURIComponent(body);
-      showSuccess();
-    };
-    try {
-      var res = await fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Accept': 'application/json' }, body: data });
-      var json = await res.json();
-      if (json.success === true || json.success === 'true') { showSuccess(); } else { mailtoFallback(); }
-    } catch (err) { mailtoFallback(); }
-  });
-})();
-</script>
-
-<!-- SITE FOOTER (SEO hub) -->
-<footer class="site-footer">
-  <div class="sf-inner">
-    <div class="sf-brand">
-      <span class="logo-mark">AP</span>
-      <p>Snelle, eerlijke websites voor ondernemers. Live binnen 7 dagen, vaste prijs vanaf 299 euro.</p>
-      <p class="sf-legal">AP Digital · Arnhem · KVK 42080619</p>
-    </div>
-    <div class="sf-services">
-      <h4>Diensten</h4>
-      <ul>
-        <li><a href="/diensten#websites">Websites</a></li>
-        <li><a href="/webshops">Webshops</a></li>
-        <li><a href="/app-laten-maken-arnhem">Apps</a></li>
-        <li><a href="/horeca-websites">Horeca websites</a></li>
-        <li><a href="/restaurant-websites">Restaurant websites</a></li>
-        <li><a href="/bb-websites">B&amp;B websites</a></li>
-        <li><a href="/website-redesign">Website redesign</a></li>
-        <li><a href="/onderhoud-en-hosting">Onderhoud &amp; hosting</a></li>
-      </ul>
-    </div>
-    <div class="sf-cities">
-      <h4><a href="/websites-laten-maken" style="color:inherit;text-decoration:none;">Websites laten maken in</a></h4>
-      <ul>
-        <li><a href="/websites-laten-maken-arnhem">Arnhem</a></li>
-        <li><a href="/websites-laten-maken-nijmegen">Nijmegen</a></li>
-        <li><a href="/websites-laten-maken-ede">Ede</a></li>
-        <li><a href="/websites-laten-maken-wageningen">Wageningen</a></li>
-        <li><a href="/websites-laten-maken-veenendaal">Veenendaal</a></li>
-        <li><a href="/websites-laten-maken-apeldoorn">Apeldoorn</a></li>
-        <li><a href="/websites-laten-maken-doetinchem">Doetinchem</a></li>
-        <li><a href="/websites-laten-maken-utrecht">Utrecht</a></li>
-        <li><a href="/websites-laten-maken-amersfoort">Amersfoort</a></li>
-        <li><a href="/websites-laten-maken-amstelveen">Amstelveen</a></li>
-        <li><a href="/websites-laten-maken-hilversum">Hilversum</a></li>
-        <li><a href="/websites-laten-maken-almere">Almere</a></li>
-        <li><a href="/websites-laten-maken-leiden">Leiden</a></li>
-        <li><a href="/websites-laten-maken-den-bosch">Den Bosch</a></li>
-        <li><a href="/websites-laten-maken-oss">Oss</a></li>
-        <li><a href="/websites-laten-maken-tiel">Tiel</a></li>
-        <li><a href="/websites-laten-maken-zaltbommel">Zaltbommel</a></li>
-        <li><a href="/websites-laten-maken-zwolle">Zwolle</a></li>
-              <li><a href="/websites-laten-maken-amsterdam">Amsterdam</a></li>
-        <li><a href="/websites-laten-maken-den-haag">Den Haag</a></li>
-        <li><a href="/websites-laten-maken-eindhoven">Eindhoven</a></li>
-        <li><a href="/websites-laten-maken-groningen">Groningen</a></li>
-        <li><a href="/websites-laten-maken-breda">Breda</a></li>
-        <li><a href="/websites-laten-maken-alkmaar">Alkmaar</a></li>
-      </ul>
-    </div>
-    <div class="sf-company">
-      <h4>Bedrijf</h4>
-      <ul>
-        <li><a href="/over">Over</a></li>
-        <li><a href="/portfolio">Portfolio</a></li>
-        <li><a href="/pakketten">Pakketten</a></li>
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/contact">Contact</a></li>
-      </ul>
-    </div>
+</article>
   </div>
-  <div class="sf-bottom">
-    <div>© 2026 AP Digital</div>
-    <div><a href="/privacy">Privacy</a> <span class="dot">·</span> <a href="/voorwaarden">Voorwaarden</a></div>
+</div></section>
+
+<section class="sectie raster"><div class="wrap">
+  <div class="sectie-kop" data-reveal><div><div class="label">Waarom wij</div><h2 style="margin-top:12px">Geen <s class="doorhaal">webbureau.</s> <span class="serif">Bouwers die de werkvloer kennen.</span></h2></div></div>
+  <div class="drie">
+    <div data-reveal><div class="nr">01</div><h3>Getest op een echte werkvloer</h3><p>Onze apps draaien elke dag bij Jacobs Heteren, met kantoor, planners en de ploeg op de weg. Wat niet handig werkt, horen we meteen.</p></div>
+    <div data-reveal style="--d:90ms"><div class="nr">02</div><h3>Site en systeem uit één hand</h3><p>Een formulier op je site is stap één. Dat die aanvraag daarna vanzelf in je planning staat, is stap twee. Wij doen allebei, dus er zit geen gat tussen.</p></div>
+    <div data-reveal style="--d:180ms"><div class="nr">03</div><h3>Je belt met wie het bouwt</h3><p>Geen accountmanager ertussen. Wie je aan de lijn hebt, heeft je site of app zelf in elkaar gezet.</p></div>
   </div>
-</footer>
+</div></section>
 
-<script>
-  // Hero title char-by-char animation
-  (function () {
-    const t = document.getElementById('heroTitle');
-    const l1 = t.dataset.line1, l2 = t.dataset.line2;
-    const buildLine = (str, accent) => {
-      let html = `<span class="line${accent ? ' accent' : ''}">`;
-      const words = str.split(' ');
-      words.forEach((word, wi) => {
-        html += '<span class="word">';
-        for (const ch of word) {
-          html += `<span class="ch">${ch}</span>`;
-        }
-        html += '</span>';
-        if (wi < words.length - 1) html += ' ';
-      });
-      return html + '</span>';
-    };
-    t.innerHTML = buildLine(l1, false) + '<br/>' + buildLine(l2, true);
-    t.querySelectorAll('.ch').forEach((c, i) => {
-      const delay = 200 + i * 35;
-      c.animate(
-        [{ opacity: 0, transform: 'translateY(110%) rotate(6deg)' }, { opacity: 1, transform: 'translateY(0) rotate(0)' }],
-        { duration: 900, delay, fill: 'forwards', easing: 'cubic-bezier(.2,.7,.2,1)' }
-      );
-      setTimeout(() => c.classList.add('in'), delay + 900);
-    });
-  })();
+<section class="sectie"><div class="wrap">
+  <div class="sectie-kop" data-reveal><div><div class="label">Zo gaat het</div><h2 style="margin-top:12px">Vier gesprekken, <span class="serif">geen verrassingen.</span></h2></div></div>
+  
+<ol class="stappen">
+  <li class="stap" data-reveal><div class="nr">01</div><h3>Jij vertelt waar het knelt</h3><p>Aan de telefoon of aan tafel. Wat kost je tijd, wat loopt vast, wat wil je anders.</p></li>
+  <li class="stap" data-reveal><div class="nr">02</div><h3>Wij zeggen wat we zouden bouwen</h3><p>En wat we níet zouden doen. Soms is een betere site genoeg, soms is het een app.</p></li>
+  <li class="stap" data-reveal><div class="nr">03</div><h3>Je krijgt het op papier</h3><p>Wat we bouwen, wanneer het af is en wat het kost. Pas na jouw ja beginnen we.</p></li>
+  <li class="stap" data-reveal><div class="nr">04</div><h3>We bouwen, jij kijkt mee</h3><p>Je ziet tussendoor wat er staat. Daarna live, en we blijven bereikbaar.</p></li>
+</ol>
+</div></section>
 
-  // Orb parallax
-  const hero = document.getElementById('hero');
-  const orbs = document.querySelectorAll('#hero .orb');
-  hero.addEventListener('mousemove', (e) => {
-    const rect = hero.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    orbs.forEach((o, i) => { const k = (i + 1) * 18; o.style.translate = `${x * k}px ${y * k}px`; });
-  });
+<section class="sectie smal" id="reviews"><div class="wrap">
+  <div class="sectie-kop" data-reveal><div><div class="label">Wat klanten zeggen</div><h2 style="margin-top:12px">Reviews op <span class="serif">Google.</span></h2></div><a class="knop-2" href="https://maps.google.com/?cid=7229055669262186351" target="_blank" rel="noopener">Bekijk ons Google-profiel ↗</a></div>
+  <div class="reviews-top"><strong>5,0</strong><span class="sterren" role="img" aria-label="5 van 5 sterren">★★★★★</span><span>op Google (3 reviews)</span></div>
+  <div class="reviews"><figure data-reveal style="--d:0ms"><span class="sterren" role="img" aria-label="5 sterren">★★★★★</span><blockquote>Topbedrijf! Vanaf de eerste stap tot en met de oplevering ben ik ontzettend goed geholpen. Alles werd duidelijk uitgelegd en er werd echt met mij meegedacht. Een ervaren en professionele man die goed luistert naar de wensen van de klant en deze perfect weet om te zetten in een prachtige website. Ik raad dit bedrijf dan ook aan iedereen aan. Bedankt voor onze topwebsite!</blockquote><figcaption>RH Scooter Service Arnhem<span>Google-review</span></figcaption></figure><figure data-reveal style="--d:80ms"><span class="sterren" role="img" aria-label="5 sterren">★★★★★</span><blockquote>Top ervaring met APDigital. Duidelijke communicatie, snel geschakeld en het resultaat mag er zijn: professioneel, snel en werkt perfect op desktop en mobiel. Er werd ook goed meegedacht, ze doen meer dan alleen uitvoeren. Aanrader voor iedereen die een betrouwbare partij zoekt voor een nieuwe website.</blockquote><figcaption>Laisser-faire<span>Google-review</span></figcaption></figure><figure data-reveal style="--d:160ms"><span class="sterren" role="img" aria-label="5 sterren">★★★★★</span><blockquote>Fantastische service!</blockquote><figcaption>Gijs R.<span>Google-review</span></figcaption></figure></div>
+</div></section>
 
-  // Reveal on scroll
-  const reveals = document.querySelectorAll('.reveal');
-  const delayFor = (el) => { for (const c of el.classList) { if (/^d[1-6]$/.test(c)) return parseInt(c.slice(1), 10) * 80; } return 0; };
-  const playReveal = (el) => {
-    if (el.dataset.revealed) return;
-    el.dataset.revealed = '1';
-    el.animate(
-      [{ opacity: 0, transform: 'translateY(60px)' }, { opacity: 1, transform: 'translateY(0)' }],
-      { duration: 900, delay: delayFor(el), fill: 'forwards', easing: 'cubic-bezier(.2,.7,.2,1)' }
-    );
-    el.classList.add('in');
-  };
-  reveals.forEach(el => { const r = el.getBoundingClientRect(); if (r.top < window.innerHeight * 0.95) playReveal(el); });
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { playReveal(e.target); io.unobserve(e.target); } });
-  }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
-  reveals.forEach(el => { if (!el.dataset.revealed) io.observe(el); });
-  setTimeout(() => reveals.forEach(playReveal), 1500);
+<section class="sectie smal"><div class="wrap"><div class="cta-band">
+  <div><h2>Benieuwd wat er bij jou <span class="serif">te winnen valt?</span></h2><p>In een kennismaking kijken we samen naar je site en je werkdag. Je hoort eerlijk wat zin heeft en wat niet.</p></div>
+  <div class="acties"><a class="knop" href="/contact">Plan een gratis kennismaking</a><a class="tel" href="tel:+31614160265">of bel 06 1416 0265</a></div>
+</div></div></section>
 
-  // Cursor dot
-  const cd = document.getElementById('cursorDot');
-  let cdX = 0, cdY = 0, mx = 0, my = 0;
-  document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; });
-  (function animateCD() { cdX += (mx - cdX) * 0.2; cdY += (my - cdY) * 0.2; if (cd) cd.style.transform = `translate(${cdX}px, ${cdY}px) translate(-50%, -50%)`; requestAnimationFrame(animateCD); })();
-  document.querySelectorAll('a, button, input, textarea, select').forEach(el => {
-    el.addEventListener('mouseenter', () => cd && cd.classList.add('lg'));
-    el.addEventListener('mouseleave', () => cd && cd.classList.remove('lg'));
-  });
-
-  // Click ripple
-  document.addEventListener('click', (e) => {
-    const target = e.target.closest('.btn, .nav-cta, .contact-link, .pkg-cta, .service-card, .submit-btn');
-    if (!target) return;
-    const r = target.getBoundingClientRect();
-    const ripple = document.createElement('span');
-    ripple.className = 'ripple';
-    const size = Math.max(r.width, r.height);
-    ripple.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX - r.left}px;top:${e.clientY - r.top}px`;
-    if (getComputedStyle(target).position === 'static') target.style.position = 'relative';
-    target.appendChild(ripple);
-    setTimeout(() => ripple.remove(), 750);
-  });
-
-  // Magnetic CTA
-  document.querySelectorAll('.btn-primary, .nav-cta').forEach(btn => {
-    btn.addEventListener('mousemove', (e) => {
-      const r = btn.getBoundingClientRect();
-      btn.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * 0.18}px, ${(e.clientY - r.top - r.height / 2) * 0.25}px)`;
-    });
-    btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
-  });
-
-  // Nav scroll + progress
-  const nav = document.getElementById('nav');
-  const prog = document.getElementById('scrollProg');
-  window.addEventListener('scroll', () => {
-    const st = window.scrollY;
-    nav.style.background = st > 40 ? 'oklch(0.14 0.004 250 / 0.85)' : 'oklch(0.16 0.004 250 / 0.55)';
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    if (prog) prog.style.width = (max > 0 ? (st / max) * 100 : 0) + '%';
-  }, { passive: true });
-
-  // Mobile nav
-  const navToggle = document.getElementById('navToggle');
-  const navMobile = document.getElementById('navMobile');
-  const navMobileClose = document.getElementById('navMobileClose');
-  if (navToggle && navMobile) {
-    navToggle.addEventListener('click', () => navMobile.classList.add('open'));
-    navMobileClose.addEventListener('click', () => navMobile.classList.remove('open'));
-    navMobile.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navMobile.classList.remove('open')));
-  }
-
-  // Hero carousel auto-scroll + drag/swipe
-  (function () {
-    const carousel = document.querySelector('.hero-carousel');
-    const track = document.querySelector('.hero-carousel-track');
-    if (!carousel || !track) return;
-
-    const SPEED = 30; // px/sec
-    const RESUME_DELAY = 1800; // ms after interaction
-    let halfWidth = 0;
-    let isDragging = false, didDrag = false;
-    let startX = 0, startScroll = 0;
-    let pausedUntil = 0;
-    let lastTime = performance.now();
-
-    const recalc = () => { halfWidth = track.scrollWidth / 2; };
-    recalc();
-    window.addEventListener('resize', recalc);
-    window.addEventListener('load', recalc);
-
-    function loop(now) {
-      const dt = (now - lastTime) / 1000;
-      lastTime = now;
-      const paused = isDragging || carousel.matches(':hover') || now < pausedUntil;
-      if (!paused && halfWidth > 0) {
-        carousel.scrollLeft += SPEED * dt;
-      }
-      if (halfWidth > 0) {
-        if (carousel.scrollLeft >= halfWidth) carousel.scrollLeft -= halfWidth;
-        else if (carousel.scrollLeft < 0) carousel.scrollLeft += halfWidth;
-      }
-      requestAnimationFrame(loop);
-    }
-    requestAnimationFrame((t) => { lastTime = t; loop(t); });
-
-    carousel.addEventListener('mousedown', (e) => {
-      isDragging = true; didDrag = false;
-      startX = e.clientX; startScroll = carousel.scrollLeft;
-    });
-    window.addEventListener('mousemove', (e) => {
-      if (!isDragging) return;
-      const dx = e.clientX - startX;
-      if (Math.abs(dx) > 4) {
-        didDrag = true;
-        carousel.classList.add('dragging');
-      }
-      if (didDrag) carousel.scrollLeft = startScroll - dx;
-    });
-    window.addEventListener('mouseup', () => {
-      if (!isDragging) return;
-      isDragging = false;
-      pausedUntil = performance.now() + RESUME_DELAY;
-      setTimeout(() => carousel.classList.remove('dragging'), 0);
-    });
-
-    carousel.addEventListener('click', (e) => {
-      if (didDrag) { e.preventDefault(); e.stopPropagation(); didDrag = false; }
-    }, true);
-
-    carousel.addEventListener('touchstart', () => { pausedUntil = performance.now() + RESUME_DELAY; }, { passive: true });
-    carousel.addEventListener('touchend', () => { pausedUntil = performance.now() + RESUME_DELAY; }, { passive: true });
-  })();
-
-  // Loading mask
-  window.addEventListener('load', () => { setTimeout(() => document.body.classList.remove('loading'), 1300); });
-</script>
+</main>
+<footer class="voet"><div class="wrap">
+  <div class="kolommen">
+    <div>
+      <a class="logo" href="/"><span class="blok">AP</span><span class="woord">AP Digital</span></a>
+      <div class="tagline"><span class="wit">Digitaal werk</span> dat gewoon werkt.</div>
+      <p style="font-size:15px">Websites, apps en automatisering voor ondernemers. Gebouwd in Arnhem.</p>
+    </div>
+    <div><h4>Wat we bouwen</h4><a href="/websites-laten-maken">Websites</a><a href="/apps-laten-maken">Apps op maat</a><a href="/processen-automatiseren">Processen en automatisering</a><a href="/website-redesign">Website vernieuwen</a><a href="/onderhoud-en-hosting">Onderhoud en hosting</a><a href="/pakketten">Pakketten en prijzen</a></div>
+    <div><h4>AP Digital</h4><a href="/portfolio">Portfolio</a><a href="/over">Over ons</a><a href="/diensten">Diensten</a><a href="/gratis-concept">Je gratis concept</a><a href="/blog">Blog</a></div>
+    <div><h4>Contact</h4><a href="/contact">Gratis kennismaking</a><a href="mailto:info@apdigital.nl">info@apdigital.nl</a><a href="tel:+31614160265">06 1416 0265</a><a href="https://wa.me/31614160265?text=Hoi%20AP%20Digital%2C%20ik%20heb%20een%20vraag." target="_blank" rel="noopener">WhatsApp</a></div>
+  </div>
+  <div class="voet-steden"><h4>Website laten maken in</h4><ul class="stad-lijst"><li><a href="/websites-laten-maken-alkmaar">Alkmaar</a></li><li><a href="/websites-laten-maken-almere">Almere</a></li><li><a href="/websites-laten-maken-amersfoort">Amersfoort</a></li><li><a href="/websites-laten-maken-amstelveen">Amstelveen</a></li><li><a href="/websites-laten-maken-amsterdam">Amsterdam</a></li><li><a href="/websites-laten-maken-apeldoorn">Apeldoorn</a></li><li><a href="/websites-laten-maken-arnhem">Arnhem</a></li><li><a href="/websites-laten-maken-breda">Breda</a></li><li><a href="/websites-laten-maken-den-bosch">Den Bosch</a></li><li><a href="/websites-laten-maken-den-haag">Den Haag</a></li><li><a href="/websites-laten-maken-doetinchem">Doetinchem</a></li><li><a href="/websites-laten-maken-ede">Ede</a></li><li><a href="/websites-laten-maken-eindhoven">Eindhoven</a></li><li><a href="/websites-laten-maken-groningen">Groningen</a></li><li><a href="/websites-laten-maken-hilversum">Hilversum</a></li><li><a href="/websites-laten-maken-leiden">Leiden</a></li><li><a href="/websites-laten-maken-nijmegen">Nijmegen</a></li><li><a href="/websites-laten-maken-oss">Oss</a></li><li><a href="/websites-laten-maken-tiel">Tiel</a></li><li><a href="/websites-laten-maken-utrecht">Utrecht</a></li><li><a href="/websites-laten-maken-veenendaal">Veenendaal</a></li><li><a href="/websites-laten-maken-wageningen">Wageningen</a></li><li><a href="/websites-laten-maken-zaltbommel">Zaltbommel</a></li><li><a href="/websites-laten-maken-zwolle">Zwolle</a></li></ul></div>
+  <div class="klein-tekst"><span>© 2026 AP Digital · KVK 42080619 · Arnhem</span><span><a href="/privacy" style="display:inline">Privacy</a> · <a href="/voorwaarden" style="display:inline">Voorwaarden</a></span></div>
+</div></footer>
+<div class="vast-cta"><a class="knop" href="/contact">Gratis kennismaking</a><a class="knop-2" href="tel:+31614160265" aria-label="Bel AP Digital">Bel</a></div>
+<script defer src="/site.js?v=2"></script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script defer src="/_vercel/speed-insights/script.js"></script>
 <script defer src="/events.js"></script>
-<script type="text/javascript">
+<script>
 (function(c,l,a,r,i,t,y){
   c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
   t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;

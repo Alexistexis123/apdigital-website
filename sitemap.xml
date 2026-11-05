@@ -1,62 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://apdigital.nl/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://apdigital.nl/diensten</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://apdigital.nl/websites-laten-maken</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://apdigital.nl/pakketten</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://apdigital.nl/portfolio</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://apdigital.nl/over</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://apdigital.nl/contact</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://apdigital.nl/gratis-concept</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-
-  <!-- Service pages -->
-  <url><loc>https://apdigital.nl/restaurant-websites</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://apdigital.nl/horeca-websites</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://apdigital.nl/bb-websites</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://apdigital.nl/webshops</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://apdigital.nl/website-redesign</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://apdigital.nl/onderhoud-en-hosting</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://apdigital.nl/app-laten-maken-arnhem</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-
-  <!-- Case studies -->
-  <url><loc>https://apdigital.nl/case-marketing-fit</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://apdigital.nl/case-casa5</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-
-  <!-- Local landings (24) -->
-  <url><loc>https://apdigital.nl/websites-laten-maken-arnhem</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://apdigital.nl/websites-laten-maken-amsterdam</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://apdigital.nl/websites-laten-maken-breda</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://apdigital.nl/websites-laten-maken-alkmaar</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://apdigital.nl/websites-laten-maken-eindhoven</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://apdigital.nl/websites-laten-maken-den-haag</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://apdigital.nl/websites-laten-maken-groningen</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://apdigital.nl/websites-laten-maken-nijmegen</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://apdigital.nl/websites-laten-maken-ede</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://apdigital.nl/websites-laten-maken-wageningen</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://apdigital.nl/websites-laten-maken-apeldoorn</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://apdigital.nl/websites-laten-maken-tiel</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://apdigital.nl/websites-laten-maken-zaltbommel</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://apdigital.nl/websites-laten-maken-doetinchem</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://apdigital.nl/websites-laten-maken-veenendaal</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://apdigital.nl/websites-laten-maken-utrecht</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://apdigital.nl/websites-laten-maken-amersfoort</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://apdigital.nl/websites-laten-maken-oss</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://apdigital.nl/websites-laten-maken-zwolle</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://apdigital.nl/websites-laten-maken-den-bosch</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://apdigital.nl/websites-laten-maken-amstelveen</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://apdigital.nl/websites-laten-maken-hilversum</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://apdigital.nl/websites-laten-maken-leiden</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://apdigital.nl/websites-laten-maken-almere</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-
-  <!-- Blog -->
-  <url><loc>https://apdigital.nl/blog</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://apdigital.nl/blog-website-laten-maken-arnhem</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://apdigital.nl/blog-waarom-lokale-bedrijven-slechte-websites-hebben</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://apdigital.nl/blog-restaurant-website-voorbeelden</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://apdigital.nl/blog-moderne-website-vs-oude-website</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://apdigital.nl/blog-waarom-snelheid-belangrijk-is</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://apdigital.nl/blog-wat-kost-een-website-laten-maken</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://apdigital.nl/blog-website-laten-maken-of-zelf-bouwen</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://apdigital.nl/blog-waarom-snelle-websites-meer-aanvragen-opleveren</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://apdigital.nl/blog-casa5-in-5-dagen-live</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://apdigital.nl/</loc><lastmod>2026-11-05</lastmod><priority>1.0</priority></url>
+  <url><loc>https://apdigital.nl/apps-laten-maken</loc><lastmod>2026-11-05</lastmod><priority>0.9</priority></url>
+  <url><loc>https://apdigital.nl/processen-automatiseren</loc><lastmod>2026-11-05</lastmod><priority>0.9</priority></url>
+  <url><loc>https://apdigital.nl/websites-laten-maken</loc><lastmod>2026-11-05</lastmod><priority>0.9</priority></url>
+  <url><loc>https://apdigital.nl/contact</loc><lastmod>2026-11-05</lastmod><priority>0.8</priority></url>
+  <url><loc>https://apdigital.nl/diensten</loc><lastmod>2026-11-05</lastmod><priority>0.8</priority></url>
+  <url><loc>https://apdigital.nl/gratis-concept</loc><lastmod>2026-11-05</lastmod><priority>0.8</priority></url>
+  <url><loc>https://apdigital.nl/over</loc><lastmod>2026-11-05</lastmod><priority>0.8</priority></url>
+  <url><loc>https://apdigital.nl/pakketten</loc><lastmod>2026-11-05</lastmod><priority>0.8</priority></url>
+  <url><loc>https://apdigital.nl/portfolio</loc><lastmod>2026-11-05</lastmod><priority>0.8</priority></url>
+  <url><loc>https://apdigital.nl/app-laten-maken-arnhem</loc><lastmod>2026-11-05</lastmod><priority>0.6</priority></url>
+  <url><loc>https://apdigital.nl/bb-websites</loc><lastmod>2026-11-05</lastmod><priority>0.6</priority></url>
+  <url><loc>https://apdigital.nl/case-casa5</loc><lastmod>2026-11-05</lastmod><priority>0.6</priority></url>
+  <url><loc>https://apdigital.nl/case-marketing-fit</loc><lastmod>2026-11-05</lastmod><priority>0.6</priority></url>
+  <url><loc>https://apdigital.nl/onderhoud-en-hosting</loc><lastmod>2026-11-05</lastmod><priority>0.6</priority></url>
+  <url><loc>https://apdigital.nl/privacy</loc><lastmod>2026-11-05</lastmod><priority>0.6</priority></url>
+  <url><loc>https://apdigital.nl/restaurant-websites</loc><lastmod>2026-11-05</lastmod><priority>0.6</priority></url>
+  <url><loc>https://apdigital.nl/voorwaarden</loc><lastmod>2026-11-05</lastmod><priority>0.6</priority></url>
+  <url><loc>https://apdigital.nl/website-redesign</loc><lastmod>2026-11-05</lastmod><priority>0.6</priority></url>
+  <url><loc>https://apdigital.nl/websites-laten-maken-alkmaar</loc><lastmod>2026-11-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://apdigital.nl/websites-laten-maken-almere</loc><lastmod>2026-11-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://apdigital.nl/websites-laten-maken-amersfoort</loc><lastmod>2026-11-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://apdigital.nl/websites-laten-maken-amstelveen</loc><lastmod>2026-11-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://apdigital.nl/websites-laten-maken-amsterdam</loc><lastmod>2026-11-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://apdigital.nl/websites-laten-maken-apeldoorn</loc><lastmod>2026-11-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://apdigital.nl/websites-laten-maken-arnhem</loc><lastmod>2026-11-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://apdigital.nl/websites-laten-maken-breda</loc><lastmod>2026-11-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://apdigital.nl/websites-laten-maken-den-bosch</loc><lastmod>2026-11-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://apdigital.nl/websites-laten-maken-den-haag</loc><lastmod>2026-11-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://apdigital.nl/websites-laten-maken-doetinchem</loc><lastmod>2026-11-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://apdigital.nl/websites-laten-maken-ede</loc><lastmod>2026-11-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://apdigital.nl/websites-laten-maken-eindhoven</loc><lastmod>2026-11-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://apdigital.nl/websites-laten-maken-groningen</loc><lastmod>2026-11-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://apdigital.nl/websites-laten-maken-hilversum</loc><lastmod>2026-11-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://apdigital.nl/websites-laten-maken-leiden</loc><lastmod>2026-11-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://apdigital.nl/websites-laten-maken-nijmegen</loc><lastmod>2026-11-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://apdigital.nl/websites-laten-maken-oss</loc><lastmod>2026-11-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://apdigital.nl/websites-laten-maken-tiel</loc><lastmod>2026-11-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://apdigital.nl/websites-laten-maken-utrecht</loc><lastmod>2026-11-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://apdigital.nl/websites-laten-maken-veenendaal</loc><lastmod>2026-11-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://apdigital.nl/websites-laten-maken-wageningen</loc><lastmod>2026-11-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://apdigital.nl/websites-laten-maken-zaltbommel</loc><lastmod>2026-11-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://apdigital.nl/websites-laten-maken-zwolle</loc><lastmod>2026-11-05</lastmod><priority>0.7</priority></url>
+  <url><loc>https://apdigital.nl/blog</loc><lastmod>2026-11-05</lastmod><priority>0.6</priority></url>
+  <url><loc>https://apdigital.nl/blog-casa5-in-5-dagen-live</loc><lastmod>2026-11-05</lastmod><priority>0.6</priority></url>
+  <url><loc>https://apdigital.nl/blog-moderne-website-vs-oude-website</loc><lastmod>2026-11-05</lastmod><priority>0.6</priority></url>
+  <url><loc>https://apdigital.nl/blog-restaurant-website-voorbeelden</loc><lastmod>2026-11-05</lastmod><priority>0.6</priority></url>
+  <url><loc>https://apdigital.nl/blog-waarom-lokale-bedrijven-slechte-websites-hebben</loc><lastmod>2026-11-05</lastmod><priority>0.6</priority></url>
+  <url><loc>https://apdigital.nl/blog-waarom-snelheid-belangrijk-is</loc><lastmod>2026-11-05</lastmod><priority>0.6</priority></url>
+  <url><loc>https://apdigital.nl/blog-waarom-snelle-websites-meer-aanvragen-opleveren</loc><lastmod>2026-11-05</lastmod><priority>0.6</priority></url>
+  <url><loc>https://apdigital.nl/blog-wat-kost-een-website-laten-maken</loc><lastmod>2026-11-05</lastmod><priority>0.6</priority></url>
+  <url><loc>https://apdigital.nl/blog-website-laten-maken-arnhem</loc><lastmod>2026-11-05</lastmod><priority>0.6</priority></url>
+  <url><loc>https://apdigital.nl/blog-website-laten-maken-of-zelf-bouwen</loc><lastmod>2026-11-05</lastmod><priority>0.6</priority></url>
 </urlset>
