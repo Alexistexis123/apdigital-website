@@ -17,12 +17,17 @@ export const pijlers = [
       ['Vindbaar in Google', 'Goede basis voor zoekmachines: titels, snelheid, pagina\'s per dienst of plaats waar dat zin heeft.'],
     ],
     prijs: 'Vanaf €299, live in 7 dagen',
-    aanbod: [['Instap', 'Voor wie snel een nette, duidelijke site nodig heeft.', 'vanaf €299', 'live in 7 dagen'], ['Groei', 'Meer pagina\'s, formulieren en lokale vindbaarheid.', 'vaste prijs vooraf', 'na een gratis gesprek'], ['Onderhoud', 'Hosting, kleine aanpassingen en updates.', 'vaste prijs per maand', 'na een gratis gesprek']],
-    aanbodGrens: 'Wat valt onder de instapsite en wat kost extra: nog vastleggen (aantal pagina\'s, teksten, foto\'s, feedbackrondes).',
+    aanbod: [['Instap', 'Voor wie snel een nette, duidelijke site nodig heeft.', 'vanaf €299', 'live in 7 dagen'], ['Groei', 'Meer pagina\'s, formulieren en lokale vindbaarheid.', 'vanaf €499', 'vaste prijs na een gratis gesprek'], ['Onderhoud', 'Hosting, kleine aanpassingen en updates.', 'vaste prijs per maand', 'na een gratis gesprek']],
+    // Besluit Alex 05-11: instapsite = het bestaande Starter-pakket uit pakketten.html, 1-op-1. Alles daarboven = Groei, vanaf 499.
+    aanbodGrens: {
+      kop: 'Dit zit in de instapsite van €299',
+      punten: ['1 tot 3 pagina\'s', 'Template met je huisstijl', 'Mobiel geoptimaliseerd', 'Basis-SEO: titels, meta en sitemap', 'Contactformulier met spamfilter', 'Snelle laadtijd, 90+ op mobiel', 'Live binnen 7 dagen', '30 dagen bugfix-support'],
+      meer: 'Meer nodig? Alles daarboven valt onder Groei, vanaf €499.',
+    },
     faq: [
       ['Kan ik daarna zelf teksten aanpassen?', 'Dat hangt af van hoe we de site bouwen. We bespreken vooraf wat je zelf wilt kunnen en kiezen de bouw daarop.'],
       ['Houd ik mijn plek in Google?', 'Pagina\'s die nu al gevonden worden houden we, of we sturen ze netjes door naar de nieuwe pagina. Zo raak je geen bezoekers kwijt.'],
-      ['Hoe lang duurt het?', 'Een instapsite staat binnen 7 dagen live, zodra we je teksten en foto\'s hebben. Grotere sites plannen we samen in. <span class="ph">Grens instapsite nog vastleggen</span>'],
+      ['Hoe lang duurt het?', 'Een instapsite staat binnen 7 dagen live, zodra we je teksten en foto\'s hebben. Grotere sites plannen we samen in.'],
     ],
     cta: 'Benieuwd wat een nieuwe site <span class="serif">jou oplevert?</span>',
   },

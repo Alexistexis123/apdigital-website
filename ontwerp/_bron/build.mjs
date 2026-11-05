@@ -67,7 +67,7 @@ function pagina({ titel, beschrijving, actief, body }) {
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="${B}/ontwerp.css?v=5" />
+<link rel="stylesheet" href="${B}/ontwerp.css?v=6" />
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body class="notes-uit">
@@ -345,8 +345,8 @@ function pijlerPagina(p) {
 <section class="sectie smal"><div class="wrap">
   <div class="sectie-kop"><div><div class="label">Aanbod</div><h2 style="margin-top:12px">Wat het kost</h2><p class="lead">${p.key === 'websites' ? 'Een instapsite kost vanaf €299 en staat binnen 7 dagen live. Wil je meer, dan krijg je na een gratis gesprek een vaste prijs, vóór we beginnen.' : 'Geen uurtje-factuurtje en geen open eind. Na een gratis gesprek krijg je een vaste prijs op papier, vóór we beginnen.'}</p></div></div>
   <div class="aanbod">${p.aanbod.map(a => `<div><h3>${a[0]}</h3><p>${a[1]}</p><div class="aanbod-prijs"><strong>${a[2] || 'Vaste prijs'}</strong><span>${a[3] || 'na een gratis gesprek'}</span></div></div>`).join('')}</div>
-  ${p.aanbodGrens ? `<p style="margin-top:16px">${ph(p.aanbodGrens)}</p>` : ''}
-  <span class="note">Besluit Alex 05-11: alleen websites krijgen een vanaf-prijs (vanaf €299, 7 dagen, de 53 titels blijven gelijk). Apps en automatisering: vaste prijs na een gratis gesprek, geen bedrag. Elke belofte krijgt nog een grens: wat valt eronder, wat kost extra.</span>
+  ${p.aanbodGrens ? `<div class="aanbod-grens"><h3>${p.aanbodGrens.kop}</h3><ul class="vinklijst">${p.aanbodGrens.punten.map(x => `<li>${x}</li>`).join('')}</ul><p>${p.aanbodGrens.meer}</p></div>` : ''}
+  <span class="note">Besluit Alex 05-11: alleen websites krijgen een vanaf-prijs (vanaf €299, 7 dagen, de 53 titels blijven gelijk). Apps en automatisering: vaste prijs na een gratis gesprek, geen bedrag. Instapsite = Starter-pakket uit /pakketten 1-op-1, Groei vanaf €499 (staat al publiek).</span>
 </div></section>
 
 ${p.key === 'websites' ? conceptBlok : ''}

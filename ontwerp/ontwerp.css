@@ -568,3 +568,9 @@ body.notes-uit .beeld .stempel-volgt { display: none; }
 @media (prefers-reduced-motion: reduce) { .case .beeld.galerij .g-beeld { transition: none; } }
 /* Desktop: bij hover ligt het verhaal over het beeld, dus de knoppen zijn daar alleen een wijzer; tikken werkt op touch */
 @media (hover: hover) { .g-knoppen button { pointer-events: none; cursor: default; } }
+/* Grens instapsite (Starter-pakket) onder het aanbod */
+.aanbod-grens { margin-top: 18px; border: 1px solid var(--lijn); border-radius: var(--r); padding: 26px 30px; background: var(--paneel); }
+.aanbod-grens h3 { font-size: 19px; margin: 0 0 16px; }
+.aanbod-grens .vinklijst { grid-template-columns: repeat(2, 1fr); font-size: 15px; }
+.aanbod-grens > p { margin: 18px 0 0; color: var(--geel); font-weight: 500; font-size: 15px; }
+@media (max-width: 600px) { .aanbod-grens { padding: 20px 18px; } .aanbod-grens .vinklijst { grid-template-columns: 1fr; } }
