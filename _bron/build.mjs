@@ -14,7 +14,7 @@ const ROOT = join(D, '..')
 const OUD = join(D, 'oud')
 const SITE = 'https://apdigital.nl'
 const VANDAAG = process.env.BOUWDATUM || new Date().toISOString().slice(0, 10)
-const V = '2' // cache-buster site.css / site.js
+const V = '3' // cache-buster site.css / site.js
 const steden = JSON.parse(readFileSync(join(D, 'steden.json'), 'utf8'))
 const oud = f => readFileSync(join(OUD, f), 'utf8')
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;')
@@ -59,7 +59,7 @@ function kop(actief) {
   const l = (href, t, k) => `<a href="${href}"${actief === k ? ' class="actief" aria-current="page"' : ''}>${t}</a>`
   return `<a class="skip-link" href="#main">Naar de inhoud</a>
 <header class="kop"><div class="wrap">
-  <a class="logo" href="/" aria-label="AP Digital, naar de homepage"><span class="blok">AP</span><span class="woord">AP Digital</span></a>
+  <a class="logo" href="/"><span class="blok">AP</span><span class="woord">AP Digital</span></a>
   <nav class="nav" id="nav" aria-label="Hoofdmenu">
     ${l(P.websites, 'Websites', 'websites')}
     ${l(P.apps, 'Apps', 'apps')}
@@ -80,11 +80,11 @@ function voet() {
       <div class="tagline"><span class="wit">Digitaal werk</span> dat gewoon werkt.</div>
       <p style="font-size:15px">Websites, apps en automatisering voor ondernemers. Gebouwd in Arnhem.</p>
     </div>
-    <div><h4>Wat we bouwen</h4><a href="${P.websites}">Websites</a><a href="${P.apps}">Apps op maat</a><a href="${P.automatisering}">Processen en automatisering</a><a href="/website-redesign">Website vernieuwen</a><a href="/onderhoud-en-hosting">Onderhoud en hosting</a><a href="/pakketten">Pakketten en prijzen</a></div>
-    <div><h4>AP Digital</h4><a href="/portfolio">Portfolio</a><a href="/over">Over ons</a><a href="/diensten">Diensten</a><a href="/gratis-concept">Je gratis concept</a><a href="/blog">Blog</a></div>
-    <div><h4>Contact</h4><a href="/contact">Gratis kennismaking</a><a href="mailto:${MAIL}">${MAIL}</a><a href="${TEL_HREF}">${TEL}</a><a href="${WA()}" target="_blank" rel="noopener">WhatsApp</a></div>
+    <div><p class="kop4">Wat we bouwen</p><a href="${P.websites}">Websites</a><a href="${P.apps}">Apps op maat</a><a href="${P.automatisering}">Processen en automatisering</a><a href="/website-redesign">Website vernieuwen</a><a href="/onderhoud-en-hosting">Onderhoud en hosting</a><a href="/pakketten">Pakketten en prijzen</a></div>
+    <div><p class="kop4">AP Digital</p><a href="/portfolio">Portfolio</a><a href="/over">Over ons</a><a href="/diensten">Diensten</a><a href="/gratis-concept">Je gratis concept</a><a href="/blog">Blog</a></div>
+    <div><p class="kop4">Contact</p><a href="/contact">Gratis kennismaking</a><a href="mailto:${MAIL}">${MAIL}</a><a href="${TEL_HREF}">${TEL}</a><a href="${WA()}" target="_blank" rel="noopener">WhatsApp</a></div>
   </div>
-  <div class="voet-steden"><h4>Website laten maken in</h4><ul class="stad-lijst">${[...steden].sort((a, b) => a.naam.localeCompare(b.naam)).map(s => `<li><a href="/${s.slug}">${s.naam}</a></li>`).join('')}</ul></div>
+  <div class="voet-steden"><p class="kop4">Website laten maken in</p><ul class="stad-lijst">${[...steden].sort((a, b) => a.naam.localeCompare(b.naam)).map(s => `<li><a href="/${s.slug}">${s.naam}</a></li>`).join('')}</ul></div>
   <div class="klein-tekst"><span>© 2026 AP Digital · KVK 42080619 · Arnhem</span><span><a href="/privacy" style="display:inline">Privacy</a> · <a href="/voorwaarden" style="display:inline">Voorwaarden</a></span></div>
 </div></footer>
 <div class="vast-cta"><a class="knop" href="/contact">Gratis kennismaking</a><a class="knop-2" href="${TEL_HREF}" aria-label="Bel AP Digital">Bel</a></div>`
@@ -829,6 +829,8 @@ const FIXES = [
   [/href="(https:\/\/apdigital\.nl)?\/marketing-fit"([^>]*)>apdigital\.nl\/marketing-fit</g, 'href="https://marketing-fit.nl/"$2>marketing-fit.nl<', 'Marketing Fit staat live op eigen domein'],
   [/href="(https:\/\/apdigital\.nl)?\/marketing-fit"/g, 'href="https://marketing-fit.nl/"', 'Marketing Fit staat live op eigen domein'],
   [/Een web-app of klantportaal start vanaf 2\.500 euro\./g, 'Voor een web-app of klantportaal krijg je na een gratis gesprek een vaste prijs.', 'besluit Alex 05-11: apps zonder bedrag'],
+  [/Webshops en maatwerk op offerte, web-apps vanaf 2\.500 euro/g, 'Webshops en maatwerk op offerte, web-apps een vaste prijs na een gratis gesprek', 'besluit Alex 05-11: apps zonder bedrag'],
+  [/web-apps starten vanaf 2\.500 euro/g, 'voor web-apps krijg je na een gratis gesprek een vaste prijs', 'besluit Alex 05-11: apps zonder bedrag'],
   [/\s*[—–]\s*/g, ', ', 'geen em-dashes'],
 ]
 const FIX_LOG = {}
