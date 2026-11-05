@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/ontwerp/ontwerp.css?v=3" />
+<link rel="stylesheet" href="/ontwerp/ontwerp.css?v=4" />
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body class="notes-uit">
@@ -125,49 +125,55 @@
 </article><article class="case" data-pijler="websites" data-reveal>
   <div class="beeld"><img src="/ontwerp/img/jmc-d.webp" alt="Ontwerp website Jacobs Motor Company" decoding="async" loading="lazy" /></div>
   <div class="tekst">
-    <div class="meta"><span class="pil">Website</span><span class="pil geel">Ontwerp</span></div>
+    <div class="meta"><span class="pil">Website</span><span class="pil geel">Binnenkort live</span></div>
     <h3>Jacobs Motor Company</h3>
-    <p>Handel in gebruikte bedrijfswagens en export. Site met voorraad en aanvraag, nu nog in ontwerp.</p>
+    <p>Handel in gebruikte bedrijfswagens en export. Site met voorraad en een aanvraag voor export, nu in de laatste ontwerpronde.</p>
     
     <div class="gebouwd"><span>Voorraad</span><span>Export-aanvraag</span></div>
-    <span class="note">Staat nog niet live (alleen op vercel.app, de site toont zelf "Ontwerp, nog niet live"). Tonen als ontwerp of pas na livegang: Alex.</span>
-    <a class="link" href="https://jacobs-motor-company-site.vercel.app/" target="_blank" rel="noopener">Bekijk het ontwerp ↗</a>
+    <span class="note">Besluit Alex 05-11: nu al tonen als ontwerp met label "binnenkort live", zonder link. Link erbij zodra de site live staat.</span>
+    <span class="link stil">Ontwerp, link volgt bij livegang</span>
   </div>
 </article></div>
   </section>
   <section class="pijlerblok" id="apps" data-blok="apps">
     <div class="sectie-kop" style="margin-bottom:24px"><div><div class="label">Pijler 2 · Apps op maat</div><h2 style="margin-top:10px">Apps</h2></div><a class="knop-2" href="/ontwerp/apps">Over apps →</a></div>
-    <div class="cases"><article class="case" data-pijler="apps" data-reveal>
-  <div class="beeld"><div class="tekstpaneel"><div class="rij"><b>1</b><span>Offertes met rekenmotor<small>Prijs berekend, netjes de deur uit.</small></span></div><div class="rij"><b>2</b><span>Planning en werkbonnen<small>Van agenda naar de bon voor de ploeg.</small></span></div><div class="rij"><b>3</b><span>Klant- en dossierbeheer<small>Elke verhuizing op een plek.</small></span></div><div class="rij"><b>4</b><span>Alles in een dashboard<small>Overzicht en cijfers.</small></span></div></div></div>
+    <div class="cases"><article class="case verhaal-case" data-pijler="apps" data-reveal>
+  <div class="beeld"><img src="/ontwerp/img/moveflow-d.webp" alt="MoveFlow met nepdata: een verhuisdossier met de stappen van aanvraag tot afgerond" decoding="async" loading="lazy" /><div class="mini"><img src="/ontwerp/img/moveflow-m.webp" alt="" decoding="async" loading="lazy" /></div></div>
+  <div class="verhaal" id="v-moveflow-7">
+    <div><small>01 · Het probleem</small><p>Bij een verhuisbedrijf hangt alles aan elkaar: de aanvraag, de offerte, de planning en de bon voor de ploeg. Staat dat in losse lijsten, dan typ je alles drie keer over.</p></div>
+    <div><small>02 · Wat we bouwden</small><p>MoveFlow, gebouwd voor Jacobs Heteren: offertes met een rekenmotor, planning en werkbonnen, en per verhuizing één dossier met alles erin.</p></div>
+    <div><small>03 · Wat het opleverde</small><p>Elk dossier loopt langs vaste stappen, en de status volgt vanzelf uit offerte, planning en factuur. Een getekende offerte blijft precies zoals de klant hem tekende. Het draait er elke dag.</p></div>
+  </div>
   <div class="tekst">
     <div class="meta"><span class="pil">App op maat</span></div>
     <h3>MoveFlow</h3>
-    <p>Het systeem waar een verhuisbedrijf op draait: van aanvraag en offerte tot planning en werkbon voor de ploeg.</p>
-    
-    <div class="gebouwd"><span>Offertes</span><span>Planning</span><span>Dossiers</span><span>Dashboard</span></div>
-    <span class="note">BESLISPUNT: MoveFlow valt onder de Bas-licentie (IP en geheimhouding tot minimaal 2031). Daarom bewust geen schermen, alleen deze vier punten in onze eigen huisstijl (zelfde tekst als de social-post van juli). Mag MoveFlow met naam erin, zonder naam ("planningssysteem voor een verhuisbedrijf"), of helemaal niet?</span>
-    <span class="link stil">Bedrijfssoftware, geen publieke demo</span>
+    <p>Het systeem waar Jacobs Heteren op draait: van aanvraag en offerte tot planning en werkbon voor de ploeg, in één dossier per verhuizing.</p>
+    <div class="bewijs"><strong data-tel="9">9</strong><span>vaste stappen, van aanvraag tot afgerond</span></div>
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-moveflow-7"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <span class="note">Bron: 9 stappen, status volgt vanzelf, getekende offerte vast: LEESMIJ.md bij de schermen, aangeleverd door Jacob uit de MoveFlow-code (stappenbalk, migraties 0168 en 0189), niet zelf ingezien (gegevensscheiding). Onderdelen ook in social-post 07-moveflow. "Draait er elke dag": kernzin Alex 05-11. Probleemzin is een concept, laten checken door Alex.</span>
+    <span class="note">Besluit Alex 05-11: MoveFlow volledig tonen, met naam. Schermen van Jacob op staging met nepdata ("Voorbeeld Verhuizingen", nepnamen, verzonnen bedragen), geen Jacobs-logo en geen echte klanten.</span>
+    <span class="link stil">Bedrijfssoftware, demo op aanvraag</span>
   </div>
 </article><article class="case verhaal-case" data-pijler="apps" data-reveal>
-  <div class="beeld" style="display:grid;place-items:center;background:radial-gradient(closest-side,rgba(255,214,10,.12),#141414)"><div class="telefoon" style="width:44%;margin-top:26px;box-shadow:none"><img src="/ontwerp/img/urenapp-registreren.webp" alt="Uren-app: uren registreren" decoding="async" style="aspect-ratio:534/520" /></div></div>
-  <div class="verhaal" id="v-urenapp-7">
+  <div class="beeld" style="display:grid;place-items:center;background:radial-gradient(closest-side,rgba(255,214,10,.12),#141414)"><div class="telefoon" style="width:44%;margin-top:26px;box-shadow:none"><img src="/ontwerp/img/urenapp-registreren.webp" alt="Uren-app van Jacobs Heteren: uren registreren" decoding="async" style="aspect-ratio:534/520" /></div></div>
+  <div class="verhaal" id="v-urenapp-8">
     <div><small>01 · Het probleem</small><p>Uren op briefjes, verlof via de telefoon en kantoor dat alles overtikt voor de loonadministratie.</p></div>
-    <div><small>02 · Wat we bouwden</small><p>Een app waarin medewerkers uren, verlof en declaraties op hun telefoon invullen. Kantoor keurt goed in één overzicht.</p></div>
+    <div><small>02 · Wat we bouwden</small><p>Een app waarin de medewerkers van Jacobs Heteren uren, verlof en declaraties op hun telefoon invullen. Kantoor keurt goed in één overzicht.</p></div>
     <div><small>03 · Wat het opleverde</small><p>De export voor de loonadministratie rolt eruit, zonder overtypen. Inmiddels ook als witte versie voor andere bedrijven.</p></div>
   </div>
   <div class="tekst">
     <div class="meta"><span class="pil">App op maat</span></div>
     <h3>Uren-app</h3>
-    <p>Urenregistratie voor een verhuisbedrijf. Medewerkers schrijven uren op hun telefoon, kantoor keurt goed en ziet verlof, declaraties en voertuigen. Ook als witte versie voor andere bedrijven.</p>
+    <p>Urenregistratie voor Jacobs Heteren. Medewerkers schrijven uren op hun telefoon, kantoor keurt goed en ziet verlof, declaraties en voertuigen. Ook als witte versie voor andere bedrijven.</p>
     
-    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-urenapp-7"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-urenapp-8"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
     <span class="note">Bron: Verhaal uit de goedgekeurde social-post 08-urenapp (caption.md). Geen cijfer: geen bron binnen de AP Digital-tak. Aantal gebruikers of geregistreerde uren via Jacob opvragen als we hier een cijfer willen.</span>
-    <span class="note">Screenshot is de afgeschermde versie uit de social-post (naam weggepoetst). Logo van Jacobs is klein zichtbaar: akkoord Jacobs nodig, of een whitelabel-screenshot met nepdata.</span>
+    <span class="note">Screenshot is de afgeschermde versie uit de social-post (naam weggepoetst). Het Jacobs-logo blijft staan (besluit Alex 05-11).</span>
     <span class="link stil">Werkt achter inlog, demo op aanvraag</span>
   </div>
 </article><article class="case verhaal-case" data-pijler="apps" data-reveal>
   <div class="beeld"><img src="/ontwerp/img/postleads-dashboard.webp" alt="PostLeads klantportaal met demobedrijf" decoding="async" loading="lazy" /></div>
-  <div class="verhaal" id="v-postleads-dashboard-8">
+  <div class="verhaal" id="v-postleads-dashboard-9">
     <div><small>01 · Het probleem</small><p>Klanten van een postkaartenservice willen zien wat er in hun gebied gebeurt, zonder dat ze daarvoor moeten mailen of bellen.</p></div>
     <div><small>02 · Wat we bouwden</small><p>Een klantportaal met een kaart van het eigen gebied, de verstuurde kaarten en de aanvragen die binnenkwamen.</p></div>
     <div><small>03 · Wat het opleverde</small><p>Elke klant heeft één inlog en ziet zelf wat zijn kaarten opleveren.</p></div>
@@ -177,14 +183,14 @@
     <h3>PostLeads dashboard en CRM</h3>
     <p>Klantportaal voor een leadservice met postkaarten. Elke klant ziet zijn gebied, verstuurde kaarten, aanvragen en wat het opleverde.</p>
     
-    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-postleads-dashboard-8"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-postleads-dashboard-9"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
     <span class="note">Bron: Geen cijfer: PostLeads-data valt buiten de AP Digital-tak. Aantal klanten of kaarten via Pim opvragen als we hier een cijfer willen.</span>
     <span class="note">Screenshot toont "Demo bedrijf" met nepcijfers en staat nu al op de live site.</span>
     <span class="link stil">Klantportaal, demo op aanvraag</span>
   </div>
 </article><article class="case verhaal-case" data-pijler="apps" data-reveal>
   <div class="beeld"><img src="/ontwerp/img/kassa-d.webp" alt="Kassa-app met nepdata: producten afrekenen" decoding="async" loading="lazy" /><div class="mini"><img src="/ontwerp/img/kassa-m.webp" alt="" decoding="async" loading="lazy" /></div></div>
-  <div class="verhaal" id="v-kassa-9">
+  <div class="verhaal" id="v-kassa-10">
     <div><small>01 · Het probleem</small><p>Een winkel die ook online verkoopt, met meerdere verkopers. Afrekenen, voorraad en kortingen moesten op één plek, ook op de telefoon.</p></div>
     <div><small>02 · Wat we bouwden</small><p>Een kassa-app voor telefoon en computer: afrekenen, voorraad tellen, inkoop binnenmelden en een bestel-advies voor wat er bij moet.</p></div>
     <div><small>03 · Wat het opleverde</small><p>De voorraad loopt elke 10 minuten gelijk met de webshop. En een verkoper kan nooit onder de groothandelsprijs korten.</p></div>
@@ -194,7 +200,7 @@
     <h3>Kassa</h3>
     <p>Kassa- en voorraadapp voor een winkel die ook online verkoopt: afrekenen, voorraad tellen, inkoop binnenmelden en een bestel-advies voor wat er bij moet.</p>
     <div class="bewijs"><strong>10 min</strong><span>en winkel en webshop hebben dezelfde voorraad</span></div>
-    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-kassa-9"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-kassa-10"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
     <span class="note">Bron: Sync elke 10 min en korten nooit onder groothandelsprijs: vault memory/project_snoep_app.md, aangeleverd door Walter (niet zelf ingezien, valt onder Walter).</span>
     <span class="note">Bewust zonder naam of merk van de winkel (besluit Alex). Schermen met nepdata van Walter (namen Sanne, Milan, Noor zijn verzonnen).</span>
     <span class="link stil">Bedrijfssoftware, geen publieke demo</span>
@@ -202,14 +208,14 @@
 </article></div>
     <div class="label sub">Meer apps</div>
     <div class="klein"><article class="case" data-pijler="apps" data-reveal>
-  <div class="beeld"><img src="/ontwerp/img/occasioniq-d.webp" alt="OccasionIQ met nepdata: advies per veilingauto" decoding="async" loading="lazy" /><div class="mini"><img src="/ontwerp/img/occasioniq-m.webp" alt="" decoding="async" loading="lazy" /></div></div>
+  <div class="beeld"><img src="/ontwerp/img/occasioniq-d.webp" alt="OccasionIQ met een verzonnen voorbeeldauto: advies per veilingauto" decoding="async" loading="lazy" /><div class="mini"><img src="/ontwerp/img/occasioniq-m.webp" alt="" decoding="async" loading="lazy" /></div></div>
   <div class="tekst">
     <div class="meta"><span class="pil">App op maat</span></div>
     <h3>OccasionIQ</h3>
     <p>Inkooptool voor autohandelaren. Per veilingauto een advies: hoeveel je maximaal biedt, wat je eraan overhoudt en hoe snel hij verkoopt.</p>
-    <div class="bewijs klein-bewijs"><strong>€0,44</strong><span>kost een analyse per auto</span></div><span class="note">Bron: Circa 0,44 per analyse: apps/occasion-inkoop/CLAUDE.md, aangeleverd door Walter (niet zelf ingezien, gegevensscheiding). Het 11,4%/15,1%-cijfer bewust NIET gebruikt: BCA-datalicentie open, beslispunt Alex.</span>
-    <div class="gebouwd"><span>Veilingadvies</span><span>Marktvergelijking</span><span>Risico's per auto</span></div>
     
+    <div class="gebouwd"><span>Veilingadvies</span><span>Marktvergelijking</span><span>Risico's per auto</span></div>
+    <span class="note">Besluit Alex 05-11: alleen de tool en uitleg, geen cijfers of data. Het scherm toont een verzonnen voorbeeldauto.</span>
     <span class="link stil">Achter inlog, demo op aanvraag</span>
   </div>
 </article><article class="case" data-pijler="apps" data-reveal>
@@ -239,25 +245,25 @@
   <section class="pijlerblok" id="automatisering" data-blok="automatisering">
     <div class="sectie-kop" style="margin-bottom:24px"><div><div class="label">Pijler 3 · Processen en automatisering</div><h2 style="margin-top:10px">Automatisering</h2></div><a class="knop-2" href="/ontwerp/automatisering">Over automatisering →</a></div>
     <div class="cases"><article class="case verhaal-case" data-pijler="automatisering" data-reveal>
-  <div class="beeld"><img src="/ontwerp/img/cockpit-d.webp" alt="Bedrijfscockpit met nepdata: de dagstart" decoding="async" loading="lazy" /><div class="mini"><img src="/ontwerp/img/cockpit-m.webp" alt="" decoding="async" loading="lazy" /></div></div>
-  <div class="verhaal" id="v-cockpit-10">
+  <div class="beeld"><img src="/ontwerp/img/cockpit-d.webp" alt="AI-cockpit met nepdata: de dagstart" decoding="async" loading="lazy" /><div class="mini"><img src="/ontwerp/img/cockpit-m.webp" alt="" decoding="async" loading="lazy" /></div></div>
+  <div class="verhaal" id="v-cockpit-11">
     <div><small>01 · Het probleem</small><p>Meerdere bedrijven tegelijk runnen, met mail, taken, agenda en cijfers verspreid over tien tabbladen.</p></div>
     <div><small>02 · Wat we bouwden</small><p>Eén scherm voor alles, met een AI-assistent die meeleest en taken klaarzet. Beslissen blijft mensenwerk.</p></div>
     <div><small>03 · Wat het opleverde</small><p>Elke ochtend staat het dagoverzicht klaar: wat er speelt, wat vandaag moet en wat blijft liggen. De takenlijst ging van 198 open punten naar 46 echte acties.</p></div>
   </div>
   <div class="tekst">
     <div class="meta"><span class="pil">Automatisering</span></div>
-    <h3>Bedrijfscockpit</h3>
+    <h3>AI-cockpit</h3>
     <p>Eén scherm voor meerdere bedrijven: taken, mail, agenda, cijfers en een ochtendoverzicht dat elke dag om 07:00 klaarstaat.</p>
     <div class="bewijs"><strong>07:00</strong><span>dagoverzicht klaar, elke ochtend</span></div>
-    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-cockpit-10"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-cockpit-11"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
     <span class="note">Bron: 07:00 = vaste dagstart-run op de ProDesk (root-CLAUDE.md, sectie Triggers). 198 naar 46: opschoning 19-08-2026 (vault memory/feedback_taken_ssot_cockpit.md, zelf gelezen). Inhoud van de dagstart bewust niet ingezien.</span>
-    <span class="note">Schermen met nepdata van Jarvis. Er staat nog "Harvey" in beeld: naam tonen of neutraal "bedrijfscockpit", beslispunt Alex.</span>
+    <span class="note">Besluit Alex 05-11: heet overal "AI-cockpit". Schermen met nepdata van Jarvis; de naam in het logo, de zoekbalk en het profiel is in beeld vervangen door "AI-cockpit" (bron-PNG's ongemoeid).</span>
     <span class="link stil">Intern systeem</span>
   </div>
 </article><article class="case verhaal-case" data-pijler="automatisering" data-reveal>
   <div class="beeld"><img src="/ontwerp/img/postleads-stroom.webp" alt="Schema van de PostLeads-machine" decoding="async" loading="lazy" /></div>
-  <div class="verhaal" id="v-postleads-machine-11">
+  <div class="verhaal" id="v-postleads-machine-12">
     <div><small>01 · Het probleem</small><p>Elke week een nieuwe adressenlijst maken voor de drukker, per klant en per gebied, uit duizenden nieuwe woningen.</p></div>
     <div><small>02 · Wat we bouwden</small><p>Een machine die elke week 6.135 tot 7.240 nieuwe woningen scant, ze koppelt aan het gebied van elke klant, dubbele adressen eruit haalt en de lijsten plus mails klaarzet.</p></div>
     <div><small>03 · Wat het opleverde</small><p>Sinds week 27 gingen er 13.337 kaarten de deur uit, de laatste vier weken gemiddeld zo'n 700 per week. Een mens kijkt elke lijst na voor hij weggaat.</p></div>
@@ -267,14 +273,14 @@
     <h3>PostLeads-machine</h3>
     <p>Haalt elke week het nieuwe woningaanbod op, koppelt het aan het gebied van elke klant en maakt de lijst voor de drukker. Klant- en drukkersmails staan vanzelf klaar.</p>
     <div class="bewijs"><strong data-tel="13337">13.337</strong><span>kaarten de deur uit in 19 weken</span></div>
-    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-postleads-machine-11"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-postleads-machine-12"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
     <span class="note">Bron: 13.337 kaarten via bevestigde drukkersopdrachten, week 27 t/m 45 2026, laatste 4 weken gem. ~700/week: postleads data/weekcijfers.json. 6.135-7.240 nieuwe woningen per week: Woningmarkt monitor wk 38-40. Beide aangeleverd door Pim (niet zelf ingezien, gegevensscheiding). Geen urenbesparing geclaimd.</span>
     <span class="note">Beeld = het stroomschema van Pim. Het weekrun-scherm (02) bewust niet gebruikt: daar staan verzonnen cijfers in die als feit gelezen kunnen worden.</span>
     <span class="link stil">Intern systeem</span>
   </div>
 </article><article class="case verhaal-case" data-pijler="automatisering" data-reveal>
   <div class="beeld"><img src="/ontwerp/img/social-d.webp" alt="Social Manager met nepdata: wachtrij en cijfers" decoding="async" loading="lazy" /><div class="mini"><img src="/ontwerp/img/social-m.webp" alt="" decoding="async" loading="lazy" /></div></div>
-  <div class="verhaal" id="v-social-manager-12">
+  <div class="verhaal" id="v-social-manager-13">
     <div><small>01 · Het probleem</small><p>Elke week posts maken, inplannen en apart op Instagram en Facebook zetten. Dat schiet er als eerste bij in.</p></div>
     <div><small>02 · Wat we bouwden</small><p>Een wachtrij die posts op vaste momenten plaatst. Vooraf komt er een voorbeeld in Telegram: GO om te plaatsen, SKIP om tegen te houden.</p></div>
     <div><small>03 · Wat het opleverde</small><p>50 plaatsingen voor AP Digital, zonder handmatig plaatsen in de app van Instagram of Facebook.</p></div>
@@ -284,7 +290,7 @@
     <h3>Social Manager</h3>
     <p>Plant en plaatst posts op vaste momenten op Instagram en Facebook. Vooraf komt er een voorbeeld in Telegram, met een noodrem om een post tegen te houden.</p>
     <div class="bewijs"><strong data-tel="50">50</strong><span>plaatsingen voor AP Digital</span></div>
-    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-social-manager-12"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-social-manager-13"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
     <span class="note">Bron: 50 plaatsingen, IG en FB apart geteld, stand 04-11-2026: aangeleverd door Jarvis (niet zelf ingezien). Werkwijze zonder handwerk: vault memory/reference_social_publiceert_via_social_manager.md (zelf gelezen).</span>
     <span class="note">Schermen met nepdata (Studio Noord) van Jarvis; de Telegram-chat is nagebouwd. Let op: sinds september staat het Meta-account van AP Digital stil, dus "publiceert nu" niet claimen.</span>
     <span class="link stil">Intern systeem</span>
@@ -310,7 +316,7 @@
     <p>Search Console-cijfers worden dagelijks binnengehaald; per klant komt er een maandoverzicht in onze huisstijl: wat steeg, wat zakte en de drie acties voor volgende maand.</p>
     
     <div class="gebouwd"><span>Dagelijkse meting</span><span>Maandrapport</span><span>Acties per maand</span></div>
-    <span class="note">Beeld = pagina uit onze eigen rapportgenerator (seo-roadmap-template/generate_briefing.py), gevuld met verzonnen klant Studio Noord. Let op: het voorblad van die generator toont nog de oude tagline "Digital work, geen fluff".</span>
+    <span class="note">Beeld = voorblad en trendpagina uit onze rapportgenerator (seo-roadmap-template/generate_briefing.py), gevuld met verzonnen klant Studio Noord. Voorblad toont nu de brandbook-regel "Digitaal werk dat gewoon werkt" (generator gefixt 05-11).</span>
     <span class="link stil">Voorbeeldrapport op aanvraag</span>
   </div>
 </article></div>
@@ -329,15 +335,15 @@
   <div class="kolommen">
     <div>
       <a class="logo" href="/ontwerp/"><span class="blok">AP</span><span class="woord">AP Digital</span></a>
-      <div class="tagline">Eerst voor ons eigen werk. Nu voor het jouwe.</div>
+      <div class="tagline"><span class="wit">Digitaal werk</span> dat gewoon werkt.</div>
       <p style="font-size:15px">Websites, apps en automatisering voor ondernemers. Gebouwd in Arnhem.</p>
-      <span class="note">Footer-regel vervangt de brandbook-tagline "Digitaal werk dat gewoon werkt". Brandbook aanpassen of terugzetten: Alex.</span>
+      <span class="note">Brandbook-regel (besluit Alex 05-11).</span>
     </div>
     <div><h4>Wat we bouwen</h4><a href="/ontwerp/websites">Websites</a><a href="/ontwerp/apps">Apps op maat</a><a href="/ontwerp/automatisering">Processen en automatisering</a><a href="/ontwerp/portfolio">Portfolio</a></div>
-    <div><h4>AP Digital</h4><a href="/ontwerp/over">Over ons</a><a href="/ontwerp/kennismaking">Gratis kennismaking</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/voorwaarden">Voorwaarden</a></div>
+    <div><h4>AP Digital</h4><a href="/ontwerp/over">Over ons</a><a href="/ontwerp/kennismaking">Gratis kennismaking</a><a href="/ontwerp/gratis-concept">Je gratis concept</a><a href="/blog">Blog</a><a href="/privacy">Privacy</a><a href="/voorwaarden">Voorwaarden</a></div>
     <div><h4>Contact</h4><a href="mailto:info@apdigital.nl">info@apdigital.nl</a><a href="tel:+31614160265">06 1416 0265</a><a href="/ontwerp/kennismaking">Plan een kennismaking</a></div>
   </div>
-  <div class="klein-tekst"><span>AP Digital · KVK 42080619 · Arnhem</span><span>Ontwerp 2026-11-04</span></div>
+  <div class="klein-tekst"><span>AP Digital · KVK 42080619 · Arnhem</span><span>Ontwerp 2026-11-05</span></div>
 </div></footer>
 <div class="vast-cta"><a class="knop" href="/ontwerp/kennismaking">Gratis kennismaking</a><a class="knop-2" href="tel:+31614160265" aria-label="Bellen">Bel</a></div>
 <script src="/ontwerp/ontwerp.js?v=2"></script>

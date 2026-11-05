@@ -512,3 +512,47 @@ html.js [data-reveal].in { opacity: 1; transform: none; }
 .klein-bewijs strong { font-size: 30px; }
 .klein-bewijs span { font-size: 13px; }
 @media (prefers-reduced-motion: reduce) { .telefoons .tel { transition: none; } }
+
+/* ===================== Besluiten Alex 05-11-2026 ===================== */
+.hero2 h1 { font-size: clamp(40px, 5.7vw, 78px); max-width: 15.5em; }
+.hero2 h1 .serif { white-space: nowrap; }
+@media (max-width: 600px) { .hero2 h1 { font-size: 38px; } }
+.voet .tagline .wit { font-family: var(--sans); font-style: normal; color: var(--wit); font-weight: 600; letter-spacing: -.025em; font-size: .86em; }
+.pijler-prijs { margin: -8px 0 22px; font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--geel); }
+.aanbod { border: 1px solid var(--lijn); }
+.aanbod > div { display: flex; flex-direction: column; }
+.aanbod-prijs { margin-top: auto; padding-top: 18px; display: grid; gap: 2px; }
+.aanbod-prijs strong { font-size: 22px; letter-spacing: -.02em; color: var(--geel); font-weight: 600; }
+.aanbod-prijs span { font-size: 13px; color: var(--grijs); }
+.beeld .stempel-volgt { position: absolute; right: 12px; top: 12px; font-family: var(--mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--geel); background: rgba(10,10,10,.85); border: 1px dashed rgba(255,214,10,.7); border-radius: 8px; padding: 5px 9px; z-index: 2; }
+body.notes-uit .beeld .stempel-volgt { display: none; }
+
+/* Gratis concept */
+.concept-band { display: grid; grid-template-columns: 1fr 1.05fr; gap: 48px; align-items: center; background: var(--paneel); border: 1px solid var(--lijn); border-radius: 26px; padding: 48px; position: relative; overflow: hidden; }
+.concept-band::after { content: ""; position: absolute; right: -120px; top: -120px; width: 420px; height: 420px; background: radial-gradient(closest-side, rgba(255,214,10,.14), transparent); pointer-events: none; }
+.concept-tekst p { margin: 14px 0 0; }
+.concept-beeld { position: relative; z-index: 1; }
+.concept-scherm { background: #151515; border: 1px solid var(--lijn-2); border-radius: 14px; overflow: hidden; box-shadow: 0 30px 70px rgba(0,0,0,.55); transform: rotate(-1.5deg); position: relative; }
+.concept-skelet { padding: 18px; display: grid; gap: 18px; }
+.concept-skelet i, .concept-skelet b, .concept-skelet em, .concept-skelet span { display: block; border-radius: 6px; }
+.sk-nav { display: flex; align-items: center; gap: 10px; }
+.sk-nav b { width: 28px; height: 28px; border-radius: 8px; background: var(--geel); }
+.sk-nav i { width: 46px; height: 7px; background: #2a2a2a; }
+.sk-nav i:first-of-type { margin-left: auto; }
+.sk-nav em { width: 74px; height: 22px; border-radius: 999px; background: rgba(255,214,10,.85); }
+.sk-hero { display: grid; grid-template-columns: 1.1fr 1fr; gap: 16px; align-items: center; }
+.sk-hero i { height: 16px; width: var(--w); background: #e8e8e8; margin-bottom: 9px; }
+.sk-hero i.dun { height: 7px; background: #3a3a3a; }
+.sk-hero em { width: 104px; height: 28px; border-radius: 999px; background: var(--geel); margin-top: 14px; }
+.sk-foto { aspect-ratio: 4/3; border-radius: 10px; background: linear-gradient(135deg, #3b3b3b, #1d1d1d); position: relative; overflow: hidden; }
+.sk-foto::after { content: ""; position: absolute; left: 18%; right: 18%; bottom: 0; height: 46%; background: #2c2c2c; border-radius: 50% 50% 0 0; }
+.sk-rij { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.sk-rij span { height: 54px; background: #1f1f1f; border: 1px solid var(--lijn); border-radius: 10px; }
+.concept-stempel { position: absolute; right: 14px; bottom: 14px; font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--zwart); background: var(--geel); border-radius: 999px; padding: 6px 11px; transform: rotate(-4deg); box-shadow: 0 8px 20px rgba(0,0,0,.4); }
+@media (max-width: 860px) { .concept-band { grid-template-columns: 1fr; padding: 30px 22px; gap: 30px; } .concept-scherm { transform: none; } }
+
+/* Over: team */
+.persoon-foto { aspect-ratio: 4/5; border-radius: 18px; overflow: hidden; border: 1px solid var(--lijn); }
+.persoon-foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.persoon p { margin: 0 0 14px; }
+@media (min-width: 861px) { .persoon.omgekeerd > :first-child { order: 2; } }
