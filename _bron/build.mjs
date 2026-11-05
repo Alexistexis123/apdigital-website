@@ -844,6 +844,8 @@ const FIXES = [
   [/ Hosting en domein eerste jaar inbegrepen\./g, ' Hosting en domein regelen we apart.', 'hosting/domein apart (besluit Alex 05-11)'],
   // Voorwaarden art. 8 (juridisch, concept ter goedkeuring Alex voor livegang).
   [/<p>Bij elk pakket is hosting en domein voor één jaar inbegrepen\. Na het eerste jaar kan de klant kiezen:<\/p>\s*<ul>\s*<li>Doorlopende hosting via AP Digital tegen jaartarief \(op aanvraag\)<\/li>\s*<li>Zelf overnemen van hosting en domein, met technische ondersteuning bij overdracht<\/li>\s*<\/ul>/g, '<p>Hosting en domein vallen niet onder de prijs van een website of pakket en worden apart geregeld. De klant kan kiezen:</p>\n      <ul>\n        <li>Hosting en domein via AP Digital, met een maandabonnement of tegen een tarief op aanvraag</li>\n        <li>Hosting en domein zelf afnemen bij een partij naar keuze, met technische ondersteuning van AP Digital bij het koppelen van de website</li>\n      </ul>', 'voorwaarden art. 8 (besluit Alex 05-11, ter goedkeuring)'],
+  // Komt alleen voor in voorwaarden.html.
+  [/<div class="updated">Versie 1\.0, 4 mei 2026<\/div>/g, '<div class="updated">Versie 1.1, 5 november 2026</div>', 'voorwaarden v1.1 (akkoord Alex 05-11)'],
   [/\s*[—–]\s*/g, ', ', 'geen em-dashes'],
 ]
 const FIX_LOG = {}
