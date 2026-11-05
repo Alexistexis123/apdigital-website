@@ -574,3 +574,5 @@ body.notes-uit .beeld .stempel-volgt { display: none; }
 .aanbod-grens .vinklijst { grid-template-columns: repeat(2, 1fr); font-size: 15px; }
 .aanbod-grens > p { margin: 18px 0 0; color: var(--geel); font-weight: 500; font-size: 15px; }
 @media (max-width: 600px) { .aanbod-grens { padding: 20px 18px; } .aanbod-grens .vinklijst { grid-template-columns: 1fr; } }
+/* Grens gratis concept */
+.concept-grens { margin: 22px 0 0; padding: 16px 20px; border-left: 3px solid var(--geel); background: var(--paneel); border-radius: 0 12px 12px 0; color: var(--wit); font-weight: 500; }
