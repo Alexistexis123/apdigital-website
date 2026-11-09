@@ -37,4 +37,7 @@ Disallow: /cs-schildersbedrijf
 # Klant-back-up achter pincode (Clevair), nooit indexeren
 Disallow: /clevair
 
+# Ontwerp twee takken (alleen ter beoordeling)
+Disallow: /ontwerp
+
 Sitemap: https://apdigital.nl/sitemap.xml
