@@ -4,10 +4,11 @@
 // - Overige pagina's (blogs, sectorpagina's, cases, juridisch) houden hun inhoud uit _bron/oud/ en krijgen de nieuwe
 //   kop, voet en stijl. Tekstfixes staan in FIXES.
 // - Schrijft ook sitemap.xml. _bron/ zelf gaat niet mee naar Vercel (.vercelignore).
-import { readFileSync, writeFileSync, existsSync } from 'node:fs'
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 import { projecten, pijlers, verhalen, team } from './data.mjs'
+import { maakVarianten } from './ontwerp-home.mjs'
 
 const D = dirname(fileURLToPath(import.meta.url))
 const ROOT = join(D, '..')
@@ -1305,6 +1306,14 @@ for (const [f, o] of Object.entries(OUDE_PAGINAS)) pages[f] = oudePagina(f, o)
 
 let fouten = 0
 for (const [f, html] of Object.entries(pages)) {
+  const zichtbaar = html.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<style>[\s\S]*?<\/style>/g, '')
+  if (/[—–]/.test(zichtbaar)) { console.warn('LET OP: streepje in', f); fouten++ }
+  writeFileSync(join(ROOT, f), html)
+}
+
+// Ontwerp-varianten home (alleen ter beoordeling, noindex, niet in de sitemap).
+mkdirSync(join(ROOT, 'ontwerp'), { recursive: true })
+for (const [f, html] of Object.entries(maakVarianten({ pagina, machine, checkKaart, watWeDoen, werkHome, reviewsBlok, ctaCheck, CHECK, T1, T2, P, TEL, TEL_HREF }))) {
   const zichtbaar = html.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<style>[\s\S]*?<\/style>/g, '')
   if (/[—–]/.test(zichtbaar)) { console.warn('LET OP: streepje in', f); fouten++ }
   writeFileSync(join(ROOT, f), html)

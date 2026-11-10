@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ontwerp home C (kiezen) | AP Digital</title>
+<meta name="description" content="Ontwerpvariant van de homepage, alleen ter beoordeling." />
+<meta name="robots" content="noindex" />
+<meta property="og:title" content="Ontwerp home C (kiezen) | AP Digital" />
+<meta property="og:description" content="Ontwerpvariant van de homepage, alleen ter beoordeling." />
+<meta property="og:url" content="https://apdigital.nl/ontwerp/home-c" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="nl_NL" />
+<meta property="og:site_name" content="AP Digital" />
+<meta property="og:image" content="https://apdigital.nl/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="AP Digital, websites, apps en automatisering" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://apdigital.nl/og-image.png" />
+<meta name="theme-color" content="#0A0A0A" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="preload" href="/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/instrument-serif-italic-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="/site.css?v=6" />
+
+<style>
+.ov-balk { background: #FFD60A; color: #0A0A0A; font-size: 13px; }
+.ov-balk .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 36px; flex-wrap: wrap; }
+.ov-balk span { font-family: var(--mono); letter-spacing: .1em; text-transform: uppercase; font-size: 11px; font-weight: 600; }
+.ov-balk nav { display: flex; gap: 4px; }
+.ov-balk a { color: #0A0A0A; text-decoration: none; padding: 4px 10px; border-radius: 99px; font-weight: 600; }
+.ov-balk a.aan { background: #0A0A0A; color: #FFD60A; }
+.ov-a .hero-rechts { margin-top: 24px; }
+.ov-b .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.02fr); gap: 56px; align-items: center; }
+.ov-b h1 { font-size: clamp(38px, 4.6vw, 64px); max-width: none; }
+.ov-b h1 .serif { white-space: normal; }
+.ov-b .lead { margin: 22px 0 28px; }
+.ov-b-beeld .check-kaart { transform: rotate(1deg); }
+.ov-b-beeld .m-uitleg { margin-top: 16px; }
+.ov-c h1 { max-width: 14em; }
+.ov-c .hero-rechts { margin-top: 24px; }
+.ov-tegels { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 44px; }
+.ov-tegel { position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 8px; background: var(--paneel); border: 1px solid var(--lijn); border-radius: var(--r); padding: 24px 24px 20px; text-decoration: none; color: var(--wit); transition: border-color .2s, transform .2s; min-width: 0; }
+.ov-tegel:hover { border-color: rgba(255,214,10,.6); transform: translateY(-4px); }
+.ov-tegel.ov-geel { border-color: rgba(255,214,10,.45); background: radial-gradient(120% 90% at 100% 0%, rgba(255,214,10,.12), transparent 55%), var(--paneel); }
+.ov-nr { position: absolute; right: 18px; top: 6px; font-family: var(--serif); font-style: italic; font-size: 60px; line-height: 1; color: rgba(255,255,255,.06); }
+.ov-geel .ov-nr { color: rgba(255,214,10,.2); }
+.ov-tegel b { font-size: clamp(21px, 1.9vw, 26px); letter-spacing: -.03em; line-height: 1.1; font-weight: 600; margin-top: 4px; }
+.ov-zin { color: var(--tekst); font-size: 15px; }
+.ov-onder { margin-top: auto; padding-top: 14px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--lijn); font-size: 14.5px; font-weight: 600; }
+.ov-geel .ov-onder > span { color: var(--geel); }
+.ov-onder i { font-style: normal; color: var(--geel); font-size: 18px; transition: transform .2s; }
+.ov-tegel:hover .ov-onder i { transform: translateX(4px); }
+.ov-over { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 48px; align-items: center; }
+.ov-over p { max-width: 36em; }
+.ov-foto { margin: 0; position: relative; aspect-ratio: 4 / 5; border-radius: 20px; overflow: hidden; border: 1px solid var(--lijn-2); background: var(--paneel); }
+.ov-foto img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; }
+.ov-foto figcaption { position: absolute; left: 12px; bottom: 12px; background: rgba(10,10,10,.8); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border: 1px solid var(--lijn-2); border-radius: 12px; padding: 8px 12px; display: flex; flex-direction: column; gap: 1px; }
+.ov-foto figcaption b { font-size: 14px; color: var(--wit); }
+.ov-foto figcaption span { font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--geel); }
+@media (max-width: 960px) {
+  .ov-b .wrap { grid-template-columns: 1fr; gap: 36px; }
+  .ov-b-beeld .check-kaart { transform: none; }
+  .ov-tegels { grid-template-columns: 1fr; gap: 12px; margin-top: 32px; }
+}
+@media (max-width: 760px) {
+  .ov-over { grid-template-columns: 1fr; gap: 24px; }
+  .ov-foto { width: 150px; aspect-ratio: 1 / 1; border-radius: 18px; }
+  .ov-foto img { object-position: 50% 18%; }
+  .ov-foto figcaption { display: none; }
+}
+@media (max-width: 600px) {
+  .ov-b h1 { font-size: 38px; }
+  .ov-tegel { padding: 18px 18px 16px; }
+  .ov-tegel .ov-zin { font-size: 14.5px; }
+  .ov-balk .wrap > span { display: none; }
+  .ov-balk nav { width: 100%; justify-content: space-between; }
+}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Naar de inhoud</a>
+<header class="kop"><div class="wrap">
+  <a class="logo" href="/"><span class="blok">AP</span><span class="woord">AP Digital</span></a>
+  <nav class="nav" id="nav" aria-label="Hoofdmenu">
+    <a href="/vindbaar-in-google-en-ai">Vindbaar in Google en AI</a>
+    <a href="/software-en-automatisering">Software en automatisering</a>
+    <a href="/portfolio">Portfolio</a>
+    <a href="/over">Over ons</a>
+    <a class="knop" href="/gratis-check">Gratis check</a>
+  </nav>
+  <button class="hamburger" id="hamburger" type="button" aria-label="Menu" aria-controls="nav" aria-expanded="false"><span></span><span></span><span></span></button>
+</div></header>
+<main id="main" tabindex="-1">
+<div class="ov-balk"><div class="wrap"><span>Ontwerp home · niet live</span><nav aria-label="Varianten"><a href="/ontwerp/home-a">A · merk</a><a href="/ontwerp/home-b">B · resultaat</a><a href="/ontwerp/home-c" class="aan" aria-current="page">C · kiezen</a></nav></div></div>
+
+<section class="hero2 ov-c"><div class="wrap">
+  <div class="label geel">AP Digital · Arnhem</div>
+  <h1>Vindbaarheid, software en websites <span class="serif">voor ondernemers.</span></h1>
+  <div class="hero-rechts">
+    <p class="lead">Kies waar je mee verder wilt. Weet je het nog niet? Doe de gratis check of plan een kennismaking.</p>
+    <div class="knoppen-rij"><a class="knop" href="/gratis-check">Gratis check</a><a class="knop-2" href="/contact">Kennismaken</a></div>
+  </div>
+  <div class="ov-tegels">
+    <a class="ov-tegel ov-geel" href="/vindbaar-in-google-en-ai">
+      <span class="ov-nr">01</span>
+      <span class="label geel">Onze hoofdzaak</span>
+      <b>Vindbaar in Google en AI</b>
+      <span class="ov-zin">Elke maand gemeten, verbeterd en in twee pagina's uitgelegd.</span>
+      <span class="ov-onder"><span>vanaf €149 per maand</span><i aria-hidden="true">→</i></span>
+    </a>
+    <a class="ov-tegel" href="/software-en-automatisering">
+      <span class="ov-nr">02</span>
+      <span class="label">Op maat</span>
+      <b>Software en automatisering</b>
+      <span class="ov-zin">Apps die passen op hoe je werkt. Terugkerend werk loopt vanzelf.</span>
+      <span class="ov-onder"><span>vaste prijs na een gesprek</span><i aria-hidden="true">→</i></span>
+    </a>
+    <a class="ov-tegel" href="/websites-laten-maken">
+      <span class="ov-nr">03</span>
+      <span class="label">Websites</span>
+      <b>Websites en redesign</b>
+      <span class="ov-zin">Nieuw of vernieuwd. Snel, goed op mobiel en gebouwd om gevonden te worden.</span>
+      <span class="ov-onder"><span>vanaf €299</span><i aria-hidden="true">→</i></span>
+    </a>
+  </div>
+</div></section>
+
+
+<section class="sectie raster" id="werk"><div class="wrap">
+  <div class="sectie-kop" data-reveal><div><div class="label">Ons werk</div><h2 style="margin-top:12px">Echte projecten, <span class="serif">per tak.</span></h2><p class="lead">Wat er mis was, wat we bouwden en wat het opleverde. Open een project voor het hele verhaal.</p></div><a class="knop-2" href="/portfolio">Alle projecten →</a></div>
+  <div class="tak-kop"><span>01 · Vindbaar in Google en AI</span></div>
+  <div class="cases"><article class="case verhaal-case hc-card" data-pijler="websites" data-reveal>
+  <div class="beeld"><img src="/img/werk/florent-d.webp" alt="Website Flo-Rent Verhuizingen" width="1200" height="750" decoding="async" loading="lazy" /><div class="mini"><img src="/img/werk/florent-m.webp" alt="" width="390" height="844" decoding="async" loading="lazy" /></div></div>
+  <div class="verhaal" id="v-florent-1">
+    <div><small>01 · Het probleem</small><p>De oude site draaide op een websitebouwer, en daarvoor op WordPress. Google kende tientallen oude adressen die nergens meer heen zouden gaan.</p></div>
+    <div><small>02 · Wat we bouwden</small><p>Een nieuwe site van 8 pagina's met een offerte-aanvraag in stappen. Aanvragen komen direct in de mailbox van het bedrijf.</p></div>
+    <div><small>03 · Wat het opleverde</small><p>Elk oud adres stuurt door naar de juiste nieuwe pagina. Wie via Google binnenkomt, loopt niet dood op een foutpagina.</p></div>
+  </div>
+  <div class="tekst">
+    <div class="meta"><span class="pil">Website</span></div>
+    <h3>Flo-Rent Verhuizingen</h3>
+    <p>Verhuisbedrijf uit Heteren. Nieuwe site met een offerte-aanvraag in stappen, zodat mensen hun verhuizing makkelijk doorgeven.</p>
+    <div class="bewijs"><strong data-tel="52">52</strong><span>oude adressen netjes doorgestuurd</span></div>
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-florent-1"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <div class="links"><a class="link" href="https://www.flo-rent.nl/" target="_blank" rel="noopener">Bekijk de site ↗</a></div>
+  </div>
+</article><article class="case hc-card" data-pijler="automatisering" data-reveal>
+  <div class="beeld"><img src="/img/werk/geo-d.webp" alt="GEO-monitor met nepdata" width="1440" height="900" decoding="async" loading="lazy" /><div class="mini"><img src="/img/werk/geo-m.webp" alt="" width="420" height="909" decoding="async" loading="lazy" /></div></div>
+  <div class="tekst">
+    <div class="meta"><span class="pil">Automatisering</span></div>
+    <h3>GEO-monitor</h3>
+    <p>Meet elke week of een bedrijf genoemd wordt als iemand een AI om advies vraagt, en wie er anders genoemd wordt.</p>
+    <div class="bewijs klein-bewijs"><strong>19</strong><span>automatische metingen sinds 30 juni</span></div>
+    <div class="gebouwd"><span>AI-zichtbaarheid</span><span>Concurrenten</span><span>Wat te doen</span></div>
+    <div class="links"><span class="link stil">Intern systeem</span></div>
+  </div>
+</article></div>
+  <div class="tak-kop"><span>02 · Software en automatisering</span></div>
+  <div class="cases"><article class="case verhaal-case hc-card" data-pijler="apps" data-reveal>
+  <div class="beeld"><img src="/img/werk/moveflow-d.webp" alt="MoveFlow met nepdata: een verhuisdossier met de stappen van aanvraag tot afgerond" width="1440" height="900" decoding="async" loading="lazy" /></div>
+  <div class="verhaal" id="v-moveflow-2">
+    <div><small>01 · Het probleem</small><p>Bij een verhuisbedrijf hangt alles aan elkaar: de aanvraag, de offerte, de planning en de bon voor de ploeg. Staat dat in losse lijsten, dan typ je alles drie keer over.</p></div>
+    <div><small>02 · Wat we bouwden</small><p>MoveFlow, gebouwd voor Jacobs Heteren: offertes met een rekenmotor, planning en werkbonnen, en per verhuizing één dossier met alles erin.</p></div>
+    <div><small>03 · Wat het opleverde</small><p>Elk dossier loopt langs vaste stappen, en de status volgt vanzelf uit offerte, planning en factuur. Een getekende offerte blijft precies zoals de klant hem tekende. Het draait er elke dag.</p></div>
+  </div>
+  <div class="tekst">
+    <div class="meta"><span class="pil">App op maat</span></div>
+    <h3>MoveFlow</h3>
+    <p>Het systeem waar Jacobs Heteren op draait: van aanvraag en offerte tot planning en werkbon voor de ploeg, in één dossier per verhuizing.</p>
+    <div class="bewijs"><strong data-tel="9">9</strong><span>vaste stappen, van aanvraag tot afgerond</span></div>
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-moveflow-2"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <div class="links"><span class="link stil">Bedrijfssoftware, demo op aanvraag</span></div>
+  </div>
+</article><article class="case verhaal-case hc-card" data-pijler="automatisering" data-reveal>
+  <div class="beeld"><img src="/img/werk/postleads-stroom.webp" alt="Schema van de PostLeads-machine" width="1440" height="900" decoding="async" loading="lazy" /></div>
+  <div class="verhaal" id="v-postleads-machine-3">
+    <div><small>01 · Het probleem</small><p>Elke week een nieuwe adressenlijst maken voor de drukker, per klant en per gebied, uit duizenden nieuwe woningen.</p></div>
+    <div><small>02 · Wat we bouwden</small><p>Een machine die elke week 6.135 tot 7.240 nieuwe woningen scant, ze koppelt aan het gebied van elke klant, dubbele adressen eruit haalt en de lijsten plus mails klaarzet.</p></div>
+    <div><small>03 · Wat het opleverde</small><p>Sinds week 27 gingen er 13.337 kaarten de deur uit, de laatste vier weken gemiddeld zo'n 700 per week. Een mens kijkt elke lijst na voor hij weggaat.</p></div>
+  </div>
+  <div class="tekst">
+    <div class="meta"><span class="pil">Automatisering</span></div>
+    <h3>PostLeads-machine</h3>
+    <p>Haalt elke week het nieuwe woningaanbod op, koppelt het aan het gebied van elke klant en maakt de lijst voor de drukker. Klant- en drukkersmails staan vanzelf klaar.</p>
+    <div class="bewijs"><strong data-tel="13337">13.337</strong><span>kaarten de deur uit in 19 weken</span></div>
+    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="v-postleads-machine-3"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
+    <div class="links"><span class="link stil">Intern systeem</span></div>
+  </div>
+</article></div>
+</div></section>
+
+<section class="sectie smal"><div class="wrap ov-over">
+  <figure class="ov-foto" data-reveal>
+    <img src="/img/alex-home.webp" alt="Alex Prijs, oprichter AP Digital" width="1100" height="792" loading="lazy" decoding="async" />
+    <figcaption><b>Alex Prijs</b><span>Oprichter</span></figcaption>
+  </figure>
+  <div data-reveal style="--d:60ms">
+    <div class="label">Wie je aan de lijn krijgt</div>
+    <h2 style="margin:12px 0 16px">Eén aanspreekpunt. <span class="serif">Die het ook bouwt.</span></h2>
+    <p>Bij AP Digital praat je met Alex. Hij luistert naar waar het knelt, bouwt het zelf en belt je zelf terug. Geen accountmanager ertussen.</p>
+    <p>Bij verhuisbedrijf Jacobs Heteren bouwde hij een uren-app, een planningssysteem en een website die aanvragen binnenhaalt.</p>
+    <div class="oq-rij" style="margin:20px 0 18px"><span>Uit Arnhem</span><span>Vaste prijs vooraf</span><span>Je belt met wie het bouwt</span></div>
+    <a class="tekst-link" href="/over">Meer over ons →</a>
+  </div>
+</div></section>
+
+<section class="sectie smal" id="reviews"><div class="wrap">
+  <div class="sectie-kop" data-reveal><div><div class="label">Wat klanten zeggen</div><h2 style="margin-top:12px">Reviews op <span class="serif">Google.</span></h2></div><a class="knop-2" href="https://maps.google.com/?cid=7229055669262186351" target="_blank" rel="noopener">Bekijk ons Google-profiel ↗</a></div>
+  <div class="reviews-top"><strong>5,0</strong><span class="sterren" role="img" aria-label="5 van 5 sterren">★★★★★</span><span>op Google (3 reviews)</span></div>
+  <div class="reviews"><figure data-reveal style="--d:0ms"><span class="sterren" role="img" aria-label="5 sterren">★★★★★</span><blockquote>Topbedrijf! Vanaf de eerste stap tot en met de oplevering ben ik ontzettend goed geholpen. Alles werd duidelijk uitgelegd en er werd echt met mij meegedacht. Een ervaren en professionele man die goed luistert naar de wensen van de klant en deze perfect weet om te zetten in een prachtige website. Ik raad dit bedrijf dan ook aan iedereen aan. Bedankt voor onze topwebsite!</blockquote><figcaption>RH Scooter Service Arnhem<span>Google-review</span></figcaption></figure><figure data-reveal style="--d:80ms"><span class="sterren" role="img" aria-label="5 sterren">★★★★★</span><blockquote>Top ervaring met APDigital. Duidelijke communicatie, snel geschakeld en het resultaat mag er zijn: professioneel, snel en werkt perfect op desktop en mobiel. Er werd ook goed meegedacht, ze doen meer dan alleen uitvoeren. Aanrader voor iedereen die een betrouwbare partij zoekt voor een nieuwe website.</blockquote><figcaption>Laisser-faire<span>Google-review</span></figcaption></figure><figure data-reveal style="--d:160ms"><span class="sterren" role="img" aria-label="5 sterren">★★★★★</span><blockquote>Fantastische service!</blockquote><figcaption>Gijs R.<span>Google-review</span></figcaption></figure></div>
+</div></section>
+
+<section class="sectie smal"><div class="wrap"><div class="cta-band">
+  <div><h2>Hoe vindbaar ben jij <span class="serif">nu echt?</span></h2><p>Doe de gratis check. Je krijgt één pagina terug met waar je staat in Google en de AI's, en de 3 grootste gaten. Kost niets, verplicht tot niets.</p></div>
+  <div class="acties"><a class="knop" href="/gratis-check">Doe de gratis check</a><a class="tel" href="tel:+31614160265">of bel 06 1416 0265</a></div>
+</div></div></section>
+
+</main>
+<footer class="voet"><div class="wrap">
+  <div class="kolommen">
+    <div>
+      <a class="logo" href="/"><span class="blok">AP</span><span class="woord">AP Digital</span></a>
+      <div class="tagline"><span class="wit">Digitaal werk</span> dat gewoon werkt.</div>
+      <p style="font-size:15px">Vindbaar in Google en AI, en software op maat. Gebouwd in Arnhem.</p>
+    </div>
+    <div><p class="kop4">Vindbaar in Google en AI</p><a href="/vindbaar-in-google-en-ai#pakketten">Maandpakketten</a><a href="/gratis-check">Gratis check</a><a href="/websites-laten-maken">Website laten maken</a><a href="/pakketten">Websitepakketten</a><a href="/website-redesign">Website vernieuwen</a><a href="/onderhoud-en-hosting">Onderhoud en hosting</a></div>
+    <div><p class="kop4">Software en automatisering</p><a href="/software-en-automatisering">Overzicht</a><a href="/apps-laten-maken">Apps op maat</a><a href="/processen-automatiseren">Processen automatiseren</a><a href="/app-laten-maken-arnhem">App laten maken in Arnhem</a></div>
+    <div><p class="kop4">AP Digital</p><a href="/portfolio">Portfolio</a><a href="/over">Over ons</a><a href="/diensten">Diensten</a><a href="/blog">Blog</a><a href="/gratis-concept">Je gratis concept</a><a href="/contact">Contact</a><a href="mailto:info@apdigital.nl">info@apdigital.nl</a><a href="tel:+31614160265">06 1416 0265</a><a href="https://wa.me/31614160265?text=Hoi%20AP%20Digital%2C%20ik%20heb%20een%20vraag." target="_blank" rel="noopener">WhatsApp</a></div>
+  </div>
+  <div class="voet-steden"><p class="kop4">Website laten maken in</p><ul class="stad-lijst"><li><a href="/websites-laten-maken-alkmaar">Alkmaar</a></li><li><a href="/websites-laten-maken-almere">Almere</a></li><li><a href="/websites-laten-maken-amersfoort">Amersfoort</a></li><li><a href="/websites-laten-maken-amstelveen">Amstelveen</a></li><li><a href="/websites-laten-maken-amsterdam">Amsterdam</a></li><li><a href="/websites-laten-maken-apeldoorn">Apeldoorn</a></li><li><a href="/websites-laten-maken-arnhem">Arnhem</a></li><li><a href="/websites-laten-maken-breda">Breda</a></li><li><a href="/websites-laten-maken-den-bosch">Den Bosch</a></li><li><a href="/websites-laten-maken-den-haag">Den Haag</a></li><li><a href="/websites-laten-maken-doetinchem">Doetinchem</a></li><li><a href="/websites-laten-maken-ede">Ede</a></li><li><a href="/websites-laten-maken-eindhoven">Eindhoven</a></li><li><a href="/websites-laten-maken-groningen">Groningen</a></li><li><a href="/websites-laten-maken-hilversum">Hilversum</a></li><li><a href="/websites-laten-maken-leiden">Leiden</a></li><li><a href="/websites-laten-maken-nijmegen">Nijmegen</a></li><li><a href="/websites-laten-maken-oss">Oss</a></li><li><a href="/websites-laten-maken-tiel">Tiel</a></li><li><a href="/websites-laten-maken-utrecht">Utrecht</a></li><li><a href="/websites-laten-maken-veenendaal">Veenendaal</a></li><li><a href="/websites-laten-maken-wageningen">Wageningen</a></li><li><a href="/websites-laten-maken-zaltbommel">Zaltbommel</a></li><li><a href="/websites-laten-maken-zwolle">Zwolle</a></li></ul></div>
+  <div class="klein-tekst"><span>© 2026 AP Digital · KVK 42080619 · Arnhem</span><span><a href="/privacy" style="display:inline">Privacy</a> · <a href="/voorwaarden" style="display:inline">Voorwaarden</a></span></div>
+</div></footer>
+<div class="vast-cta"><a class="knop" href="/gratis-check">Gratis check</a><a class="knop-2" href="tel:+31614160265" aria-label="Bel AP Digital">Bel</a></div>
+<script defer src="/site.js?v=6"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/events.js"></script>
+<script>
+(function(c,l,a,r,i,t,y){
+  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "wlzolill5t");
+</script>
+</body>
+</html>
