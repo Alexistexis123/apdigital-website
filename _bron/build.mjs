@@ -14,7 +14,7 @@ const ROOT = join(D, '..')
 const OUD = join(D, 'oud')
 const SITE = 'https://apdigital.nl'
 const VANDAAG = process.env.BOUWDATUM || new Date().toISOString().slice(0, 10)
-const V = '5' // cache-buster site.css / site.js
+const V = '6' // cache-buster site.css / site.js
 const steden = JSON.parse(readFileSync(join(D, 'steden.json'), 'utf8'))
 const oud = f => readFileSync(join(OUD, f), 'utf8')
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;')
@@ -131,6 +131,7 @@ ${noindex ? '<meta name="robots" content="noindex" />' : `<link rel="canonical" 
 <meta name="theme-color" content="#0A0A0A" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="preload" href="/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/instrument-serif-italic-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="stylesheet" href="/site.css?v=${V}" />
 ${jsonld.join('\n')}
 ${kopExtra}
@@ -448,76 +449,103 @@ const vindbaarBlok = `
   <div class="knoppen-rij" style="margin-top:18px"><a class="knop-2" href="${T1}">Vindbaar in Google en AI →</a><a class="knop-2" href="${CHECK}">Doe de gratis check →</a></div>
 </div></div></section>`
 
-const home = pagina({
-  pad: '/',
-  titel: 'Vindbaar in Google en AI, websites vanaf €299 | AP Digital',
-  beschrijving: 'AP Digital zorgt dat klanten je vinden in Google en in AI\'s als ChatGPT, met een vast maandpakket vanaf €149. Plus software en automatisering op maat.',
-  og: { titel: 'AP Digital | Vindbaar in Google en AI, software op maat', beschrijving: 'Digitaal werk dat gewoon werkt. Gevonden worden in Google en AI, plus software en automatisering op maat. Uit Arnhem.' },
-  actief: 'home',
-  kopExtra: '<meta name="google-site-verification" content="CgNNQrAZwi1S_UNIU0qI0KRWeE4KUXG3Hbb" />',
-  jsonld: [
-    ld({ ...BEDRIJF, description: 'AP Digital uit Arnhem zorgt dat bedrijven gevonden worden in Google en in AI\'s, en bouwt websites, software en automatisering op maat.', areaServed: [{ '@type': 'City', name: 'Arnhem' }, { '@type': 'City', name: 'Ede' }, { '@type': 'City', name: 'Nijmegen' }, { '@type': 'City', name: 'Wageningen' }, { '@type': 'Country', name: 'Nederland' }], sameAs: ['https://wa.me/31614160265'] }),
-    ld({ '@type': 'WebSite', url: `${SITE}/`, name: 'AP Digital', publisher: { '@id': `${SITE}/#business` }, inLanguage: 'nl-NL' }),
-    kruimelLd([]),
-  ],
-  body: `
-<section class="hero2"><div class="wrap">
-  <div class="hero-kop">
-    <div>
-      <div class="label geel">Vindbaar in Google en AI · Software op maat</div>
-      <h1><span class="streep">Gevonden worden.</span> <span class="serif">In Google én in AI.</span></h1>
-    </div>
-    <div class="hero-rechts">
-      <p class="lead">Je klanten zoeken in Google, en ze vragen het ook aan ChatGPT. Wij zorgen dat ze jou daar vinden. Elke maand gemeten, verbeterd en in twee pagina's uitgelegd. Voor een vast bedrag per maand.</p>
-      <div class="knoppen-rij"><a class="knop" href="${CHECK}">Doe de gratis check</a><a class="knop-2" href="${T1}#pakketten">Bekijk de pakketten</a></div>
-    </div>
+// Homepage als algemene ontvangst (go Alex 10-11-2026): eerst wie we zijn, dan de drie dingen die we doen,
+// dan werk, Alex en reviews, en de gratis check. Maandstappen, meetlijst en pakketten staan op ${T1}.
+// Foto: img/alex-home.webp (voorlopig). Vervangen = alleen dat bestand overschrijven; het kader heeft een vaste
+// verhouding en object-fit, dus een andere foto verspringt niets. Pas FOTO_POS aan als het gezicht elders staat.
+const FOTO = '/img/alex-home.webp', FOTO_POS = '52% 30%'
+const wieWij = `
+<section class="hero-wie"><div class="wrap">
+  <div class="wie-tekst">
+    <div class="label geel">AP Digital · Arnhem</div>
+    <h1>Hoi, wij zijn AP&nbsp;Digital <span class="serif">uit Arnhem.</span></h1>
+    <p class="lead">Wij zorgen dat klanten je vinden, in Google en in AI, en bouwen software die je werk makkelijker maakt.</p>
+    <div class="knoppen-rij"><a class="knop" href="${CHECK}">Gratis check</a><a class="knop-2" href="/contact">Kennismaken</a></div>
+    <p class="wie-bel">Liever even bellen? <a href="${TEL_HREF}">${TEL}</a></p>
   </div>
-  <div class="hero-check">${checkKaart}</div>
-  <p class="m-uitleg">Zo ziet de gratis check eruit. <span>Voorbeeld met nepdata.</span></p>
-</div></section>
+  <figure class="wie-foto">
+    <img src="${FOTO}" alt="Alex Prijs, oprichter AP Digital" width="1100" height="792" fetchpriority="high" decoding="async" style="object-position:${FOTO_POS}" />
+    <figcaption><b>Alex Prijs</b><span>Oprichter, je vaste aanspreekpunt</span></figcaption>
+  </figure>
+</div></section>`
 
-<div class="tape" aria-hidden="true"><div class="tape-rol"><span>Vindbaar in Google</span><span>Vindbaar in AI</span><span>Vast bedrag per maand</span><span>Software op maat</span><span>Gebouwd in Arnhem</span><span>Eén aanspreekpunt</span><span>Vindbaar in Google</span><span>Vindbaar in AI</span><span>Vast bedrag per maand</span><span>Software op maat</span><span>Gebouwd in Arnhem</span><span>Eén aanspreekpunt</span></div></div>
-
+const AI_KORT = ['ChatGPT', 'Gemini', 'Perplexity', 'Google AI', 'Copilot', 'Meta AI']
+const watWeDoen = `
 <section class="sectie"><div class="wrap">
-  <div class="sectie-kop" data-reveal><div><div class="label">Wat we doen</div><h2 style="margin-top:12px">Twee dingen. <span class="serif">Die doen we goed.</span></h2><p class="lead">De meeste klanten komen om beter gevonden te worden. Loop je daarna vast op Excel, papier of dubbel overtypen, dan bouwen we dat er gewoon achteraan.</p></div></div>
-  ${takKaarten()}
-</div></section>
+  <div class="sectie-kop" data-reveal><div><div class="label">Wat we doen</div><h2 style="margin-top:12px">Drie dingen. <span class="serif">Kies wat bij je past.</span></h2></div></div>
+  <div class="drie-tak">
+    <a class="tak tak-1 dt-groot" href="${T1}" data-reveal>
+      <div class="tak-nr">01</div>
+      <div class="label geel">Onze hoofdzaak · het maandpakket</div>
+      <h3>Vindbaar in Google en AI</h3>
+      <p>Je klanten zoeken in Google, en ze vragen het ook aan ChatGPT. Wij zorgen dat ze jou daar vinden. Elke maand gemeten, verbeterd en in twee pagina's uitgelegd.</p>
+      <ul><li>Gemeten in Google en 7 AI's</li><li>Elke maand verbeteringen aan je site en Google-profiel</li><li>Rapport van 2 pagina's: waar je staat en wat we deden</li></ul>
+      <div class="dt-ais" aria-label="Onder andere gemeten in">${AI_KORT.map(a => `<span>${a}</span>`).join('')}</div>
+      <div class="tak-prijs">vanaf €149 per maand, excl. btw</div>
+      <span class="meer">Bekijk het maandpakket →</span>
+    </a>
+    <a class="tak tak-2" href="${T2}" data-reveal style="--d:90ms">
+      <div class="tak-nr">02</div>
+      <div class="label">Op maat</div>
+      <h3>Software en automatisering</h3>
+      <p>Apps die passen op hoe jouw bedrijf werkt. Werk dat elke week terugkomt, laten we vanzelf lopen.</p>
+      <ul><li>Planning, uren en klantportalen</li><li>Rapportages en mails die zichzelf maken</li></ul>
+      <div class="tak-prijs">Vaste prijs na een gratis gesprek</div>
+      <span class="meer">Meer over software →</span>
+    </a>
+    <a class="tak tak-3 dt-klein" href="${P.websites}" data-reveal style="--d:180ms">
+      <div class="tak-nr">03</div>
+      <div class="label">Websites</div>
+      <h3>Websites en redesign</h3>
+      <p>Een nieuwe website, of je huidige site vernieuwen. Snel, goed op mobiel en gebouwd om gevonden te worden.</p>
+      <div class="tak-prijs">vanaf €299</div>
+      <span class="meer">Over websites →</span>
+    </a>
+  </div>
+</div></section>`
 
-<section class="sectie cijfer-sectie raster"><div class="wrap">
-  <div class="sectie-kop" data-reveal><div><div class="label">Het maandpakket</div><h2 style="margin-top:12px">Elke maand <span class="serif">dezelfde vier stappen.</span></h2></div><a class="knop-2" href="${T1}">Hoe het werkt →</a></div>
-  ${maandStappen}
-  <div class="label sub" style="margin:40px 0 14px">Wat we elke maand meten</div>
-  ${AI_STROOK}
-</div></section>
-
-<section class="sectie" id="pakketten"><div class="wrap">
-  <div class="sectie-kop" data-reveal><div><div class="label">Pakketten</div><h2 style="margin-top:12px">Een vast bedrag <span class="serif">per maand.</span></h2><p class="lead">Elk pakket begint met een nulmeting, die zit bij de start in het pakket. Daarna meten en verbeteren we elke maand, en zie je in twee pagina's wat het deed.</p></div><a class="knop-2" href="${T1}#grens">Wat er wel en niet onder valt →</a></div>
-  ${pakketKaarten({ kort: true })}
-</div></section>
-
-<section class="sectie" id="verhalen"><div class="wrap">
-  <div class="sectie-kop" data-reveal><div><div class="label">Uitgelicht werk</div><h2 style="margin-top:12px">Twee takken, <span class="serif">echte projecten.</span></h2><p class="lead">Wat er mis was, wat we bouwden en wat het opleverde. Open een project voor het hele verhaal.</p></div><a class="knop-2" href="/portfolio">Alle projecten →</a></div>
+const werkHome = `
+<section class="sectie raster" id="werk"><div class="wrap">
+  <div class="sectie-kop" data-reveal><div><div class="label">Ons werk</div><h2 style="margin-top:12px">Echte projecten, <span class="serif">per tak.</span></h2><p class="lead">Wat er mis was, wat we bouwden en wat het opleverde. Open een project voor het hele verhaal.</p></div><a class="knop-2" href="/portfolio">Alle projecten →</a></div>
   <div class="tak-kop"><span>01 · Vindbaar in Google en AI</span></div>
   <div class="cases">${['florent', 'geo-monitor'].map(id => kaart(proj(id), { klasse: 'hc-card' })).join('')}</div>
   <div class="tak-kop"><span>02 · Software en automatisering</span></div>
   <div class="cases">${['moveflow', 'postleads-machine'].map(id => kaart(proj(id), { rustig: id === 'moveflow', klasse: 'hc-card' })).join('')}</div>
-</div></section>
+</div></section>`
 
-<section class="sectie cijfer-sectie raster"><div class="wrap">
-  <div class="sectie-kop" data-reveal><div><div class="label">In cijfers</div><h2 style="margin-top:12px">Geen beloftes. <span class="serif">Dit staat er al.</span></h2></div></div>
-  <div class="cijfers">
-    ${cijfers.map((c, i) => `<div data-reveal style="--d:${i * 80}ms"><strong${/^[\d.]+$/.test(c[0]) ? ` data-tel="${c[0].replace(/\./g, '')}"` : ''}>${c[0]}</strong><span>${c[1]}</span></div>`).join('')}
+const overKort = `
+<section class="sectie smal"><div class="wrap twee over-kort">
+  <div data-reveal>
+    <div class="label">Wie je aan de lijn krijgt</div>
+    <h2 style="margin:12px 0 16px">Eén aanspreekpunt. <span class="serif">Die het ook bouwt.</span></h2>
+    <p>Bij AP Digital praat je met Alex. Hij luistert naar waar het knelt, bouwt het zelf en belt je zelf terug. Geen accountmanager ertussen.</p>
+    <p>Bij verhuisbedrijf Jacobs Heteren bouwde hij een uren-app, een planningssysteem en een website die aanvragen binnenhaalt.</p>
+    <a class="tekst-link" href="/over">Meer over ons →</a>
   </div>
-</div></section>
+  <div class="over-quote" data-reveal style="--d:90ms">
+    <p class="oq-zin">Gebouwd voor Jacobs Heteren, <span class="serif">waar het elke dag draait.</span> Nu voor jouw bedrijf.</p>
+    <div class="oq-rij"><span>Uit Arnhem</span><span>Vaste prijs vooraf</span><span>Je belt met wie het bouwt</span></div>
+  </div>
+</div></section>`
 
-<section class="sectie raster"><div class="wrap">
-  <div class="sectie-kop" data-reveal><div><div class="label">Waarom wij</div><h2 style="margin-top:12px">Geen <s class="doorhaal">webbureau.</s> <span class="serif">Bouwers die meten.</span></h2></div></div>
-  <div class="drie">
-    <div data-reveal><div class="nr">01</div><h3>Elke maand gemeten</h3><p>Niet "het gaat goed", maar dezelfde vragen en zoektermen naast vorige maand. Zo zie je zwart op wit of het werkt.</p></div>
-    <div data-reveal style="--d:90ms"><div class="nr">02</div><h3>Site en systeem uit één hand</h3><p>Een aanvraag via je site is stap één. Dat die daarna vanzelf in je planning staat, is stap twee. Wij doen allebei.</p></div>
-    <div data-reveal style="--d:180ms"><div class="nr">03</div><h3>Je belt met wie het bouwt</h3><p>Geen accountmanager ertussen. Wie je aan de lijn hebt, doet het werk zelf.</p></div>
-  </div>
-</div></section>
+const home = pagina({
+  pad: '/',
+  // Titel en meta: voorstel op de preview (10-11), niet live zonder go Alex.
+  titel: 'AP Digital Arnhem | Vindbaar in Google en AI, sites en apps',
+  beschrijving: 'AP Digital uit Arnhem zorgt dat klanten je vinden in Google en in AI\'s als ChatGPT, en bouwt websites en software die je werk makkelijker maken.',
+  og: { titel: 'AP Digital uit Arnhem | Vindbaar in Google en AI, websites en software', beschrijving: 'Wij zorgen dat klanten je vinden, in Google en in AI, en bouwen software die je werk makkelijker maakt.' },
+  actief: 'home',
+  kopExtra: `<meta name="google-site-verification" content="CgNNQrAZwi1S_UNIU0qI0KRWeE4KUXG3Hbb" />
+<link rel="preload" href="${FOTO}" as="image" type="image/webp" fetchpriority="high" />`,
+  jsonld: [
+    ld({ ...BEDRIJF, description: 'AP Digital uit Arnhem zorgt dat bedrijven gevonden worden in Google en in AI\'s, en bouwt websites, software en automatisering op maat.', image: `${SITE}${FOTO}`, founder: { '@type': 'Person', name: 'Alexander Prijs', jobTitle: 'Oprichter AP Digital' }, areaServed: [{ '@type': 'City', name: 'Arnhem' }, { '@type': 'City', name: 'Ede' }, { '@type': 'City', name: 'Nijmegen' }, { '@type': 'City', name: 'Wageningen' }, { '@type': 'Country', name: 'Nederland' }], sameAs: ['https://wa.me/31614160265'] }),
+    ld({ '@type': 'WebSite', url: `${SITE}/`, name: 'AP Digital', publisher: { '@id': `${SITE}/#business` }, inLanguage: 'nl-NL' }),
+    kruimelLd([]),
+  ],
+  body: `${wieWij}
+${watWeDoen}
+${werkHome}
+${overKort}
 ${reviewsBlok}
 ${ctaCheck}
 `,
