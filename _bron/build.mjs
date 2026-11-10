@@ -1174,8 +1174,21 @@ const FIXES = [
   [/ Hosting en domein eerste jaar inbegrepen\./g, ' Hosting en domein regelen we apart.', 'hosting/domein apart (besluit Alex 05-11)'],
   // Voorwaarden art. 8 (juridisch, concept ter goedkeuring Alex voor livegang).
   [/<p>Bij elk pakket is hosting en domein voor één jaar inbegrepen\. Na het eerste jaar kan de klant kiezen:<\/p>\s*<ul>\s*<li>Doorlopende hosting via AP Digital tegen jaartarief \(op aanvraag\)<\/li>\s*<li>Zelf overnemen van hosting en domein, met technische ondersteuning bij overdracht<\/li>\s*<\/ul>/g, '<p>Hosting en domein vallen niet onder de prijs van een website of pakket en worden apart geregeld. De klant kan kiezen:</p>\n      <ul>\n        <li>Hosting en domein via AP Digital, met een maandabonnement of tegen een tarief op aanvraag</li>\n        <li>Hosting en domein zelf afnemen bij een partij naar keuze, met technische ondersteuning van AP Digital bij het koppelen van de website</li>\n      </ul>', 'voorwaarden art. 8 (besluit Alex 05-11, ter goedkeuring)'],
+  // Voorwaarden art. 7 versie 1.2 (go Alex 10-11, bron vault Areas/AP Digital/voorwaarden-art7-concept.md).
+  [/<h2>7\. Eigendomsrecht en gebruik<\/h2>\s*<p>Na volledige betaling ontvangt de klant het gebruiksrecht[\s\S]*?<p>AP Digital mag het project gebruiken in haar portfolio, tenzij de klant hier schriftelijk bezwaar tegen maakt\.<\/p>/g, `<h2>7. Eigendom en gebruik</h2>
+      <p>7.1 Na volledige betaling is van de klant: de website of app die voor hem is gemaakt, de teksten, foto's en ander materiaal dat voor hem is gemaakt, de pagina's en content uit een maandpakket, de rapporten en zijn eigen gegevens.</p>
+      <p>7.2 AP Digital blijft eigenaar van haar eigen bouwstenen: templates, generatoren, meet- en rapportsystemen, en code en onderdelen die AP Digital bij meerdere klanten gebruikt. De klant krijgt een blijvend gebruiksrecht op deze bouwstenen voor zover ze in zijn eigen website of app zitten. Hij mag ze niet los doorverkopen of in een ander product gebruiken.</p>
+      <p>7.3 Bij maatwerksoftware (een app of automatisering) krijgt de klant na volledige betaling de broncode van zijn eigen toepassing. AP Digital mag dezelfde bouwstenen en kennis gebruiken voor andere opdrachten.</p>
+      <p>7.4 Stopt de samenwerking, dan levert AP Digital op verzoek binnen 14 dagen de bestanden van de website of app, de content en de laatste rapporten aan. Hosting en domein dragen we over zoals in artikel 8 staat. Extra werk bij de overdracht, zoals verhuizen naar een andere partij, rekenen we tegen ons uurtarief.</p>
+      <p>7.5 De klant blijft verantwoordelijk voor het materiaal dat hij zelf aanlevert (teksten, foto's, logo's). Bij geschillen over auteursrecht op dat materiaal is de klant aansprakelijk.</p>
+      <p>7.6 AP Digital mag het project gebruiken in haar portfolio, tenzij de klant hier schriftelijk bezwaar tegen maakt.</p>`, 'voorwaarden art. 7 v1.2 (go Alex 10-11)'],
+  // Blogs gelijk met art. 7 v1.2: eigendom na volledige betaling, bestanden op verzoek binnen 14 dagen, hosting en domein volgens art. 8.
+  [/<li>Volledig eigenaarschap\. De site is van jou, je zit niet vast aan ons\.<\/li>/g, '<li>Eigendom na betaling. Na volledige betaling is de site van jou, je zit niet vast aan ons.</li>', 'gelijk met voorwaarden art. 7 v1.2'],
+  [/<li>Volledig eigenaarschap, geen lock in\.<\/li>/g, '<li>Na volledige betaling is de site van jou, geen lock in.</li>', 'gelijk met voorwaarden art. 7 v1.2'],
+  [/Ja\. Je krijgt de bronbestanden, hosting en domein op jouw naam\. Je zit nergens aan vast en kan altijd wisselen\./g, 'Ja, na volledige betaling is de site van jou. Stop je met ons, dan leveren we op verzoek binnen 14 dagen de bestanden aan. Je zit nergens aan vast en kan altijd wisselen.', 'gelijk met voorwaarden art. 7 v1.2'],
+  [/Bij ons altijd, ja\. Je site is van jou\. Wij geven toegang tot hosting, domein en bronbestanden zodat je nooit vastzit aan ons\./g, 'Ja. Na volledige betaling is je site van jou. Stop je met ons, dan leveren we op verzoek binnen 14 dagen de bestanden aan, zodat je nooit vastzit aan ons.', 'gelijk met voorwaarden art. 7 v1.2'],
   // Komt alleen voor in voorwaarden.html.
-  [/<div class="updated">Versie 1\.0, 4 mei 2026<\/div>/g, '<div class="updated">Versie 1.1, 5 november 2026</div>', 'voorwaarden v1.1 (akkoord Alex 05-11)'],
+  [/<div class="updated">Versie 1\.0, 4 mei 2026<\/div>/g, '<div class="updated">Versie 1.2, 10 november 2026</div>', 'voorwaarden v1.2 (go Alex 10-11)'],
   [/\s*[—–]\s*/g, ', ', 'geen em-dashes'],
 ]
 const FIX_LOG = {}

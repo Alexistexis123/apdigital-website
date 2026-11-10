@@ -121,7 +121,8 @@
   "1x /horeca-websites krijgt een 301 naar /restaurant-websites",
   "1x pijlerpagina Websites",
   "1x voorwaarden art. 8 (besluit Alex 05-11, ter goedkeuring)",
-  "1x voorwaarden v1.1 (akkoord Alex 05-11)"
+  "1x voorwaarden art. 7 v1.2 (go Alex 10-11)",
+  "1x voorwaarden v1.2 (go Alex 10-11)"
  ],
  "privacy.html": [
   "1x /webshops krijgt een 301 naar /websites-laten-maken",
@@ -167,7 +168,8 @@
   "1x hosting/domein apart (besluit Alex 05-11)",
   "1x hosting/domein apart (besluit Alex 05-11)",
   "1x hosting/domein apart (besluit Alex 05-11)",
-  "1x hosting/domein apart (besluit Alex 05-11)"
+  "1x hosting/domein apart (besluit Alex 05-11)",
+  "1x gelijk met voorwaarden art. 7 v1.2"
  ],
  "blog-website-laten-maken-arnhem.html": [
   "1x /webshops krijgt een 301 naar /websites-laten-maken",
@@ -176,11 +178,14 @@
   "2x besluit Alex 05-11: apps zonder bedrag",
   "1x besluit Alex 05-11: apps zonder bedrag",
   "1x hosting/domein apart (besluit Alex 05-11)",
-  "1x hosting/domein apart (besluit Alex 05-11)"
+  "1x hosting/domein apart (besluit Alex 05-11)",
+  "2x gelijk met voorwaarden art. 7 v1.2"
  ],
  "blog-website-laten-maken-of-zelf-bouwen.html": [
   "1x /webshops krijgt een 301 naar /websites-laten-maken",
   "1x /horeca-websites krijgt een 301 naar /restaurant-websites",
-  "1x pijlerpagina Websites"
+  "1x pijlerpagina Websites",
+  "1x gelijk met voorwaarden art. 7 v1.2",
+  "1x gelijk met voorwaarden art. 7 v1.2"
  ]
 }
