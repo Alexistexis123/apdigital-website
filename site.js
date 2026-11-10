@@ -204,7 +204,9 @@
 // ---------- formulier (kennismaking en offerte) ----------
 // Zelfde verzendroute als de vorige site: Web3Forms naar info@apdigital.nl, met mailto als vangnet.
 // De access_key van Web3Forms is bedoeld om publiek in de pagina te staan (geen geheim).
-// events.js ziet #formSuccess zichtbaar worden en telt dan de aanvraag (form_submit + Ads-conversie).
+// Alleen bij een echte Web3Forms-ontvangst zet dit data-verzonden="ja" op het formulier.
+// events.js telt de aanvraag (form_submit + Ads-conversie) pas als #formSuccess zichtbaar is
+// EN data-verzonden="ja" staat, en maximaal één keer per pagina. Het mailto-vangnet telt niet.
 ;(function () {
   var form = document.getElementById('contactForm')
   if (!form) return
@@ -250,7 +252,10 @@
     }
     fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { Accept: 'application/json' }, body: data })
       .then(function (r) { return r.json() })
-      .then(function (j) { if (j.success === true || j.success === 'true') klaar(); else vangnet() })
+      .then(function (j) {
+        if (j.success === true || j.success === 'true') { form.dataset.verzonden = 'ja'; klaar() }
+        else vangnet()
+      })
       .catch(vangnet)
   })
 })()

@@ -248,28 +248,36 @@
     }
   }, { passive: true });
 
-  // 11. Contact form submit (succesvolle)
+  // 11. Contact form submit (alleen een geslaagde verzending, precies één keer)
+  // Vroeger maakte elke klik op versturen een eigen observer aan, ook bij een poging
+  // die op de veldcontrole strandde. Bij de geslaagde verzending vuurden ze dan allemaal
+  // tegelijk: 2 of 3 aanvragen voor één lead. Nu is er één observer per pagina, die pas
+  // telt als site.js data-verzonden="ja" zet (echte Web3Forms-ontvangst) en het
+  // bedankblok zichtbaar is. Het mailto-vangnet bij een mislukte verzending telt niet.
   var form = document.getElementById('contactForm');
   if (form) {
-    form.addEventListener('submit', function () {
-      var observer = new MutationObserver(function () {
-        var success = document.getElementById('formSuccess');
-        if (success && getComputedStyle(success).display !== 'none') {
-          var dienst = document.getElementById('looking_for')?.value || 'unknown';
-          var urlPakket = new URLSearchParams(window.location.search).get('pakket') || '';
-          var urlAbo = new URLSearchParams(window.location.search).get('abo') || '';
-          track('form_submit', {
-            dienst_interesse: dienst,
-            pakket_van_url: urlPakket,
-            abo_van_url: urlAbo
-          });
-          if (window.apAdsConversion) window.apAdsConversion('lead');
-          observer.disconnect();
-        }
+    var aanvraagGeteld = false;
+    var formObserver = null;
+    var checkAanvraag = function () {
+      if (aanvraagGeteld) return;
+      if (form.getAttribute('data-verzonden') !== 'ja') return;
+      var success = document.getElementById('formSuccess');
+      if (!success || getComputedStyle(success).display === 'none') return;
+      aanvraagGeteld = true;
+      if (formObserver) formObserver.disconnect();
+      var dienst = document.getElementById('looking_for')?.value || 'unknown';
+      var urlPakket = new URLSearchParams(window.location.search).get('pakket') || '';
+      var urlAbo = new URLSearchParams(window.location.search).get('abo') || '';
+      track('form_submit', {
+        dienst_interesse: dienst,
+        pakket_van_url: urlPakket,
+        abo_van_url: urlAbo
       });
-      observer.observe(document.body, { subtree: true, attributes: true, attributeFilter: ['class', 'style'] });
-      setTimeout(function () { observer.disconnect(); }, 10000);
-    });
+      if (window.apAdsConversion) window.apAdsConversion('lead');
+    };
+    formObserver = new MutationObserver(checkAanvraag);
+    formObserver.observe(form, { subtree: true, attributes: true, attributeFilter: ['class', 'style', 'data-verzonden'] });
+    checkAanvraag();
   }
 
   // 12. Scroll depth (50% en 90%)
