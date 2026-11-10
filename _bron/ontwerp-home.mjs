@@ -114,7 +114,7 @@ export function maakVarianten({ pagina, machine, checkKaart, watWeDoen, werkHome
 .ov-foto figcaption b { font-size: 14px; color: var(--wit); }
 .ov-foto figcaption span { font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--geel); }
 @media (max-width: 960px) {
-  .ov-b .wrap { grid-template-columns: 1fr; gap: 36px; }
+  .ov-b .wrap { grid-template-columns: minmax(0, 1fr); gap: 36px; }
   .ov-b-beeld .check-kaart { transform: none; }
   .ov-tegels { grid-template-columns: 1fr; gap: 12px; margin-top: 32px; }
 }
@@ -126,8 +126,15 @@ export function maakVarianten({ pagina, machine, checkKaart, watWeDoen, werkHome
 }
 @media (max-width: 600px) {
   .ov-b h1 { font-size: 38px; }
-  .ov-tegel { padding: 18px 18px 16px; }
-  .ov-tegel .ov-zin { font-size: 14.5px; }
+  .ov-c h1 { font-size: 36px; }
+  .ov-c .lead { font-size: 16px; }
+  .ov-c .hero-rechts { gap: 18px; margin-top: 18px; }
+  .ov-tegels { gap: 10px; margin-top: 26px; }
+  .ov-tegel { padding: 14px 16px 12px; gap: 4px; }
+  .ov-tegel b { font-size: 20px; }
+  .ov-tegel .ov-zin { display: none; }
+  .ov-nr { font-size: 40px; right: 12px; }
+  .ov-onder { padding-top: 8px; font-size: 14px; }
   .ov-balk .wrap > span { display: none; }
   .ov-balk nav { width: 100%; justify-content: space-between; }
 }
