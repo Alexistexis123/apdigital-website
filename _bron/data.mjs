@@ -2,7 +2,7 @@
 // Alleen feiten met een bron; de bronnen staan als commentaar of in bron-velden (die komen niet op de site).
 export const pijlers = [
   {
-    key: 'websites', slug: 'websites-laten-maken', naam: 'Websites', label: 'Pijler 1 · Websites',
+    key: 'websites', slug: 'websites-laten-maken', naam: 'Websites', label: '01 · Vindbaar in Google en AI · Websites',
     kort: 'Een site die klanten oplevert, op je telefoon net zo goed als op je laptop.',
     voorbeelden: ['Nieuwe site of vernieuwing', 'Offerte- en contactformulieren', 'Vindbaar in Google, ook lokaal'],
     h1: 'Een website die <span class="serif">klanten oplevert.</span>',
@@ -31,7 +31,7 @@ export const pijlers = [
     cta: 'Benieuwd wat een nieuwe site <span class="serif">jou oplevert?</span>',
   },
   {
-    key: 'apps', slug: 'apps-laten-maken', naam: 'Apps', label: 'Pijler 2 · Apps op maat',
+    key: 'apps', slug: 'apps-laten-maken', naam: 'Apps', label: '02 · Software en automatisering · Apps op maat',
     kort: 'Software die past op hoe jouw bedrijf werkt, in plaats van andersom.',
     voorbeelden: ['Planning en werkbonnen', 'Urenregistratie', 'Kassa, voorraad, klantportaal'],
     h1: 'Een app die past op <span class="serif">hoe jij werkt.</span>',
@@ -53,7 +53,7 @@ export const pijlers = [
     cta: 'Loopt je bedrijf vast op <span class="serif">handwerk en lijstjes?</span>',
   },
   {
-    key: 'automatisering', slug: 'processen-automatiseren', naam: 'Automatisering', label: 'Pijler 3 · Processen en automatisering',
+    key: 'automatisering', slug: 'processen-automatiseren', naam: 'Automatisering', label: '02 · Software en automatisering · Processen',
     kort: 'Werk dat elke week terugkomt, laten we automatisch lopen.',
     voorbeelden: ['Rapportages die zichzelf maken', 'Mails en posts op de juiste tijd', 'Eén dashboard voor alles'],
     h1: 'Werk dat terugkomt, <span class="serif">loopt vanzelf.</span>',

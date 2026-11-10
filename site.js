@@ -60,7 +60,9 @@
     requestAnimationFrame(toonZichtbaar)
   }
   var h = (location.hash || '').slice(1)
-  if (tabs.length && ['websites', 'apps', 'automatisering'].indexOf(h) > -1) filter(h)
+  var oudAnker = { websites: 't1', apps: 't2', automatisering: 't2' }
+  if (tabs.length && oudAnker[h]) h = oudAnker[h]
+  if (tabs.length && ['t1', 't2'].indexOf(h) > -1) { filter(h); var doel = document.getElementById(h); if (doel) doel.scrollIntoView() }
 
   // ---------- case-verhalen (hover op desktop via CSS, tik/klik via knop) ----------
   document.querySelectorAll('.verhaal-knop').forEach(function (k) {
@@ -218,7 +220,7 @@
     var mailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail.value.trim())
     var ok = true
     fout(naam, !naam.value.trim()); if (!naam.value.trim()) ok = false
-    var contact = mailOk || tel.value.replace(/\D/g, '').length >= 9
+    var contact = form.dataset.mail === 'verplicht' ? mailOk : (mailOk || tel.value.replace(/\D/g, '').length >= 9)
     fout(mail, !contact); if (!contact) ok = false
     if (!ok) { form.querySelector('.fout input, .fout textarea').focus(); return }
     var keuzes = []
@@ -229,7 +231,8 @@
     var data = new FormData(form)
     data.delete('over')
     data.append('access_key', 'd33cb3a8-8112-40a2-a85d-9501a91cdeea')
-    data.append('subject', 'Nieuwe aanvraag via AP Digital')
+    var onderwerp = form.dataset.onderwerp || 'Nieuwe aanvraag via AP Digital'
+    data.append('subject', onderwerp)
     data.append('from_name', 'AP Digital contactformulier')
     function klaar() {
       veld('formFields').style.display = 'none'
@@ -238,8 +241,11 @@
     function vangnet() {
       var regels = ['Naam: ' + naam.value, 'Bedrijf: ' + (veld('company') ? veld('company').value : ''), 'E-mail: ' + mail.value, 'Telefoon: ' + tel.value]
       if (veld('stad') && veld('stad').value) regels.push('Plaats: ' + veld('stad').value)
+      if (veld('website')) regels.push('Website: ' + veld('website').value)
+      if (veld('zoekterm')) regels.push('Gevonden worden op: ' + veld('zoekterm').value)
+      if (veld('pakket') && veld('pakket').value) regels.push('Pakket: ' + veld('pakket').value)
       regels.push('Waar gaat het over: ' + (lf ? lf.value : ''), '', 'Bericht:', bericht ? bericht.value : '')
-      location.href = 'mailto:info@apdigital.nl?subject=' + encodeURIComponent('Nieuwe aanvraag via AP Digital') + '&body=' + encodeURIComponent(regels.join('\n'))
+      location.href = 'mailto:info@apdigital.nl?subject=' + encodeURIComponent(onderwerp) + '&body=' + encodeURIComponent(regels.join('\n'))
       klaar()
     }
     fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { Accept: 'application/json' }, body: data })
