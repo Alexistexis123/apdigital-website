@@ -15,7 +15,7 @@
 
   var html = document.documentElement;
   // Zelfde versie als in de src van dit script (?v=), zodat css en js samen verversen.
-  var ver = '2';
+  var ver = '3';
   try { var eigen = /[?&]v=([\w.-]+)/.exec(document.currentScript.src); if (eigen) ver = eigen[1]; } catch (err) { /* geen currentScript: de vaste versie */ }
   if (!window.matchMedia || !window.requestAnimationFrame || !('IntersectionObserver' in window)) return;
   var reduceQ = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -207,16 +207,22 @@
   }
 
   /* ---------------------------------------------------------
-     3. Deeltjesveld in de hero (WebGL, geen library)
+     3. Deeltjesveld achter de hele pagina (WebGL, geen library)
         Een bol van punten rechts naast de kop. Scroll je, dan rolt
-        hij uit tot een golvend veld dat achter de drie tegels langs
-        loopt (de tegels zijn dekkend, die blijven dus altijd leesbaar).
+        hij uit tot een golvend veld. Dat veld is een vaste laag
+        achter de pagina (het doek is zo groot als het venster en
+        scrolt niet mee), dus het loopt de hele pagina door als
+        rustige achtergrond en houdt niet meer op onder de hero.
+        Kaarten, beelden en het gele blok zijn dekkend en liggen
+        erboven; achter losse tekst en knoppen worden de punten
+        gedimd (rustzones, per regel van de kop). Voorbij de hero
+        is het hele veld zwakker, en vlak voor de voet dooft het uit.
         Reageert op muis en vinger; een tik geeft een gele schokgolf,
         een veeg trekt een gele staart en het veld schuift mee met
-        kantelen. Achter tekst en knoppen worden de punten gedimd
-        (rustzones, per regel van de kop), zodat alles leesbaar blijft.
-        Al het rekenwerk zit in de vertex-shader; buiten beeld staat
-        het stil.
+        kantelen. Al het rekenwerk zit in de vertex-shader.
+        Zuinig: gebeurt er even niets, dan tekent het op halve
+        snelheid, en na een tijdje stilte staat het stil tot je weer
+        scrolt, beweegt of tikt. Verborgen tabblad = niets tekenen.
      --------------------------------------------------------- */
   function field() {
     var hero = $('.hero2');
@@ -237,10 +243,10 @@
       if (/swiftshader|llvmpipe|software|basic render/i.test(kaart)) return;
     } catch (err) { /* niet uit te lezen: gewoon proberen, de snelheidsmeting hieronder vangt het op */ }
 
-    var NZ = 7; // rustzones: label, tot 4 regels van de kop, de zin en de knoppen
+    var NZ = 10; // rustzones: in de hero het label, tot 4 regels van de kop, de zin en de knoppen; daaronder de losse tekstblokken die in beeld zijn
     var VS = [
       'attribute vec3 a;',
-      'uniform float t,m,asp,us,sz,al,R,ph,hz,hs;',
+      'uniform float t,m,asp,us,sz,al,R,ph,hz,hs,hb,am;',
       'uniform vec2 c,ptr,tl;',
       'uniform vec4 q[' + NZ + '];uniform float qs[' + NZ + '];',
       'uniform vec3 wv[2],tr[12];',
@@ -291,10 +297,12 @@
       ' float h=ph*exp(-dot(d,d)*26.);',
       ' p+=normalize(d+1e-4)*h*.045/av;',
       ' float ring=(1.-k)*smoothstep(.045,0.,abs(y-sin(t*.33)*.92))*(.15+.85*fr);',
-      ' float cr=k*smoothstep(.022,0.,abs(u-(1.-fract(t*.07))));',
+      // onder de hero is het veld een rustige achtergrond: zwakker, en de gele golf ook
+      ' float ab=mix(am,1.,smoothstep(hb-.24,hb+.04,p.y));',
+      ' float cr=k*smoothstep(.022,0.,abs(u-(1.-fract(t*.07))))*(.45+.55*ab);',
       ' vH=clamp(h+ring+cr+hw,0.,1.);',
       ' float ap=smoothstep(7.4,6.,Z)*smoothstep(1.4,2.1,Z)*.8;',
-      ' float fa=al*mix(.16+.84*fr*fr,ap,k)*bk,zs=mix(.75+.85*fr,2.4/Z+.3,k)*(1.+vH*.7),zk=1.;',
+      ' float fa=al*ab*mix(.16+.84*fr*fr,ap,k)*bk,zs=mix(.75+.85*fr,2.4/Z+.3,k)*(1.+vH*.7),zk=1.;',
       ' if(sa>=0.){p=sp;fa=sa*.9;vH=1.;zs=.8+1.3*sa;zk=.82;}',
       // rustzones: achter tekst en knoppen worden de punten zacht gedimd
       ' float zm=0.;',
@@ -358,19 +366,36 @@
     gl.vertexAttribPointer(loc, 3, gl.FLOAT, false, 0, 0);
 
     var U = {};
-    ['t', 'm', 'asp', 'us', 'sz', 'al', 'R', 'ph', 'hz', 'hs', 'c', 'ptr', 'tl', 'q', 'qs', 'wv', 'tr'].forEach(function (n) { U[n] = gl.getUniformLocation(prog, n); });
+    ['t', 'm', 'asp', 'us', 'sz', 'al', 'R', 'ph', 'hz', 'hs', 'hb', 'am', 'c', 'ptr', 'tl', 'q', 'qs', 'wv', 'tr'].forEach(function (n) { U[n] = gl.getUniformLocation(prog, n); });
 
     gl.disable(gl.DEPTH_TEST);
     gl.enable(gl.BLEND);
     gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
     gl.clearColor(0, 0, 0, 0);
 
-    hero.insertBefore(canvas, hero.firstChild);
+    // Vaste laag achter de hele pagina (z-index -1): alles wat een eigen achtergrond heeft ligt erboven.
+    document.body.insertBefore(canvas, document.body.firstChild);
 
-    // ---- maten: alles ten opzichte van de hero, alleen opnieuw bij een andere maat ----
+    // ---- maten: bol en rustzones ten opzichte van de hero, alleen opnieuw bij een andere maat ----
     var rng = document.createRange();
-    var G = { w: 0, h: 0, sx: 0, sy: 0, sr: 0, hor: 0, zq: new Float32Array(NZ * 4), zs: new Float32Array(NZ) };
+    var G = { w: 0, h: 0, sx: 0, sy: 0, sr: 0, hor: 0, hz: [], zq: new Float32Array(NZ * 4), zs: new Float32Array(NZ) };
     var dpr = 1, stale = true;
+    // Losse tekst onder de hero (staat direct op de achtergrond, niet in een kaart): daar dimmen we de punten.
+    // Per blok onthouden we waar de tekst zit ten opzichte van het element; per beeld is dan één meting genoeg.
+    var voet = $('.voet');
+    var blokken = $$('main .sectie-kop > div, main .sectie-kop > a, main .tak-kop, main .over-rij > div, main .reviews-top')
+      .filter(function (el) { return !hero.contains(el); })
+      .map(function (el) { return { el: el, on: false, dl: 0, dt: 0, w: 0, h: 0 }; });
+    if (blokken.length) {
+      var bio = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { for (var i = 0; i < blokken.length; i++) if (blokken[i].el === e.target) blokken[i].on = e.isIntersecting; });
+      }, { rootMargin: '80px 0px 80px 0px' });
+      blokken.forEach(function (bl) { bio.observe(bl.el); });
+      if ('ResizeObserver' in window) {
+        var bro = new ResizeObserver(function () { stale = true; });
+        blokken.forEach(function (bl) { bro.observe(bl.el); });
+      }
+    }
     function box(el, hr, text) {
       var b;
       if (text) { rng.selectNodeContents(el); b = rng.getBoundingClientRect(); } else b = el.getBoundingClientRect();
@@ -393,18 +418,21 @@
     }
     function measure() {
       stale = false;
-      var hr = hero.getBoundingClientRect();
-      var w = hr.width, h = hr.height;
-      G.w = w; G.h = h;
+      // Het doek is zo groot als het venster (op de telefoon het grote venster, zodat de adresbalk niets verspringt).
+      var cr = canvas.getBoundingClientRect();
+      var vw = cr.width, vh = cr.height;
+      G.w = vw; G.h = vh;
       dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-      if (w * h * dpr * dpr > 2600000) dpr = Math.max(0.75, Math.sqrt(2600000 / (w * h)));
-      var cw = Math.max(2, Math.round(w * dpr)), chh = Math.max(2, Math.round(h * dpr));
+      if (vw * vh * dpr * dpr > 3200000) dpr = Math.max(0.6, Math.sqrt(3200000 / (vw * vh)));
+      var cw = Math.max(2, Math.round(vw * dpr)), chh = Math.max(2, Math.round(vh * dpr));
       if (canvas.width !== cw || canvas.height !== chh) { canvas.width = cw; canvas.height = chh; }
 
+      var hr = hero.getBoundingClientRect();
+      var w = hr.width, h = hr.height;
       var h1 = $('.hero2 h1'), wrap = $('.hero2 .wrap'), tegels = $('.kies-tegels');
       var label = $('.hero2 .label'), lead = $('.hero-rechts .lead'), knoppen = $('.hero-rechts .knoppen-rij');
 
-      // rustzones: [vak, sterkte, marge]
+      // rustzones in de hero: [vak ten opzichte van de hero, sterkte, marge]
       var zones = [];
       if (label) zones.push([box(label, hr, true), 0.8, 6]);
       if (h1) {
@@ -414,16 +442,15 @@
       }
       if (lead) zones.push([box(lead, hr, true), 0.88, 8]);
       if (knoppen) zones.push([box(knoppen, hr), 0.84, 6]);
-      for (var i = 0; i < NZ; i++) {
-        var z = zones[i], o = i * 4;
-        G.zs[i] = 0;
-        if (!z || !(z[0].r - z[0].l > 0)) continue;
-        G.zq[o] = (z[0].l + z[0].r) / w - 1;
-        G.zq[o + 1] = 1 - (z[0].t + z[0].b) / h;
-        G.zq[o + 2] = (z[0].r - z[0].l + 2 * z[2]) / w;
-        G.zq[o + 3] = (z[0].b - z[0].t + 2 * z[2]) / h;
-        G.zs[i] = z[1];
-      }
+      G.hz = zones.filter(function (z) { return z[0].r - z[0].l > 0; });
+
+      // losse tekstblokken onder de hero: waar zit de tekst binnen het element
+      blokken.forEach(function (bl) {
+        var er = bl.el.getBoundingClientRect(), tr = er;
+        if (bl.el.tagName !== 'A') { rng.selectNodeContents(bl.el); tr = rng.getBoundingClientRect(); }
+        if (!(tr.width > 0)) tr = er;
+        bl.dl = tr.left - er.left; bl.dt = tr.top - er.top; bl.w = tr.width; bl.h = tr.height;
+      });
 
       // bol: rechts naast de kop en boven de tegels; op een smal scherm half over de rechterrand
       var hb = h1 ? box(h1, hr) : { t: 80, b: 160 };
@@ -437,7 +464,9 @@
       } else {
         // niet groter dan er tussen de bovenrand en de tegels past (hij mag er 40px achter zakken)
         G.sr = Math.max(150, Math.min(270, w * 0.17, (tt + 32) / 2));
-        G.sx = Math.min(w - G.sr * 0.5, Math.max(wb.r - 24, w - G.sr * 1.25));
+        // Hij hoort bij de inhoud: hooguit zijn eigen straal voorbij de rechterrand van de inhoud.
+        // Zo zweeft hij op een heel breed scherm niet los ver naar rechts.
+        G.sx = Math.min(w - G.sr * 0.5, Math.max(wb.r - 24, Math.min(w - G.sr * 1.25, wb.r + G.sr * 1.05)));
         G.sy = Math.max(G.sr + 8, Math.min((hb.t + hb.b) / 2 + 60, tt + 40 - G.sr));
       }
       // veld: horizon net boven de tegels
@@ -447,7 +476,7 @@
     // muis en vinger (venstercoordinaten; omrekenen doen we per beeld)
     var ptr = { x: 0, y: 0, at: -1e9 };
     function point(x, y) { ptr.x = x; ptr.y = y; ptr.at = performance.now(); }
-    window.addEventListener('mousemove', function (e) { point(e.clientX, e.clientY); }, { passive: true });
+    window.addEventListener('mousemove', function (e) { point(e.clientX, e.clientY); wek(); }, { passive: true });
 
     // Aanraking: een tik wordt een schokgolf, een veeg een staart.
     // Alles passief, dus scrollen merkt er niets van.
@@ -460,12 +489,14 @@
       point(tt.clientX, tt.clientY);
       down = { x: tt.clientX, y: tt.clientY, at: performance.now(), far: false };
       trail.length = 0;
+      wek();
     }, { passive: true });
     window.addEventListener('touchmove', function (e) {
       var tt = e.touches && e.touches[0];
       if (!tt) return;
       var x = tt.clientX, y = tt.clientY, last = trail[0];
       point(x, y);
+      wek();
       if (down && Math.abs(x - down.x) + Math.abs(y - down.y) > 14) down.far = true;
       if (!last || Math.abs(x - last.x) + Math.abs(y - last.y) > 20) {
         trail.unshift({ x: x, y: y, at: performance.now() });
@@ -478,6 +509,7 @@
         tapN = 1 - tapN;
       }
       down = null;
+      wek();
     }, { passive: true });
     window.addEventListener('touchcancel', function () { down = null; }, { passive: true });
 
@@ -524,16 +556,58 @@
       });
     })();
 
-    var seen = true, fraf = 0, t0 = performance.now(), first = true, lost = false;
+    var fraf = 0, T = 0, first = true, lost = false, leeg = false, vorig = 0;
     // Snelheidsbewaking: haalt het toestel geen vloeiend beeld, dan eerst de helft
     // van de punten, en als dat niet helpt gaat het veld uit.
     var draw = N, pace = { n: 0, sum: 0, last: 0, strikes: 0 };
     var cur = { m: 0, px: 0, py: 0, ph: 0, al: 0 };
+    // Laatste keer dat er iets gebeurde (scrollen, muis, vinger, toets): daar hangt de zuinige stand aan.
+    var actie = performance.now();
+    function wek() { actie = performance.now(); fkick(); }
+
+    // Een rustzone erbij (venstermaten in px); buiten beeld of vol = overslaan.
+    var zn = 0;
+    function zone(l, t, r, b, sterkte, marge, cw, ch) {
+      if (zn >= NZ || b < -50 || t > ch + 50 || !(r - l > 0)) return;
+      var o = zn * 4;
+      G.zq[o] = (l + r) / cw - 1;
+      G.zq[o + 1] = 1 - (t + b) / ch;
+      G.zq[o + 2] = (r - l + 2 * marge) / cw;
+      G.zq[o + 3] = (b - t + 2 * marge) / ch;
+      G.zs[zn++] = sterkte;
+    }
 
     function frame(now) {
       fraf = 0;
-      if (!seen || document.hidden || lost) { pace.last = 0; return; }
-      if (pace.last) {
+      if (document.hidden || lost) { pace.last = 0; vorig = 0; return; }
+      if (stale) measure();
+      var r = canvas.getBoundingClientRect();
+      var cw = r.width, ch = r.height;
+      if (cw < 2 || ch < 2) return;
+      if (Math.abs(cw - G.w) > 1 || Math.abs(ch - G.h) > 1) { measure(); r = canvas.getBoundingClientRect(); cw = r.width; ch = r.height; }
+      var asp = cw / ch;
+      var hr = hero.getBoundingClientRect();
+      var hx = hr.left - r.left, hy = hr.top - r.top; // de hero binnen het doek
+
+      // Voorbij de hero is het veld een rustige achtergrond; vlak voor de voet dooft het uit.
+      var amb = sm(ch * 0.55, ch * 0.05, hr.bottom - r.top);
+      var uit = voet ? sm(ch * 0.9, ch * 1.6, voet.getBoundingClientRect().top - r.top) : 1;
+
+      // Zuinig: niets te zien = niets tekenen; lang niets gebeurd = stilstaan tot er weer iets gebeurt.
+      var stil = now - actie, bezig = false;
+      for (var bi = 0; bi < 2; bi++) if (now - taps[bi].at < 2600) bezig = true;
+      if (trail.length) bezig = true;
+      if (uit < 0.004) {
+        if (!leeg) { gl.viewport(0, 0, canvas.width, canvas.height); gl.clear(gl.COLOR_BUFFER_BIT); leeg = true; }
+        pace.last = 0; vorig = 0;
+        return;
+      }
+      if (!bezig && !first && stil > (amb > 0.5 ? (small ? 12000 : 45000) : 120000)) { pace.last = 0; vorig = 0; return; }
+      // Rustige achtergrond en even niets gebeurd: hooguit zo'n 30 beelden per seconde, ook op een snel scherm.
+      var traag = !bezig && !first && cur.m > 0.97 && stil > 1500;
+      if (traag && vorig && now - vorig < 30) { pace.last = 0; fkick(); return; }
+
+      if (pace.last && !traag) {
         var dt = now - pace.last;
         if (dt < 250 && ++pace.n > 12) pace.sum += dt;
         if (pace.n >= 52) {
@@ -545,29 +619,32 @@
           if (!pace.strikes) pace.n = -1e9; // loopt goed: niet meer meten
         }
       }
-      pace.last = now;
-      if (stale) measure();
-      var r = canvas.getBoundingClientRect();
-      var cw = r.width, ch = r.height;
-      if (cw < 2 || ch < 2) return;
-      if (Math.abs(cw - G.w) > 1 || Math.abs(ch - G.h) > 1) { measure(); r = canvas.getBoundingClientRect(); cw = r.width; ch = r.height; }
-      var asp = cw / ch, t = (now - t0) / 1000;
+      pace.last = traag ? 0 : now;
+      // eigen klok: loopt alleen door als er getekend wordt, dus geen sprong na een pauze
+      if (vorig) T += Math.min(now - vorig, 100) / 1000;
+      vorig = now;
+      var t = T;
 
       // scroll: de bol rolt uit tot een veld
       var tm = sm(30, Math.max(260, G.hor - 40), window.scrollY || 0);
       cur.m += (tm - cur.m) * (first ? 1 : 0.14);
       cur.al += ((small ? 0.9 : 1) - cur.al) * (first ? 1 : 0.06);
 
-      var cx = G.sx / cw * 2 - 1, cy = 1 - G.sy / ch * 2, R = 2 * G.sr / ch;
+      var cx = (hx + G.sx) / cw * 2 - 1, cy = 1 - (hy + G.sy) / ch * 2, R = 2 * G.sr / ch;
+
+      // Horizon: in de hero net boven de tegels; scroll je door, dan blijft hij op een vaste hoogte in het venster hangen.
+      var hp = hy + G.hor, rust = ch * 0.2, dh = hp - rust;
+      var hor = rust + 0.5 * (dh + Math.sqrt(dh * dh + 3600));
+      var hz = 1 - 2 * hor / ch;
 
       // geen muis of vinger: een denkbeeldige vinger maakt rondjes
       var tpx, tpy, tph;
       if (now - ptr.at < 2600) {
         tpx = (ptr.x - r.left) / cw * 2 - 1; tpy = 1 - (ptr.y - r.top) / ch * 2; tph = 1;
       } else {
-        var k = cur.m, hzc = 1 - 2 * G.hor / ch;
+        var k = cur.m;
         tpx = (cx + Math.cos(t * 0.45) * R * 0.6 / asp) * (1 - k) + Math.cos(t * 0.3) * 0.7 * k;
-        tpy = (cy + Math.sin(t * 0.6) * R * 0.55) * (1 - k) + (hzc - 0.05 + Math.sin(t * 0.5) * 0.03) * k;
+        tpy = (cy + Math.sin(t * 0.6) * R * 0.55) * (1 - k) + (hz - 0.05 + Math.sin(t * 0.5) * 0.03) * k;
         tph = 0.8;
       }
       cur.px += (tpx - cur.px) * (first ? 1 : 0.12);
@@ -575,19 +652,33 @@
       cur.ph += (tph - cur.ph) * 0.08;
       first = false;
 
-      var hz = 1 - 2 * G.hor / ch;
+      // rustzones voor dit beeld: eerst de hero (als die in beeld is), dan de losse tekstblokken
+      zn = 0;
+      var zi;
+      if (hr.bottom > 0) for (zi = 0; zi < G.hz.length; zi++) { var hzv = G.hz[zi][0]; zone(hx + hzv.l, hy + hzv.t, hx + hzv.r, hy + hzv.b, G.hz[zi][1], G.hz[zi][2], cw, ch); }
+      for (zi = 0; zi < blokken.length; zi++) {
+        var bl = blokken[zi];
+        if (!bl.on) continue;
+        var br = bl.el.getBoundingClientRect(), bx = br.left - r.left + bl.dl, by = br.top - r.top + bl.dt;
+        zone(bx, by, bx + bl.w, by + bl.h, 0.94, 12, cw, ch);
+      }
+      for (zi = zn; zi < NZ; zi++) G.zs[zi] = 0;
+
       gl.viewport(0, 0, canvas.width, canvas.height);
       gl.clear(gl.COLOR_BUFFER_BIT);
+      leeg = false;
       gl.uniform1f(U.t, t);
       gl.uniform1f(U.m, cur.m);
       gl.uniform1f(U.asp, asp);
       gl.uniform1f(U.us, ch / 1000);
       gl.uniform1f(U.sz, (small ? 2.1 : 2.3) * dpr);
-      gl.uniform1f(U.al, cur.al);
+      gl.uniform1f(U.al, cur.al * uit);
       gl.uniform1f(U.R, R);
       gl.uniform1f(U.ph, cur.ph);
       gl.uniform1f(U.hz, hz);
       gl.uniform1f(U.hs, (hz + 1.08) / 0.881);
+      gl.uniform1f(U.hb, Math.max(-3, Math.min(3, 1 - 2 * (hr.bottom - r.top) / ch)));
+      gl.uniform1f(U.am, small ? 0.5 : 0.55);
       gl.uniform2f(U.c, cx, cy);
       gl.uniform2f(U.ptr, cur.px, cur.py);
       gl.uniform4fv(U.q, G.zq);
@@ -620,13 +711,11 @@
     }
     function fkick() { if (!fraf) fraf = requestAnimationFrame(frame); }
 
-    new IntersectionObserver(function (e) {
-      seen = e[e.length - 1].isIntersecting;
-      fkick();
-    }, { threshold: 0 }).observe(hero);
-    document.addEventListener('visibilitychange', function () { if (!document.hidden) fkick(); });
-    window.addEventListener('resize', function () { stale = true; fkick(); }, { passive: true });
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { stale = true; });
+    window.addEventListener('scroll', wek, { passive: true });
+    window.addEventListener('keydown', wek, { passive: true });
+    document.addEventListener('visibilitychange', function () { if (!document.hidden) wek(); });
+    window.addEventListener('resize', function () { stale = true; wek(); }, { passive: true });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { stale = true; wek(); });
     canvas.addEventListener('webglcontextlost', function (ev) {
       ev.preventDefault();
       lost = true;

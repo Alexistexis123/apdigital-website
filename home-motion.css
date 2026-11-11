@@ -6,8 +6,10 @@
    Zonder JavaScript of met reduced motion wordt dit bestand niet eens geladen.
    Het script haalt dit bestand op als tekst en zet het in een style-blok. */
 
-/* ---------- 1. Hero: deeltjesveld (WebGL) achter de inhoud ---------- */
-.hm-veld { position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0; transition: opacity 1.1s ease; }
+/* ---------- 1. Deeltjesveld (WebGL): vaste laag achter de hele pagina ---------- */
+/* Zo groot als het venster en scrolt niet mee. z-index -1: alles met een eigen achtergrond (kaarten, beelden,
+   het gele blok) ligt erboven. Op de telefoon het grote venster (lvh), zodat de adresbalk niets laat verspringen. */
+.hm-veld { position: fixed; left: 0; top: 0; width: 100%; height: 100vh; height: 100lvh; z-index: -1; pointer-events: none; opacity: 0; transition: opacity 1.1s ease; }
 .hm-veld.aan { opacity: 1; }
 
 /* knopje "kantel je telefoon": alleen waar de browser eerst om toestemming vraagt (iPhone) */

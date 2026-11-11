@@ -15,7 +15,7 @@ const OUD = join(D, 'oud')
 const SITE = 'https://apdigital.nl'
 const VANDAAG = process.env.BOUWDATUM || new Date().toISOString().slice(0, 10)
 const V = '6' // cache-buster site.css / site.js
-const VM = '2' // cache-buster home-motion.js en home-motion.css (het script leest zijn eigen versie uit de src)
+const VM = '3' // cache-buster home-motion.js en home-motion.css (het script leest zijn eigen versie uit de src)
 const steden = JSON.parse(readFileSync(join(D, 'steden.json'), 'utf8'))
 const oud = f => readFileSync(join(OUD, f), 'utf8')
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;')
