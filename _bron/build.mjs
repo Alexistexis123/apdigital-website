@@ -456,9 +456,9 @@ const home = pagina({
   og: { titel: 'AP Digital | Vindbaar in Google en AI, software op maat', beschrijving: 'Digitaal werk dat gewoon werkt. Gevonden worden in Google en AI, plus software en automatisering op maat. Uit Arnhem.' },
   actief: 'home',
   kopExtra: '<meta name="google-site-verification" content="CgNNQrAZwi1S_UNIU0qI0KRWeE4KUXG3Hbb" />',
-  // Beweging op de homepage (veld in de hero, koppen per woord, stappen, kaartstapel). Alleen hier geladen; laadt zelf home-motion.css.
+  // Beweging op de homepage (veld in de hero, koppen per woord, stappen, kaartstapel). Alleen hier geladen; laadt zelf home-motion.css, en pas na de load en de eerste weergave (anders rekent Lighthouse het mee in LCP).
   voetExtra: `
-<script defer src="/home-motion.js?v=${VM}"></script>`,
+<script>addEventListener('load',function(){var d=0,g=function(){if(d)return;d=1;var s=document.createElement('script');s.src='/home-motion.js?v=${VM}';document.body.appendChild(s)};try{new PerformanceObserver(function(l,o){if(l.getEntriesByName('first-contentful-paint').length){o.disconnect();setTimeout(g,200)}}).observe({type:'paint',buffered:true})}catch(e){g()}setTimeout(g,5000)})</script>`,
   jsonld: [
     ld({ ...BEDRIJF, description: 'AP Digital uit Arnhem zorgt dat bedrijven gevonden worden in Google en in AI\'s, en bouwt websites, software en automatisering op maat.', areaServed: [{ '@type': 'City', name: 'Arnhem' }, { '@type': 'City', name: 'Ede' }, { '@type': 'City', name: 'Nijmegen' }, { '@type': 'City', name: 'Wageningen' }, { '@type': 'Country', name: 'Nederland' }], sameAs: ['https://wa.me/31614160265'] }),
     ld({ '@type': 'WebSite', url: `${SITE}/`, name: 'AP Digital', publisher: { '@id': `${SITE}/#business` }, inLanguage: 'nl-NL' }),

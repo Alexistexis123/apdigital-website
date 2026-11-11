@@ -11,6 +11,7 @@ Alle pagina's komen uit een generator: `node _bron/build.mjs` (vanuit de repo-ro
 - `_bron/oud/`: de oude pagina's. Blogs, sectorpagina's, cases en juridisch houden die inhoud en krijgen de nieuwe kop, voet en stijl; tekstfixes in `FIXES` in build.mjs.
 - Stijl `site.css`, gedrag `site.js`, schermen in `img/werk/`, fonts zelf gehost in `fonts/` (Geist, Geist Mono, Instrument Serif).
 - Meten blijft `events.js` (GA4, Ads, Consent Mode, Meta Pixel na consent) + Vercel Analytics + Clarity. Formulier: Web3Forms, ids `contactForm`/`formSuccess`/`looking_for` niet hernoemen (events.js leunt erop).
+- Beweging op de homepage (branch `home-motion`, 11-2026): `home-motion.js` + `home-motion.css`, alleen geladen door `index.html` via `voetExtra` bij `home` in build.mjs (een regel inline die het script na de load inlaadt; het script laadt zelf de css). Veld in de hero (WebGL, uit zonder grafische kaart), sectiekoppen per woord, lijn en cijfer bij de stappen, werkkaarten als stapel op de telefoon. Alles achter de klasse `hm` op `<html>`; zonder JS of met reduced motion gebeurt er niets. `site.css`, `site.js` en `events.js` blijven er los van.
 - `_bron/`, CLAUDE.md en de werk-md's staan in `.vercelignore` en worden niet gepubliceerd.
 - 301's: /webshops naar /websites-laten-maken, /horeca-websites naar /restaurant-websites (vercel.json).
 

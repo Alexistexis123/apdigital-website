@@ -23,11 +23,22 @@
   function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
   function sm(a, b, v) { v = clamp((v - a) / (b - a)); return v * v * (3 - 2 * v); }
 
-  var css = document.createElement('link');
-  css.rel = 'stylesheet';
-  css.href = '/home-motion.css?v=1';
-  css.onload = start;
-  document.head.appendChild(css);
+  // Pas na de load, na de eerste weergave en als de browser even niets te doen
+  // heeft: de eerste weergave (en dus LCP) merkt niets van dit bestand. De stijl
+  // halen we op als tekst (geen stylesheet-verzoek dat de weergave kan ophouden).
+  afterPaint(function () {
+    if (!window.fetch) return;
+    fetch('/home-motion.css?v=1').then(function (r) {
+      if (!r.ok) throw new Error('css');
+      return r.text();
+    }).then(function (txt) {
+      var st = document.createElement('style');
+      st.setAttribute('data-hm', '');
+      st.textContent = txt;
+      document.head.appendChild(st);
+      idle(start);
+    }).catch(function () { /* geen stijl: de pagina blijft zoals hij was */ });
+  });
 
   var started = false;
   function start() {
@@ -37,18 +48,31 @@
     html.classList.add('hm');
     steps();
     stack();
-    afterLoad(field);
+    setTimeout(function () { idle(field); }, 300);
     if (reduceQ.addEventListener) reduceQ.addEventListener('change', function (e) { if (e.matches) window.location.reload(); });
   }
 
-  // pas na de eerste weergave en als de browser even niets te doen heeft
+  function idle(fn) {
+    if ('requestIdleCallback' in window) window.requestIdleCallback(fn, { timeout: 1500 });
+    else setTimeout(fn, 250);
+  }
   function afterLoad(fn) {
-    var go = function () {
-      if ('requestIdleCallback' in window) window.requestIdleCallback(fn, { timeout: 1500 });
-      else setTimeout(fn, 250);
-    };
-    if (document.readyState === 'complete') go();
-    else window.addEventListener('load', go, { once: true });
+    if (document.readyState === 'complete') fn();
+    else window.addEventListener('load', fn, { once: true });
+  }
+  function afterPaint(fn) {
+    afterLoad(function () {
+      var done = false;
+      var go = function () { if (done) return; done = true; idle(fn); };
+      try {
+        if (performance.getEntriesByName('first-contentful-paint').length) return go();
+        var po = new PerformanceObserver(function (l) {
+          if (l.getEntriesByName('first-contentful-paint').length) { po.disconnect(); go(); }
+        });
+        po.observe({ type: 'paint', buffered: true });
+        setTimeout(function () { po.disconnect(); go(); }, 4000); // vangnet: tabblad op de achtergrond
+      } catch (err) { go(); }
+    });
   }
 
   /* ---------------------------------------------------------
@@ -234,9 +258,15 @@
 
     var gl = null;
     try {
-      gl = canvas.getContext('webgl', { antialias: false, alpha: true, depth: false, stencil: false, premultipliedAlpha: true, powerPreference: 'low-power' });
+      gl = canvas.getContext('webgl', { antialias: false, alpha: true, depth: false, stencil: false, premultipliedAlpha: true, powerPreference: 'low-power', failIfMajorPerformanceCaveat: true });
     } catch (err) { gl = null; }
     if (!gl) return; // geen WebGL: de hero blijft zoals hij is
+    // Geen grafische kaart (WebGL op de processor): dan kost elk beeld te veel. Geen veld.
+    try {
+      var info = gl.getExtension('WEBGL_debug_renderer_info');
+      var kaart = String(gl.getParameter(gl.RENDERER)) + ' ' + (info ? String(gl.getParameter(info.UNMASKED_RENDERER_WEBGL)) : '');
+      if (/swiftshader|llvmpipe|software|basic render/i.test(kaart)) return;
+    } catch (err) { /* niet uit te lezen: gewoon proberen, de snelheidsmeting hieronder vangt het op */ }
 
     var NZ = 5; // rustzones
     var VS = [
@@ -320,18 +350,28 @@
       '}'
     ].join('\n');
 
+    // Shaders bouwen zonder de pagina vast te houden: waar het kan bouwt de
+    // browser ze op de achtergrond en kijken wij alleen af en toe of het klaar is.
     function build(type, src) {
       var sh = gl.createShader(type);
       gl.shaderSource(sh, src);
       gl.compileShader(sh);
-      if (!gl.getShaderParameter(sh, gl.COMPILE_STATUS)) { gl.deleteShader(sh); return null; }
       return sh;
     }
-    var vsh = build(gl.VERTEX_SHADER, VS), fsh = build(gl.FRAGMENT_SHADER, FS);
-    if (!vsh || !fsh) return;
     var prog = gl.createProgram();
-    gl.attachShader(prog, vsh); gl.attachShader(prog, fsh); gl.linkProgram(prog);
-    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
+    gl.attachShader(prog, build(gl.VERTEX_SHADER, VS));
+    gl.attachShader(prog, build(gl.FRAGMENT_SHADER, FS));
+    gl.linkProgram(prog);
+    var par = gl.getExtension('KHR_parallel_shader_compile'), tries = 0;
+    (function wait() {
+      if (par && !gl.getProgramParameter(prog, par.COMPLETION_STATUS_KHR) && ++tries < 100) { setTimeout(wait, 50); return; }
+      idle(function () {
+        if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return; // shader lukt niet: geen veld
+        setup();
+      });
+    })();
+
+    function setup() {
     gl.useProgram(prog);
 
     var small = window.innerWidth < 769;
@@ -496,11 +536,27 @@
     })();
 
     var seen = true, fraf = 0, t0 = performance.now(), first = true, lost = false;
+    // Snelheidsbewaking: haalt het toestel geen vloeiend beeld, dan eerst de helft
+    // van de punten, en als dat niet helpt gaat het veld uit.
+    var draw = N, pace = { n: 0, sum: 0, last: 0, strikes: 0 };
     var cur = { m: 0, px: 0, py: 0, ph: 0, al: 0 };
 
     function frame(now) {
       fraf = 0;
-      if (!seen || document.hidden || lost) return;
+      if (!seen || document.hidden || lost) { pace.last = 0; return; }
+      if (pace.last) {
+        var dt = now - pace.last;
+        if (dt < 250 && ++pace.n > 12) pace.sum += dt;
+        if (pace.n >= 52) {
+          if (pace.sum / 40 > 40) {
+            if (++pace.strikes > 1) { lost = true; canvas.classList.remove('aan'); return; }
+            draw = Math.round(N / 2);
+          }
+          pace.n = 12; pace.sum = 0;
+          if (!pace.strikes) pace.n = -1e9; // loopt goed: niet meer meten
+        }
+      }
+      pace.last = now;
       if (stale) measure();
       var r = canvas.getBoundingClientRect();
       var cw = r.width, ch = r.height;
@@ -569,7 +625,7 @@
       gl.uniform3fv(U.wv, wvA);
       gl.uniform3fv(U.tr, trA);
       gl.uniform2f(U.tl, tilt.x * 0.07, -tilt.y * 0.045 * Math.min(1, 800 / ch));
-      gl.drawArrays(gl.POINTS, 0, N);
+      gl.drawArrays(gl.POINTS, 0, draw);
       canvas.classList.add('aan');
       fkick();
     }
@@ -589,5 +645,6 @@
     });
 
     fkick();
+    } // setup
   }
 })();
