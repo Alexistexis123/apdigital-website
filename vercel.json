@@ -89,6 +89,8 @@
     { "source": "/cs-schildersbedrijf", "destination": "https://cs-schildersbedrijf.vercel.app/cs-schildersbedrijf" },
     { "source": "/cs-schildersbedrijf/:path*", "destination": "https://cs-schildersbedrijf.vercel.app/cs-schildersbedrijf/:path*" },
     { "source": "/clevair", "destination": "https://clevair-backup.vercel.app/clevair" },
-    { "source": "/clevair/:path*", "destination": "https://clevair-backup.vercel.app/clevair/:path*" }
+    { "source": "/clevair/:path*", "destination": "https://clevair-backup.vercel.app/clevair/:path*" },
+    { "source": "/loca", "destination": "https://restaurant-loca-demo.vercel.app/" },
+    { "source": "/loca/:path*", "destination": "https://restaurant-loca-demo.vercel.app/:path*" }
   ]
 }

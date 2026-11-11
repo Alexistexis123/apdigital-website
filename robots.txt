@@ -33,6 +33,7 @@ Disallow: /kapsalon-miroir
 Disallow: /kamil-klussenbedrijf
 Disallow: /bijdaanbarbershop
 Disallow: /cs-schildersbedrijf
+Disallow: /loca
 
 # Klant-back-up achter pincode (Clevair), nooit indexeren
 Disallow: /clevair
