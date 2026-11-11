@@ -66,7 +66,15 @@
       "name": "Hoe lang duurt het?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Een instapsite staat binnen 7 dagen live, zodra we je teksten en foto's hebben. Grotere sites plannen we samen in."
+        "text": "Een Startsite staat in 2 dagen online, een Website in 7 dagen en een Bedrijfssite in 14 dagen. Maatwerk plannen we in overleg."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kost een herdesign meer dan een nieuwe site?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nee. Een herdesign kost hetzelfde als een nieuwe site, met dezelfde vier maten."
       }
     }
   ]
@@ -92,7 +100,22 @@
   ]
 }
 </script>
-
+<style>
+.pkgs.vier { grid-template-columns: repeat(4, 1fr); }
+.pkgs.vier .pkg { padding: 26px 22px; }
+.pkgs.vier .pkg h3 { font-size: 19px; margin: 10px 0 0; }
+.maat { margin: 14px 0 24px; }
+.maat > div { padding: 10px 0; border-top: 1px solid var(--lijn); }
+.maat dt { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--grijs); }
+.maat dd { margin: 3px 0 0; font-size: 15px; color: var(--tekst); }
+.maat-onder { margin: 18px 0 0; font-size: 14px; color: var(--grijs); }
+.abo-grid.twee-abo { grid-template-columns: repeat(2, 1fr); }
+.abo-grid.twee-abo .knop-2 { margin-top: auto; justify-content: center; }
+.aanbod.vier { grid-template-columns: repeat(4, 1fr); }
+.pkgs.vier > *, .abo-grid.twee-abo > *, .aanbod.vier > * { min-width: 0; }
+@media (max-width: 1100px) { .pkgs.vier, .aanbod.vier { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .pkgs.vier, .aanbod.vier, .abo-grid.twee-abo { grid-template-columns: 1fr; } }
+</style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -214,9 +237,9 @@
 </div></section>
 
 <section class="sectie smal"><div class="wrap">
-  <div class="sectie-kop"><div><div class="label">Aanbod</div><h2 style="margin-top:12px">Wat het kost</h2><p class="lead">Een instapsite kost vanaf €299 en staat binnen 7 dagen live. Wil je meer, dan krijg je na een gratis gesprek een vaste prijs, vóór we beginnen.</p></div></div>
-  <div class="aanbod"><div><h3>Instap</h3><p>Voor wie snel een nette, duidelijke site nodig heeft.</p><div class="aanbod-prijs"><strong>vanaf €299</strong><span>live in 7 dagen</span></div></div><div><h3>Groei</h3><p>Meer pagina's, formulieren en lokale vindbaarheid.</p><div class="aanbod-prijs"><strong>vanaf €499</strong><span>vaste prijs na een gratis gesprek</span></div></div><div><h3>Onderhoud</h3><p>Hosting, kleine aanpassingen en updates.</p><div class="aanbod-prijs"><strong>vaste prijs per maand</strong><span>na een gratis gesprek</span></div></div></div>
-  <div class="aanbod-grens"><h3>Dit zit in de instapsite van €299</h3><ul class="vinklijst"><li>1 tot 3 pagina's</li><li>Template met je huisstijl</li><li>Mobiel geoptimaliseerd</li><li>Basis-SEO: titels, meta en sitemap</li><li>Contactformulier met spamfilter</li><li>Snelle laadtijd, 90+ op mobiel</li><li>Live binnen 7 dagen</li><li>30 dagen bugfix-support</li></ul><p>Meer nodig? Alles daarboven valt onder Groei, vanaf €499. <a class="tekst-link" href="/pakketten">Bekijk alle pakketten</a></p></div>
+  <div class="sectie-kop"><div><div class="label">Aanbod</div><h2 style="margin-top:12px">Wat het kost</h2><p class="lead">Vier maten, elk met een vaste prijs. Een Startsite kost €299 en staat in 2 dagen online. Een herdesign kost hetzelfde als een nieuwe site.</p></div></div>
+  <div class="aanbod vier"><div><h3>Startsite</h3><p>Tot 3 pagina's. Je levert zelf je teksten, foto's en logo aan.</p><div class="aanbod-prijs"><strong>€299</strong><span>online in 2 dagen</span></div></div><div><h3>Website</h3><p>Tot 5 pagina's. Wij schrijven de teksten, op basis van een vragenlijst.</p><div class="aanbod-prijs"><strong>€595</strong><span>online in 7 dagen</span></div></div><div><h3>Bedrijfssite</h3><p>Tot 10 pagina's, met een eigen ontwerp. Wij schrijven de teksten.</p><div class="aanbod-prijs"><strong>€1.250</strong><span>online in 14 dagen</span></div></div><div><h3>Maatwerk</h3><p>De site neemt werk over: webshop, boekingen, betalen, koppelingen.</p><div class="aanbod-prijs"><strong>vanaf €2.500</strong><span>in overleg</span></div></div></div>
+  <div class="aanbod-grens"><h3>Dit zit in de Startsite van €299</h3><ul class="vinklijst"><li>Tot 3 pagina's</li><li>Online in 2 dagen</li><li>Teksten, foto's en logo lever je zelf aan</li><li>Vast ontwerp in jouw kleuren en logo</li><li>Basis vindbaarheid: titel en omschrijving</li><li>Formulier, bel- en WhatsApp-knop</li><li>1 aanpasronde</li><li>Goed op mobiel, snel en beveiligd</li></ul><p>Meer nodig? Website €595, Bedrijfssite €1.250 of Maatwerk vanaf €2.500. Bij elke site hoort een maandbedrag, vanaf €49 per maand. Prijzen excl. btw. <a class="tekst-link" href="/pakketten">Bekijk alle pakketten</a></p></div>
 </div></section>
 
 
@@ -258,7 +281,7 @@
 
 <section class="sectie smal"><div class="wrap twee">
   <div><div class="label">Vragen</div><h2 style="margin-top:12px">Veel gesteld</h2></div>
-  <div class="faq"><details class="faq-item"><summary>Kan ik daarna zelf teksten aanpassen?</summary><p>Dat hangt af van hoe we de site bouwen. We bespreken vooraf wat je zelf wilt kunnen en kiezen de bouw daarop.</p></details><details class="faq-item"><summary>Houd ik mijn plek in Google?</summary><p>Pagina's die nu al gevonden worden houden we, of we sturen ze netjes door naar de nieuwe pagina. Zo raak je geen bezoekers kwijt.</p></details><details class="faq-item"><summary>Hoe lang duurt het?</summary><p>Een instapsite staat binnen 7 dagen live, zodra we je teksten en foto's hebben. Grotere sites plannen we samen in.</p></details></div>
+  <div class="faq"><details class="faq-item"><summary>Kan ik daarna zelf teksten aanpassen?</summary><p>Dat hangt af van hoe we de site bouwen. We bespreken vooraf wat je zelf wilt kunnen en kiezen de bouw daarop.</p></details><details class="faq-item"><summary>Houd ik mijn plek in Google?</summary><p>Pagina's die nu al gevonden worden houden we, of we sturen ze netjes door naar de nieuwe pagina. Zo raak je geen bezoekers kwijt.</p></details><details class="faq-item"><summary>Hoe lang duurt het?</summary><p>Een Startsite staat in 2 dagen online, een Website in 7 dagen en een Bedrijfssite in 14 dagen. Maatwerk plannen we in overleg.</p></details><details class="faq-item"><summary>Kost een herdesign meer dan een nieuwe site?</summary><p>Nee. Een herdesign kost hetzelfde als een nieuwe site, met dezelfde vier maten.</p></details></div>
 </div></section>
 
 <section class="sectie smal"><div class="wrap"><div class="cta-band">

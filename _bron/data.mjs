@@ -1,5 +1,30 @@
 // Site-data apdigital.nl (herstart, besluiten Alex 04-11 en 05-11-2026). Teksten 1-op-1 uit het goedgekeurde ontwerp (branch ontwerp-herstart).
 // Alleen feiten met een bron; de bronnen staan als commentaar of in bron-velden (die komen niet op de site).
+
+// ---------- LIJN B: WEBSITE BOUWEN, NIEUW OF HERDESIGN ----------
+// Bron: vault Areas/AP Digital/aanbod.md, lijn B, vastgesteld door Alex op 11-11-2026. Vervangt Starter, Groei en Premium
+// en de onderhoudsabonnementen Brons, Zilver en Goud. Alleen wat daar als vastgesteld staat; de rijen volgen de tabel.
+// Waar de tabel "plus ..." zegt staat hier "Zoals de <vorige maat>, plus ...", zodat een kaart ook los te lezen is.
+// Bewust NIET op de site: de actie voor januari 2027 (Startsite gratis bij een jaar maandpakket).
+export const maten = [
+  { naam: 'Startsite', prijs: '€299', getal: '299', kop: 'Online in 2 dagen.',
+    rijen: [['Pagina\'s', 'Tot 3'], ['Online in', '2 dagen'], ['Teksten', 'Lever je zelf aan, met foto\'s en logo'], ['Ontwerp', 'Vast ontwerp in jouw kleuren en logo'], ['Vindbaarheid', 'Basis: titel en omschrijving'], ['Erbij', 'Formulier, bel- en WhatsApp-knop'], ['Aanpasrondes', '1']] },
+  { naam: 'Website', prijs: '€595', getal: '595', kop: 'Wij schrijven je teksten.',
+    rijen: [['Pagina\'s', 'Tot 5'], ['Online in', '7 dagen'], ['Teksten', 'Schrijven wij, op basis van een vragenlijst'], ['Ontwerp', 'Vast ontwerp'], ['Vindbaarheid', 'Elke pagina ingesteld op een zoekterm'], ['Erbij', 'Zoals de Startsite, plus offerte-aanvraag'], ['Aanpasrondes', '2']] },
+  { naam: 'Bedrijfssite', prijs: '€1.250', getal: '1250', kop: 'Een eigen ontwerp, speciaal voor jou.',
+    rijen: [['Pagina\'s', 'Tot 10'], ['Online in', '14 dagen'], ['Teksten', 'Schrijven wij'], ['Ontwerp', 'Eigen ontwerp, speciaal voor jou'], ['Vindbaarheid', 'Zoals de Website, plus een pagina per dienst en per plaats'], ['Erbij', 'Zoals de Website, plus reviews en projecten in beeld'], ['Aanpasrondes', '3']] },
+  { naam: 'Maatwerk', prijs: '€2.500', getal: '2500', vanaf: true, kop: 'Voor als de site meer moet doen.',
+    rijen: [['Pagina\'s', 'In overleg'], ['Online in', 'In overleg'], ['Teksten', 'In overleg'], ['Ontwerp', 'In overleg'], ['Vindbaarheid', 'In overleg'], ['Erbij', 'De site neemt werk over: webshop, boekingen, betalen, koppelingen'], ['Aanpasrondes', 'In overleg']] },
+]
+// Het blok "Dit zit in de Startsite" op /websites-laten-maken en de 24 stadspagina's.
+export const startsite = {
+  kop: 'Dit zit in de Startsite van €299',
+  punten: ['Tot 3 pagina\'s', 'Online in 2 dagen', 'Teksten, foto\'s en logo lever je zelf aan', 'Vast ontwerp in jouw kleuren en logo', 'Basis vindbaarheid: titel en omschrijving', 'Formulier, bel- en WhatsApp-knop', '1 aanpasronde', 'Goed op mobiel, snel en beveiligd'],
+  meer: 'Meer nodig? Website €595, Bedrijfssite €1.250 of Maatwerk vanaf €2.500. Bij elke site hoort een maandbedrag, vanaf €49 per maand. Prijzen excl. btw.',
+}
+// Altijd een maandbedrag erbij (vervangt Brons, Zilver en Goud). Het domein zit er niet in (standaardkeuze, beslispunt Alex).
+export const onlineHouden = { naam: 'Online houden', prijs: '€49', getal: '49', punten: ['Hosting', 'Updates', 'Back-ups', 'Een half uur wijzigingen per maand'] }
+
 export const pijlers = [
   {
     key: 'websites', slug: 'websites-laten-maken', naam: 'Websites', label: '01 · Vindbaar in Google en AI · Websites',
@@ -15,18 +40,20 @@ export const pijlers = [
       ['Aanvragen die binnenkomen', 'Offerteformulier, bel- en WhatsApp-knop op de plek waar mensen ze zoeken. Elke aanvraag meetbaar.'],
       ['Vindbaar in Google', 'Goede basis voor zoekmachines: titels, snelheid, pagina\'s per dienst of plaats waar dat zin heeft.'],
     ],
-    prijs: 'Vanaf €299, live in 7 dagen',
-    aanbod: [['Instap', 'Voor wie snel een nette, duidelijke site nodig heeft.', 'vanaf €299', 'live in 7 dagen'], ['Groei', 'Meer pagina\'s, formulieren en lokale vindbaarheid.', 'vanaf €499', 'vaste prijs na een gratis gesprek'], ['Onderhoud', 'Hosting, kleine aanpassingen en updates.', 'vaste prijs per maand', 'na een gratis gesprek']],
-    // Besluit Alex 05-11: instapsite = het bestaande Starter-pakket uit pakketten.html, 1-op-1. Alles daarboven = Groei, vanaf 499.
-    aanbodGrens: {
-      kop: 'Dit zit in de instapsite van €299',
-      punten: ['1 tot 3 pagina\'s', 'Template met je huisstijl', 'Mobiel geoptimaliseerd', 'Basis-SEO: titels, meta en sitemap', 'Contactformulier met spamfilter', 'Snelle laadtijd, 90+ op mobiel', 'Live binnen 7 dagen', '30 dagen bugfix-support'],
-      meer: 'Meer nodig? Alles daarboven valt onder Groei, vanaf €499.',
-    },
+    prijs: 'Vanaf €299, online in 2 dagen',
+    // Lijn B (zie `maten` bovenaan): de vier maten, kort. De volledige tabel staat op /pakketten.
+    aanbod: [
+      ['Startsite', 'Tot 3 pagina\'s. Je levert zelf je teksten, foto\'s en logo aan.', '€299', 'online in 2 dagen'],
+      ['Website', 'Tot 5 pagina\'s. Wij schrijven de teksten, op basis van een vragenlijst.', '€595', 'online in 7 dagen'],
+      ['Bedrijfssite', 'Tot 10 pagina\'s, met een eigen ontwerp. Wij schrijven de teksten.', '€1.250', 'online in 14 dagen'],
+      ['Maatwerk', 'De site neemt werk over: webshop, boekingen, betalen, koppelingen.', 'vanaf €2.500', 'in overleg'],
+    ],
+    aanbodGrens: startsite,
     faq: [
       ['Kan ik daarna zelf teksten aanpassen?', 'Dat hangt af van hoe we de site bouwen. We bespreken vooraf wat je zelf wilt kunnen en kiezen de bouw daarop.'],
       ['Houd ik mijn plek in Google?', 'Pagina\'s die nu al gevonden worden houden we, of we sturen ze netjes door naar de nieuwe pagina. Zo raak je geen bezoekers kwijt.'],
-      ['Hoe lang duurt het?', 'Een instapsite staat binnen 7 dagen live, zodra we je teksten en foto\'s hebben. Grotere sites plannen we samen in.'],
+      ['Hoe lang duurt het?', 'Een Startsite staat in 2 dagen online, een Website in 7 dagen en een Bedrijfssite in 14 dagen. Maatwerk plannen we in overleg.'],
+      ['Kost een herdesign meer dan een nieuwe site?', 'Nee. Een herdesign kost hetzelfde als een nieuwe site, met dezelfde vier maten.'],
     ],
     cta: 'Benieuwd wat een nieuwe site <span class="serif">jou oplevert?</span>',
   },

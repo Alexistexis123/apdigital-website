@@ -32,13 +32,15 @@
   "itemListElement": [
     {
       "@type": "Offer",
-      "name": "Starter website",
+      "name": "Startsite",
+      "description": "Pagina's: tot 3. Online in: 2 dagen. Teksten: lever je zelf aan, met foto's en logo. Ontwerp: vast ontwerp in jouw kleuren en logo. Vindbaarheid: basis: titel en omschrijving. Erbij: formulier, bel- en WhatsApp-knop. Aanpasrondes: 1.",
       "priceCurrency": "EUR",
       "price": "299",
       "priceSpecification": {
         "@type": "PriceSpecification",
-        "minPrice": "299",
-        "priceCurrency": "EUR"
+        "price": "299",
+        "priceCurrency": "EUR",
+        "valueAddedTaxIncluded": false
       },
       "seller": {
         "@id": "https://apdigital.nl/#business"
@@ -46,13 +48,15 @@
     },
     {
       "@type": "Offer",
-      "name": "Groei website",
+      "name": "Website",
+      "description": "Pagina's: tot 5. Online in: 7 dagen. Teksten: schrijven wij, op basis van een vragenlijst. Ontwerp: vast ontwerp. Vindbaarheid: elke pagina ingesteld op een zoekterm. Erbij: zoals de Startsite, plus offerte-aanvraag. Aanpasrondes: 2.",
       "priceCurrency": "EUR",
-      "price": "499",
+      "price": "595",
       "priceSpecification": {
         "@type": "PriceSpecification",
-        "minPrice": "499",
-        "priceCurrency": "EUR"
+        "price": "595",
+        "priceCurrency": "EUR",
+        "valueAddedTaxIncluded": false
       },
       "seller": {
         "@id": "https://apdigital.nl/#business"
@@ -60,13 +64,48 @@
     },
     {
       "@type": "Offer",
-      "name": "Premium website",
+      "name": "Bedrijfssite",
+      "description": "Pagina's: tot 10. Online in: 14 dagen. Teksten: schrijven wij. Ontwerp: eigen ontwerp, speciaal voor jou. Vindbaarheid: zoals de Website, plus een pagina per dienst en per plaats. Erbij: zoals de Website, plus reviews en projecten in beeld. Aanpasrondes: 3.",
       "priceCurrency": "EUR",
-      "price": "999",
+      "price": "1250",
       "priceSpecification": {
         "@type": "PriceSpecification",
-        "minPrice": "999",
-        "priceCurrency": "EUR"
+        "price": "1250",
+        "priceCurrency": "EUR",
+        "valueAddedTaxIncluded": false
+      },
+      "seller": {
+        "@id": "https://apdigital.nl/#business"
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "Maatwerk",
+      "description": "Pagina's: in overleg. Online in: in overleg. Teksten: in overleg. Ontwerp: in overleg. Vindbaarheid: in overleg. Erbij: de site neemt werk over: webshop, boekingen, betalen, koppelingen. Aanpasrondes: in overleg.",
+      "priceCurrency": "EUR",
+      "price": "2500",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "minPrice": "2500",
+        "priceCurrency": "EUR",
+        "valueAddedTaxIncluded": false
+      },
+      "seller": {
+        "@id": "https://apdigital.nl/#business"
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "Online houden",
+      "description": "Maandbedrag bij een website: hosting, updates, back-ups en een half uur wijzigingen per maand.",
+      "priceCurrency": "EUR",
+      "price": "49",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "49",
+        "priceCurrency": "EUR",
+        "unitCode": "MON",
+        "valueAddedTaxIncluded": false
       },
       "seller": {
         "@id": "https://apdigital.nl/#business"
@@ -82,34 +121,26 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Wat zit er allemaal bij de prijs?",
+      "name": "Wat zit er bij de prijs?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ontwerp, bouw en basis SEO, zoals per pakket hierboven staat. Hosting en domein regelen we apart, bijvoorbeeld via onderhoud en hosting. Geen verborgen kosten."
+        "text": "Ontwerp, bouw en wat er per maat hierboven staat. Hosting en domein zitten niet in de bouwprijs. Bij elke site hoort een maandbedrag: met Online houden (€49 per maand) regelen wij de hosting. Het domein regelen we apart. Geen verborgen kosten."
       }
     },
     {
       "@type": "Question",
-      "name": "Wat als ik later wijzigingen wil?",
+      "name": "Kost een herdesign meer dan een nieuwe site?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Aanpassingen tegen uurtarief (€85), of via een maandabonnement (Brons vanaf €49,99, Zilver €99,99, Goud €199,99). Zo blijft je site fris zonder verrassingen."
+        "text": "Nee. Een herdesign kost hetzelfde als een nieuwe site, met dezelfde vier maten."
       }
     },
     {
       "@type": "Question",
-      "name": "Hoe regel ik hosting en domein?",
+      "name": "Hoe lang duurt het?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Zelf, bij een partij naar keuze, of via ons met een maandabonnement: daar zitten hosting, SSL en domeinbeheer in. Zie onderhoud en hosting."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Hoe lang duurt het echt?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Starter binnen 7 dagen, vaak sneller. Groei tussen 7 en 14 dagen. Premium 3 tot 6 weken, afhankelijk van de omvang."
+        "text": "Een Startsite staat in 2 dagen online, een Website in 7 dagen en een Bedrijfssite in 14 dagen. Maatwerk plannen we in overleg."
       }
     },
     {
@@ -117,15 +148,47 @@
       "name": "Wat moet ik aanleveren?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Wij regelen de basis: logo, tekst en beelden. Heb je eigen materiaal? Lever het aan. Geen foto's of video's? Wij schieten ze tegen meerprijs. Hoe minimaal of betrokken je wil zijn is aan jou."
+        "text": "Bij een Startsite lever je zelf je teksten, foto's en logo aan. Bij een Website schrijven wij de teksten, op basis van een vragenlijst die je invult. Bij een Bedrijfssite schrijven wij de teksten ook."
       }
     },
     {
       "@type": "Question",
-      "name": "Krijg ik de website in eigen beheer?",
+      "name": "Wat als ik meer pagina's of aanpasrondes nodig heb?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ja. Bij alle pakketten kan een CMS, dan beheer je tekst en foto's zelf. Liever niet zelf? Wij doen het via uurtarief of het maandabonnement."
+        "text": "Dan kies je de volgende maat, of we doen het extra werk tegen uurtarief (€85 per uur, excl. btw). We zeggen vooraf hoeveel uur we verwachten."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kan ik later een grotere maat nemen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Schaal je binnen drie maanden op van een Startsite naar een Website of Bedrijfssite, dan verrekenen we de €299."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wat als ik later wijzigingen wil?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In Online houden zit elke maand een half uur wijzigingen. Heb je meer nodig, dan doen we dat tegen uurtarief (€85 per uur, excl. btw)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hoe regel ik hosting en domein?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hosting zit in Online houden, het maandbedrag van €49. Het domein zit daar niet in, dat regelen we apart. Zie onderhoud en hosting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is de website van mij?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Na volledige betaling is de site van jou. Stop je met ons, dan leveren we op verzoek binnen 14 dagen de bestanden aan."
       }
     },
     {
@@ -133,7 +196,7 @@
       "name": "Wat als de website later niet goed werkt?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Na oplevering lossen we bugs gratis op: 30 dagen bij Starter, 60 dagen bij Groei en 90 dagen bij Premium. Daarna valt onderhoud onder het maandabonnement, of we lossen het op tegen uurtarief."
+        "text": "De eerste 30 dagen na oplevering lossen we fouten in wat we bouwden gratis op. Nieuwe wensen vallen daar niet onder: die gaan via je aanpasrondes, het halve uur van Online houden of het uurtarief."
       }
     },
     {
@@ -175,7 +238,22 @@
   ]
 }
 </script>
-
+<style>
+.pkgs.vier { grid-template-columns: repeat(4, 1fr); }
+.pkgs.vier .pkg { padding: 26px 22px; }
+.pkgs.vier .pkg h3 { font-size: 19px; margin: 10px 0 0; }
+.maat { margin: 14px 0 24px; }
+.maat > div { padding: 10px 0; border-top: 1px solid var(--lijn); }
+.maat dt { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--grijs); }
+.maat dd { margin: 3px 0 0; font-size: 15px; color: var(--tekst); }
+.maat-onder { margin: 18px 0 0; font-size: 14px; color: var(--grijs); }
+.abo-grid.twee-abo { grid-template-columns: repeat(2, 1fr); }
+.abo-grid.twee-abo .knop-2 { margin-top: auto; justify-content: center; }
+.aanbod.vier { grid-template-columns: repeat(4, 1fr); }
+.pkgs.vier > *, .abo-grid.twee-abo > *, .aanbod.vier > * { min-width: 0; }
+@media (max-width: 1100px) { .pkgs.vier, .aanbod.vier { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .pkgs.vier, .aanbod.vier, .abo-grid.twee-abo { grid-template-columns: 1fr; } }
+</style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -196,25 +274,30 @@
 <section class="pkop raster"><div class="wrap">
   <div class="label geel">Pakketten en prijzen</div>
   <h1>Website pakketten <span class="serif">voor ondernemers.</span></h1>
-  <p class="lead">Kies een pakket dat past bij je fase. Van een snelle instapsite tot een grotere site met extra pagina's, SEO en conversie-opbouw. Je weet vooraf wat je betaalt.</p>
+  <p class="lead">Vier maten, elk met een vaste prijs. Van een Startsite die in 2 dagen online staat tot maatwerk waarbij de site werk van je overneemt. Nieuw of herdesign: de prijs is hetzelfde. Je weet vooraf wat je betaalt.</p>
 </div></section>
 <section class="sectie smal" style="padding-top:20px"><div class="wrap">
-  <div class="pkgs"><div class="pkg" data-reveal><div class="pkg-name">Starter</div><h3>Online in een week.</h3><p>Voor kleine bedrijven of net opgestart. Een strakke site die werkt.</p><div class="pkg-prijs"><small>vanaf </small>€299</div><ul class="vinklijst"><li>1 tot 3 pagina's</li><li>Template met je huisstijl</li><li>Mobiel geoptimaliseerd</li><li>Basis-SEO: titels, meta en sitemap</li><li>Contactformulier met spamfilter</li><li>Snelle laadtijd, 90+ op mobiel</li><li>Live binnen 7 dagen</li><li>30 dagen bugfix-support</li></ul><a class="knop-2" href="/contact?over=websites&pakket=Starter">Vraag website aan</a></div><div class="pkg uitgelicht" data-reveal><span class="pil-los">Meest gekozen</span><div class="pkg-name">Groei</div><h3>Groeit mee met je bedrijf.</h3><p>Meer pagina's, ontwerp op maat binnen je huisstijl en beter vindbaar.</p><div class="pkg-prijs"><small>vanaf </small>€499</div><ul class="vinklijst"><li>5 tot 7 pagina's</li><li>Ontwerp op maat binnen je huisstijl</li><li>Mobiel geoptimaliseerd, getest op echte toestellen</li><li>SEO-basis plus zoekwoordonderzoek en koppeling Search Console</li><li>Contactformulier met routing naar je inbox</li><li>Snelle laadtijd, 90+ op mobiel en desktop</li><li>Live binnen 7 tot 14 dagen</li><li>60 dagen bugfix-support en 1 ronde tekstaanpassingen</li></ul><a class="knop" href="/contact?over=websites&pakket=Groei">Vraag website aan</a></div><div class="pkg" data-reveal><div class="pkg-name">Premium</div><h3>Volledig op maat gebouwd.</h3><p>Voor een grotere site met eigen ontwerp en extra functies.</p><div class="pkg-prijs"><small>vanaf </small>€999</div><ul class="vinklijst"><li>8+ pagina's, structuur op maat</li><li>Volledig ontwerp op maat, geen template</li><li>Mobiel geoptimaliseerd, getest op echte toestellen</li><li>SEO-basis plus zoekwoordonderzoek, on-page optimalisatie, Search Console</li><li>Contactformulier plus extra conversie-elementen (offerte, boeking, leadmagnet)</li><li>Snelle laadtijd, 95+ op mobiel en desktop</li><li>Live binnen 3 tot 6 weken</li><li>90 dagen bugfix-support en 2 rondes inhoudelijke aanpassingen</li></ul><a class="knop-2" href="/contact?over=websites&pakket=Premium">Plan kennismaking</a></div></div>
-  <div class="uitleg-blok">Apps en automatisering vallen niet onder deze pakketten. Daar krijg je na een gratis gesprek een vaste prijs, vóór we beginnen. <a class="tekst-link" href="/apps-laten-maken">Apps</a> · <a class="tekst-link" href="/processen-automatiseren">Automatisering</a><br />Daarna vindbaar blijven in Google en AI? Dat is een apart maandpakket, vanaf €299 per maand excl. btw. <a class="tekst-link" href="/vindbaar-in-google-en-ai">Bekijk de maandpakketten</a></div>
+  <div class="pkgs vier"><div class="pkg" data-reveal><div class="pkg-name">Startsite</div><h3>Online in 2 dagen.</h3><div class="pkg-prijs">€299</div><dl class="maat"><div><dt>Pagina's</dt><dd>Tot 3</dd></div><div><dt>Online in</dt><dd>2 dagen</dd></div><div><dt>Teksten</dt><dd>Lever je zelf aan, met foto's en logo</dd></div><div><dt>Ontwerp</dt><dd>Vast ontwerp in jouw kleuren en logo</dd></div><div><dt>Vindbaarheid</dt><dd>Basis: titel en omschrijving</dd></div><div><dt>Erbij</dt><dd>Formulier, bel- en WhatsApp-knop</dd></div><div><dt>Aanpasrondes</dt><dd>1</dd></div></dl><a class="knop-2" href="/contact?over=websites&pakket=Startsite">Vraag website aan</a></div><div class="pkg" data-reveal><div class="pkg-name">Website</div><h3>Wij schrijven je teksten.</h3><div class="pkg-prijs">€595</div><dl class="maat"><div><dt>Pagina's</dt><dd>Tot 5</dd></div><div><dt>Online in</dt><dd>7 dagen</dd></div><div><dt>Teksten</dt><dd>Schrijven wij, op basis van een vragenlijst</dd></div><div><dt>Ontwerp</dt><dd>Vast ontwerp</dd></div><div><dt>Vindbaarheid</dt><dd>Elke pagina ingesteld op een zoekterm</dd></div><div><dt>Erbij</dt><dd>Zoals de Startsite, plus offerte-aanvraag</dd></div><div><dt>Aanpasrondes</dt><dd>2</dd></div></dl><a class="knop-2" href="/contact?over=websites&pakket=Website">Vraag website aan</a></div><div class="pkg" data-reveal><div class="pkg-name">Bedrijfssite</div><h3>Een eigen ontwerp, speciaal voor jou.</h3><div class="pkg-prijs">€1.250</div><dl class="maat"><div><dt>Pagina's</dt><dd>Tot 10</dd></div><div><dt>Online in</dt><dd>14 dagen</dd></div><div><dt>Teksten</dt><dd>Schrijven wij</dd></div><div><dt>Ontwerp</dt><dd>Eigen ontwerp, speciaal voor jou</dd></div><div><dt>Vindbaarheid</dt><dd>Zoals de Website, plus een pagina per dienst en per plaats</dd></div><div><dt>Erbij</dt><dd>Zoals de Website, plus reviews en projecten in beeld</dd></div><div><dt>Aanpasrondes</dt><dd>3</dd></div></dl><a class="knop-2" href="/contact?over=websites&pakket=Bedrijfssite">Vraag website aan</a></div><div class="pkg" data-reveal><div class="pkg-name">Maatwerk</div><h3>Voor als de site meer moet doen.</h3><div class="pkg-prijs"><small>vanaf </small>€2.500</div><dl class="maat"><div><dt>Pagina's</dt><dd>In overleg</dd></div><div><dt>Online in</dt><dd>In overleg</dd></div><div><dt>Teksten</dt><dd>In overleg</dd></div><div><dt>Ontwerp</dt><dd>In overleg</dd></div><div><dt>Vindbaarheid</dt><dd>In overleg</dd></div><div><dt>Erbij</dt><dd>De site neemt werk over: webshop, boekingen, betalen, koppelingen</dd></div><div><dt>Aanpasrondes</dt><dd>In overleg</dd></div></dl><a class="knop-2" href="/contact?over=websites&pakket=Maatwerk">Plan kennismaking</a></div></div>
+  <p class="maat-onder">Bij alle vier: goed op mobiel, snel en beveiligd. Een herdesign kost hetzelfde als een nieuwe site. Prijzen excl. btw.</p>
+  <div class="uitleg-blok"><strong style="color:var(--wit)">De grens.</strong> Meer pagina's of aanpasrondes dan in je maat? Dan kies je de volgende maat, of we doen het extra werk tegen uurtarief (€85 per uur, excl. btw).<br /><strong style="color:var(--wit)">Doorgroeien.</strong> Schaal je binnen drie maanden op van een Startsite naar een Website of Bedrijfssite, dan verrekenen we de €299.</div>
+  <div class="uitleg-blok">Apps en automatisering vallen niet onder deze pakketten. Daar krijg je na een gratis gesprek een vaste prijs, vóór we beginnen. <a class="tekst-link" href="/apps-laten-maken">Apps</a> · <a class="tekst-link" href="/processen-automatiseren">Automatisering</a></div>
 </div></section>
 <section class="sectie smal" id="abonnementen"><div class="wrap">
-  <div class="sectie-kop"><div><div class="label">Onderhoud</div><h2 style="margin-top:12px">Houd je site <span class="serif">fris.</span></h2><p class="lead">Maandabonnementen voor doorlopend onderhoud en kleine wijzigingen. Eén vaste prijs, zonder verrassingen.</p></div></div>
-  <div class="abo-grid"><div class="abo-card" data-reveal><div class="abo-name">Brons</div><div class="abo-price">€49,99 <small>per maand</small></div><ul class="vinklijst"><li>1 aanpassing per maand</li><li>Maandelijkse check</li><li>WhatsApp-support</li></ul><a class="knop-2 flip-cta" href="/contact?abo=Brons">Vraag aan</a></div><div class="abo-card" data-reveal><span class="pil-los">Populair</span><div class="abo-name">Zilver</div><div class="abo-price">€99,99 <small>per maand</small></div><ul class="vinklijst"><li>3 aanpassingen per maand</li><li>1 extra pagina per maand</li><li>Alles uit Brons</li></ul><a class="knop-2 flip-cta" href="/contact?abo=Zilver">Vraag aan</a></div><div class="abo-card" data-reveal><div class="abo-name">Goud</div><div class="abo-price">€199,99 <small>per maand</small></div><ul class="vinklijst"><li>5 aanpassingen per maand</li><li>2 tot 3 extra pagina's per maand</li><li>Maandelijks SEO-rapport</li><li>Maandelijks performance-rapport</li><li>Per kwartaal een upgrade-ronde</li><li>Alles uit Zilver</li></ul><a class="knop-2 flip-cta" href="/contact?abo=Goud">Vraag aan</a></div></div>
-  <div class="uitleg-blok">Een aanpassing is één wijziging op je site. Denk aan tekst aanpassen, foto vervangen, prijs of openingstijden bijwerken, of een blogpost plaatsen. Grotere veranderingen (nieuwe pagina of redesign) doen we apart op uurtarief of via Goud. Niet-gebruikte aanpassingen vervallen aan het eind van de maand.</div>
+  <div class="sectie-kop"><div><div class="label">Maandbedrag</div><h2 style="margin-top:12px">Bij elke site hoort <span class="serif">een maandbedrag.</span></h2><p class="lead">Daarmee blijft je site online en bijgewerkt. Je kiest één van de twee.</p></div></div>
+  <div class="abo-grid twee-abo">
+    <div class="abo-card" data-reveal><div class="abo-name">Online houden</div><div class="abo-price">€49 <small>per maand</small></div><ul class="vinklijst"><li>Hosting</li><li>Updates</li><li>Back-ups</li><li>Een half uur wijzigingen per maand</li></ul><a class="knop-2 flip-cta" href="/contact?abo=Online%20houden">Vraag aan</a></div>
+    <div class="abo-card" data-reveal><div class="abo-name">Vindbaar in Google en AI</div><div class="abo-price"><small>vanaf </small>€299 <small>per maand</small></div><ul class="vinklijst"><li>Elke maand gemeten in Google en AI</li><li>Tot 8, 15 of 30 pagina's per maand, nieuw of verbeterd</li><li>Google-bedrijfsprofiel bijhouden</li></ul><a class="knop-2" href="/vindbaar-in-google-en-ai#pakketten">Bekijk de maandpakketten</a></div>
+  </div>
+  <div class="uitleg-blok">Wijzigingen boven het halve uur van Online houden doen we tegen uurtarief (€85 per uur, excl. btw). Het domein zit niet in het maandbedrag, dat regelen we apart. Prijzen per maand, excl. btw.</div>
 </div></section>
 
 <section class="sectie smal"><div class="wrap twee">
   <div><div class="label">Vragen</div><h2 style="margin-top:12px">Veel gestelde vragen</h2></div>
-  <div class="faq"><details class="faq-item"><summary>Wat zit er allemaal bij de prijs?</summary><p>Ontwerp, bouw en basis SEO, zoals per pakket hierboven staat. Hosting en domein regelen we apart, bijvoorbeeld via <a class="tekst-link" href="/onderhoud-en-hosting">onderhoud en hosting</a>. Geen verborgen kosten.</p></details><details class="faq-item"><summary>Wat als ik later wijzigingen wil?</summary><p>Aanpassingen tegen uurtarief (€85), of via een maandabonnement (Brons vanaf €49,99, Zilver €99,99, Goud €199,99). Zo blijft je site fris zonder verrassingen.</p></details><details class="faq-item"><summary>Hoe regel ik hosting en domein?</summary><p>Zelf, bij een partij naar keuze, of via ons met een maandabonnement: daar zitten hosting, SSL en domeinbeheer in. Zie <a class="tekst-link" href="/onderhoud-en-hosting">onderhoud en hosting</a>.</p></details><details class="faq-item"><summary>Hoe lang duurt het echt?</summary><p>Starter binnen 7 dagen, vaak sneller. Groei tussen 7 en 14 dagen. Premium 3 tot 6 weken, afhankelijk van de omvang.</p></details><details class="faq-item"><summary>Wat moet ik aanleveren?</summary><p>Wij regelen de basis: logo, tekst en beelden. Heb je eigen materiaal? Lever het aan. Geen foto's of video's? Wij schieten ze tegen meerprijs. Hoe minimaal of betrokken je wil zijn is aan jou.</p></details><details class="faq-item"><summary>Krijg ik de website in eigen beheer?</summary><p>Ja. Bij alle pakketten kan een CMS, dan beheer je tekst en foto's zelf. Liever niet zelf? Wij doen het via uurtarief of het maandabonnement.</p></details><details class="faq-item"><summary>Wat als de website later niet goed werkt?</summary><p>Na oplevering lossen we bugs gratis op: 30 dagen bij Starter, 60 dagen bij Groei en 90 dagen bij Premium. Daarna valt onderhoud onder het maandabonnement, of we lossen het op tegen uurtarief.</p></details><details class="faq-item"><summary>En apps of automatisering?</summary><p>Daar werken we niet met vaste pakketten. Na een gratis gesprek krijg je een vaste prijs op papier, vóór we beginnen. Zie <a class="tekst-link" href="/apps-laten-maken">apps</a> en <a class="tekst-link" href="/processen-automatiseren">automatisering</a>.</p></details><details class="faq-item"><summary>Werken jullie ook voor bedrijven buiten Gelderland?</summary><p>Ja, heel Nederland. We werken remote, locatie maakt niet uit. Voor klanten in de regio (Arnhem, Ede, Nijmegen, Wageningen) komen we ook gewoon langs.</p></details></div>
+  <div class="faq"><details class="faq-item"><summary>Wat zit er bij de prijs?</summary><p>Ontwerp, bouw en wat er per maat hierboven staat. Hosting en domein zitten niet in de bouwprijs. Bij elke site hoort een maandbedrag: met Online houden (€49 per maand) regelen wij de hosting. Het domein regelen we apart. Geen verborgen kosten.</p></details><details class="faq-item"><summary>Kost een herdesign meer dan een nieuwe site?</summary><p>Nee. Een herdesign kost hetzelfde als een nieuwe site, met dezelfde vier maten.</p></details><details class="faq-item"><summary>Hoe lang duurt het?</summary><p>Een Startsite staat in 2 dagen online, een Website in 7 dagen en een Bedrijfssite in 14 dagen. Maatwerk plannen we in overleg.</p></details><details class="faq-item"><summary>Wat moet ik aanleveren?</summary><p>Bij een Startsite lever je zelf je teksten, foto's en logo aan. Bij een Website schrijven wij de teksten, op basis van een vragenlijst die je invult. Bij een Bedrijfssite schrijven wij de teksten ook.</p></details><details class="faq-item"><summary>Wat als ik meer pagina's of aanpasrondes nodig heb?</summary><p>Dan kies je de volgende maat, of we doen het extra werk tegen uurtarief (€85 per uur, excl. btw). We zeggen vooraf hoeveel uur we verwachten.</p></details><details class="faq-item"><summary>Kan ik later een grotere maat nemen?</summary><p>Ja. Schaal je binnen drie maanden op van een Startsite naar een Website of Bedrijfssite, dan verrekenen we de €299.</p></details><details class="faq-item"><summary>Wat als ik later wijzigingen wil?</summary><p>In Online houden zit elke maand een half uur wijzigingen. Heb je meer nodig, dan doen we dat tegen uurtarief (€85 per uur, excl. btw).</p></details><details class="faq-item"><summary>Hoe regel ik hosting en domein?</summary><p>Hosting zit in Online houden, het maandbedrag van €49. Het domein zit daar niet in, dat regelen we apart. Zie <a class="tekst-link" href="/onderhoud-en-hosting">onderhoud en hosting</a>.</p></details><details class="faq-item"><summary>Is de website van mij?</summary><p>Ja. Na volledige betaling is de site van jou. Stop je met ons, dan leveren we op verzoek binnen 14 dagen de bestanden aan.</p></details><details class="faq-item"><summary>Wat als de website later niet goed werkt?</summary><p>De eerste 30 dagen na oplevering lossen we fouten in wat we bouwden gratis op. Nieuwe wensen vallen daar niet onder: die gaan via je aanpasrondes, het halve uur van Online houden of het uurtarief.</p></details><details class="faq-item"><summary>En apps of automatisering?</summary><p>Daar werken we niet met vaste pakketten. Na een gratis gesprek krijg je een vaste prijs op papier, vóór we beginnen. Zie <a class="tekst-link" href="/apps-laten-maken">apps</a> en <a class="tekst-link" href="/processen-automatiseren">automatisering</a>.</p></details><details class="faq-item"><summary>Werken jullie ook voor bedrijven buiten Gelderland?</summary><p>Ja, heel Nederland. We werken remote, locatie maakt niet uit. Voor klanten in de regio (Arnhem, Ede, Nijmegen, Wageningen) komen we ook gewoon langs.</p></details></div>
 </div></section>
 
 <section class="sectie smal"><div class="wrap"><div class="cta-band">
-  <div><h2>Niet zeker welk pakket <span class="serif">past?</span></h2><p>Plan een gratis kennismaking. Dan kijken we samen wat je nodig hebt en voorkom je dat je te veel betaalt.</p></div>
+  <div><h2>Niet zeker welke maat <span class="serif">past?</span></h2><p>Plan een gratis kennismaking. Dan kijken we samen wat je nodig hebt en voorkom je dat je te veel betaalt.</p></div>
   <div class="acties"><a class="knop" href="/contact">Plan een gratis kennismaking</a><a class="tel" href="tel:+31614160265">of bel 06 1416 0265</a></div>
 </div></div></section>
 
