@@ -1,0 +1,42 @@
+/* AP Digital, beweging op de homepage. Alleen index.html laadt dit, via home-motion.js.
+   Alles staat achter een klasse op <html> die het script pas zet als dit bestand binnen is
+   en de bezoeker geen reduced motion vraagt:
+     hm         = beweging aan
+     hm-stapel  = werkkaarten als stapel (smal staand scherm)
+   Zonder JavaScript of met reduced motion wordt dit bestand niet eens geladen. */
+
+/* ---------- 1. Hero: deeltjesveld (WebGL) achter de inhoud ---------- */
+.hm-veld { position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0; transition: opacity 1.1s ease; }
+.hm-veld.aan { opacity: 1; }
+
+/* knopje "kantel je telefoon": alleen waar de browser eerst om toestemming vraagt (iPhone) */
+.hm-kantel { position: absolute; right: 16px; top: 8px; z-index: 2; display: inline-flex; align-items: center; gap: 9px; height: 32px; padding: 0 13px 0 11px; border: 1px solid var(--lijn-2); border-radius: 99px; background: rgba(10,10,10,.82); color: var(--wit); font: 500 10.5px/1 var(--mono); text-transform: uppercase; letter-spacing: .14em; cursor: pointer; transition: opacity .45s ease; }
+.hm-kantel::before { content: ""; flex: none; width: 8px; height: 13px; border: 1.5px solid var(--geel); border-radius: 3px; animation: hm-kantel 1.5s ease-in-out infinite alternate; }
+.hm-kantel.weg { opacity: 0; pointer-events: none; }
+@keyframes hm-kantel { from { transform: rotate(-16deg); } to { transform: rotate(16deg); } }
+
+/* ---------- 2. Sectiekoppen komen per woord omhoog ---------- */
+/* De woorden knipt het script bij het laden; de kop zelf houdt zijn hele zin als aria-label. */
+html.hm .hm-w { display: inline-block; }
+html.hm [data-reveal] .hm-w { transform: translateY(100%); clip-path: inset(-20% -12% 100% -12%); transition: transform .95s cubic-bezier(.2,.7,.2,1), clip-path .95s cubic-bezier(.2,.7,.2,1); transition-delay: calc(60ms + var(--i, 0) * 55ms); }
+html.hm [data-reveal].in .hm-w { transform: none; clip-path: inset(-20% -12% -30% -12%); }
+
+/* ---------- 3. Stappen: de lijn tekent zich en het cijfer licht op ---------- */
+html.hm .stappen { counter-reset: hmstap; }
+html.hm .stap { position: relative; counter-increment: hmstap; }
+html.hm .stap:first-child { border-top-color: var(--lijn-2); }
+html.hm .stap::before { content: ""; position: absolute; left: 0; right: 0; top: -2px; height: 2px; background: var(--geel); transform-origin: 0 50%; transform: scaleX(var(--p, 0)); }
+html.hm .stap::after { content: counter(hmstap, decimal-leading-zero); content: counter(hmstap, decimal-leading-zero) / ""; position: absolute; right: 2px; top: 6px; z-index: 0; font-family: var(--serif); font-style: italic; font-size: 88px; line-height: 1; letter-spacing: -.02em; color: rgba(255,255,255,.05); pointer-events: none; transform: translateY(10px); transition: color .6s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+html.hm .stap > * { position: relative; z-index: 1; }
+html.hm .stap .nr { transition: color .45s ease; }
+html.hm .stap.hm-aan .nr { color: var(--geel); }
+html.hm .stap.hm-aan::after { color: rgba(255,214,10,.17); transform: none; }
+
+/* ---------- 4. Telefoon: werkkaarten schuiven als stapel over elkaar ---------- */
+/* Een kaart blijft pas hangen als hij helemaal gelezen kan worden (top komt uit het script).
+   Een kaart met een opengeklapt verhaal doet niet mee. */
+@media (max-width: 860px) and (orientation: portrait) {
+  html.hm-stapel .cases > .case:not(.open) { position: sticky; top: var(--hm-top, 80px); }
+  html.hm-stapel .cases > .case { scale: var(--hm-sc, 1); transform-origin: 50% 0; }
+  html.hm-stapel .cases > .case::after { content: ""; position: absolute; inset: 0; z-index: 5; background: var(--zwart); opacity: var(--hm-dim, 0); pointer-events: none; }
+}

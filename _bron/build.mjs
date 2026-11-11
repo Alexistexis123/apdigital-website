@@ -15,6 +15,7 @@ const OUD = join(D, 'oud')
 const SITE = 'https://apdigital.nl'
 const VANDAAG = process.env.BOUWDATUM || new Date().toISOString().slice(0, 10)
 const V = '5' // cache-buster site.css / site.js
+const VM = '1' // cache-buster home-motion.js (de css-versie staat in het script zelf)
 const steden = JSON.parse(readFileSync(join(D, 'steden.json'), 'utf8'))
 const oud = f => readFileSync(join(OUD, f), 'utf8')
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;')
@@ -106,7 +107,7 @@ const METEN = `<script defer src="/site.js?v=${V}"></script>
 })(window, document, "clarity", "script", "wlzolill5t");
 </script>`
 
-function pagina({ pad, titel, beschrijving, actief = '', body, jsonld = [], og = {}, kopExtra = '', noindex = false, bodyKlasse = '' }) {
+function pagina({ pad, titel, beschrijving, actief = '', body, jsonld = [], og = {}, kopExtra = '', voetExtra = '', noindex = false, bodyKlasse = '' }) {
   const url = SITE + (pad === '/' ? '/' : pad)
   return `<!doctype html>
 <html lang="nl">
@@ -142,7 +143,7 @@ ${kop(actief)}
 ${body}
 </main>
 ${voet()}
-${METEN}
+${METEN}${voetExtra}
 </body>
 </html>
 `
@@ -455,6 +456,9 @@ const home = pagina({
   og: { titel: 'AP Digital | Vindbaar in Google en AI, software op maat', beschrijving: 'Digitaal werk dat gewoon werkt. Gevonden worden in Google en AI, plus software en automatisering op maat. Uit Arnhem.' },
   actief: 'home',
   kopExtra: '<meta name="google-site-verification" content="CgNNQrAZwi1S_UNIU0qI0KRWeE4KUXG3Hbb" />',
+  // Beweging op de homepage (veld in de hero, koppen per woord, stappen, kaartstapel). Alleen hier geladen; laadt zelf home-motion.css.
+  voetExtra: `
+<script defer src="/home-motion.js?v=${VM}"></script>`,
   jsonld: [
     ld({ ...BEDRIJF, description: 'AP Digital uit Arnhem zorgt dat bedrijven gevonden worden in Google en in AI\'s, en bouwt websites, software en automatisering op maat.', areaServed: [{ '@type': 'City', name: 'Arnhem' }, { '@type': 'City', name: 'Ede' }, { '@type': 'City', name: 'Nijmegen' }, { '@type': 'City', name: 'Wageningen' }, { '@type': 'Country', name: 'Nederland' }], sameAs: ['https://wa.me/31614160265'] }),
     ld({ '@type': 'WebSite', url: `${SITE}/`, name: 'AP Digital', publisher: { '@id': `${SITE}/#business` }, inLanguage: 'nl-NL' }),
