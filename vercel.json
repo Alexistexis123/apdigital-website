@@ -20,10 +20,6 @@
     { "source": "/her-berg", "destination": "https://her-bergen.nl/", "permanent": true },
     { "source": "/her-berg/:path*", "destination": "https://her-bergen.nl/:path*", "permanent": true }
   ],
-  "headers": [
-    { "source": "/ontwerp", "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }] },
-    { "source": "/ontwerp/:path*", "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }] }
-  ],
   "rewrites": [
     { "source": "/wof-v2/:path*", "destination": "https://wof-v2-deploy.vercel.app/wof-v2/:path*" },
     { "source": "/bijdaanbarbershop", "destination": "https://bijdaanbarbershop.vercel.app/" },

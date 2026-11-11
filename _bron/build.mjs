@@ -4,11 +4,10 @@
 // - Overige pagina's (blogs, sectorpagina's, cases, juridisch) houden hun inhoud uit _bron/oud/ en krijgen de nieuwe
 //   kop, voet en stijl. Tekstfixes staan in FIXES.
 // - Schrijft ook sitemap.xml. _bron/ zelf gaat niet mee naar Vercel (.vercelignore).
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs'
+import { readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 import { projecten, pijlers, verhalen, team } from './data.mjs'
-import { maakVarianten } from './ontwerp-home.mjs'
 
 const D = dirname(fileURLToPath(import.meta.url))
 const ROOT = join(D, '..')
@@ -16,6 +15,7 @@ const OUD = join(D, 'oud')
 const SITE = 'https://apdigital.nl'
 const VANDAAG = process.env.BOUWDATUM || new Date().toISOString().slice(0, 10)
 const V = '6' // cache-buster site.css / site.js
+const VM = '2' // cache-buster home-motion.js en home-motion.css (het script leest zijn eigen versie uit de src)
 const steden = JSON.parse(readFileSync(join(D, 'steden.json'), 'utf8'))
 const oud = f => readFileSync(join(OUD, f), 'utf8')
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;')
@@ -107,7 +107,7 @@ const METEN = `<script defer src="/site.js?v=${V}"></script>
 })(window, document, "clarity", "script", "wlzolill5t");
 </script>`
 
-function pagina({ pad, titel, beschrijving, actief = '', body, jsonld = [], og = {}, kopExtra = '', noindex = false, bodyKlasse = '' }) {
+function pagina({ pad, titel, beschrijving, actief = '', body, jsonld = [], og = {}, kopExtra = '', voetExtra = '', noindex = false, bodyKlasse = '' }) {
   const url = SITE + (pad === '/' ? '/' : pad)
   return `<!doctype html>
 <html lang="nl">
@@ -144,7 +144,7 @@ ${kop(actief)}
 ${body}
 </main>
 ${voet()}
-${METEN}
+${METEN}${voetExtra}
 </body>
 </html>
 `
@@ -450,58 +450,31 @@ const vindbaarBlok = `
   <div class="knoppen-rij" style="margin-top:18px"><a class="knop-2" href="${T1}">Vindbaar in Google en AI →</a><a class="knop-2" href="${CHECK}">Doe de gratis check →</a></div>
 </div></div></section>`
 
-// Homepage als algemene ontvangst (go Alex 10-11-2026): eerst wie we zijn, dan de drie dingen die we doen,
-// dan werk, Alex en reviews, en de gratis check. Maandstappen, meetlijst en pakketten staan op ${T1}.
-// Foto: img/alex-home.webp (voorlopig). Vervangen = alleen dat bestand overschrijven; het kader heeft een vaste
-// verhouding en object-fit, dus een andere foto verspringt niets. Pas FOTO_POS aan als het gezicht elders staat.
-const FOTO = '/img/alex-home.webp', FOTO_POS = '52% 30%'
-const wieWij = `
-<section class="hero-wie"><div class="wrap">
-  <div class="wie-tekst">
-    <div class="label geel">AP Digital · Arnhem</div>
-    <h1>Hoi, wij zijn AP&nbsp;Digital <span class="serif">uit Arnhem.</span></h1>
-    <p class="lead">Wij zorgen dat klanten je vinden, in Google en in AI, en bouwen software die je werk makkelijker maakt.</p>
+// Homepage als algemene ontvangst met bovenkant C "kiezen" (go Alex 11-11-2026): de drie dingen die we doen staan
+// als klikbare tegels in de hero zelf, daarom geen los blok "Wat we doen" eronder. Daarna werk, Alex met reviews
+// en de gratis check. Maandstappen, meetlijst en pakketten staan op ${T1}.
+// Foto: img/alex-home.webp, klein in het blok over Alex. Vervangen = alleen dat bestand overschrijven; het kader
+// heeft een vaste verhouding en object-fit, dus een andere foto verspringt niets.
+const FOTO = '/img/alex-home.webp'
+const kiesTegel = (nr, href, label, titel, zin, prijs, extra = '') => `<a class="kies-tegel${extra}" href="${href}">
+      <span class="kies-nr">${nr}</span>
+      <span class="label${extra ? ' geel' : ''}">${label}</span>
+      <b>${titel}</b>
+      <span class="kies-zin">${zin}</span>
+      <span class="kies-onder"><span>${prijs}</span><i aria-hidden="true">→</i></span>
+    </a>`
+const kiesHero = `
+<section class="hero2 kies-hero"><div class="wrap">
+  <div class="label geel">AP Digital · Arnhem</div>
+  <h1>Vindbaarheid, software en websites <span class="serif">voor ondernemers.</span></h1>
+  <div class="hero-rechts">
+    <p class="lead">Kies waar je mee verder wilt. Weet je het nog niet? Doe de gratis check of plan een kennismaking.</p>
     <div class="knoppen-rij"><a class="knop" href="${CHECK}">Gratis check</a><a class="knop-2" href="/contact">Kennismaken</a></div>
-    <p class="wie-bel">Liever even bellen? <a href="${TEL_HREF}">${TEL}</a></p>
   </div>
-  <figure class="wie-foto">
-    <img src="${FOTO}" alt="Alex Prijs, oprichter AP Digital" width="1100" height="792" fetchpriority="high" decoding="async" style="object-position:${FOTO_POS}" />
-    <figcaption><b>Alex Prijs</b><span>Oprichter, je vaste aanspreekpunt</span></figcaption>
-  </figure>
-</div></section>`
-
-const AI_KORT = ['ChatGPT', 'Gemini', 'Perplexity', 'Google AI', 'Copilot', 'Meta AI']
-const watWeDoen = `
-<section class="sectie"><div class="wrap">
-  <div class="sectie-kop" data-reveal><div><div class="label">Wat we doen</div><h2 style="margin-top:12px">Drie dingen. <span class="serif">Kies wat bij je past.</span></h2></div></div>
-  <div class="drie-tak">
-    <a class="tak tak-1 dt-groot" href="${T1}" data-reveal>
-      <div class="tak-nr">01</div>
-      <div class="label geel">Onze hoofdzaak · het maandpakket</div>
-      <h3>Vindbaar in Google en AI</h3>
-      <p>Je klanten zoeken in Google, en ze vragen het ook aan ChatGPT. Wij zorgen dat ze jou daar vinden. Elke maand gemeten, verbeterd en in twee pagina's uitgelegd.</p>
-      <ul><li>Gemeten in Google en 7 AI's</li><li>Elke maand verbeteringen aan je site en Google-profiel</li><li>Rapport van 2 pagina's: waar je staat en wat we deden</li></ul>
-      <div class="dt-ais" aria-label="Onder andere gemeten in">${AI_KORT.map(a => `<span>${a}</span>`).join('')}</div>
-      <div class="tak-prijs">vanaf €149 per maand, excl. btw</div>
-      <span class="meer">Bekijk het maandpakket →</span>
-    </a>
-    <a class="tak tak-2" href="${T2}" data-reveal style="--d:90ms">
-      <div class="tak-nr">02</div>
-      <div class="label">Op maat</div>
-      <h3>Software en automatisering</h3>
-      <p>Apps die passen op hoe jouw bedrijf werkt. Werk dat elke week terugkomt, laten we vanzelf lopen.</p>
-      <ul><li>Planning, uren en klantportalen</li><li>Rapportages en mails die zichzelf maken</li></ul>
-      <div class="tak-prijs">Vaste prijs na een gratis gesprek</div>
-      <span class="meer">Meer over software →</span>
-    </a>
-    <a class="tak tak-3 dt-klein" href="${P.websites}" data-reveal style="--d:180ms">
-      <div class="tak-nr">03</div>
-      <div class="label">Websites</div>
-      <h3>Websites en redesign</h3>
-      <p>Een nieuwe website, of je huidige site vernieuwen. Snel, goed op mobiel en gebouwd om gevonden te worden.</p>
-      <div class="tak-prijs">vanaf €299</div>
-      <span class="meer">Over websites →</span>
-    </a>
+  <div class="kies-tegels">
+    ${kiesTegel('01', T1, 'Onze hoofdzaak', 'Vindbaar in Google en AI', 'Elke maand gemeten, verbeterd en in twee pagina\'s uitgelegd.', 'vanaf €149 per maand', ' kies-geel')}
+    ${kiesTegel('02', T2, 'Op maat', 'Software en automatisering', 'Apps die passen op hoe je werkt. Terugkerend werk loopt vanzelf.', 'vaste prijs na een gesprek')}
+    ${kiesTegel('03', P.websites, 'Websites', 'Websites en redesign', 'Nieuw of vernieuwd. Snel, goed op mobiel en gebouwd om gevonden te worden.', 'vanaf €299')}
   </div>
 </div></section>`
 
@@ -514,39 +487,42 @@ const werkHome = `
   <div class="cases">${['moveflow', 'postleads-machine'].map(id => kaart(proj(id), { rustig: id === 'moveflow', klasse: 'hc-card' })).join('')}</div>
 </div></section>`
 
-const overKort = `
-<section class="sectie smal"><div class="wrap twee over-kort">
-  <div data-reveal>
+// Over Alex, met de foto klein in het blok (geen foto meer bovenaan).
+const overAlex = `
+<section class="sectie smal"><div class="wrap over-rij">
+  <figure class="over-foto" data-reveal>
+    <img src="${FOTO}" alt="Alex Prijs, oprichter AP Digital" width="1100" height="792" loading="lazy" decoding="async" />
+    <figcaption><b>Alex Prijs</b><span>Oprichter</span></figcaption>
+  </figure>
+  <div data-reveal style="--d:60ms">
     <div class="label">Wie je aan de lijn krijgt</div>
     <h2 style="margin:12px 0 16px">Eén aanspreekpunt. <span class="serif">Die het ook bouwt.</span></h2>
     <p>Bij AP Digital praat je met Alex. Hij luistert naar waar het knelt, bouwt het zelf en belt je zelf terug. Geen accountmanager ertussen.</p>
     <p>Bij verhuisbedrijf Jacobs Heteren bouwde hij een uren-app, een planningssysteem en een website die aanvragen binnenhaalt.</p>
+    <div class="oq-rij" style="margin:20px 0 18px"><span>Uit Arnhem</span><span>Vaste prijs vooraf</span><span>Je belt met wie het bouwt</span></div>
     <a class="tekst-link" href="/over">Meer over ons →</a>
-  </div>
-  <div class="over-quote" data-reveal style="--d:90ms">
-    <p class="oq-zin">Gebouwd voor Jacobs Heteren, <span class="serif">waar het elke dag draait.</span> Nu voor jouw bedrijf.</p>
-    <div class="oq-rij"><span>Uit Arnhem</span><span>Vaste prijs vooraf</span><span>Je belt met wie het bouwt</span></div>
   </div>
 </div></section>`
 
 const home = pagina({
   pad: '/',
-  // Titel en meta: voorstel op de preview (10-11), niet live zonder go Alex.
+  // Titel en meta: voorstel (10-11), beslispunt Alex bij de live-go. Live stond: 'Vindbaar in Google en AI, websites vanaf €299 | AP Digital'.
   titel: 'AP Digital Arnhem | Vindbaar in Google en AI, sites en apps',
   beschrijving: 'AP Digital uit Arnhem zorgt dat klanten je vinden in Google en in AI\'s als ChatGPT, en bouwt websites en software die je werk makkelijker maken.',
   og: { titel: 'AP Digital uit Arnhem | Vindbaar in Google en AI, websites en software', beschrijving: 'Wij zorgen dat klanten je vinden, in Google en in AI, en bouwen software die je werk makkelijker maakt.' },
   actief: 'home',
-  kopExtra: `<meta name="google-site-verification" content="CgNNQrAZwi1S_UNIU0qI0KRWeE4KUXG3Hbb" />
-<link rel="preload" href="${FOTO}" as="image" type="image/webp" fetchpriority="high" />`,
+  kopExtra: '<meta name="google-site-verification" content="CgNNQrAZwi1S_UNIU0qI0KRWeE4KUXG3Hbb" />',
+  // Beweging op de homepage (veld in de hero, koppen per woord, kaartstapel). Alleen hier geladen; laadt zelf home-motion.css, en pas na de load en de eerste weergave (anders rekent Lighthouse het mee in LCP).
+  voetExtra: `
+<script>addEventListener('load',function(){var d=0,g=function(){if(d)return;d=1;var s=document.createElement('script');s.src='/home-motion.js?v=${VM}';document.body.appendChild(s)};try{new PerformanceObserver(function(l,o){if(l.getEntriesByName('first-contentful-paint').length){o.disconnect();setTimeout(g,200)}}).observe({type:'paint',buffered:true})}catch(e){g()}setTimeout(g,5000)})</script>`,
   jsonld: [
     ld({ ...BEDRIJF, description: 'AP Digital uit Arnhem zorgt dat bedrijven gevonden worden in Google en in AI\'s, en bouwt websites, software en automatisering op maat.', image: `${SITE}${FOTO}`, founder: { '@type': 'Person', name: 'Alexander Prijs', jobTitle: 'Oprichter AP Digital' }, areaServed: [{ '@type': 'City', name: 'Arnhem' }, { '@type': 'City', name: 'Ede' }, { '@type': 'City', name: 'Nijmegen' }, { '@type': 'City', name: 'Wageningen' }, { '@type': 'Country', name: 'Nederland' }], sameAs: ['https://wa.me/31614160265'] }),
     ld({ '@type': 'WebSite', url: `${SITE}/`, name: 'AP Digital', publisher: { '@id': `${SITE}/#business` }, inLanguage: 'nl-NL' }),
     kruimelLd([]),
   ],
-  body: `${wieWij}
-${watWeDoen}
+  body: `${kiesHero}
 ${werkHome}
-${overKort}
+${overAlex}
 ${reviewsBlok}
 ${ctaCheck}
 `,
@@ -1311,13 +1287,6 @@ for (const [f, html] of Object.entries(pages)) {
   writeFileSync(join(ROOT, f), html)
 }
 
-// Ontwerp-varianten home (alleen ter beoordeling, noindex, niet in de sitemap).
-mkdirSync(join(ROOT, 'ontwerp'), { recursive: true })
-for (const [f, html] of Object.entries(maakVarianten({ pagina, machine, checkKaart, watWeDoen, werkHome, reviewsBlok, ctaCheck, CHECK, T1, T2, P, TEL, TEL_HREF }))) {
-  const zichtbaar = html.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<style>[\s\S]*?<\/style>/g, '')
-  if (/[—–]/.test(zichtbaar)) { console.warn('LET OP: streepje in', f); fouten++ }
-  writeFileSync(join(ROOT, f), html)
-}
 
 // Sitemap: alle indexeerbare pagina's.
 const indexeerbaar = Object.keys(pages).filter(f => f !== '404.html').map(f => f === 'index.html' ? '/' : '/' + f.replace(/\.html$/, ''))

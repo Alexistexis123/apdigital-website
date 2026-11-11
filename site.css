@@ -747,50 +747,48 @@ html.js [data-reveal].in { opacity: 1; transform: none; }
 /* Gridkolommen mogen krimpen (anders duwt de check-kaart de kolom breder dan het scherm) */
 .twee > *, .ck-twee > *, .takken > *, .mp-grid > * { min-width: 0; }
 
-/* ---------- Home als ontvangst (10-11-2026) ---------- */
-.hero-wie { position: relative; padding: 72px 0 64px; }
-.hero-wie::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(var(--lijn) 1px, transparent 1px), linear-gradient(90deg, var(--lijn) 1px, transparent 1px); background-size: 64px 64px; -webkit-mask-image: radial-gradient(ellipse at 30% 40%, #000 15%, transparent 70%); mask-image: radial-gradient(ellipse at 30% 40%, #000 15%, transparent 70%); pointer-events: none; }
-.hero-wie .wrap { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 56px; align-items: center; }
-.hero-wie h1 { font-size: clamp(40px, 5.4vw, 72px); line-height: 1.02; letter-spacing: -.045em; margin: 18px 0 20px; }
-.hero-wie h1 .serif { letter-spacing: -.02em; }
-.hero-wie .lead { font-size: clamp(18px, 1.7vw, 21px); margin: 0 0 28px; max-width: 34em; }
-.wie-bel { margin: 18px 0 0; font-size: 15px; color: var(--grijs); }
-.wie-bel a { color: var(--wit); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--lijn-2); }
-.wie-bel a:hover { border-color: var(--geel); }
-.wie-foto { position: relative; margin: 0; aspect-ratio: 1 / 1; border-radius: 26px; overflow: hidden; border: 1px solid var(--lijn-2); background: var(--paneel); box-shadow: 0 30px 80px -30px rgba(0,0,0,.8), 0 0 0 8px rgba(255,214,10,.05); }
-.wie-foto img { width: 100%; height: 100%; object-fit: cover; }
-.wie-foto figcaption { position: absolute; left: 16px; bottom: 16px; display: flex; flex-direction: column; gap: 2px; background: rgba(10,10,10,.78); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border: 1px solid var(--lijn-2); border-radius: 14px; padding: 10px 14px; }
-.wie-foto figcaption b { color: var(--wit); font-size: 15px; font-weight: 600; }
-.wie-foto figcaption span { color: var(--geel); font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; }
-@media (max-width: 900px) {
-  .hero-wie { padding: 44px 0 40px; }
-  .hero-wie .wrap { grid-template-columns: 1fr; gap: 30px; }
-  .wie-foto { aspect-ratio: 4 / 3; border-radius: 20px; }
+/* ---------- Home als ontvangst, bovenkant "kiezen" (11-11-2026) ---------- */
+/* De drie dingen die we doen staan als tegels in de hero. De tegels zijn dekkend: het puntenveld van home-motion.js loopt erachter langs. */
+.kies-hero h1 { max-width: 14em; }
+.kies-hero .hero-rechts { margin-top: 24px; }
+.kies-tegels { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 44px; }
+.kies-tegel { position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 8px; background: var(--paneel); border: 1px solid var(--lijn); border-radius: var(--r); padding: 24px 24px 20px; text-decoration: none; color: var(--wit); transition: border-color .2s, transform .2s; min-width: 0; }
+.kies-tegel:hover { border-color: rgba(255,214,10,.6); transform: translateY(-4px); }
+.kies-tegel.kies-geel { border-color: rgba(255,214,10,.45); background: radial-gradient(120% 90% at 100% 0%, rgba(255,214,10,.12), transparent 55%), var(--paneel); }
+.kies-nr { position: absolute; right: 18px; top: 6px; font-family: var(--serif); font-style: italic; font-size: 60px; line-height: 1; color: rgba(255,255,255,.06); }
+.kies-geel .kies-nr { color: rgba(255,214,10,.2); }
+.kies-tegel b { font-size: clamp(21px, 1.9vw, 26px); letter-spacing: -.03em; line-height: 1.1; font-weight: 600; margin-top: 4px; }
+.kies-zin { color: var(--tekst); font-size: 15px; }
+.kies-onder { margin-top: auto; padding-top: 14px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--lijn); font-size: 14.5px; font-weight: 600; }
+.kies-geel .kies-onder > span { color: var(--geel); }
+.kies-onder i { font-style: normal; color: var(--geel); font-size: 18px; transition: transform .2s; }
+.kies-tegel:hover .kies-onder i { transform: translateX(4px); }
+@media (max-width: 960px) { .kies-tegels { grid-template-columns: 1fr; gap: 12px; margin-top: 32px; } }
+@media (max-width: 600px) {
+  .kies-hero h1 { font-size: 36px; }
+  .kies-hero .lead { font-size: 16px; }
+  .kies-hero .hero-rechts { gap: 18px; margin-top: 18px; }
+  .kies-tegels { gap: 10px; margin-top: 26px; }
+  .kies-tegel { padding: 14px 16px 12px; gap: 4px; }
+  .kies-tegel b { font-size: 20px; }
+  .kies-tegel .kies-zin { display: none; }
+  .kies-nr { font-size: 40px; right: 12px; }
+  .kies-onder { padding-top: 8px; font-size: 14px; }
 }
-@media (max-width: 600px) { .hero-wie h1 { font-size: 40px; } .hero-wie .lead { font-size: 17px; } }
 
-.drie-tak { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); grid-template-rows: auto auto; gap: 18px; }
-.drie-tak .dt-groot { grid-row: span 2; padding: 40px; }
-.drie-tak .dt-groot h3 { font-size: clamp(28px, 3.2vw, 40px); }
-.drie-tak .dt-groot p { font-size: 17px; max-width: 34em; }
-.drie-tak .tak p { margin: 0 0 6px; }
-.drie-tak .tak-2 ul { margin-bottom: 18px; }
-.dt-klein { padding: 26px 30px; }
-.dt-klein h3 { font-size: 24px; }
-.dt-klein .tak-prijs { margin: 12px 0 10px; }
-.dt-klein .tak-nr { font-size: 64px; }
-.dt-ais { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 24px; }
-.dt-ais span { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--tekst); border: 1px solid var(--lijn-2); border-radius: 99px; padding: 4px 10px; }
-@media (max-width: 900px) { .drie-tak { grid-template-columns: 1fr; } .drie-tak .dt-groot { grid-row: auto; padding: 28px 22px; } .dt-klein { padding: 24px 22px; } }
-
-.over-kort { align-items: center; }
-.over-kort p { max-width: 34em; }
-.over-quote { background: var(--paneel); border: 1px solid var(--lijn); border-left: 3px solid var(--geel); border-radius: 0 var(--r) var(--r) 0; padding: 34px; }
-.oq-zin { font-size: clamp(24px, 2.6vw, 32px); line-height: 1.2; letter-spacing: -.02em; color: var(--wit); font-weight: 600; margin: 0 0 24px; }
+/* Over Alex, met de foto klein in het blok */
+.over-rij { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 48px; align-items: center; }
+.over-rij p { max-width: 36em; }
+.over-foto { margin: 0; position: relative; aspect-ratio: 4 / 5; border-radius: 20px; overflow: hidden; border: 1px solid var(--lijn-2); background: var(--paneel); }
+.over-foto img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; }
+.over-foto figcaption { position: absolute; left: 12px; bottom: 12px; background: rgba(10,10,10,.8); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border: 1px solid var(--lijn-2); border-radius: 12px; padding: 8px 12px; display: flex; flex-direction: column; gap: 1px; }
+.over-foto figcaption b { font-size: 14px; color: var(--wit); }
+.over-foto figcaption span { font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--geel); }
 .oq-rij { display: flex; flex-wrap: wrap; gap: 8px; }
 .oq-rij span { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--grijs); border: 1px solid var(--lijn-2); border-radius: 99px; padding: 4px 10px; }
-@media (max-width: 600px) { .over-quote { padding: 24px 20px; } }
-.hero-wie .wrap > *, .drie-tak > * { min-width: 0; }
-.hero-wie + .sectie { padding-top: 48px; }
-.drie-tak .tak > .label { padding-right: 72px; }
-@media (max-width: 600px) { .hero-wie + .sectie { padding-top: 32px; } }
+@media (max-width: 760px) {
+  .over-rij { grid-template-columns: 1fr; gap: 24px; }
+  .over-foto { width: 150px; aspect-ratio: 1 / 1; border-radius: 18px; }
+  .over-foto img { object-position: 50% 18%; }
+  .over-foto figcaption { display: none; }
+}
