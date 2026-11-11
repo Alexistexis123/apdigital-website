@@ -372,13 +372,15 @@ const checkKaart = `
 
 const AI_STROOK = `<div class="ai-strook">${['Google-posities', 'Search Console', 'Techniek en snelheid', ...AIS].map(a => `<span>${a}</span>`).join('')}</div>`
 
-// Maandpakketten. Standaard bij livegang 10-11 (Alex heeft de beslispunten nog niet beantwoord, later aan te passen):
-// prijzen excl. btw, nulmeting zit bij de start in het pakket, Vol = 2 pagina's per maand, socialposts voor de eigen accounts van de klant.
+// Maandpakketten = lijn A uit de vault (Areas/AP Digital/aanbod.md), vastgesteld door Alex op 11-11-2026: €299 / €499 / €799 per maand.
+// Alleen wat daar als vastgesteld staat. Bewust NIET op de site: het klantdashboard met eigen login (bestaat nog niet, aparte go Alex).
+// Nog open bij Alex en daarom ongewijzigd gelaten: pakketnamen (Basis, Groei, Vol), excl. btw, minimaal 3 maanden, "7 AI's", gratis check binnen 5 werkdagen.
 const MAANDPAKKETTEN = [
-  { naam: 'Basis', prijs: '149', kop: 'Je weet waar je staat.', tekst: 'Elke maand gemeten en de kleine dingen gefixt. Voor wie zijn plek wil houden.', punten: ['Elke maand gemeten in Google en 7 AI\'s', 'Maandrapport van 2 pagina\'s', 'Google-bedrijfsprofiel bijhouden, 1 post per maand', 'Kleine fixes aan je site'] },
-  { naam: 'Groei', prijs: '299', uitgelicht: true, kop: 'Elke maand een stap vooruit.', tekst: 'Nieuwe inhoud en beter vindbaar in je eigen regio.', punten: ['Alles uit Basis', '1 nieuwe pagina of artikel per maand', '1 actie voor lokale vindbaarheid of vermeldingen', '8 socialposts per maand voor je eigen accounts'] },
-  { naam: 'Vol', prijs: '499', kop: 'Hard groeien.', tekst: 'Meer inhoud, actief reviews verzamelen en je advertenties erbij.', punten: ['Alles uit Groei', '2 nieuwe pagina\'s of artikelen per maand', 'Elke maand een review-actie', 'Advertentiebeheer (budget betaal je apart)'] },
+  { naam: 'Basis', prijs: '299', kop: 'Je weet waar je staat.', tekst: 'Elke maand gemeten en verbeterd, met tot 8 pagina\'s per maand.', punten: ['Tot 8 pagina\'s per maand, nieuw of verbeterd', '15 klantvragen gevolgd in Google en AI'] },
+  { naam: 'Groei', prijs: '499', uitgelicht: true, kop: 'Elke maand een stap vooruit.', tekst: 'Meer pagina\'s, meer klantvragen en we houden je concurrenten in de gaten.', punten: ['Tot 15 pagina\'s per maand, nieuw of verbeterd', '30 klantvragen gevolgd in Google en AI', 'We volgen je concurrenten', 'Elk kwartaal een gesprek'] },
+  { naam: 'Vol', prijs: '799', kop: 'Hard groeien.', tekst: 'De meeste pagina\'s en de meeste gevolgde klantvragen.', punten: ['Tot 30 pagina\'s per maand, nieuw of verbeterd', '60 klantvragen gevolgd in Google en AI', 'We volgen je concurrenten', 'Elk kwartaal een gesprek'] },
 ]
+const IN_ELK_PAKKET = ['Elke maand gemeten in Google en AI', 'Maandelijkse technische controle van je site', 'Zoekwoord- en vragenonderzoek', 'Google-bedrijfsprofiel bijhouden', 'Reviewbeheer: een reviewlink en een kant-en-klaar berichtje dat je zelf verstuurt', 'Wij schrijven de antwoorden op je reviews']
 const pakketKaarten = ({ kort = false, hosting = false } = {}) => `
 <div class="mp-grid">${MAANDPAKKETTEN.map((p, i) => `<div class="mp${p.uitgelicht ? ' uitgelicht' : ''}" data-reveal style="--d:${i * 80}ms">
   ${p.uitgelicht ? '<span class="pil-los mp-pil">Onze aanrader</span>' : ''}
@@ -388,13 +390,15 @@ const pakketKaarten = ({ kort = false, hosting = false } = {}) => `
   <ul class="vinklijst">${p.punten.map(x => `<li>${x}</li>`).join('')}</ul>
   <a class="${p.uitgelicht ? 'knop' : 'knop-2'}" href="${CHECK}?pakket=${p.naam}">Begin met de gratis check</a>
 </div>`).join('')}</div>
-<p class="mp-onder">Prijzen per maand, excl. btw. De nulmeting bij de start zit in het pakket. Minimaal 3 maanden, daarna per maand opzegbaar.${hosting ? ' Hosting en domein regelen we apart, zie <a class="tekst-link" href="/onderhoud-en-hosting">onderhoud en hosting</a>.' : ''}</p>`
+<div class="aanbod-grens" data-reveal><h3>In elk pakket</h3><ul class="vinklijst">${IN_ELK_PAKKET.map(x => `<li>${x}</li>`).join('')}</ul></div>
+<p class="mp-onder">Prijzen per maand, excl. btw. Bij de start doen we een nulmeting ter waarde van €295, gratis als je 3 maanden afneemt, en zetten we eenmalig je bedrijfsgegevens goed in de gidsen (Google, Bing, Apple Kaarten en enkele Nederlandse gidsen). Minimaal 3 maanden, daarna per maand opzegbaar.${hosting ? ' Hosting en domein regelen we apart, zie <a class="tekst-link" href="/onderhoud-en-hosting">onderhoud en hosting</a>.' : ''}</p>`
 
 const GRENS = [
   ['Geen garantie op posities', 'Google en de AI\'s bepalen zelf wie ze laten zien. Wat we wel beloven: elke maand meten, verbeteren en laten zien wat het deed.'],
   ['Foto\'s en feiten lever jij', 'Wij schrijven de teksten en bouwen de pagina\'s. Jij levert de foto\'s en checkt of de feiten kloppen.'],
+  ['Reviews vragen doe je zelf', 'Je krijgt van ons een reviewlink en een kant-en-klaar berichtje. Vragen en versturen doe je zelf.'],
+  ['Niet in het pakket', 'Linkbuilding, socialposts en advertentiebeheer zitten er niet in.'],
   ['Nieuwe site of grote verbouwing', 'Valt niet onder het pakket. Daarvoor krijg je een aparte offerte, vóór we beginnen.'],
-  ['Advertentiebudget betaal je apart', 'Bij Vol beheren we je advertenties. Wat je bij Google of Meta uitgeeft, betaal je zelf aan hen.'],
   ['Minimaal 3 maanden', 'Vindbaarheid groeit niet in een week. Daarom minimaal 3 maanden, daarna per maand opzegbaar.'],
 ]
 const grensBlok = `
@@ -406,8 +410,8 @@ const grensBlok = `
 const maandStappen = `
 <ol class="stappen">
   <li class="stap" data-reveal><div class="nr">01</div><h3>Gratis check</h3><p>Eén pagina: hoe sta je nu in Google en in de AI's, en wat zijn de 3 grootste gaten.</p></li>
-  <li class="stap" data-reveal><div class="nr">02</div><h3>Nulmeting</h3><p>Bij de start, in het pakket: 12 vragen die jouw klanten echt stellen, 20 zoektermen en 3 concurrenten. Daar meten we vanaf dan tegen.</p></li>
-  <li class="stap" data-reveal><div class="nr">03</div><h3>Elke maand verbeteren</h3><p>Wat het meeste oplevert eerst: pagina's, je Google-profiel, vermeldingen en reviews.</p></li>
+  <li class="stap" data-reveal><div class="nr">02</div><h3>Nulmeting</h3><p>Bij de start leggen we vast waar je staat op de vragen die jouw klanten echt stellen. Daar meten we vanaf dan tegen. Ter waarde van €295, gratis als je 3 maanden afneemt.</p></li>
+  <li class="stap" data-reveal><div class="nr">03</div><h3>Elke maand verbeteren</h3><p>Wat het meeste oplevert eerst: pagina's, de techniek van je site, je Google-profiel en reviews.</p></li>
   <li class="stap" data-reveal><div class="nr">04</div><h3>Rapport van 2 pagina's</h3><p>Waar je nu staat, vorige maand en je doel. Wat we deden en wat volgende maand komt.</p></li>
 </ol>`
 
@@ -427,7 +431,7 @@ const takKaarten = (svc = false) => `
       <h3>Vindbaar in Google en AI</h3>
       <p>Je site is de basis. Elke maand meten we waar je staat, maken we je beter vindbaar en laten we zien wat het deed.</p>
       <ul><li>Gemeten in Google en 7 AI's</li><li>Elke maand verbeteringen</li><li>Rapport van 2 pagina's</li></ul>
-      <div class="tak-prijs">vanaf €149 per maand, excl. btw</div>
+      <div class="tak-prijs">vanaf €299 per maand, excl. btw</div>
       <span class="meer">Bekijk de pakketten →</span>
     </a>
     <a class="tak tak-2${svc ? ' svc-card' : ''}" href="${T2}" data-reveal style="--d:90ms">
@@ -446,7 +450,7 @@ const vindbaarBlok = `
 <section class="sectie smal"><div class="wrap"><div class="tip">
   <div class="label geel">Daarna</div>
   <h2>Daarna vindbaar blijven?</h2>
-  <p>Een nieuwe site is de basis. Met een vast maandpakket meten we elke maand hoe je staat in Google en in AI's als ChatGPT, en maken we je stap voor stap beter vindbaar. Vanaf €149 per maand, excl. btw.</p>
+  <p>Een nieuwe site is de basis. Met een vast maandpakket meten we elke maand hoe je staat in Google en in AI's als ChatGPT, en maken we je stap voor stap beter vindbaar. Vanaf €299 per maand, excl. btw.</p>
   <div class="knoppen-rij" style="margin-top:18px"><a class="knop-2" href="${T1}">Vindbaar in Google en AI →</a><a class="knop-2" href="${CHECK}">Doe de gratis check →</a></div>
 </div></div></section>`
 
@@ -472,7 +476,7 @@ const kiesHero = `
     <div class="knoppen-rij"><a class="knop" href="${CHECK}">Gratis check</a><a class="knop-2" href="/contact">Kennismaken</a></div>
   </div>
   <div class="kies-tegels">
-    ${kiesTegel('01', T1, 'Onze hoofdzaak', 'Vindbaar in Google en AI', 'Elke maand gemeten, verbeterd en in twee pagina\'s uitgelegd.', 'vanaf €149 per maand', ' kies-geel')}
+    ${kiesTegel('01', T1, 'Onze hoofdzaak', 'Vindbaar in Google en AI', 'Elke maand gemeten, verbeterd en in twee pagina\'s uitgelegd.', 'vanaf €299 per maand', ' kies-geel')}
     ${kiesTegel('02', T2, 'Op maat', 'Software en automatisering', 'Apps die passen op hoe je werkt. Terugkerend werk loopt vanzelf.', 'vaste prijs na een gesprek')}
     ${kiesTegel('03', P.websites, 'Websites', 'Websites en redesign', 'Nieuw of vernieuwd. Snel, goed op mobiel en gebouwd om gevonden te worden.', 'vanaf €299')}
   </div>
@@ -534,13 +538,13 @@ const t1Faq = [
   ['Hoe snel zie ik verschil?', 'Google en de AI\'s hebben tijd nodig om veranderingen op te pikken. Reken op een paar maanden. Daarom meten we elke maand en starten we met minimaal 3 maanden.'],
   ['Heb ik een nieuwe website nodig?', 'Niet altijd. Is je site goed genoeg om op te bouwen, dan werken we daarop verder. Is hij dat niet, dan zeggen we dat na de check. Een nieuwe site valt buiten het pakket: daarvoor krijg je een aparte offerte, een instapsite kost vanaf €299.'],
   ['Wat krijg ik bij de gratis check?', 'Eén pagina: hoe je nu in Google staat op een paar belangrijke zoektermen, of de 7 AI\'s je noemen als iemand om een bedrijf zoals het jouwe vraagt, en de 3 grootste gaten. Binnen 5 werkdagen in je mailbox, en je zit nergens aan vast.'],
-  ['Kost de nulmeting extra?', 'Nee. De nulmeting bij de start zit in het pakket, er komen geen aparte kosten bij.'],
+  ['Kost de nulmeting extra?', 'Niet als je 3 maanden afneemt. De nulmeting bij de start heeft een waarde van €295 en is dan gratis.'],
   ['Wat staat er in het maandrapport?', 'Twee pagina\'s in gewone taal: waar je nu staat, vorige maand en je doel. Wat we deden en wat we volgende maand gaan doen.'],
   ['Kan ik opzeggen?', 'Na de eerste 3 maanden kun je per maand opzeggen.'],
 ]
 const tak1 = pagina({
   pad: T1,
-  titel: 'Vindbaar in Google en AI, vanaf €149 per maand | AP Digital',
+  titel: 'Vindbaar in Google en AI, vanaf €299 per maand | AP Digital',
   beschrijving: 'Gevonden worden in Google en in AI\'s als ChatGPT, Gemini en Perplexity. Elke maand gemeten, verbeterd en in een rapport van 2 pagina\'s. Begin met de gratis check.',
   actief: 't1',
   jsonld: [
@@ -569,7 +573,7 @@ const tak1 = pagina({
   <div class="sectie-kop"><div><div class="label">Wat we elke maand doen</div><h2 style="margin-top:12px">Meten, verbeteren, <span class="serif">uitleggen.</span></h2></div></div>
   <div class="drie">
     <div><div class="nr">01</div><h3>Meten</h3><p>Dezelfde vragen en zoektermen als vorige maand, in Google en in 7 AI's. Plus je cijfers uit Google Search Console en een check van de techniek.</p></div>
-    <div><div class="nr">02</div><h3>Verbeteren</h3><p>Wat het meeste oplevert eerst: nieuwe pagina's of artikelen, je Google-bedrijfsprofiel, vermeldingen op andere sites en reviews.</p></div>
+    <div><div class="nr">02</div><h3>Verbeteren</h3><p>Wat het meeste oplevert eerst: nieuwe pagina's, bestaande pagina's beter maken, de techniek van je site, je Google-bedrijfsprofiel en reviews.</p></div>
     <div><div class="nr">03</div><h3>Uitleggen</h3><p>Een rapport van 2 pagina's in gewone taal: waar je staat, wat we deden en wat volgende maand komt.</p></div>
   </div>
   <div class="label sub" style="margin:36px 0 14px">Waar we meten</div>
@@ -587,7 +591,7 @@ const tak1 = pagina({
 </div></div></section>
 
 <section class="sectie" id="pakketten"><div class="wrap">
-  <div class="sectie-kop"><div><div class="label">Pakketten</div><h2 style="margin-top:12px">Kies hoe hard <span class="serif">je wilt groeien.</span></h2><p class="lead">Elk pakket begint met een nulmeting: 12 vragen die jouw klanten echt stellen, 20 zoektermen en 3 concurrenten. Die zit bij de start in het pakket. Daar meten we elke maand tegen.</p></div></div>
+  <div class="sectie-kop"><div><div class="label">Pakketten</div><h2 style="margin-top:12px">Kies hoe hard <span class="serif">je wilt groeien.</span></h2><p class="lead">Elk pakket begint met een nulmeting: waar sta je nu op de vragen die jouw klanten echt stellen. Daar meten we elke maand tegen.</p></div></div>
   ${pakketKaarten({ hosting: true })}
   <div id="grens">${grensBlok}</div>
 </div></section>
@@ -885,7 +889,7 @@ ${ctaBand('Zin om je concept <span class="serif">samen door te lopen?</span>', u
 const diensten = pagina({
   pad: '/diensten',
   titel: 'Diensten: vindbaar in Google en AI, software op maat | AP Digital',
-  beschrijving: 'Twee dingen uit één hand: vindbaar in Google en AI met een vast maandpakket vanaf €149, en software en automatisering op maat. Websites vanaf €299.',
+  beschrijving: 'Twee dingen uit één hand: vindbaar in Google en AI met een vast maandpakket vanaf €299 per maand, en software en automatisering op maat. Websites vanaf €299.',
   jsonld: [kruimelLd([['Diensten', '/diensten']])],
   body: `
 <section class="pkop raster"><div class="wrap">
@@ -949,7 +953,7 @@ const pakketten = pagina({
 </div></section>
 <section class="sectie smal" style="padding-top:20px"><div class="wrap">
   <div class="pkgs">${PAKKETTEN.map(p => `<div class="pkg${p.uitgelicht ? ' uitgelicht' : ''}" data-reveal>${p.uitgelicht ? '<span class="pil-los">Meest gekozen</span>' : ''}<div class="pkg-name">${p.naam}</div><h3>${p.kop}</h3><p>${p.tekst}</p><div class="pkg-prijs"><small>vanaf </small>${p.prijs}</div><ul class="vinklijst">${p.punten.map(x => `<li>${x}</li>`).join('')}</ul><a class="${p.uitgelicht ? 'knop' : 'knop-2'}" href="${p.knop[1]}">${p.knop[0]}</a></div>`).join('')}</div>
-  <div class="uitleg-blok">Apps en automatisering vallen niet onder deze pakketten. Daar krijg je na een gratis gesprek een vaste prijs, vóór we beginnen. <a class="tekst-link" href="/apps-laten-maken">Apps</a> · <a class="tekst-link" href="/processen-automatiseren">Automatisering</a><br />Daarna vindbaar blijven in Google en AI? Dat is een apart maandpakket, vanaf €149 per maand excl. btw. <a class="tekst-link" href="${T1}">Bekijk de maandpakketten</a></div>
+  <div class="uitleg-blok">Apps en automatisering vallen niet onder deze pakketten. Daar krijg je na een gratis gesprek een vaste prijs, vóór we beginnen. <a class="tekst-link" href="/apps-laten-maken">Apps</a> · <a class="tekst-link" href="/processen-automatiseren">Automatisering</a><br />Daarna vindbaar blijven in Google en AI? Dat is een apart maandpakket, vanaf €299 per maand excl. btw. <a class="tekst-link" href="${T1}">Bekijk de maandpakketten</a></div>
 </div></section>
 <section class="sectie smal" id="abonnementen"><div class="wrap">
   <div class="sectie-kop"><div><div class="label">Onderhoud</div><h2 style="margin-top:12px">Houd je site <span class="serif">fris.</span></h2><p class="lead">Maandabonnementen voor doorlopend onderhoud en kleine wijzigingen. Eén vaste prijs, zonder verrassingen.</p></div></div>
@@ -964,7 +968,7 @@ ${ctaBand('Niet zeker welk pakket <span class="serif">past?</span>', 'Plan een g
 // ---------- GRATIS CHECK ----------
 // Formulier: zelfde Web3Forms-route en id's als /contact (contactForm, formSuccess, looking_for), dus events.js telt de aanvraag.
 const checkFaq = [
-  ['Wat kost de check?', 'Niets. Het is één pagina met waar je nu staat en de 3 grootste gaten. Wil je daarna verder, dan begint het maandpakket met een volledige nulmeting, die zit bij de start in het pakket.'],
+  ['Wat kost de check?', 'Niets. Het is één pagina met waar je nu staat en de 3 grootste gaten. Wil je daarna verder, dan begint het maandpakket met een volledige nulmeting. Die heeft een waarde van €295 en is gratis als je 3 maanden afneemt.'],
   ['Wanneer krijg ik de check?', 'Binnen 5 werkdagen in je mailbox.'],
   ['Wat moet ik aanleveren?', 'Alleen je website en waar je gevonden wilt worden. De rest zoeken we zelf uit.'],
   ['Zit ik ergens aan vast?', 'Nee. Je krijgt de check, en jij beslist of je er iets mee doet.'],
@@ -989,7 +993,7 @@ const gratisCheck = pagina({
   <div class="sectie-kop"><div><div class="label">Wat je krijgt</div><h2 style="margin-top:12px">Eén pagina, <span class="serif">zo ziet hij eruit.</span></h2></div></div>
   <div class="check-groot">${checkKaart}</div>
   <p class="m-uitleg" style="margin-top:12px">Voorbeeld met nepdata, verzonnen bedrijf.</p>
-  <p class="concept-grens">De check is een momentopname op één pagina, geen volledig plan. De volledige nulmeting (12 vragen, 20 zoektermen en 3 concurrenten) is de start van een maandpakket en zit daarin.</p>
+  <p class="concept-grens">De check is een momentopname op één pagina, geen volledig plan. De volledige nulmeting is de start van een maandpakket.</p>
 </div></section>
 <section class="sectie smal"><div class="wrap">
   <div class="sectie-kop"><div><div class="label">Daarna</div><h2 style="margin-top:12px">Zo gaat het <span class="serif">als je verder wilt.</span></h2></div><a class="knop-2" href="${T1}#pakketten">Bekijk de pakketten →</a></div>
