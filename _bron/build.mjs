@@ -1229,7 +1229,7 @@ const FIXES = [
   [/Ja\. Je krijgt de bronbestanden, hosting en domein op jouw naam\. Je zit nergens aan vast en kan altijd wisselen\./g, 'Ja, na volledige betaling is de site van jou. Stop je met ons, dan leveren we op verzoek binnen 14 dagen de bestanden aan. Je zit nergens aan vast en kan altijd wisselen.', 'gelijk met voorwaarden art. 7 v1.2'],
   [/Bij ons altijd, ja\. Je site is van jou\. Wij geven toegang tot hosting, domein en bronbestanden zodat je nooit vastzit aan ons\./g, 'Ja. Na volledige betaling is je site van jou. Stop je met ons, dan leveren we op verzoek binnen 14 dagen de bestanden aan, zodat je nooit vastzit aan ons.', 'gelijk met voorwaarden art. 7 v1.2'],
   // Komt alleen voor in voorwaarden.html.
-  [/<div class="updated">Versie 1\.0, 4 mei 2026<\/div>/g, '<div class="updated">Versie 1.2, 10 november 2026</div>', 'voorwaarden v1.2 (go Alex 10-11)'],
+  [/<div class="updated">Versie 1\.0, 4 mei 2026<\/div>/g, '<div class="updated">Versie 1.3, 11 november 2026</div>', 'voorwaarden v1.3 (lijn B, ter goedkeuring Alex; v1.2 was go Alex 10-11)'],
   [/\s*[—–]\s*/g, ', ', 'geen em-dashes'],
 ]
 const FIX_LOG = {}
@@ -1271,6 +1271,14 @@ const MAANDKAARTEN_OUD = `<h2>Het maandbedrag</h2>
   </div>
   <p>Wijzigingen boven het halve uur van Online houden doen we tegen uurtarief (${UUR}). We zeggen vooraf hoeveel uur we verwachten. Het domein zit niet in het maandbedrag, dat regelen we apart. Prijzen per maand, excl. btw.</p>`
 const PAGINA_FIXES = {
+  // Voorwaarden versie 1.3 (juridisch, ter goedkeuring Alex bij de live-go). Alleen de pakketnamen, prijzen en termijnen die botsen
+  // met lijn B. Niet aangeraakt: betaalwijze, opzegtermijn, de 7 dagen na oplevering, artikel 8 (hosting en domein).
+  'voorwaarden.html': [
+    [`Prijzen op de website (Starter €299, Groei €499, Premium €999) zijn richtprijzen voor standaard pakketten.`, `Prijzen op de website (Startsite €299, Website €595, Bedrijfssite €1.250, Maatwerk vanaf €2.500) zijn richtprijzen voor standaard pakketten.`, 'art. 3: pakketnamen en prijzen lijn B'],
+    [`<li><strong>Starter:</strong> binnen 7 dagen, vaak sneller</li>`, `<li><strong>Startsite:</strong> binnen 2 dagen</li>`, 'art. 5: termijnen lijn B'],
+    [`<li><strong>Groei:</strong> 7 tot 14 dagen</li>`, `<li><strong>Website:</strong> binnen 7 dagen</li>`, 'art. 5: termijnen lijn B'],
+    [`<li><strong>Premium:</strong> 2 tot 8 weken, afhankelijk van complexiteit</li>`, `<li><strong>Bedrijfssite:</strong> binnen 14 dagen</li>\n        <li><strong>Maatwerk:</strong> in overleg</li>`, 'art. 5: termijnen lijn B'],
+  ],
   'onderhoud-en-hosting.html': [
     [`Eén vast bedrag voor hosting, domein, back-ups, updates en kleine wijzigingen.`, `Eén vast bedrag van €49 per maand voor hosting, updates, back-ups en een half uur wijzigingen.`, 'Online houden €49, domein niet in het bedrag'],
     [`<p>Eén vaste prijs, geen verrassingen. Hosting, domein, SSL, updates en kleine wijzigingen inbegrepen.</p>`, `<p>Eén vaste prijs, geen verrassingen. Hosting, updates, back-ups en een half uur wijzigingen per maand zitten erin.</p>`, 'Online houden €49, domein niet in het bedrag'],
