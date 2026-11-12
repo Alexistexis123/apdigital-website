@@ -16,16 +16,45 @@ export const maten = [
   { naam: 'Maatwerk', prijs: '€2.500', getal: '2500', vanaf: true, kop: 'Voor als de site meer moet doen.',
     rijen: [['Pagina\'s', 'In overleg'], ['Online in', 'In overleg'], ['Teksten', 'In overleg'], ['Ontwerp', 'In overleg'], ['Vindbaarheid', 'In overleg'], ['Erbij', 'De site neemt werk over: webshop, boekingen, betalen, koppelingen'], ['Aanpasrondes', 'In overleg']] },
 ]
+// ---------- NA DE BOUW: HOSTING IS EEN KEUZE UIT TWEE, HET MAANDPAKKET IS IETS ANDERS ----------
+// Twee besluiten van Alex op 12-11-2026:
+// 1. "Ja, mag zelf": een maandbedrag is geen verplichting. Over hosting kies je uit twee: Online houden (€49 per maand) of zelf hosten.
+// 2. "doe maar hosting bij in": het maandpakket voor vindbaarheid (lijn A, €299 / €499 / €799) is GEEN hosting-keuze maar een ander
+//    onderwerp. Wie een site en een maandpakket neemt betaalt alleen het maandpakket; Online houden zit daar dan bij in.
+//    Dat geldt voor alle drie de maandpakketten. Zet het maandpakket dus nooit als kaart naast Online houden en zelf hosten.
+// De grens bij punt 2 is een invulling van Harvey, niet door Alex beslist, en staat in build.mjs (IN_PAKKET_GRENS): één website
+// die bij ons staat, precies wat Online houden is en niets meer, het domein zit er niet in. Beloof er niets bij.
+// Het domein zit niet in de €49 (standaardkeuze, beslispunt Alex).
+
+// HET HALVE UUR: de enige plek waar de tekst over de wijzigingen van Online houden staat. Alex wil dit mogelijk anders
+// formuleren ("is zo specifiek", 12-11-2026, nog geen besluit). Wijzig dan alleen deze vier vormen: build.mjs gebruikt ze
+// overal, ook op de oude pagina's, in de FAQ's en in de JSON-LD. Schrijf de tekst dus nergens anders met de hand.
+export const wijzigingen = {
+  tijd: 'een half uur',                         // "Er zit een half uur per maand in"
+  kort: 'een half uur wijzigingen',             // in een opsomming
+  maand: 'een half uur wijzigingen per maand',  // voluit, ook de regel op de kaart
+  grens: 'het halve uur',                       // "wijzigingen boven het halve uur"
+}
+export const hoofd = s => s.charAt(0).toUpperCase() + s.slice(1)
+// inhoud en inhoudMaand = wat Online houden is, als zin. Eén bron voor elke opsomming op de site.
+export const onlineHouden = {
+  naam: 'Online houden', prijs: '€49', getal: '49',
+  punten: ['Hosting', 'Updates', 'Back-ups', hoofd(wijzigingen.maand)],
+  inhoud: `hosting, updates, back-ups en ${wijzigingen.kort}`,
+  inhoudMaand: `hosting, updates, back-ups en ${wijzigingen.maand}`,
+}
+// De doorlopende zinnen, op elke pagina gelijk (stadspagina's, /websites-laten-maken, redesign, restaurant, B&B, blogs).
+// keuze = de keuze uit twee over hosting. inPakket = kort dat Online houden in een maandpakket zit.
+export const naDeBouw = {
+  keuze: `Na de bouw kies je zelf: ${onlineHouden.naam} voor ${onlineHouden.prijs} per maand, of je regelt de hosting zelf.`,
+  inPakket: `Neem je een maandpakket voor vindbaarheid, dan zit ${onlineHouden.naam} erbij in.`,
+}
 // Het blok "Dit zit in de Startsite" op /websites-laten-maken en de 24 stadspagina's.
 export const startsite = {
   kop: 'Dit zit in de Startsite van €299',
-  punten: ['Tot 3 pagina\'s', 'Online in 2 dagen', 'Teksten, foto\'s en logo lever je zelf aan', 'Vast ontwerp in jouw kleuren en logo', 'Basis vindbaarheid: titel en omschrijving', 'Formulier, bel- en WhatsApp-knop', '1 aanpasronde', 'Goed op mobiel, snel en beveiligd'],
-  meer: 'Meer nodig? Website €595, Bedrijfssite €1.250 of Maatwerk vanaf €2.500. Na de bouw kies je zelf: Online houden voor €49 per maand, een maandpakket vanaf €299 per maand, of je regelt de hosting zelf. Prijzen excl. btw.',
+  punten: ["Tot 3 pagina's", 'Online in 2 dagen', "Teksten, foto's en logo lever je zelf aan", 'Vast ontwerp in jouw kleuren en logo', 'Basis vindbaarheid: titel en omschrijving', 'Formulier, bel- en WhatsApp-knop', '1 aanpasronde', 'Goed op mobiel, snel en beveiligd'],
+  meer: `Meer nodig? Website €595, Bedrijfssite €1.250 of Maatwerk vanaf €2.500. ${naDeBouw.keuze} ${naDeBouw.inPakket} Prijzen excl. btw.`,
 }
-// Het maandbedrag is een KEUZE uit drie, geen verplichting (besluit Alex 12-11-2026, "Ja, mag zelf"; vervangt "altijd een
-// maandbedrag erbij" van 11-11): Online houden €49 per maand, een maandpakket uit lijn A, of zelf hosten.
-// Het domein zit niet in de €49 (standaardkeuze, beslispunt Alex).
-export const onlineHouden = { naam: 'Online houden', prijs: '€49', getal: '49', punten: ['Hosting', 'Updates', 'Back-ups', 'Een half uur wijzigingen per maand'] }
 // Zelf hosten. De grens komt uitsluitend uit de voorwaarden, artikel 8 (AP Digital helpt bij het koppelen van de website) en uit
 // wat Online houden is: wat daar in zit (hosting, updates, back-ups, een half uur wijzigingen) doen wij dan niet. Wijzigingen gaan
 // tegen het bestaande uurtarief. Geen nieuwe belofte en geen nieuw tarief: verzin hier niets bij.

@@ -7,7 +7,7 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
-import { projecten, pijlers, verhalen, team, maten, startsite, onlineHouden, zelfHosten } from './data.mjs'
+import { projecten, pijlers, verhalen, team, maten, startsite, onlineHouden, zelfHosten, wijzigingen, hoofd, naDeBouw } from './data.mjs'
 
 const D = dirname(fileURLToPath(import.meta.url))
 const ROOT = join(D, '..')
@@ -235,23 +235,31 @@ const faqBlok = (faq, kop = 'Veel gesteld') => `
 </div></section>`
 
 // Websites = lijn B uit de vault (Areas/AP Digital/aanbod.md), vastgesteld door Alex op 11-11-2026: Startsite €299, Website €595,
-// Bedrijfssite €1.250, Maatwerk vanaf €2.500. Het maandbedrag is een KEUZE uit drie, geen verplichting (besluit Alex 12-11-2026,
-// "Ja, mag zelf"; vervangt "altijd een maandbedrag erbij" van 11-11): Online houden €49, een maandpakket uit lijn A, of zelf hosten.
-// De data staat in data.mjs (maten, startsite, onlineHouden, zelfHosten). Standaardkeuzes zolang Alex niet besliste (elk los te wijzigen):
-// prijzen excl. btw, domein niet in de €49, niets beloofd over hosting binnen een maandpakket uit lijn A, de januari-actie staat
-// niet op de site, 30 dagen fouten oplossen bij alle maten, geen "90+" meer. Titels van rankende pagina's zijn ongewijzigd.
+// Bedrijfssite €1.250, Maatwerk vanaf €2.500. Na de bouw (twee besluiten Alex 12-11-2026, zie data.mjs):
+// 1. over hosting kies je uit twee, een maandbedrag is geen verplichting ("Ja, mag zelf"): Online houden €49 of zelf hosten;
+// 2. het maandpakket uit lijn A is geen hosting-keuze maar een ander onderwerp, en Online houden zit erbij in ("doe maar hosting bij in").
+// De data staat in data.mjs (maten, startsite, onlineHouden, zelfHosten, naDeBouw, wijzigingen). Standaardkeuzes zolang Alex niet
+// besliste (elk los te wijzigen): prijzen excl. btw, domein niet in de €49, de januari-actie staat niet op de site, 30 dagen
+// fouten oplossen bij alle maten, geen "90+" meer. Titels van rankende pagina's zijn ongewijzigd.
 const UUR = '€85 per uur, excl. btw'
-// Keuze uit drie na de bouw: dezelfde zinnen op elke pagina. KEUZE staat ook letterlijk in startsite.meer (data.mjs); de bouw
-// stopt onderaan als die twee uit elkaar lopen. De _EURO-varianten zijn voor de oude pagina's en hun JSON-LD ("49 euro").
+// De vaste zinnen over na de bouw, op elke pagina gelijk. De _EURO-varianten zijn voor de oude pagina's en hun JSON-LD ("49 euro").
+// KEUZE = de doorlopende zin: de keuze uit twee over hosting plus kort dat Online houden in een maandpakket zit (uit data.mjs,
+//   staat via startsite.meer ook op de 24 stadspagina's; de bouw stopt onderaan als die uit elkaar lopen).
+// IN_PAKKET + IN_PAKKET_PRIJS = de belofte voluit. IN_PAKKET_GRENS = de grens erbij (invulling Harvey 12-11-2026, niet door Alex beslist, dus zo
+//   zuinig mogelijk): één website die bij ons staat, precies wat Online houden is en niets meer, het domein zit er niet in.
+//   Er staat bewust niets over korting voor wie zelf host: dat belooft niemand.
 // ZELF_GRENS = de grens bij zelf hosten: alleen wat in de voorwaarden art. 8 staat (helpen bij het koppelen) plus wat je dan
-// niet hebt omdat het in Online houden zit. Geen nieuwe belofte, geen nieuw tarief.
+//   niet hebt omdat het in Online houden zit. Geen nieuwe belofte, geen nieuw tarief.
 const EURO = s => s.replace(/€(\d+)/g, '$1 euro')
-const KEUZE = `Na de bouw kies je zelf: ${onlineHouden.naam} voor ${onlineHouden.prijs} per maand, een maandpakket vanaf €299 per maand, of je regelt de hosting zelf.`
+const KEUZE = `${naDeBouw.keuze} ${naDeBouw.inPakket}`
 const KEUZE_EURO = EURO(KEUZE)
+const IN_PAKKET = `Neem je een maandpakket, dan zit ${onlineHouden.naam} erbij in.`
+const IN_PAKKET_PRIJS = `Je betaalt dan geen ${onlineHouden.prijs} per maand erbovenop.`
+const IN_PAKKET_GRENS = `Dat geldt voor één website die bij ons staat. Je krijgt precies wat in ${onlineHouden.naam} zit: ${onlineHouden.inhoudMaand}. Wijzigingen boven ${wijzigingen.grens} doen we tegen uurtarief (${UUR}). Het domein zit er niet in, dat regelen we apart.`
 const ZELF_GRENS = `Je neemt hosting en domein dan zelf af, bij een partij naar keuze, en wij helpen met het koppelen van je site. Updates en back-ups regel je dan ook zelf. Wijzigingen doen we tegen uurtarief (${UUR}).`
 const ZELF_GRENS_EURO = EURO(ZELF_GRENS)
 const OH_LINK = s => s.replace(onlineHouden.naam, `<a href="/onderhoud-en-hosting">${onlineHouden.naam}</a>`)
-// Stijl voor de vier maten en de drie keuzekaarten (Online houden, maandpakket, zelf hosten). Staat in de pagina zelf (alleen /pakketten en /websites-laten-maken),
+// Stijl voor de vier maten en de twee keuzekaarten (Online houden, zelf hosten). Staat in de pagina zelf (alleen /pakketten en /websites-laten-maken),
 // zodat site.css en dus alle andere pagina's ongemoeid blijven.
 const MATEN_STIJL = `<style>
 .pkgs.vier { grid-template-columns: repeat(4, 1fr); }
@@ -262,11 +270,13 @@ const MATEN_STIJL = `<style>
 .maat dt { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--grijs); }
 .maat dd { margin: 3px 0 0; font-size: 15px; color: var(--tekst); }
 .maat-onder { margin: 18px 0 0; font-size: 14px; color: var(--grijs); }
+.abo-grid.keuze-abo { grid-template-columns: repeat(2, 1fr); }
 .abo-grid.keuze-abo .knop-2 { margin-top: auto; justify-content: center; }
 .abo-grid.keuze-abo .abo-price.rustig { color: var(--tekst); }
 .aanbod.vier { grid-template-columns: repeat(4, 1fr); }
 .pkgs.vier > *, .abo-grid.keuze-abo > *, .aanbod.vier > * { min-width: 0; }
 @media (max-width: 1100px) { .pkgs.vier, .aanbod.vier { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 900px) { .abo-grid.keuze-abo { grid-template-columns: 1fr; } }
 @media (max-width: 640px) { .pkgs.vier, .aanbod.vier { grid-template-columns: 1fr; } }
 </style>`
 
@@ -425,13 +435,14 @@ const pakketKaarten = ({ kort = false, hosting = false } = {}) => `
   <a class="${p.uitgelicht ? 'knop' : 'knop-2'}" href="${CHECK}?pakket=${p.naam}">Begin met de gratis check</a>
 </div>`).join('')}</div>
 <div class="aanbod-grens" data-reveal><h3>In elk pakket</h3><ul class="vinklijst">${IN_ELK_PAKKET.map(x => `<li>${x}</li>`).join('')}</ul></div>
-<p class="mp-onder">Prijzen per maand, excl. btw. Bij de start doen we een nulmeting ter waarde van €295, gratis als je 3 maanden afneemt, en zetten we eenmalig je bedrijfsgegevens goed in de gidsen (Google, Bing, Apple Kaarten en enkele Nederlandse gidsen). Minimaal 3 maanden, daarna per maand opzegbaar.${hosting ? ' Hosting en domein regelen we apart, zie <a class="tekst-link" href="/onderhoud-en-hosting">onderhoud en hosting</a>.' : ''}</p>`
+<p class="mp-onder">Prijzen per maand, excl. btw. Bij de start doen we een nulmeting ter waarde van €295, gratis als je 3 maanden afneemt, en zetten we eenmalig je bedrijfsgegevens goed in de gidsen (Google, Bing, Apple Kaarten en enkele Nederlandse gidsen). Minimaal 3 maanden, daarna per maand opzegbaar.${hosting ? ` Staat je website bij ons, dan zit <a class="tekst-link" href="/onderhoud-en-hosting">${onlineHouden.naam}</a> bij elk maandpakket in. Zie <a class="tekst-link" href="#grens">wat er wel en niet onder valt</a>.` : ''}</p>`
 
 const GRENS = [
   ['Geen garantie op posities', 'Google en de AI\'s bepalen zelf wie ze laten zien. Wat we wel beloven: elke maand meten, verbeteren en laten zien wat het deed.'],
   ['Foto\'s en feiten lever jij', 'Wij schrijven de teksten en bouwen de pagina\'s. Jij levert de foto\'s en checkt of de feiten kloppen.'],
   ['Reviews vragen doe je zelf', 'Je krijgt van ons een reviewlink en een kant-en-klaar berichtje. Vragen en versturen doe je zelf.'],
   ['Niet in het pakket', 'Linkbuilding, socialposts en advertentiebeheer zitten er niet in.'],
+  [`${onlineHouden.naam} zit erbij in`, `Je betaalt geen ${onlineHouden.prijs} per maand voor <a class="tekst-link" href="/onderhoud-en-hosting">${onlineHouden.naam}</a> erbovenop. ${IN_PAKKET_GRENS}`],
   ['Nieuwe site of grote verbouwing', 'Valt niet onder het pakket. Daarvoor krijg je een aparte offerte, vóór we beginnen.'],
   ['Minimaal 3 maanden', 'Vindbaarheid groeit niet in een week. Daarom minimaal 3 maanden, daarna per maand opzegbaar.'],
 ]
@@ -639,7 +650,7 @@ const tak1 = pagina({
   <div class="tip">
     <div class="label geel">De basis</div>
     <h2>Eerst een betere site nodig?</h2>
-    <p>Is je huidige site niet goed genoeg om op te bouwen, dan maken we eerst een nieuwe. Een Startsite kost €299 en staat in 2 dagen online. Daarna houdt het maandpakket hem vindbaar.</p>
+    <p>Is je huidige site niet goed genoeg om op te bouwen, dan maken we eerst een nieuwe. Een Startsite kost €299 en staat in 2 dagen online. Daarna houdt het maandpakket hem vindbaar. ${onlineHouden.naam} zit er dan bij in, dus je betaalt geen ${onlineHouden.prijs} per maand erbovenop.</p>
     <div class="knoppen-rij" style="margin-top:18px"><a class="knop-2" href="${P.websites}">Website laten maken →</a><a class="knop-2" href="/pakketten">Websitepakketten →</a><a class="knop-2" href="${P.websites}#regio">In jouw regio →</a></div>
   </div>
 </div></section>
@@ -947,9 +958,24 @@ ${ctaBand()}
 `,
 })
 
+// Los blok onder de twee hosting-kaarten op /pakketten en /onderhoud-en-hosting: het maandpakket is een ander onderwerp
+// (vindbaarheid), geen derde hosting-keuze. Besluit Alex 12-11-2026, letterlijk "doe maar hosting bij in".
+const OOK_KOP = 'Ook gevonden worden?'
+const OOK_LABEL = 'Iets anders dan hosting'
+const OOK_TEKST = `${onlineHouden.naam} houdt je site in de lucht. Gevonden worden in Google en in AI's als ChatGPT is iets anders. Daar is het maandpakket voor, vanaf €${MAANDPAKKETTEN[0].prijs} per maand, excl. btw.`
+const OOK_KNOP = 'Bekijk de maandpakketten'
+const ookGevonden = `
+<section class="sectie smal" id="ook-gevonden-worden"><div class="wrap"><div class="tip">
+  <div class="label geel">${OOK_LABEL}</div>
+  <h2>${OOK_KOP}</h2>
+  <p>${OOK_TEKST}</p>
+  <p><strong style="color:var(--wit)">${IN_PAKKET}</strong> ${IN_PAKKET_PRIJS} ${IN_PAKKET_GRENS}</p>
+  <div class="knoppen-rij" style="margin-top:18px"><a class="knop-2" href="${T1}#pakketten">${OOK_KNOP} →</a></div>
+</div></div></section>`
+
 // ---------- PAKKETTEN (lijn B) ----------
 // De vier maten en het maandbedrag komen uit data.mjs. Formulierwaarden: ?pakket=Startsite|Website|Bedrijfssite|Maatwerk
-// en ?abo=Online houden (waren Starter|Groei|Premium en Brons|Zilver|Goud). Klassen .pkg, .pkg-name, .abo-card, .abo-name en
+// en ?abo=Online houden|Zelf hosten (waren Starter|Groei|Premium en Brons|Zilver|Goud). Klassen .pkg, .pkg-name, .abo-card, .abo-name en
 // .flip-cta blijven, events.js telt daarop.
 const maatKnop = m => m.vanaf ? ['Plan kennismaking', `/contact?over=websites&pakket=${m.naam}`] : ['Vraag website aan', `/contact?over=websites&pakket=${m.naam}`]
 const maatKaarten = `<div class="pkgs vier">${maten.map(m => `<div class="pkg" data-reveal><div class="pkg-name">${m.naam}</div><h3>${m.kop}</h3><div class="pkg-prijs">${m.vanaf ? '<small>vanaf </small>' : ''}${m.prijs}</div><dl class="maat">${m.rijen.map(r => `<div><dt>${r[0]}</dt><dd>${r[1]}</dd></div>`).join('')}</dl><a class="knop-2" href="${maatKnop(m)[1]}">${maatKnop(m)[0]}</a></div>`).join('')}</div>`
@@ -962,10 +988,10 @@ const PAKKET_FAQ = [
   ['Wat moet ik aanleveren?', 'Bij een Startsite lever je zelf je teksten, foto\'s en logo aan. Bij een Website schrijven wij de teksten, op basis van een vragenlijst die je invult. Bij een Bedrijfssite schrijven wij de teksten ook.'],
   ['Wat als ik meer pagina\'s of aanpasrondes nodig heb?', `Dan kies je de volgende maat, of we doen het extra werk tegen uurtarief (${UUR}). We zeggen vooraf hoeveel uur we verwachten.`],
   ['Kan ik later een grotere maat nemen?', 'Ja. Schaal je binnen drie maanden op van een Startsite naar een Website of Bedrijfssite, dan verrekenen we de €299.'],
-  ['Wat als ik later wijzigingen wil?', `In Online houden zit elke maand een half uur wijzigingen. Heb je meer nodig, of host je zelf, dan doen we dat tegen uurtarief (${UUR}).`],
-  ['Hoe regel ik hosting en domein?', `Dat kies je zelf, een maandbedrag is niet verplicht. Met Online houden (€49 per maand) doen wij de hosting, updates en back-ups. Het domein zit daar niet in, dat regelen we apart. Je mag de hosting ook zelf regelen. ${ZELF_GRENS} Zie <a class="tekst-link" href="/onderhoud-en-hosting">onderhoud en hosting</a>.`],
+  ['Wat als ik later wijzigingen wil?', `In Online houden zit elke maand ${wijzigingen.kort}. Heb je meer nodig, of host je zelf, dan doen we dat tegen uurtarief (${UUR}).`],
+  ['Hoe regel ik hosting en domein?', `Dat kies je zelf, een maandbedrag is niet verplicht. Met Online houden (€49 per maand) doen wij de hosting, updates en back-ups. Het domein zit daar niet in, dat regelen we apart. Je mag de hosting ook zelf regelen. ${ZELF_GRENS} ${naDeBouw.inPakket} Zie <a class="tekst-link" href="/onderhoud-en-hosting">onderhoud en hosting</a>.`],
   ['Is de website van mij?', 'Ja. Na volledige betaling is de site van jou. Stop je met ons, dan leveren we op verzoek binnen 14 dagen de bestanden aan.'],
-  ['Wat als de website later niet goed werkt?', 'De eerste 30 dagen na oplevering lossen we fouten in wat we bouwden gratis op. Nieuwe wensen vallen daar niet onder: die gaan via je aanpasrondes, het halve uur van Online houden of het uurtarief.'],
+  ['Wat als de website later niet goed werkt?', `De eerste 30 dagen na oplevering lossen we fouten in wat we bouwden gratis op. Nieuwe wensen vallen daar niet onder: die gaan via je aanpasrondes, ${wijzigingen.grens} van Online houden of het uurtarief.`],
   ['En apps of automatisering?', 'Daar werken we niet met vaste pakketten. Na een gratis gesprek krijg je een vaste prijs op papier, vóór we beginnen. Zie <a class="tekst-link" href="/apps-laten-maken">apps</a> en <a class="tekst-link" href="/processen-automatiseren">automatisering</a>.'],
   ['Werken jullie ook voor bedrijven buiten Gelderland?', 'Ja, heel Nederland. We werken remote, locatie maakt niet uit. Voor klanten in de regio (Arnhem, Ede, Nijmegen, Wageningen) komen we ook gewoon langs.'],
 ]
@@ -979,7 +1005,7 @@ const pakketten = pagina({
   jsonld: [
     ld({ '@type': 'OfferCatalog', name: 'Website pakketten AP Digital', url: `${SITE}/pakketten`, itemListElement: [
       ...maten.map(maatAanbod),
-      { '@type': 'Offer', name: onlineHouden.naam, description: 'Maandbedrag bij een website: hosting, updates, back-ups en een half uur wijzigingen per maand.', priceCurrency: 'EUR', price: onlineHouden.getal, priceSpecification: { '@type': 'UnitPriceSpecification', price: onlineHouden.getal, priceCurrency: 'EUR', unitCode: 'MON', valueAddedTaxIncluded: false }, seller: { '@id': `${SITE}/#business` } },
+      { '@type': 'Offer', name: onlineHouden.naam, description: `Maandbedrag bij een website: ${onlineHouden.inhoudMaand}.`, priceCurrency: 'EUR', price: onlineHouden.getal, priceSpecification: { '@type': 'UnitPriceSpecification', price: onlineHouden.getal, priceCurrency: 'EUR', unitCode: 'MON', valueAddedTaxIncluded: false }, seller: { '@id': `${SITE}/#business` } },
     ] }),
     faqLd(PAKKET_FAQ), kruimelLd([['Pakketten', '/pakketten']]),
   ],
@@ -996,14 +1022,14 @@ const pakketten = pagina({
   <div class="uitleg-blok">Apps en automatisering vallen niet onder deze pakketten. Daar krijg je na een gratis gesprek een vaste prijs, vóór we beginnen. <a class="tekst-link" href="/apps-laten-maken">Apps</a> · <a class="tekst-link" href="/processen-automatiseren">Automatisering</a></div>
 </div></section>
 <section class="sectie smal" id="abonnementen"><div class="wrap">
-  <div class="sectie-kop"><div><div class="label">Na de bouw</div><h2 style="margin-top:12px">Een maandbedrag mag, <span class="serif">het hoeft niet.</span></h2><p class="lead">Na de bouw kies je zelf: wij houden je site online, je neemt een maandpakket voor vindbaarheid, of je regelt de hosting zelf.</p></div></div>
+  <div class="sectie-kop"><div><div class="label">Na de bouw</div><h2 style="margin-top:12px">Een maandbedrag mag, <span class="serif">het hoeft niet.</span></h2><p class="lead">Na de bouw kies je zelf: wij houden je site online, of je regelt de hosting zelf.</p></div></div>
   <div class="abo-grid keuze-abo">
     <div class="abo-card" data-reveal><span class="pil-los">Onze aanrader</span><div class="abo-name">${onlineHouden.naam}</div><div class="abo-price">${onlineHouden.prijs} <small>per maand</small></div><ul class="vinklijst">${onlineHouden.punten.map(x => `<li>${x}</li>`).join('')}</ul><a class="knop-2 flip-cta" href="/contact?abo=${encodeURIComponent(onlineHouden.naam)}">Vraag aan</a></div>
-    <div class="abo-card" data-reveal><div class="abo-name">Vindbaar in Google en AI</div><div class="abo-price"><small>vanaf </small>€${MAANDPAKKETTEN[0].prijs} <small>per maand</small></div><ul class="vinklijst"><li>Elke maand gemeten in Google en AI</li><li>Tot 8, 15 of 30 pagina's per maand, nieuw of verbeterd</li><li>Google-bedrijfsprofiel bijhouden</li></ul><a class="knop-2" href="${T1}#pakketten">Bekijk de maandpakketten</a></div>
     <div class="abo-card" data-reveal><div class="abo-name">${zelfHosten.naam}</div><div class="abo-price rustig">Geen maandbedrag</div><ul class="vinklijst">${zelfHosten.punten.map(x => `<li>${x}</li>`).join('')}</ul><a class="knop-2" href="/contact?over=websites&abo=${encodeURIComponent(zelfHosten.naam)}">Vraag website aan</a></div>
   </div>
-  <div class="uitleg-blok"><strong style="color:var(--wit)">Online houden.</strong> Wijzigingen boven het halve uur doen we tegen uurtarief (${UUR}). Het domein zit niet in het maandbedrag, dat regelen we apart. Prijzen per maand, excl. btw.<br /><strong style="color:var(--wit)">Zelf hosten.</strong> ${ZELF_GRENS}</div>
+  <div class="uitleg-blok"><strong style="color:var(--wit)">Online houden.</strong> Wijzigingen boven ${wijzigingen.grens} doen we tegen uurtarief (${UUR}). Het domein zit niet in het maandbedrag, dat regelen we apart. Prijzen per maand, excl. btw.<br /><strong style="color:var(--wit)">Zelf hosten.</strong> ${ZELF_GRENS}</div>
 </div></section>
+${ookGevonden}
 ${faqBlok(PAKKET_FAQ, 'Veel gestelde vragen')}
 ${ctaBand('Niet zeker welke maat <span class="serif">past?</span>', 'Plan een gratis kennismaking. Dan kijken we samen wat je nodig hebt en voorkom je dat je te veel betaalt.')}
 `,
@@ -1217,13 +1243,13 @@ const FIXES = [
   [/web-apps starten vanaf 2\.500 euro/g, 'voor web-apps krijg je na een gratis gesprek een vaste prijs', 'besluit Alex 05-11: apps zonder bedrag'],
   // Besluit Alex 05-11: hosting en domein zitten niet bij de websiteprijs, die regelen we apart.
   [/ Hosting en domein voor het eerste jaar zitten erbij in\./g, ' Hosting en domein regelen we apart, bijvoorbeeld via <a href="/onderhoud-en-hosting">onderhoud en hosting</a>.', 'hosting/domein apart (besluit Alex 05-11)'],
-  [/<li>Hosting, domein en SSL eerste jaar inbegrepen<\/li>/g, `<li>${OH_LINK(KEUZE)} Het domein regelen we apart</li>`, 'hosting/domein apart (besluit Alex 05-11), maandbedrag is een keuze uit drie (besluit Alex 12-11)'],
+  [/<li>Hosting, domein en SSL eerste jaar inbegrepen<\/li>/g, `<li>${OH_LINK(KEUZE)} Het domein regelen we apart</li>`, 'hosting/domein apart (besluit Alex 05-11), hosting is een keuze uit twee, Online houden zit in een maandpakket (besluiten Alex 12-11)'],
   [/Logo, foto, tekst, contactformulier, hosting en domein eerste jaar inbegrepen\./g, 'Logo, foto, tekst en contactformulier. Hosting en domein regelen we apart.', 'hosting/domein apart (besluit Alex 05-11)'],
   [/\s*<li>Hosting voor het eerste jaar, vanaf jaar 2 vaak rond 12 tot 18 euro per maand\.<\/li>\s*<li>Domeinregistratie voor het eerste jaar, daarna ongeveer 12 euro per jaar\.<\/li>/g, '\n      <li>Hosting en domein zitten niet in de pakketprijs. Die regelen we apart, bijvoorbeeld via <a href="/onderhoud-en-hosting">onderhoud en hosting</a>.</li>', 'hosting/domein apart (besluit Alex 05-11)'],
   [/Bij elk pakket dat we leveren zitten een paar zaken standaard inbegrepen\. Dat scheelt verrassingen achteraf\./g, 'Bij elk pakket zitten een paar zaken standaard, en één ding regelen we apart. Dat scheelt verrassingen achteraf.', 'hosting/domein apart (besluit Alex 05-11)'],
   [/Is hosting en domein bij de prijs inbegrepen\?/g, 'Zitten hosting en domein bij de prijs?', 'hosting/domein apart (besluit Alex 05-11)'],
   [/Bij ons zit hosting en domein voor het eerste jaar standaard in elk pakket\. Vanaf jaar 2 reken je op ongeveer 12 tot 30 euro per maand voor hosting en 12 euro per jaar voor je domein\./g, `Nee. Hosting en domein zitten niet in de bouwprijs. Online houden kost 49 euro per maand en daar zit de hosting in, zie <a href="/onderhoud-en-hosting">onderhoud en hosting</a>. Het domein regelen we apart. Je mag de hosting ook zelf regelen. ${ZELF_GRENS_EURO}`, 'hosting/domein apart (besluit Alex 05-11), maandbedrag is een keuze (besluit Alex 12-11)'],
-  [/ Hosting en domein zitten het eerste jaar in elk pakket\./g, ` ${OH_LINK(KEUZE_EURO)} Het domein regelen we apart.`, 'hosting/domein apart (besluit Alex 05-11), maandbedrag is een keuze uit drie (besluit Alex 12-11)'],
+  [/ Hosting en domein zitten het eerste jaar in elk pakket\./g, ` ${OH_LINK(KEUZE_EURO)} Het domein regelen we apart.`, 'hosting/domein apart (besluit Alex 05-11), hosting is een keuze uit twee, Online houden zit in een maandpakket (besluiten Alex 12-11)'],
   [/ Hosting en domein eerste jaar inbegrepen\./g, ' Hosting en domein regelen we apart.', 'hosting/domein apart (besluit Alex 05-11)'],
   // Voorwaarden art. 8 (juridisch, concept ter goedkeuring Alex voor livegang).
   [/<p>Bij elk pakket is hosting en domein voor één jaar inbegrepen\. Na het eerste jaar kan de klant kiezen:<\/p>\s*<ul>\s*<li>Doorlopende hosting via AP Digital tegen jaartarief \(op aanvraag\)<\/li>\s*<li>Zelf overnemen van hosting en domein, met technische ondersteuning bij overdracht<\/li>\s*<\/ul>/g, '<p>Hosting en domein vallen niet onder de prijs van een website of pakket en worden apart geregeld. De klant kan kiezen:</p>\n      <ul>\n        <li>Hosting en domein via AP Digital, met een maandabonnement of tegen een tarief op aanvraag</li>\n        <li>Hosting en domein zelf afnemen bij een partij naar keuze, met technische ondersteuning van AP Digital bij het koppelen van de website</li>\n      </ul>', 'voorwaarden art. 8 (besluit Alex 05-11, ter goedkeuring)'],
@@ -1258,7 +1284,7 @@ function fix(html, f) {
 // Klopt het aantal treffers niet, dan stopt de bouw: zo kan een fix nooit stil niets doen.
 const DUUR = 'Een Startsite staat in 2 dagen online, een Website in 7 dagen en een Bedrijfssite in 14 dagen. Maatwerk plannen we in overleg.'
 const MAANDKAARTEN_OUD = `<h2>Een maandbedrag mag, het hoeft niet</h2>
-  <p>Na de bouw kies je zelf: wij houden je site online, je neemt een maandpakket voor vindbaarheid, of je regelt de hosting zelf.</p>
+  <p>Na de bouw kies je zelf: wij houden je site online, of je regelt de hosting zelf.</p>
   <div class="plans" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
     <div class="plan featured">
       <div class="plan-name">${onlineHouden.naam} · onze aanrader</div>
@@ -1270,17 +1296,6 @@ const MAANDKAARTEN_OUD = `<h2>Een maandbedrag mag, het hoeft niet</h2>
       <a class="btn btn-primary" href="/contact?abo=${encodeURIComponent(onlineHouden.naam)}">Vraag aan</a>
     </div>
     <div class="plan">
-      <div class="plan-name">Of: vindbaar in Google en AI</div>
-      <div class="plan-price">vanaf €${MAANDPAKKETTEN[0].prijs}</div>
-      <div class="plan-per">per maand</div>
-      <ul>
-        <li>Elke maand gemeten in Google en AI</li>
-        <li>Tot 8, 15 of 30 pagina's per maand, nieuw of verbeterd</li>
-        <li>Google-bedrijfsprofiel bijhouden</li>
-      </ul>
-      <a class="btn btn-ghost" href="${T1}#pakketten">Bekijk de maandpakketten</a>
-    </div>
-    <div class="plan">
       <div class="plan-name">Of: zelf hosten</div>
       <div class="plan-price">Geen</div>
       <div class="plan-per">maandbedrag</div>
@@ -1290,8 +1305,15 @@ const MAANDKAARTEN_OUD = `<h2>Een maandbedrag mag, het hoeft niet</h2>
       <a class="btn btn-ghost" href="/contact?over=websites&abo=${encodeURIComponent(zelfHosten.naam)}">Vraag website aan</a>
     </div>
   </div>
-  <p>Wijzigingen boven het halve uur van Online houden doen we tegen uurtarief (${UUR}). We zeggen vooraf hoeveel uur we verwachten. Het domein zit niet in het maandbedrag, dat regelen we apart. Prijzen per maand, excl. btw.</p>
-  <p><strong>Zelf hosten.</strong> ${ZELF_GRENS}</p>`
+  <p>Wijzigingen boven ${wijzigingen.grens} van Online houden doen we tegen uurtarief (${UUR}). We zeggen vooraf hoeveel uur we verwachten. Het domein zit niet in het maandbedrag, dat regelen we apart. Prijzen per maand, excl. btw.</p>
+  <p><strong>Zelf hosten.</strong> ${ZELF_GRENS}</p>
+  <div class="tip" style="margin:40px 0 8px">
+    <div class="label geel">${OOK_LABEL}</div>
+    <h2 style="margin:10px 0 12px;font-size:clamp(22px,2.4vw,28px)">${OOK_KOP}</h2>
+    <p>${OOK_TEKST}</p>
+    <p><strong>${IN_PAKKET}</strong> ${IN_PAKKET_PRIJS} ${IN_PAKKET_GRENS}</p>
+    <a class="btn btn-ghost" href="${T1}#pakketten">${OOK_KNOP}</a>
+  </div>`
 const PAGINA_FIXES = {
   // Voorwaarden versie 1.3 (juridisch, ter goedkeuring Alex bij de live-go). Alleen de pakketnamen, prijzen en termijnen die botsen
   // met lijn B. Niet aangeraakt: betaalwijze, opzegtermijn, de 7 dagen na oplevering, artikel 8 (hosting en domein).
@@ -1302,23 +1324,23 @@ const PAGINA_FIXES = {
     [`<li><strong>Premium:</strong> 2 tot 8 weken, afhankelijk van complexiteit</li>`, `<li><strong>Bedrijfssite:</strong> binnen 14 dagen</li>\n        <li><strong>Maatwerk:</strong> in overleg</li>`, 'art. 5: termijnen lijn B'],
   ],
   'onderhoud-en-hosting.html': [
-    [`Eén vast bedrag voor hosting, domein, back-ups, updates en kleine wijzigingen.`, `Eén vast bedrag van €49 per maand voor hosting, updates, back-ups en een half uur wijzigingen.`, 'Online houden €49, domein niet in het bedrag'],
-    [`<p>Eén vaste prijs, geen verrassingen. Hosting, domein, SSL, updates en kleine wijzigingen inbegrepen.</p>`, `<p>Eén vaste prijs, geen verrassingen. Hosting, updates, back-ups en een half uur wijzigingen per maand zitten erin.</p>`, 'Online houden €49, domein niet in het bedrag'],
+    [`Eén vast bedrag voor hosting, domein, back-ups, updates en kleine wijzigingen.`, `Eén vast bedrag van €49 per maand voor ${onlineHouden.inhoud}.`, 'Online houden €49, domein niet in het bedrag'],
+    [`<p>Eén vaste prijs, geen verrassingen. Hosting, domein, SSL, updates en kleine wijzigingen inbegrepen.</p>`, `<p>Eén vaste prijs, geen verrassingen. ${hoofd(onlineHouden.inhoudMaand)} zitten erin.</p>`, 'Online houden €49, domein niet in het bedrag'],
     [`<p>Brons reactie binnen 24 uur, Zilver binnen 4 uur, Goud zo snel mogelijk op werkdagen.</p>`, `<p>Loopt er iets mis, dan bel, mail of app je ons. Storingen aan de hosting pakken we direct op.</p>`, 'Brons, Zilver en Goud vervallen'],
     [`<h3>Dagelijkse back-ups</h3>`, `<h3>Back-ups</h3>`, 'vastgesteld is "back-ups", niet dagelijks'],
     [`<p>Iedere nacht een snapshot. Bij problemen draaien we binnen een uur terug naar de laatste werkende versie.</p>`, `<p>We maken back-ups van je site. Gaat er iets mis, dan zetten we de laatste werkende versie terug.</p>`, 'vastgesteld is "back-ups", niet dagelijks of binnen een uur'],
-    [`<h3>Kleine wijzigingen inbegrepen</h3>`, `<h3>Een half uur wijzigingen per maand</h3>`, 'Online houden: een half uur wijzigingen'],
-    [`<p>Tekst aanpassen, foto vervangen, prijs of openingstijden bijwerken. Binnen 1 tot 3 werkdagen klaar.</p>`, `<p>Tekst aanpassen, foto vervangen, prijs of openingstijden bijwerken. Er zit een half uur per maand in, meer doen we tegen uurtarief.</p>`, 'Online houden: een half uur wijzigingen, daarboven uurtarief'],
+    [`<h3>Kleine wijzigingen inbegrepen</h3>`, `<h3>${hoofd(wijzigingen.maand)}</h3>`, 'Online houden: een half uur wijzigingen'],
+    [`<p>Tekst aanpassen, foto vervangen, prijs of openingstijden bijwerken. Binnen 1 tot 3 werkdagen klaar.</p>`, `<p>Tekst aanpassen, foto vervangen, prijs of openingstijden bijwerken. Er zit ${wijzigingen.tijd} per maand in, meer doen we tegen uurtarief.</p>`, 'Online houden: een half uur wijzigingen, daarboven uurtarief'],
     [`<h3>Domein en mail beheer</h3>`, `<h3>Domein apart</h3>`, 'domein niet in de €49 (standaardkeuze)'],
     [`<p>Wij zorgen dat je domein op tijd verlengt en mail-records goed staan. Geen ge-mail meer naar buitenlandse providers.</p>`, `<p>Het domein zit niet in het maandbedrag. Dat regelen we apart.</p>`, 'domein niet in de €49 (standaardkeuze)'],
     [/<ul class="checks">[\s\S]*?<\/ul>/, `<ul class="checks">\n    ${onlineHouden.punten.map(x => `<li>${x}</li>`).join('\n    ')}\n  </ul>`, 'Online houden: precies de vier onderdelen'],
-    [/<h2>De pakketten<\/h2>[\s\S]*?<p>Een aanpassing is één wijziging[^<]*<\/p>/, MAANDKAARTEN_OUD, 'Brons, Zilver en Goud vervangen door de keuze uit drie: Online houden €49, een maandpakket of zelf hosten'],
-    [`Bij ieder abonnement zit Europese hosting, SSL-certificaat, dagelijkse back-ups en domeinbeheer. Bij Zilver en Goud krijg je meer wijzigingen per maand en extra rapportages.`, `In Online houden zitten hosting, updates, back-ups en een half uur wijzigingen per maand. Het domein zit er niet in.`, 'Online houden €49', 2],
+    [/<h2>De pakketten<\/h2>[\s\S]*?<p>Een aanpassing is één wijziging[^<]*<\/p>/, MAANDKAARTEN_OUD, 'Brons, Zilver en Goud vervangen door de keuze uit twee (Online houden €49 of zelf hosten) plus het losse blok over het maandpakket (besluiten Alex 12-11)'],
+    [`Bij ieder abonnement zit Europese hosting, SSL-certificaat, dagelijkse back-ups en domeinbeheer. Bij Zilver en Goud krijg je meer wijzigingen per maand en extra rapportages.`, `In Online houden zitten ${onlineHouden.inhoudMaand}. Het domein zit er niet in.`, 'Online houden €49', 2],
     [`Bij Brons reactie binnen 24 uur, bij Zilver binnen 4 uur en bij Goud zo snel mogelijk op werkdagen tussen 9 en 18 uur. Storingen op hosting-niveau pakken we direct op.`, `Meld het ons via telefoon, mail of WhatsApp. Storingen op hosting-niveau pakken we direct op.`, 'Brons, Zilver en Goud vervallen', 2],
     [`Ja. We migreren je bestaande site, domein en mail. Eenmalige migratiekosten variëren per omvang, doorgaans tussen 99 en 249 euro.`, `Ja. Het overzetten van je site is extra werk tegen uurtarief (${UUR}). We zeggen vooraf hoeveel uur we verwachten.`, 'oude migratieprijs staat niet in het aanbod, extra werk is uurtarief', 2],
     [`Wat als ik geen abonnement neem?`, `Wat als ik geen Online houden neem?`, 'maandbedrag is een keuze, hosting mag zelf (besluit Alex 12-11)', 2],
     [`Dan kun je losse wijzigingen aanvragen op uurtarief (€85). Voor structurele zaken is een abonnement meestal voordeliger en sneller.`, `Dat mag, een maandbedrag is niet verplicht. ${ZELF_GRENS} We zeggen vooraf hoeveel uur we verwachten.`, 'maandbedrag is een keuze, hosting mag zelf, met de grens (besluit Alex 12-11)', 2],
-    [`Maandelijks abonnement voor website-onderhoud, hosting, back-ups en kleine wijzigingen. Drie tiers: Brons, Zilver en Goud.`, `Online houden: een vast maandbedrag van 49 euro voor hosting, updates, back-ups en een half uur wijzigingen per maand.`, 'Brons, Zilver en Goud vervallen'],
+    [`Maandelijks abonnement voor website-onderhoud, hosting, back-ups en kleine wijzigingen. Drie tiers: Brons, Zilver en Goud.`, `Online houden: een vast maandbedrag van 49 euro voor ${onlineHouden.inhoudMaand}.`, 'Brons, Zilver en Goud vervallen'],
   ],
   'website-redesign.html': [
     [`Mobiel-eerst, 90+ Lighthouse, eigen huisstijl`, `Mobiel-eerst, lichte code, eigen huisstijl`, 'geen "90+" meer als belofte', 4],
@@ -1326,7 +1348,7 @@ const PAGINA_FIXES = {
     [`<li>90+ Lighthouse op performance en SEO</li>`, `<li>Snel en goed op mobiel</li>`, 'geen "90+" meer als belofte'],
     [`<div class="amount">Vanaf €499</div>`, `<div class="amount">Vanaf €299</div>`, 'herdesign kost hetzelfde als nieuw'],
     [`<p>Volledige redesign met huisstijl-update tussen €999 en €2.500.</p>`, `<p>Een herdesign kost hetzelfde als een nieuwe site: Startsite €299, Website €595, Bedrijfssite €1.250, Maatwerk vanaf €2.500. Prijzen excl. btw.</p>`, 'herdesign kost hetzelfde als nieuw'],
-    [`Een eenvoudige redesign vanaf 499 euro. Een volledige redesign met huisstijl-update, nieuwe content en integraties zit tussen 999 en 2.500 euro.`, `Hetzelfde als een nieuwe site: 299 euro voor een Startsite, 595 euro voor een Website, 1.250 euro voor een Bedrijfssite en vanaf 2.500 euro voor Maatwerk. ${KEUZE_EURO}`, 'herdesign kost hetzelfde als nieuw; maandbedrag is een keuze uit drie (besluit Alex 12-11)', 2],
+    [`Een eenvoudige redesign vanaf 499 euro. Een volledige redesign met huisstijl-update, nieuwe content en integraties zit tussen 999 en 2.500 euro.`, `Hetzelfde als een nieuwe site: 299 euro voor een Startsite, 595 euro voor een Website, 1.250 euro voor een Bedrijfssite en vanaf 2.500 euro voor Maatwerk. ${KEUZE_EURO}`, 'herdesign kost hetzelfde als nieuw; hosting is een keuze uit twee, Online houden zit in een maandpakket (besluiten Alex 12-11)', 2],
     [`Een eenvoudige redesign in 7 tot 14 dagen. Bij grotere projecten met nieuwe content of integraties reken je op 2 tot 4 weken.`, DUUR, 'termijnen lijn B', 2],
   ],
   'restaurant-websites.html': [
@@ -1353,9 +1375,9 @@ const PAGINA_FIXES = {
   'blog-waarom-lokale-bedrijven-slechte-websites-hebben.html': [
     [`Tegenwoordig kan een goede zakelijke site vanaf 299 of 499 euro.`, `Tegenwoordig kan een goede zakelijke site vanaf 299 euro.`, 'maten lijn B'],
     [`Voor de meeste MKB-ers ligt het tussen 499 en 999 euro.`, `Voor de meeste MKB-ers ligt het tussen 595 en 1.250 euro.`, 'maten lijn B', 3],
-    [`Daar zijn onderhoudsabonnementen voor, vanaf 49,99 euro per maand. Wij doen updates, back-ups en kleine wijzigingen zodat jij er niet aan hoeft te denken.`, `Daar is Online houden voor, 49 euro per maand. Wij doen de hosting, updates, back-ups en een half uur wijzigingen per maand, zodat jij er niet aan hoeft te denken.`, 'Online houden €49', 2],
+    [`Daar zijn onderhoudsabonnementen voor, vanaf 49,99 euro per maand. Wij doen updates, back-ups en kleine wijzigingen zodat jij er niet aan hoeft te denken.`, `Daar is Online houden voor, 49 euro per maand. Wij doen de ${onlineHouden.inhoudMaand}, zodat jij er niet aan hoeft te denken.`, 'Online houden €49', 2],
     [`<li>Site online binnen 7 dagen tot enkele weken.</li>`, `<li>Site online in 2 dagen (Startsite), 7 dagen (Website) of 14 dagen (Bedrijfssite).</li>`, 'termijnen lijn B'],
-    [`<li>Daarna: of zelf beheren, of onderhoudsabonnement vanaf 49,99 euro per maand.</li>`, `<li>${KEUZE_EURO}</li>`, 'maandbedrag is een keuze uit drie (besluit Alex 12-11), Online houden €49'],
+    [`<li>Daarna: of zelf beheren, of onderhoudsabonnement vanaf 49,99 euro per maand.</li>`, `<li>${KEUZE_EURO}</li>`, 'hosting is een keuze uit twee, Online houden zit in een maandpakket (besluiten Alex 12-11), Online houden €49'],
   ],
   'blog-website-laten-maken-of-zelf-bouwen.html': [
     [`Bij ons start een website vanaf 299 euro, een uitgebreidere site vanaf 499 of 999 euro.`, `Bij ons kost een Startsite 299 euro, een Website 595 euro en een Bedrijfssite 1.250 euro.`, 'maten lijn B'],
@@ -1378,11 +1400,11 @@ const PAGINA_FIXES = {
     [`Wij kunnen content schrijven, dat valt onder de Premium variant of als losse module.`, `Bij een Website en een Bedrijfssite schrijven wij de teksten. Bij een Startsite lever je ze zelf aan.`, 'maten lijn B'],
     [`Een eenvoudige webshop start vanaf 1.250 euro.`, `Een webshop valt onder Maatwerk, vanaf 2.500 euro.`, 'webshop is Maatwerk; €1.250 is nu de Bedrijfssite'],
     [`Per koppeling reken je gemiddeld 150 tot 400 euro.`, `Een site met koppelingen valt onder Maatwerk, vanaf 2.500 euro.`, 'koppelingen zijn Maatwerk'],
-    [`We bieden onderhoudsabonnementen vanaf 49,99 euro per maand. Daarin zitten back-ups, updates en kleine tekstwijzigingen. Voor grotere websites of webshops lopen die abonnementen op tot ongeveer 199,99 euro per maand.`, `Daar is Online houden voor. Het kost 49 euro per maand: hosting, updates, back-ups en een half uur wijzigingen. Wil je ook beter gevonden worden, dan is er een maandpakket voor vindbaarheid, vanaf 299 euro per maand.`, 'Brons, Zilver en Goud vervangen door Online houden €49 of een maandpakket; geen verplichting meer (besluit Alex 12-11)'],
+    [`We bieden onderhoudsabonnementen vanaf 49,99 euro per maand. Daarin zitten back-ups, updates en kleine tekstwijzigingen. Voor grotere websites of webshops lopen die abonnementen op tot ongeveer 199,99 euro per maand.`, `Daar is Online houden voor. Het kost 49 euro per maand: ${onlineHouden.inhoud}. Wil je ook beter gevonden worden, dan is er een maandpakket voor vindbaarheid, vanaf 299 euro per maand. ${onlineHouden.naam} zit daar dan bij in.`, 'Brons, Zilver en Goud vervangen door Online houden €49 of een maandpakket; geen verplichting meer (besluit Alex 12-11)'],
     [`Wil je dit zelf doen? Prima. Dan krijg je toegang en handleiding mee.`, `Wil je de hosting zelf regelen? Dat mag. ${ZELF_GRENS_EURO}`, 'zelf hosten met de grens uit voorwaarden art. 8 (besluit Alex 12-11); toegang en handleiding staan niet in art. 8'],
     [`Een eenvoudige website is binnen 7 dagen live mits je logo, tekst en foto's op tijd aanlevert. Wat langer is meer werk: een site met meerdere pagina's en eigen content kost 2 tot 4 weken, een webshop 4 tot 8 weken.`, `Een Startsite staat in 2 dagen online, een Website in 7 dagen en een Bedrijfssite in 14 dagen. Een webshop of ander maatwerk plannen we in overleg.`, 'termijnen lijn B'],
     [`Een eenvoudige site is binnen 7 dagen live mits we logo, tekst en foto's op tijd hebben. Een middelgrote site duurt 2 tot 4 weken, een webshop of complexer project 4 tot 8 weken.`, DUUR, 'termijnen lijn B'],
-    [`Liever niet zelf? Dan doen wij het binnen het onderhoudsabonnement.`, `Liever niet zelf? Dan doen wij het: in Online houden zit een half uur wijzigingen per maand.`, 'Online houden: een half uur wijzigingen'],
+    [`Liever niet zelf? Dan doen wij het binnen het onderhoudsabonnement.`, `Liever niet zelf? Dan doen wij het: in Online houden zit ${wijzigingen.maand}.`, 'Online houden: een half uur wijzigingen'],
     [`Een webshop module toevoegen aan een bestaande site kost vanaf ongeveer 1.250 euro afhankelijk van scope.`, `Een webshop valt onder Maatwerk, vanaf 2.500 euro.`, 'webshop is Maatwerk; €1.250 is nu de Bedrijfssite'],
   ],
 }
@@ -1472,10 +1494,13 @@ for (const s of steden) pages[s.slug + '.html'] = fix(stadPagina(s), s.slug + '.
 for (const [f, o] of Object.entries(OUDE_PAGINAS)) pages[f] = oudePagina(f, o)
 
 if (!startsite.meer.includes(KEUZE)) throw new Error('startsite.meer (data.mjs) en KEUZE (build.mjs) lopen uit elkaar')
+// Het maandpakket staat nooit meer als derde hosting-keuze, en nergens staat nog dat hosting niet in het maandpakket zit.
+const VERBODEN = [/een maandpakket vanaf (€299|299 euro) per maand, of je regelt/, /je neemt een maandpakket voor vindbaarheid, of je regelt/, /Hosting en domein regelen we apart, zie/, /Of: vindbaar in Google en AI/]
 let fouten = 0
 for (const [f, html] of Object.entries(pages)) {
   const zichtbaar = html.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<style>[\s\S]*?<\/style>/g, '')
   if (/[—–]/.test(zichtbaar)) { console.warn('LET OP: streepje in', f); fouten++ }
+  for (const re of VERBODEN) if (re.test(html)) throw new Error(`${f}: oude tekst over hosting en maandpakket staat er nog: ${re}`)
   writeFileSync(join(ROOT, f), html)
 }
 
