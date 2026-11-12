@@ -20,10 +20,19 @@ export const maten = [
 export const startsite = {
   kop: 'Dit zit in de Startsite van €299',
   punten: ['Tot 3 pagina\'s', 'Online in 2 dagen', 'Teksten, foto\'s en logo lever je zelf aan', 'Vast ontwerp in jouw kleuren en logo', 'Basis vindbaarheid: titel en omschrijving', 'Formulier, bel- en WhatsApp-knop', '1 aanpasronde', 'Goed op mobiel, snel en beveiligd'],
-  meer: 'Meer nodig? Website €595, Bedrijfssite €1.250 of Maatwerk vanaf €2.500. Bij elke site hoort een maandbedrag, vanaf €49 per maand. Prijzen excl. btw.',
+  meer: 'Meer nodig? Website €595, Bedrijfssite €1.250 of Maatwerk vanaf €2.500. Na de bouw kies je zelf: Online houden voor €49 per maand, een maandpakket vanaf €299 per maand, of je regelt de hosting zelf. Prijzen excl. btw.',
 }
-// Altijd een maandbedrag erbij (vervangt Brons, Zilver en Goud). Het domein zit er niet in (standaardkeuze, beslispunt Alex).
+// Het maandbedrag is een KEUZE uit drie, geen verplichting (besluit Alex 12-11-2026, "Ja, mag zelf"; vervangt "altijd een
+// maandbedrag erbij" van 11-11): Online houden €49 per maand, een maandpakket uit lijn A, of zelf hosten.
+// Het domein zit niet in de €49 (standaardkeuze, beslispunt Alex).
 export const onlineHouden = { naam: 'Online houden', prijs: '€49', getal: '49', punten: ['Hosting', 'Updates', 'Back-ups', 'Een half uur wijzigingen per maand'] }
+// Zelf hosten. De grens komt uitsluitend uit de voorwaarden, artikel 8 (AP Digital helpt bij het koppelen van de website) en uit
+// wat Online houden is: wat daar in zit (hosting, updates, back-ups, een half uur wijzigingen) doen wij dan niet. Wijzigingen gaan
+// tegen het bestaande uurtarief. Geen nieuwe belofte en geen nieuw tarief: verzin hier niets bij.
+export const zelfHosten = {
+  naam: 'Zelf hosten',
+  punten: ['Hosting en domein neem je zelf af, bij een partij naar keuze', 'Wij helpen met het koppelen van je site', 'Updates en back-ups regel je ook zelf', 'Wijzigingen doen we tegen uurtarief'],
+}
 
 export const pijlers = [
   {

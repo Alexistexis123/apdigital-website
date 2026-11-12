@@ -124,7 +124,7 @@
       "name": "Wat zit er bij de prijs?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ontwerp, bouw en wat er per maat hierboven staat. Hosting en domein zitten niet in de bouwprijs. Bij elke site hoort een maandbedrag: met Online houden (€49 per maand) regelen wij de hosting. Het domein regelen we apart. Geen verborgen kosten."
+        "text": "Ontwerp, bouw en wat er per maat hierboven staat. Hosting en domein zitten niet in de bouwprijs. Met Online houden (€49 per maand) regelen wij de hosting, of je regelt die zelf. Het domein regelen we apart. Geen verborgen kosten."
       }
     },
     {
@@ -172,7 +172,7 @@
       "name": "Wat als ik later wijzigingen wil?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "In Online houden zit elke maand een half uur wijzigingen. Heb je meer nodig, dan doen we dat tegen uurtarief (€85 per uur, excl. btw)."
+        "text": "In Online houden zit elke maand een half uur wijzigingen. Heb je meer nodig, of host je zelf, dan doen we dat tegen uurtarief (€85 per uur, excl. btw)."
       }
     },
     {
@@ -180,7 +180,7 @@
       "name": "Hoe regel ik hosting en domein?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Hosting zit in Online houden, het maandbedrag van €49. Het domein zit daar niet in, dat regelen we apart. Zie onderhoud en hosting."
+        "text": "Dat kies je zelf, een maandbedrag is niet verplicht. Met Online houden (€49 per maand) doen wij de hosting, updates en back-ups. Het domein zit daar niet in, dat regelen we apart. Je mag de hosting ook zelf regelen. Je neemt hosting en domein dan zelf af, bij een partij naar keuze, en wij helpen met het koppelen van je site. Updates en back-ups regel je dan ook zelf. Wijzigingen doen we tegen uurtarief (€85 per uur, excl. btw). Zie onderhoud en hosting."
       }
     },
     {
@@ -247,12 +247,12 @@
 .maat dt { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--grijs); }
 .maat dd { margin: 3px 0 0; font-size: 15px; color: var(--tekst); }
 .maat-onder { margin: 18px 0 0; font-size: 14px; color: var(--grijs); }
-.abo-grid.twee-abo { grid-template-columns: repeat(2, 1fr); }
-.abo-grid.twee-abo .knop-2 { margin-top: auto; justify-content: center; }
+.abo-grid.keuze-abo .knop-2 { margin-top: auto; justify-content: center; }
+.abo-grid.keuze-abo .abo-price.rustig { color: var(--tekst); }
 .aanbod.vier { grid-template-columns: repeat(4, 1fr); }
-.pkgs.vier > *, .abo-grid.twee-abo > *, .aanbod.vier > * { min-width: 0; }
+.pkgs.vier > *, .abo-grid.keuze-abo > *, .aanbod.vier > * { min-width: 0; }
 @media (max-width: 1100px) { .pkgs.vier, .aanbod.vier { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 640px) { .pkgs.vier, .aanbod.vier, .abo-grid.twee-abo { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .pkgs.vier, .aanbod.vier { grid-template-columns: 1fr; } }
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -283,17 +283,18 @@
   <div class="uitleg-blok">Apps en automatisering vallen niet onder deze pakketten. Daar krijg je na een gratis gesprek een vaste prijs, vóór we beginnen. <a class="tekst-link" href="/apps-laten-maken">Apps</a> · <a class="tekst-link" href="/processen-automatiseren">Automatisering</a></div>
 </div></section>
 <section class="sectie smal" id="abonnementen"><div class="wrap">
-  <div class="sectie-kop"><div><div class="label">Maandbedrag</div><h2 style="margin-top:12px">Bij elke site hoort <span class="serif">een maandbedrag.</span></h2><p class="lead">Daarmee blijft je site online en bijgewerkt. Je kiest één van de twee.</p></div></div>
-  <div class="abo-grid twee-abo">
-    <div class="abo-card" data-reveal><div class="abo-name">Online houden</div><div class="abo-price">€49 <small>per maand</small></div><ul class="vinklijst"><li>Hosting</li><li>Updates</li><li>Back-ups</li><li>Een half uur wijzigingen per maand</li></ul><a class="knop-2 flip-cta" href="/contact?abo=Online%20houden">Vraag aan</a></div>
+  <div class="sectie-kop"><div><div class="label">Na de bouw</div><h2 style="margin-top:12px">Een maandbedrag mag, <span class="serif">het hoeft niet.</span></h2><p class="lead">Na de bouw kies je zelf: wij houden je site online, je neemt een maandpakket voor vindbaarheid, of je regelt de hosting zelf.</p></div></div>
+  <div class="abo-grid keuze-abo">
+    <div class="abo-card" data-reveal><span class="pil-los">Onze aanrader</span><div class="abo-name">Online houden</div><div class="abo-price">€49 <small>per maand</small></div><ul class="vinklijst"><li>Hosting</li><li>Updates</li><li>Back-ups</li><li>Een half uur wijzigingen per maand</li></ul><a class="knop-2 flip-cta" href="/contact?abo=Online%20houden">Vraag aan</a></div>
     <div class="abo-card" data-reveal><div class="abo-name">Vindbaar in Google en AI</div><div class="abo-price"><small>vanaf </small>€299 <small>per maand</small></div><ul class="vinklijst"><li>Elke maand gemeten in Google en AI</li><li>Tot 8, 15 of 30 pagina's per maand, nieuw of verbeterd</li><li>Google-bedrijfsprofiel bijhouden</li></ul><a class="knop-2" href="/vindbaar-in-google-en-ai#pakketten">Bekijk de maandpakketten</a></div>
+    <div class="abo-card" data-reveal><div class="abo-name">Zelf hosten</div><div class="abo-price rustig">Geen maandbedrag</div><ul class="vinklijst"><li>Hosting en domein neem je zelf af, bij een partij naar keuze</li><li>Wij helpen met het koppelen van je site</li><li>Updates en back-ups regel je ook zelf</li><li>Wijzigingen doen we tegen uurtarief</li></ul><a class="knop-2" href="/contact?over=websites&abo=Zelf%20hosten">Vraag website aan</a></div>
   </div>
-  <div class="uitleg-blok">Wijzigingen boven het halve uur van Online houden doen we tegen uurtarief (€85 per uur, excl. btw). Het domein zit niet in het maandbedrag, dat regelen we apart. Prijzen per maand, excl. btw.</div>
+  <div class="uitleg-blok"><strong style="color:var(--wit)">Online houden.</strong> Wijzigingen boven het halve uur doen we tegen uurtarief (€85 per uur, excl. btw). Het domein zit niet in het maandbedrag, dat regelen we apart. Prijzen per maand, excl. btw.<br /><strong style="color:var(--wit)">Zelf hosten.</strong> Je neemt hosting en domein dan zelf af, bij een partij naar keuze, en wij helpen met het koppelen van je site. Updates en back-ups regel je dan ook zelf. Wijzigingen doen we tegen uurtarief (€85 per uur, excl. btw).</div>
 </div></section>
 
 <section class="sectie smal"><div class="wrap twee">
   <div><div class="label">Vragen</div><h2 style="margin-top:12px">Veel gestelde vragen</h2></div>
-  <div class="faq"><details class="faq-item"><summary>Wat zit er bij de prijs?</summary><p>Ontwerp, bouw en wat er per maat hierboven staat. Hosting en domein zitten niet in de bouwprijs. Bij elke site hoort een maandbedrag: met Online houden (€49 per maand) regelen wij de hosting. Het domein regelen we apart. Geen verborgen kosten.</p></details><details class="faq-item"><summary>Kost een herdesign meer dan een nieuwe site?</summary><p>Nee. Een herdesign kost hetzelfde als een nieuwe site, met dezelfde vier maten.</p></details><details class="faq-item"><summary>Hoe lang duurt het?</summary><p>Een Startsite staat in 2 dagen online, een Website in 7 dagen en een Bedrijfssite in 14 dagen. Maatwerk plannen we in overleg.</p></details><details class="faq-item"><summary>Wat moet ik aanleveren?</summary><p>Bij een Startsite lever je zelf je teksten, foto's en logo aan. Bij een Website schrijven wij de teksten, op basis van een vragenlijst die je invult. Bij een Bedrijfssite schrijven wij de teksten ook.</p></details><details class="faq-item"><summary>Wat als ik meer pagina's of aanpasrondes nodig heb?</summary><p>Dan kies je de volgende maat, of we doen het extra werk tegen uurtarief (€85 per uur, excl. btw). We zeggen vooraf hoeveel uur we verwachten.</p></details><details class="faq-item"><summary>Kan ik later een grotere maat nemen?</summary><p>Ja. Schaal je binnen drie maanden op van een Startsite naar een Website of Bedrijfssite, dan verrekenen we de €299.</p></details><details class="faq-item"><summary>Wat als ik later wijzigingen wil?</summary><p>In Online houden zit elke maand een half uur wijzigingen. Heb je meer nodig, dan doen we dat tegen uurtarief (€85 per uur, excl. btw).</p></details><details class="faq-item"><summary>Hoe regel ik hosting en domein?</summary><p>Hosting zit in Online houden, het maandbedrag van €49. Het domein zit daar niet in, dat regelen we apart. Zie <a class="tekst-link" href="/onderhoud-en-hosting">onderhoud en hosting</a>.</p></details><details class="faq-item"><summary>Is de website van mij?</summary><p>Ja. Na volledige betaling is de site van jou. Stop je met ons, dan leveren we op verzoek binnen 14 dagen de bestanden aan.</p></details><details class="faq-item"><summary>Wat als de website later niet goed werkt?</summary><p>De eerste 30 dagen na oplevering lossen we fouten in wat we bouwden gratis op. Nieuwe wensen vallen daar niet onder: die gaan via je aanpasrondes, het halve uur van Online houden of het uurtarief.</p></details><details class="faq-item"><summary>En apps of automatisering?</summary><p>Daar werken we niet met vaste pakketten. Na een gratis gesprek krijg je een vaste prijs op papier, vóór we beginnen. Zie <a class="tekst-link" href="/apps-laten-maken">apps</a> en <a class="tekst-link" href="/processen-automatiseren">automatisering</a>.</p></details><details class="faq-item"><summary>Werken jullie ook voor bedrijven buiten Gelderland?</summary><p>Ja, heel Nederland. We werken remote, locatie maakt niet uit. Voor klanten in de regio (Arnhem, Ede, Nijmegen, Wageningen) komen we ook gewoon langs.</p></details></div>
+  <div class="faq"><details class="faq-item"><summary>Wat zit er bij de prijs?</summary><p>Ontwerp, bouw en wat er per maat hierboven staat. Hosting en domein zitten niet in de bouwprijs. Met Online houden (€49 per maand) regelen wij de hosting, of je regelt die zelf. Het domein regelen we apart. Geen verborgen kosten.</p></details><details class="faq-item"><summary>Kost een herdesign meer dan een nieuwe site?</summary><p>Nee. Een herdesign kost hetzelfde als een nieuwe site, met dezelfde vier maten.</p></details><details class="faq-item"><summary>Hoe lang duurt het?</summary><p>Een Startsite staat in 2 dagen online, een Website in 7 dagen en een Bedrijfssite in 14 dagen. Maatwerk plannen we in overleg.</p></details><details class="faq-item"><summary>Wat moet ik aanleveren?</summary><p>Bij een Startsite lever je zelf je teksten, foto's en logo aan. Bij een Website schrijven wij de teksten, op basis van een vragenlijst die je invult. Bij een Bedrijfssite schrijven wij de teksten ook.</p></details><details class="faq-item"><summary>Wat als ik meer pagina's of aanpasrondes nodig heb?</summary><p>Dan kies je de volgende maat, of we doen het extra werk tegen uurtarief (€85 per uur, excl. btw). We zeggen vooraf hoeveel uur we verwachten.</p></details><details class="faq-item"><summary>Kan ik later een grotere maat nemen?</summary><p>Ja. Schaal je binnen drie maanden op van een Startsite naar een Website of Bedrijfssite, dan verrekenen we de €299.</p></details><details class="faq-item"><summary>Wat als ik later wijzigingen wil?</summary><p>In Online houden zit elke maand een half uur wijzigingen. Heb je meer nodig, of host je zelf, dan doen we dat tegen uurtarief (€85 per uur, excl. btw).</p></details><details class="faq-item"><summary>Hoe regel ik hosting en domein?</summary><p>Dat kies je zelf, een maandbedrag is niet verplicht. Met Online houden (€49 per maand) doen wij de hosting, updates en back-ups. Het domein zit daar niet in, dat regelen we apart. Je mag de hosting ook zelf regelen. Je neemt hosting en domein dan zelf af, bij een partij naar keuze, en wij helpen met het koppelen van je site. Updates en back-ups regel je dan ook zelf. Wijzigingen doen we tegen uurtarief (€85 per uur, excl. btw). Zie <a class="tekst-link" href="/onderhoud-en-hosting">onderhoud en hosting</a>.</p></details><details class="faq-item"><summary>Is de website van mij?</summary><p>Ja. Na volledige betaling is de site van jou. Stop je met ons, dan leveren we op verzoek binnen 14 dagen de bestanden aan.</p></details><details class="faq-item"><summary>Wat als de website later niet goed werkt?</summary><p>De eerste 30 dagen na oplevering lossen we fouten in wat we bouwden gratis op. Nieuwe wensen vallen daar niet onder: die gaan via je aanpasrondes, het halve uur van Online houden of het uurtarief.</p></details><details class="faq-item"><summary>En apps of automatisering?</summary><p>Daar werken we niet met vaste pakketten. Na een gratis gesprek krijg je een vaste prijs op papier, vóór we beginnen. Zie <a class="tekst-link" href="/apps-laten-maken">apps</a> en <a class="tekst-link" href="/processen-automatiseren">automatisering</a>.</p></details><details class="faq-item"><summary>Werken jullie ook voor bedrijven buiten Gelderland?</summary><p>Ja, heel Nederland. We werken remote, locatie maakt niet uit. Voor klanten in de regio (Arnhem, Ede, Nijmegen, Wageningen) komen we ook gewoon langs.</p></details></div>
 </div></section>
 
 <section class="sectie smal"><div class="wrap"><div class="cta-band">
