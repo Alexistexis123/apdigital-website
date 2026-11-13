@@ -7,7 +7,7 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
-import { projecten, pijlers, verhalen, team, maten, startsite, onlineHouden, zelfHosten, wijzigingen, hoofd, naDeBouw } from './data.mjs'
+import { projecten, pijlers, verhalen, team, maten, startsite, onlineHouden, zelfHosten, wijzigingen, hoofd, naDeBouw, appMaten, appBelofte, appGrens } from './data.mjs'
 
 const D = dirname(fileURLToPath(import.meta.url))
 const ROOT = join(D, '..')
@@ -274,11 +274,28 @@ const MATEN_STIJL = `<style>
 .abo-grid.keuze-abo .knop-2 { margin-top: auto; justify-content: center; }
 .abo-grid.keuze-abo .abo-price.rustig { color: var(--tekst); }
 .aanbod.vier { grid-template-columns: repeat(4, 1fr); }
-.pkgs.vier > *, .abo-grid.keuze-abo > *, .aanbod.vier > * { min-width: 0; }
+.pkgs.vier > *, .abo-grid.keuze-abo > *, .aanbod.vier > *, .pkgs.app-maten > * { min-width: 0; }
+.pkgs.app-maten .pkg h3 { font-size: 19px; margin: 10px 0 0; }
 @media (max-width: 1100px) { .pkgs.vier, .aanbod.vier { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 900px) { .abo-grid.keuze-abo { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { .pkgs.app-maten { grid-template-columns: 1fr; } }
 @media (max-width: 640px) { .pkgs.vier, .aanbod.vier { grid-template-columns: 1fr; } }
 </style>`
+
+// ---------- LIJN C (APPS) EN LIJN D (AUTOMATISERING MET AI) ----------
+// Bron: vault Areas/AP Digital/aanbod.md, vastgesteld door Alex op 13-11-2026. De drie app-maten staan in data.mjs (appMaten).
+// Lijn D heeft geen pakketten, geen maten en geen vanaf-prijs: alleen "prijs op aanvraag". Zet daar nooit een bedrag bij.
+// Formulierwaarde: ?pakket=Tool op maat|App op maat|Software op maat (zelfde verborgen veld als de websitematen).
+const APP_KORT = `Een tool op maat begint bij ${appMaten[0].prijs}, een app op maat bij ${appMaten[1].prijs} en software op maat bij ${appMaten[2].prijs}, excl. btw.`
+const APP_VAST = 'Dat zijn vanaf-prijzen. Het vaste bedrag krijg je na een gratis gesprek op papier, vóór we beginnen.'
+const AUTO_UITLEG = 'De prijs is op aanvraag. Een automatisering kan heel klein of heel groot zijn, daarom werken we hier zonder pakketten. Na een gratis gesprek krijg je de prijs op papier, vóór we beginnen.'
+const appKaarten = `<div class="pkgs app-maten">${appMaten.map(m => `<div class="pkg" data-reveal><div class="pkg-name">${m.naam}</div><h3>${m.kop}</h3><div class="pkg-prijs"><small>vanaf </small>${m.prijs}</div><dl class="maat">${m.rijen.map(r => `<div><dt>${r[0]}</dt><dd>${r[1]}</dd></div>`).join('')}</dl><a class="knop-2" href="/contact?over=apps&pakket=${encodeURIComponent(m.naam)}">Plan een gratis gesprek</a></div>`).join('')}</div>
+  <p class="maat-onder">${appBelofte} Prijzen excl. btw.</p>
+  <div class="uitleg-blok"><strong style="color:var(--wit)">De grens.</strong> ${appGrens.join(' ')} Het uurtarief is ${UUR}.</div>`
+const appAanbod = m => ({ '@type': 'Offer', name: m.naam, description: `${m.kop} ${m.rijen.map(r => `${r[0]}: ${r[1].charAt(0).toLowerCase()}${r[1].slice(1)}`).join('. ')}.`, priceCurrency: 'EUR', price: m.getal, priceSpecification: { '@type': 'PriceSpecification', minPrice: m.getal, priceCurrency: 'EUR', valueAddedTaxIncluded: false }, seller: { '@id': `${SITE}/#business` } })
+// De actie (aanbod.md lijn B): Startsite gratis bij een jaar maandpakket. Op de site is "maandpakket" altijd het maandpakket voor
+// vindbaarheid (lijn A). Wat er gebeurt als iemand eerder stopt is niet door Alex beslist: beloof daar niets over.
+const ACTIE = 'Leg je een maandpakket voor een jaar vast, dan krijg je de Startsite gratis.'
 
 // Formulier: ids en velden zoals events.js ze verwacht (contactForm, formSuccess, looking_for).
 // check: true = formulier van /gratis-check (website + zoekterm, e-mail verplicht, eigen onderwerp en bedankregel).
@@ -417,14 +434,15 @@ const checkKaart = `
 const AI_STROOK = `<div class="ai-strook">${['Google-posities', 'Search Console', 'Techniek en snelheid', ...AIS].map(a => `<span>${a}</span>`).join('')}</div>`
 
 // Maandpakketten = lijn A uit de vault (Areas/AP Digital/aanbod.md), vastgesteld door Alex op 11-11-2026: €299 / €499 / €799 per maand.
-// Alleen wat daar als vastgesteld staat. Bewust NIET op de site: het klantdashboard met eigen login (bestaat nog niet, aparte go Alex).
+// Alleen wat daar als vastgesteld staat. Het klantdashboard met eigen login staat sinds 13-11-2026 als onderdeel van elk pakket op de
+// site (go Alex 13-11). Het bestaat nog niet: geen schermbeeld en geen loginlink tonen tot het er is.
 // Nog open bij Alex en daarom ongewijzigd gelaten: pakketnamen (Basis, Groei, Vol), excl. btw, minimaal 3 maanden, "7 AI's", gratis check binnen 5 werkdagen.
 const MAANDPAKKETTEN = [
   { naam: 'Basis', prijs: '299', kop: 'Je weet waar je staat.', tekst: 'Elke maand gemeten en verbeterd, met tot 8 pagina\'s per maand.', punten: ['Tot 8 pagina\'s per maand, nieuw of verbeterd', '15 klantvragen gevolgd in Google en AI'] },
   { naam: 'Groei', prijs: '499', uitgelicht: true, kop: 'Elke maand een stap vooruit.', tekst: 'Meer pagina\'s, meer klantvragen en we houden je concurrenten in de gaten.', punten: ['Tot 15 pagina\'s per maand, nieuw of verbeterd', '30 klantvragen gevolgd in Google en AI', 'We volgen je concurrenten', 'Elk kwartaal een gesprek'] },
   { naam: 'Vol', prijs: '799', kop: 'Hard groeien.', tekst: 'De meeste pagina\'s en de meeste gevolgde klantvragen.', punten: ['Tot 30 pagina\'s per maand, nieuw of verbeterd', '60 klantvragen gevolgd in Google en AI', 'We volgen je concurrenten', 'Elk kwartaal een gesprek'] },
 ]
-const IN_ELK_PAKKET = ['Elke maand gemeten in Google en AI', 'Maandelijkse technische controle van je site', 'Zoekwoord- en vragenonderzoek', 'Google-bedrijfsprofiel bijhouden', 'Reviewbeheer: een reviewlink en een kant-en-klaar berichtje dat je zelf verstuurt', 'Wij schrijven de antwoorden op je reviews']
+const IN_ELK_PAKKET = ['Klantdashboard met eigen login: je ziet zelf hoe je vindbaar bent in Google en AI, je reviews, wat we deden en wat het opleverde', 'Elke maand gemeten in Google en AI', 'Maandelijkse technische controle van je site', 'Zoekwoord- en vragenonderzoek', 'Google-bedrijfsprofiel bijhouden', 'Reviewbeheer: een reviewlink en een kant-en-klaar berichtje dat je zelf verstuurt', 'Wij schrijven de antwoorden op je reviews']
 const pakketKaarten = ({ kort = false, hosting = false } = {}) => `
 <div class="mp-grid">${MAANDPAKKETTEN.map((p, i) => `<div class="mp${p.uitgelicht ? ' uitgelicht' : ''}" data-reveal style="--d:${i * 80}ms">
   ${p.uitgelicht ? '<span class="pil-los mp-pil">Onze aanrader</span>' : ''}
@@ -485,7 +503,7 @@ const takKaarten = (svc = false) => `
       <h3>Software en automatisering</h3>
       <p>Apps die passen op hoe jouw bedrijf werkt, en werk dat elke week terugkomt laten we vanzelf lopen.</p>
       <ul><li>Planning, uren en klantportalen</li><li>Rapportages en mails die zichzelf maken</li><li>Eén overzicht voor alles</li></ul>
-      <div class="tak-prijs">Vaste prijs na een gratis gesprek</div>
+      <div class="tak-prijs">Apps vanaf ${appMaten[0].prijs}, excl. btw</div>
       <span class="meer">Meer over software →</span>
     </a>
   </div>`
@@ -522,7 +540,7 @@ const kiesHero = `
   </div>
   <div class="kies-tegels">
     ${kiesTegel('01', T1, 'Onze hoofdzaak', 'Vindbaar in Google en AI', 'Elke maand gemeten, verbeterd en in twee pagina\'s uitgelegd.', 'vanaf €299 per maand', ' kies-geel')}
-    ${kiesTegel('02', T2, 'Op maat', 'Software en automatisering', 'Apps die passen op hoe je werkt. Terugkerend werk loopt vanzelf.', 'vaste prijs na een gesprek')}
+    ${kiesTegel('02', T2, 'Op maat', 'Software en automatisering', 'Apps die passen op hoe je werkt. Terugkerend werk loopt vanzelf.', `apps vanaf ${appMaten[0].prijs}`)}
     ${kiesTegel('03', P.websites, 'Websites', 'Websites en redesign', 'Nieuw of vernieuwd. Snel, goed op mobiel en gebouwd om gevonden te worden.', 'vanaf €299')}
   </div>
 </div></section>`
@@ -585,6 +603,7 @@ const t1Faq = [
   ['Wat krijg ik bij de gratis check?', 'Eén pagina: hoe je nu in Google staat op een paar belangrijke zoektermen, of de 7 AI\'s je noemen als iemand om een bedrijf zoals het jouwe vraagt, en de 3 grootste gaten. Binnen 5 werkdagen in je mailbox, en je zit nergens aan vast.'],
   ['Kost de nulmeting extra?', 'Niet als je 3 maanden afneemt. De nulmeting bij de start heeft een waarde van €295 en is dan gratis.'],
   ['Wat staat er in het maandrapport?', 'Twee pagina\'s in gewone taal: waar je nu staat, vorige maand en je doel. Wat we deden en wat we volgende maand gaan doen.'],
+  ['Wat zie ik in het klantdashboard?', 'Je krijgt een eigen login. Daar zie je zelf hoe je vindbaar bent in Google en AI, je reviews, wat we deden en wat het opleverde.'],
   ['Kan ik opzeggen?', 'Na de eerste 3 maanden kun je per maand opzeggen.'],
 ]
 const tak1 = pagina({
@@ -593,7 +612,7 @@ const tak1 = pagina({
   beschrijving: 'Gevonden worden in Google en in AI\'s als ChatGPT, Gemini en Perplexity. Elke maand gemeten, verbeterd en in een rapport van 2 pagina\'s. Begin met de gratis check.',
   actief: 't1',
   jsonld: [
-    dienstLd('Vindbaar in Google en AI', 'Maandpakket: elke maand meten hoe een bedrijf staat in Google en in 7 AI\'s, verbeteren wat het meeste oplevert en een rapport van 2 pagina\'s.', T1, {
+    dienstLd('Vindbaar in Google en AI', 'Maandpakket: elke maand meten hoe een bedrijf staat in Google en in 7 AI\'s, verbeteren wat het meeste oplevert en een rapport van 2 pagina\'s. Met een klantdashboard met eigen login.', T1, {
       offers: MAANDPAKKETTEN.map(p => ({ '@type': 'Offer', name: `${p.naam} maandpakket`, price: p.prijs, priceCurrency: 'EUR', priceSpecification: { '@type': 'UnitPriceSpecification', price: p.prijs, priceCurrency: 'EUR', unitCode: 'MON', valueAddedTaxIncluded: false }, seller: { '@id': `${SITE}/#business` } })),
     }),
     faqLd(t1Faq), kruimelLd([['Vindbaar in Google en AI', T1]]),
@@ -651,6 +670,7 @@ const tak1 = pagina({
     <div class="label geel">De basis</div>
     <h2>Eerst een betere site nodig?</h2>
     <p>Is je huidige site niet goed genoeg om op te bouwen, dan maken we eerst een nieuwe. Een Startsite kost €299 en staat in 2 dagen online. Daarna houdt het maandpakket hem vindbaar. ${onlineHouden.naam} zit er dan bij in, dus je betaalt geen ${onlineHouden.prijs} per maand erbovenop.</p>
+    <p><strong style="color:var(--wit)">Actie.</strong> ${ACTIE}</p>
     <div class="knoppen-rij" style="margin-top:18px"><a class="knop-2" href="${P.websites}">Website laten maken →</a><a class="knop-2" href="/pakketten">Websitepakketten →</a><a class="knop-2" href="${P.websites}#regio">In jouw regio →</a></div>
   </div>
 </div></section>
@@ -670,14 +690,16 @@ const t2Faq = [
   ['Moet ik alles uit handen geven?', 'Nee. Bij de automatiseringen in ons portfolio zit steeds een moment waarop een mens kijkt of goedkeurt.'],
   ['Werkt het met mijn huidige systemen?', 'Vaak wel. In het gratis gesprek kijken we welke systemen je gebruikt en wat daarmee te koppelen is. Kan het niet netjes, dan zeggen we dat ook.'],
   ['Wat als we later meer willen?', 'Dan bouwen we door op wat er staat. Zo zijn de apps in ons portfolio ook gegroeid.'],
-  ['Wat kost het?', 'Dat hangt af van wat het moet doen. Na een gratis gesprek krijg je een vaste prijs op papier, vóór we beginnen. Geen uurtje-factuurtje en geen open eind.'],
+  ['Wat kost het?', `${APP_KORT} ${APP_VAST} Voor automatisering is de prijs op aanvraag.`],
+  ['Hoe snel zie ik iets?', `${appBelofte} Een tool op maat is in 1 tot 2 weken klaar, een app op maat in 4 tot 6 weken. Software op maat plannen we in overleg.`],
 ]
 const tak2 = pagina({
   pad: T2,
   titel: 'Software op maat en automatisering | AP Digital',
   beschrijving: 'Apps die passen op hoe jouw bedrijf werkt en werk dat vanzelf loopt: planning, uren, klantportaal, rapportages. Gebouwd voor Jacobs Heteren, nu voor jouw bedrijf.',
   actief: 't2',
-  jsonld: [dienstLd('Software op maat en automatisering', 'Apps op maat en automatisering van terugkerend werk: planning, uren, klantportalen, rapportages en koppelingen. Vaste prijs na een gratis gesprek.', T2), faqLd(t2Faq), kruimelLd([['Software en automatisering', T2]])],
+  kopExtra: MATEN_STIJL,
+  jsonld: [dienstLd('Software op maat en automatisering', 'Apps op maat en automatisering van terugkerend werk: planning, uren, klantportalen, rapportages en koppelingen. Apps op maat vanaf 1.500 euro, automatisering op aanvraag.', T2, { offers: appMaten.map(appAanbod) }), faqLd(t2Faq), kruimelLd([['Software en automatisering', T2]])],
   body: `
 <section class="hero2 t2-hero"><div class="wrap">
   <div class="label geel">02 · Software en automatisering</div>
@@ -722,9 +744,10 @@ const tak2 = pagina({
   <div class="klein">${TAK.t2.meer.map(id => kaart(proj(id))).join('')}</div>
 </div></section>
 
-<section class="sectie smal"><div class="wrap">
-  <div class="sectie-kop"><div><div class="label">Aanbod</div><h2 style="margin-top:12px">Wat het kost</h2><p class="lead">Geen uurtje-factuurtje en geen open eind. Na een gratis gesprek krijg je een vaste prijs op papier, vóór we beginnen.</p></div></div>
-  <div class="aanbod">${[['Verkenning', 'Samen uitzoeken wat het moet doen en wat niet.'], ['Eerste versie', 'Een werkende app of automatisering voor het belangrijkste proces.'], ['Doorbouwen en beheer', 'Uitbreiden op wat je team in de praktijk nodig heeft, en draaiend houden.']].map(a => `<div><h3>${a[0]}</h3><p>${a[1]}</p><div class="aanbod-prijs"><strong>Vaste prijs</strong><span>na een gratis gesprek</span></div></div>`).join('')}</div>
+<section class="sectie smal" id="prijzen"><div class="wrap">
+  <div class="sectie-kop"><div><div class="label">Aanbod</div><h2 style="margin-top:12px">Wat het kost</h2><p class="lead">Apps bouwen we in drie maten, elk met een vanaf-prijs. Het vaste bedrag krijg je na een gratis gesprek op papier, vóór we beginnen.</p></div></div>
+  ${appKaarten}
+  <div class="uitleg-blok"><strong style="color:var(--wit)">Automatisering.</strong> ${AUTO_UITLEG} <a class="tekst-link" href="${P.automatisering}">Processen automatiseren</a></div>
 </div></section>
 
 <section class="sectie smal"><div class="wrap">
@@ -753,8 +776,8 @@ const stadRaster = `<ul class="stad-raster">${steden.map(s => `<li><a href="/${s
 // ---------- PIJLERPAGINA ----------
 const PIJLER_META = {
   websites: { titel: 'Website laten maken | AP Digital, vast tarief en live in 7 dagen', beschrijving: 'Website laten maken voor ondernemers in heel Midden- en Oost-Nederland. Snel live, vaste prijs vanaf 299 euro en goed vindbaar via Google. Bekijk je regio.', dienst: 'Website laten maken' },
-  apps: { titel: 'App laten maken op maat | AP Digital', beschrijving: 'Een app die past op hoe jouw bedrijf werkt: planning, uren, klantportaal of kassa. Gebouwd voor Jacobs Heteren, nu voor jouw bedrijf. Vaste prijs na een gratis gesprek.', dienst: 'App laten maken' },
-  automatisering: { titel: 'Processen automatiseren voor je bedrijf | AP Digital', beschrijving: 'Werk dat elke week terugkomt laten we automatisch lopen: rapportages, mails, koppelingen en één dashboard. Vaste prijs na een gratis gesprek.', dienst: 'Processen automatiseren' },
+  apps: { titel: 'App laten maken op maat | AP Digital', beschrijving: 'Een app die past op hoe jouw bedrijf werkt: planning, uren, klantportaal of kassa. Tool op maat vanaf €1.500, app op maat vanaf €5.000, excl. btw.', dienst: 'App laten maken' },
+  automatisering: { titel: 'Processen automatiseren voor je bedrijf | AP Digital', beschrijving: 'Werk dat elke week terugkomt laten we automatisch lopen: rapportages, mails, koppelingen en één dashboard. Prijs op aanvraag, na een gratis gesprek.', dienst: 'Processen automatiseren' },
 }
 function pijlerPagina(p) {
   const top = uitgelicht(p.key), meer = rest(p.key), m = PIJLER_META[p.key]
@@ -777,8 +800,8 @@ ${vindbaarBlok}
   }[p.key]
   return pagina({
     pad: P[p.key], titel: m.titel, beschrijving: m.beschrijving, actief: p.key,
-    kopExtra: p.key === 'websites' ? MATEN_STIJL : '',
-    jsonld: [dienstLd(m.dienst, kaal(p.kort), P[p.key]), faqLd(p.faq), kruimelLd([[p.naam, P[p.key]]])],
+    kopExtra: p.key === 'automatisering' ? '' : MATEN_STIJL,
+    jsonld: [dienstLd(m.dienst, kaal(p.kort), P[p.key], p.key === 'apps' ? { offers: appMaten.map(appAanbod) } : {}), faqLd(p.faq), kruimelLd([[p.naam, P[p.key]]])],
     body: `
 <section class="pkop raster"><div class="wrap">
   <div class="label geel">${p.label}</div>
@@ -803,9 +826,9 @@ ${vindbaarBlok}
   ${meer.length ? `<div class="label sub" style="margin:40px 0 16px">Meer ${p.naam.toLowerCase()}</div><div class="klein">${meer.map(x => kaart(x)).join('')}</div>` : ''}
 </div></section>
 
-<section class="sectie smal"><div class="wrap">
-  <div class="sectie-kop"><div><div class="label">Aanbod</div><h2 style="margin-top:12px">Wat het kost</h2><p class="lead">${p.key === 'websites' ? 'Vier maten, elk met een vaste prijs. Een Startsite kost €299 en staat in 2 dagen online. Een herdesign kost hetzelfde als een nieuwe site.' : 'Geen uurtje-factuurtje en geen open eind. Na een gratis gesprek krijg je een vaste prijs op papier, vóór we beginnen.'}</p></div></div>
-  <div class="aanbod${p.aanbod.length === 4 ? ' vier' : ''}">${p.aanbod.map(a => `<div><h3>${a[0]}</h3><p>${a[1]}</p><div class="aanbod-prijs"><strong>${a[2] || 'Vaste prijs'}</strong><span>${a[3] || 'na een gratis gesprek'}</span></div></div>`).join('')}</div>
+<section class="sectie smal" id="prijzen"><div class="wrap">
+  <div class="sectie-kop"><div><div class="label">Aanbod</div><h2 style="margin-top:12px">Wat het kost</h2><p class="lead">${{ websites: 'Vier maten, elk met een vaste prijs. Een Startsite kost €299 en staat in 2 dagen online. Een herdesign kost hetzelfde als een nieuwe site.', apps: 'Drie maten, elk met een vanaf-prijs. Het vaste bedrag krijg je na een gratis gesprek op papier, vóór we beginnen.', automatisering: AUTO_UITLEG }[p.key]}</p></div></div>
+  ${p.key === 'apps' ? appKaarten : `<div class="aanbod${p.aanbod.length === 4 ? ' vier' : ''}">${p.aanbod.map(a => `<div><h3>${a[0]}</h3><p>${a[1]}</p><div class="aanbod-prijs"><strong>${a[2] || 'Prijs op aanvraag'}</strong><span>${a[3] || 'na een gratis gesprek'}</span></div></div>`).join('')}</div>`}
   ${p.aanbodGrens ? `<div class="aanbod-grens"><h3>${p.aanbodGrens.kop}</h3><ul class="vinklijst">${p.aanbodGrens.punten.map(x => `<li>${x}</li>`).join('')}</ul><p>${p.aanbodGrens.meer} <a class="tekst-link" href="/pakketten">Bekijk alle pakketten</a></p></div>` : ''}
 </div></section>
 
@@ -935,7 +958,7 @@ ${ctaBand('Zin om je concept <span class="serif">samen door te lopen?</span>', u
 const diensten = pagina({
   pad: '/diensten',
   titel: 'Diensten: vindbaar in Google en AI, software op maat | AP Digital',
-  beschrijving: 'Twee dingen uit één hand: vindbaar in Google en AI met een vast maandpakket vanaf €299 per maand, en software en automatisering op maat. Websites vanaf €299.',
+  beschrijving: 'Vindbaar in Google en AI met een vast maandpakket vanaf €299 per maand, websites vanaf €299 en apps op maat vanaf €1.500. Automatisering op aanvraag.',
   jsonld: [kruimelLd([['Diensten', '/diensten']])],
   body: `
 <section class="pkop raster"><div class="wrap">
@@ -992,7 +1015,7 @@ const PAKKET_FAQ = [
   ['Hoe regel ik hosting en domein?', `Dat kies je zelf, een maandbedrag is niet verplicht. Met Online houden (€49 per maand) doen wij de hosting, updates en back-ups. Het domein zit daar niet in, dat regelen we apart. Je mag de hosting ook zelf regelen. ${ZELF_GRENS} ${naDeBouw.inPakket} Zie <a class="tekst-link" href="/onderhoud-en-hosting">onderhoud en hosting</a>.`],
   ['Is de website van mij?', 'Ja. Na volledige betaling is de site van jou. Stop je met ons, dan leveren we op verzoek binnen 14 dagen de bestanden aan.'],
   ['Wat als de website later niet goed werkt?', `De eerste 30 dagen na oplevering lossen we fouten in wat we bouwden gratis op. Nieuwe wensen vallen daar niet onder: die gaan via je aanpasrondes, ${wijzigingen.grens} van Online houden of het uurtarief.`],
-  ['En apps of automatisering?', 'Daar werken we niet met vaste pakketten. Na een gratis gesprek krijg je een vaste prijs op papier, vóór we beginnen. Zie <a class="tekst-link" href="/apps-laten-maken">apps</a> en <a class="tekst-link" href="/processen-automatiseren">automatisering</a>.'],
+  ['En apps of automatisering?', `Die vallen niet onder deze pakketten. ${APP_KORT} ${APP_VAST} Voor automatisering is de prijs op aanvraag. Zie <a class="tekst-link" href="/apps-laten-maken">apps</a> en <a class="tekst-link" href="/processen-automatiseren">automatisering</a>.`],
   ['Werken jullie ook voor bedrijven buiten Gelderland?', 'Ja, heel Nederland. We werken remote, locatie maakt niet uit. Voor klanten in de regio (Arnhem, Ede, Nijmegen, Wageningen) komen we ook gewoon langs.'],
 ]
 const maatAanbod = m => ({ '@type': 'Offer', name: m.naam, description: m.rijen.map(r => `${r[0]}: ${r[1].charAt(0).toLowerCase()}${r[1].slice(1)}`).join('. ') + '.', priceCurrency: 'EUR', price: m.getal, priceSpecification: { '@type': 'PriceSpecification', [m.vanaf ? 'minPrice' : 'price']: m.getal, priceCurrency: 'EUR', valueAddedTaxIncluded: false }, seller: { '@id': `${SITE}/#business` } })
@@ -1018,8 +1041,8 @@ const pakketten = pagina({
 <section class="sectie smal" style="padding-top:20px"><div class="wrap">
   ${maatKaarten}
   <p class="maat-onder">Bij alle vier: goed op mobiel, snel en beveiligd. Een herdesign kost hetzelfde als een nieuwe site. Prijzen excl. btw.</p>
-  <div class="uitleg-blok"><strong style="color:var(--wit)">De grens.</strong> Meer pagina's of aanpasrondes dan in je maat? Dan kies je de volgende maat, of we doen het extra werk tegen uurtarief (${UUR}).<br /><strong style="color:var(--wit)">Doorgroeien.</strong> Schaal je binnen drie maanden op van een Startsite naar een Website of Bedrijfssite, dan verrekenen we de €299.</div>
-  <div class="uitleg-blok">Apps en automatisering vallen niet onder deze pakketten. Daar krijg je na een gratis gesprek een vaste prijs, vóór we beginnen. <a class="tekst-link" href="/apps-laten-maken">Apps</a> · <a class="tekst-link" href="/processen-automatiseren">Automatisering</a></div>
+  <div class="uitleg-blok"><strong style="color:var(--wit)">De grens.</strong> Meer pagina's of aanpasrondes dan in je maat? Dan kies je de volgende maat, of we doen het extra werk tegen uurtarief (${UUR}).<br /><strong style="color:var(--wit)">Doorgroeien.</strong> Schaal je binnen drie maanden op van een Startsite naar een Website of Bedrijfssite, dan verrekenen we de €299.<br /><strong style="color:var(--wit)">Actie.</strong> Leg je een <a class="tekst-link" href="${T1}#pakketten">maandpakket voor vindbaarheid</a> voor een jaar vast, dan krijg je de Startsite gratis.</div>
+  <div class="uitleg-blok">Apps en automatisering vallen niet onder deze pakketten. Een app op maat is er vanaf ${appMaten[0].prijs}, voor automatisering is de prijs op aanvraag. <a class="tekst-link" href="/apps-laten-maken">Apps</a> · <a class="tekst-link" href="/processen-automatiseren">Automatisering</a></div>
 </div></section>
 <section class="sectie smal" id="abonnementen"><div class="wrap">
   <div class="sectie-kop"><div><div class="label">Na de bouw</div><h2 style="margin-top:12px">Een maandbedrag mag, <span class="serif">het hoeft niet.</span></h2><p class="lead">Na de bouw kies je zelf: wij houden je site online, of je regelt de hosting zelf.</p></div></div>
@@ -1148,17 +1171,17 @@ ${vindbaarBlok}
 // ---------- APP LATEN MAKEN ARNHEM ----------
 const appArnhemFaq = [
   ['Web-app of een echte app in de App Store?', 'Voor de meeste bedrijven is een web-app de slimste keuze. Die werkt op iPhone, Android en desktop vanuit een en dezelfde code, en je kunt hem op het startscherm zetten als een gewone app. Een native app in de App Store is alleen nodig bij zware eisen zoals offline gebruik of camera- en sensorfuncties. We adviseren eerlijk welke kant het op moet, voordat je iets bouwt.'],
-  ['Wat kost een app laten maken?', 'Dat hangt af van wat de app moet doen. Na een gratis gesprek krijg je een vaste prijs op papier, vóór we beginnen. Geen uurtje-factuurtje en geen open eind.'],
-  ['Hoe lang duurt het om een app te bouwen?', 'Dat spreken we af in het voorstel. We beginnen liever met een kleine werkende versie en bouwen daarna stap voor stap uit op basis van wat in de praktijk werkt, in plaats van maanden vooraf te plannen.'],
+  ['Wat kost een app laten maken?', `${APP_KORT} ${APP_VAST} Beheer per maand hoort erbij: €99 bij een tool op maat en €249 bij een app op maat. Zie <a class="tekst-link" href="/apps-laten-maken#prijzen">de drie maten</a>.`],
+  ['Hoe lang duurt het om een app te bouwen?', `${appBelofte} Een tool op maat is in 1 tot 2 weken klaar, een app op maat in 4 tot 6 weken. Software op maat plannen we in overleg.`],
   ['Kan de app koppelen met mijn bestaande software?', 'Ja. We koppelen aan systemen die je al gebruikt, zoals je boekhouding, agenda, e-mail of een bestaande database. Zo hoef je niets dubbel in te voeren en blijft alles op een plek kloppen.'],
   ['Werken jullie ook buiten Arnhem?', 'Ja, heel Nederland. We werken remote, dus locatie maakt niet uit. Voor klanten in de regio Arnhem, Ede, Nijmegen en Wageningen komen we ook gewoon langs.'],
 ]
 const appArnhem = pagina({
   pad: '/app-laten-maken-arnhem',
   titel: 'App laten maken in Arnhem | vaste prijs, snel live | AP Digital',
-  beschrijving: 'App of web app laten maken in Arnhem? AP Digital bouwt web-apps, klantenportalen en interne tools die een proces echt simpeler maken. Vaste prijs, eerlijk advies.',
+  beschrijving: 'App of web app laten maken in Arnhem? AP Digital bouwt web-apps, klantenportalen en interne tools die een proces echt simpeler maken. Tool op maat vanaf €1.500, eerlijk advies.',
   actief: 'apps',
-  jsonld: [dienstLd('App laten maken in Arnhem', 'Web-apps, klantenportalen en interne tools voor ondernemers in Arnhem en omgeving, gebouwd rond het proces dat beter moet. Vaste prijs na een gratis gesprek.', '/app-laten-maken-arnhem', { areaServed: { '@type': 'City', name: 'Arnhem' } }), faqLd(appArnhemFaq), kruimelLd([['Apps', P.apps], ['App laten maken in Arnhem', '/app-laten-maken-arnhem']])],
+  jsonld: [dienstLd('App laten maken in Arnhem', 'Web-apps, klantenportalen en interne tools voor ondernemers in Arnhem en omgeving, gebouwd rond het proces dat beter moet. Tool op maat vanaf 1.500 euro, app op maat vanaf 5.000 euro.', '/app-laten-maken-arnhem', { areaServed: { '@type': 'City', name: 'Arnhem' } }), faqLd(appArnhemFaq), kruimelLd([['Apps', P.apps], ['App laten maken in Arnhem', '/app-laten-maken-arnhem']])],
   body: `
 <section class="pkop raster"><div class="wrap">
   <div class="kruimel"><a href="${P.apps}">Apps</a><span>/</span>Arnhem</div>
@@ -1238,9 +1261,9 @@ const FIXES = [
   [/href="https:\/\/apdigital\.nl\/webshops"/g, `href="${SITE}${P.websites}"`, '301'],
   [/href="(https:\/\/apdigital\.nl)?\/marketing-fit"([^>]*)>apdigital\.nl\/marketing-fit</g, 'href="https://marketing-fit.nl/"$2>marketing-fit.nl<', 'Marketing Fit staat live op eigen domein'],
   [/href="(https:\/\/apdigital\.nl)?\/marketing-fit"/g, 'href="https://marketing-fit.nl/"', 'Marketing Fit staat live op eigen domein'],
-  [/Een web-app of klantportaal start vanaf 2\.500 euro\./g, 'Voor een web-app of klantportaal krijg je na een gratis gesprek een vaste prijs.', 'besluit Alex 05-11: apps zonder bedrag'],
-  [/Webshops en maatwerk op offerte, web-apps vanaf 2\.500 euro/g, 'Webshops en maatwerk op offerte, web-apps een vaste prijs na een gratis gesprek', 'besluit Alex 05-11: apps zonder bedrag'],
-  [/web-apps starten vanaf 2\.500 euro/g, 'voor web-apps krijg je na een gratis gesprek een vaste prijs', 'besluit Alex 05-11: apps zonder bedrag'],
+  [/Een web-app of klantportaal start vanaf 2\.500 euro\./g, 'Een app op maat is er vanaf 1.500 euro voor een tool en vanaf 5.000 euro voor een app waar je team in werkt.', 'lijn C, vastgesteld door Alex 13-11'],
+  [/Webshops en maatwerk op offerte, web-apps vanaf 2\.500 euro/g, 'Webshops en ander maatwerk vanaf 2.500 euro, apps op maat vanaf 1.500 euro', 'lijn B en lijn C (13-11)'],
+  [/web-apps starten vanaf 2\.500 euro/g, 'apps op maat zijn er vanaf 1.500 euro', 'lijn C, vastgesteld door Alex 13-11'],
   // Besluit Alex 05-11: hosting en domein zitten niet bij de websiteprijs, die regelen we apart.
   [/ Hosting en domein voor het eerste jaar zitten erbij in\./g, ' Hosting en domein regelen we apart, bijvoorbeeld via <a href="/onderhoud-en-hosting">onderhoud en hosting</a>.', 'hosting/domein apart (besluit Alex 05-11)'],
   [/<li>Hosting, domein en SSL eerste jaar inbegrepen<\/li>/g, `<li>${OH_LINK(KEUZE)} Het domein regelen we apart</li>`, 'hosting/domein apart (besluit Alex 05-11), hosting is een keuze uit twee, Online houden zit in een maandpakket (besluiten Alex 12-11)'],
@@ -1387,7 +1410,7 @@ const PAGINA_FIXES = {
     [`<li><strong>Starter, 299 euro:</strong> een one-pager met je essentie. Wat doe je, waar zit je, hoe ben je bereikbaar.</li>`, `<li><strong>Startsite, 299 euro:</strong> tot 3 pagina's, online in 2 dagen. Je levert zelf je teksten, foto's en logo aan.</li>`, 'maten lijn B'],
     [`<li><strong>Groei, 499 euro:</strong> vier tot zes pagina's met je diensten en contact. Voor de meeste lokale zaken genoeg.</li>`, `<li><strong>Website, 595 euro:</strong> tot 5 pagina's, online in 7 dagen. Wij schrijven de teksten. Voor de meeste lokale zaken genoeg.</li>`, 'maten lijn B'],
     [`<li><strong>Premium, 999 euro:</strong> eigen design, content schrijven, uitgebreidere SEO. Voor wie er echt iets van wil maken.</li>`, `<li><strong>Bedrijfssite, 1.250 euro:</strong> tot 10 pagina's, online in 14 dagen. Eigen ontwerp, wij schrijven de teksten, met een pagina per dienst en per plaats.</li>\n      <li><strong>Maatwerk, vanaf 2.500 euro:</strong> de site neemt werk over: webshop, boekingen, betalen of koppelingen.</li>`, 'maten lijn B'],
-    [`Webshops en maatwerk vragen een aparte offerte, voor web-apps krijg je na een gratis gesprek een vaste prijs.`, `Een herdesign kost hetzelfde als een nieuwe site. Voor web-apps krijg je na een gratis gesprek een vaste prijs.`, 'maatwerk staat nu in de lijst, herdesign kost hetzelfde'],
+    [`Webshops en maatwerk vragen een aparte offerte, apps op maat zijn er vanaf 1.500 euro.`, `Een herdesign kost hetzelfde als een nieuwe site. Apps op maat zijn er vanaf 1.500 euro.`, 'maatwerk staat nu in de lijst, herdesign kost hetzelfde, apps volgens lijn C'],
     [`Een Starter staat doorgaans binnen 7 dagen online. Dat klinkt snel en het is ook snel, maar het werkt alleen als jij je teksten, logo en foto's klaar hebt liggen. Een Groei pakket plannen we in 2 tot 3 weken. Premium 3 tot 5 weken, want daar zit meestal copywriting in en daar moeten we even kort over schakelen.`, `Een Startsite staat in 2 dagen online. Dat klinkt snel en het is ook snel. Een Website staat in 7 dagen online en een Bedrijfssite in 14 dagen. Maatwerk plannen we in overleg.`, 'termijnen lijn B'],
     [`Een eenvoudige zakelijke website kost in Arnhem grofweg tussen 299 en 999 euro afhankelijk van pakket.`, `Een zakelijke website kost 299 euro (Startsite), 595 euro (Website) of 1.250 euro (Bedrijfssite).`, 'maten lijn B'],
     [`Een eenvoudige zakelijke website kost tussen 299 en 999 euro afhankelijk van pakket.`, `Een zakelijke website kost 299 euro (Startsite), 595 euro (Website) of 1.250 euro (Bedrijfssite).`, 'maten lijn B'],

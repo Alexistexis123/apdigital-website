@@ -4,10 +4,10 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>App laten maken op maat | AP Digital</title>
-<meta name="description" content="Een app die past op hoe jouw bedrijf werkt: planning, uren, klantportaal of kassa. Gebouwd voor Jacobs Heteren, nu voor jouw bedrijf. Vaste prijs na een gratis gesprek." />
+<meta name="description" content="Een app die past op hoe jouw bedrijf werkt: planning, uren, klantportaal of kassa. Tool op maat vanaf €1.500, app op maat vanaf €5.000, excl. btw." />
 <link rel="canonical" href="https://apdigital.nl/apps-laten-maken" />
 <meta property="og:title" content="App laten maken op maat | AP Digital" />
-<meta property="og:description" content="Een app die past op hoe jouw bedrijf werkt: planning, uren, klantportaal of kassa. Gebouwd voor Jacobs Heteren, nu voor jouw bedrijf. Vaste prijs na een gratis gesprek." />
+<meta property="og:description" content="Een app die past op hoe jouw bedrijf werkt: planning, uren, klantportaal of kassa. Tool op maat vanaf €1.500, app op maat vanaf €5.000, excl. btw." />
 <meta property="og:url" content="https://apdigital.nl/apps-laten-maken" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="nl_NL" />
@@ -37,7 +37,57 @@
     "@type": "Country",
     "name": "Nederland"
   },
-  "url": "https://apdigital.nl/apps-laten-maken"
+  "url": "https://apdigital.nl/apps-laten-maken",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Tool op maat",
+      "description": "Eén klus gaat automatisch. Erin: eén taak, van begin tot eind. Voorbeelden: offertecalculator, urenstaat, boekingsformulier. Klaar in: 1 tot 2 weken. Beheer per maand: €99.",
+      "priceCurrency": "EUR",
+      "price": "1500",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "minPrice": "1500",
+        "priceCurrency": "EUR",
+        "valueAddedTaxIncluded": false
+      },
+      "seller": {
+        "@id": "https://apdigital.nl/#business"
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "App op maat",
+      "description": "Je team logt in en werkt erin. Erin: meerdere gebruikers, login, overzichten. Voorbeelden: urenregistratie voor een team, voorraad en kassa. Klaar in: 4 tot 6 weken. Beheer per maand: €249.",
+      "priceCurrency": "EUR",
+      "price": "5000",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "minPrice": "5000",
+        "priceCurrency": "EUR",
+        "valueAddedTaxIncluded": false
+      },
+      "seller": {
+        "@id": "https://apdigital.nl/#business"
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "Software op maat",
+      "description": "Alles van je bedrijf op één plek. Erin: koppelingen, betalingen, rollen, klantomgeving. Voorbeelden: klantportaal, planning. Klaar in: in overleg. Beheer per maand: in overleg.",
+      "priceCurrency": "EUR",
+      "price": "15000",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "minPrice": "15000",
+        "priceCurrency": "EUR",
+        "valueAddedTaxIncluded": false
+      },
+      "seller": {
+        "@id": "https://apdigital.nl/#business"
+      }
+    }
+  ]
 }
 </script>
 <script type="application/ld+json">
@@ -59,6 +109,30 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Dan bouwen we door op wat er staat. Zo zijn de apps in ons portfolio ook gegroeid."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wat kost een app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een tool op maat begint bij €1.500, een app op maat bij €5.000 en software op maat bij €15.000, excl. btw. Dat zijn vanaf-prijzen. Het vaste bedrag krijg je na een gratis gesprek op papier, vóór we beginnen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hoe snel zie ik iets?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Binnen een week heb je een werkende eerste versie om op te klikken. Een tool op maat is in 1 tot 2 weken klaar, een app op maat in 4 tot 6 weken. Software op maat plannen we in overleg."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wat kost het per maand?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Beheer per maand hoort erbij: €99 bij een tool op maat en €249 bij een app op maat, excl. btw. Bij software op maat spreken we het af in overleg."
       }
     }
   ]
@@ -84,7 +158,26 @@
   ]
 }
 </script>
-
+<style>
+.pkgs.vier { grid-template-columns: repeat(4, 1fr); }
+.pkgs.vier .pkg { padding: 26px 22px; }
+.pkgs.vier .pkg h3 { font-size: 19px; margin: 10px 0 0; }
+.maat { margin: 14px 0 24px; }
+.maat > div { padding: 10px 0; border-top: 1px solid var(--lijn); }
+.maat dt { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--grijs); }
+.maat dd { margin: 3px 0 0; font-size: 15px; color: var(--tekst); }
+.maat-onder { margin: 18px 0 0; font-size: 14px; color: var(--grijs); }
+.abo-grid.keuze-abo { grid-template-columns: repeat(2, 1fr); }
+.abo-grid.keuze-abo .knop-2 { margin-top: auto; justify-content: center; }
+.abo-grid.keuze-abo .abo-price.rustig { color: var(--tekst); }
+.aanbod.vier { grid-template-columns: repeat(4, 1fr); }
+.pkgs.vier > *, .abo-grid.keuze-abo > *, .aanbod.vier > *, .pkgs.app-maten > * { min-width: 0; }
+.pkgs.app-maten .pkg h3 { font-size: 19px; margin: 10px 0 0; }
+@media (max-width: 1100px) { .pkgs.vier, .aanbod.vier { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 900px) { .abo-grid.keuze-abo { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { .pkgs.app-maten { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .pkgs.vier, .aanbod.vier { grid-template-columns: 1fr; } }
+</style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -215,9 +308,11 @@
 </article></div>
 </div></section>
 
-<section class="sectie smal"><div class="wrap">
-  <div class="sectie-kop"><div><div class="label">Aanbod</div><h2 style="margin-top:12px">Wat het kost</h2><p class="lead">Geen uurtje-factuurtje en geen open eind. Na een gratis gesprek krijg je een vaste prijs op papier, vóór we beginnen.</p></div></div>
-  <div class="aanbod"><div><h3>Verkenning</h3><p>Samen uitzoeken wat de app moet doen en wat niet.</p><div class="aanbod-prijs"><strong>Vaste prijs</strong><span>na een gratis gesprek</span></div></div><div><h3>Eerste versie</h3><p>Een werkende app voor het belangrijkste proces.</p><div class="aanbod-prijs"><strong>Vaste prijs</strong><span>na een gratis gesprek</span></div></div><div><h3>Doorbouwen en support</h3><p>Uitbreiden op wat je team in de praktijk nodig heeft.</p><div class="aanbod-prijs"><strong>Vaste prijs</strong><span>na een gratis gesprek</span></div></div></div>
+<section class="sectie smal" id="prijzen"><div class="wrap">
+  <div class="sectie-kop"><div><div class="label">Aanbod</div><h2 style="margin-top:12px">Wat het kost</h2><p class="lead">Drie maten, elk met een vanaf-prijs. Het vaste bedrag krijg je na een gratis gesprek op papier, vóór we beginnen.</p></div></div>
+  <div class="pkgs app-maten"><div class="pkg" data-reveal><div class="pkg-name">Tool op maat</div><h3>Eén klus gaat automatisch.</h3><div class="pkg-prijs"><small>vanaf </small>€1.500</div><dl class="maat"><div><dt>Erin</dt><dd>Eén taak, van begin tot eind</dd></div><div><dt>Voorbeelden</dt><dd>Offertecalculator, urenstaat, boekingsformulier</dd></div><div><dt>Klaar in</dt><dd>1 tot 2 weken</dd></div><div><dt>Beheer per maand</dt><dd>€99</dd></div></dl><a class="knop-2" href="/contact?over=apps&pakket=Tool%20op%20maat">Plan een gratis gesprek</a></div><div class="pkg" data-reveal><div class="pkg-name">App op maat</div><h3>Je team logt in en werkt erin.</h3><div class="pkg-prijs"><small>vanaf </small>€5.000</div><dl class="maat"><div><dt>Erin</dt><dd>Meerdere gebruikers, login, overzichten</dd></div><div><dt>Voorbeelden</dt><dd>Urenregistratie voor een team, voorraad en kassa</dd></div><div><dt>Klaar in</dt><dd>4 tot 6 weken</dd></div><div><dt>Beheer per maand</dt><dd>€249</dd></div></dl><a class="knop-2" href="/contact?over=apps&pakket=App%20op%20maat">Plan een gratis gesprek</a></div><div class="pkg" data-reveal><div class="pkg-name">Software op maat</div><h3>Alles van je bedrijf op één plek.</h3><div class="pkg-prijs"><small>vanaf </small>€15.000</div><dl class="maat"><div><dt>Erin</dt><dd>Koppelingen, betalingen, rollen, klantomgeving</dd></div><div><dt>Voorbeelden</dt><dd>Klantportaal, planning</dd></div><div><dt>Klaar in</dt><dd>In overleg</dd></div><div><dt>Beheer per maand</dt><dd>In overleg</dd></div></dl><a class="knop-2" href="/contact?over=apps&pakket=Software%20op%20maat">Plan een gratis gesprek</a></div></div>
+  <p class="maat-onder">Binnen een week heb je een werkende eerste versie om op te klikken. Prijzen excl. btw.</p>
+  <div class="uitleg-blok"><strong style="color:var(--wit)">De grens.</strong> De vanaf-prijs is een ondergrens, geen offerte. Het vaste bedrag staat in het voorstel na het gesprek, vóór we beginnen. Wat buiten de afgesproken opdracht valt kost extra, tegen uurtarief of met een aparte offerte. Dat melden we vooraf. Beheer per maand hoort erbij, bij alle drie de maten. Na volledige betaling krijg je de broncode van je eigen toepassing. Het uurtarief is €85 per uur, excl. btw.</div>
   
 </div></section>
 
@@ -239,7 +334,7 @@
 
 <section class="sectie smal"><div class="wrap twee">
   <div><div class="label">Vragen</div><h2 style="margin-top:12px">Veel gesteld</h2></div>
-  <div class="faq"><details class="faq-item"><summary>Werkt het op telefoon en computer?</summary><p>De apps in ons portfolio werken in de browser, op telefoon en computer, zonder app store.</p></details><details class="faq-item"><summary>Wat als we later meer willen?</summary><p>Dan bouwen we door op wat er staat. Zo zijn de apps in ons portfolio ook gegroeid.</p></details></div>
+  <div class="faq"><details class="faq-item"><summary>Werkt het op telefoon en computer?</summary><p>De apps in ons portfolio werken in de browser, op telefoon en computer, zonder app store.</p></details><details class="faq-item"><summary>Wat als we later meer willen?</summary><p>Dan bouwen we door op wat er staat. Zo zijn de apps in ons portfolio ook gegroeid.</p></details><details class="faq-item"><summary>Wat kost een app?</summary><p>Een tool op maat begint bij €1.500, een app op maat bij €5.000 en software op maat bij €15.000, excl. btw. Dat zijn vanaf-prijzen. Het vaste bedrag krijg je na een gratis gesprek op papier, vóór we beginnen.</p></details><details class="faq-item"><summary>Hoe snel zie ik iets?</summary><p>Binnen een week heb je een werkende eerste versie om op te klikken. Een tool op maat is in 1 tot 2 weken klaar, een app op maat in 4 tot 6 weken. Software op maat plannen we in overleg.</p></details><details class="faq-item"><summary>Wat kost het per maand?</summary><p>Beheer per maand hoort erbij: €99 bij een tool op maat en €249 bij een app op maat, excl. btw. Bij software op maat spreken we het af in overleg.</p></details></div>
 </div></section>
 
 <section class="sectie smal"><div class="wrap"><div class="cta-band">

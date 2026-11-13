@@ -5,7 +5,7 @@
 // Bron: vault Areas/AP Digital/aanbod.md, lijn B, vastgesteld door Alex op 11-11-2026. Vervangt Starter, Groei en Premium
 // en de onderhoudsabonnementen Brons, Zilver en Goud. Alleen wat daar als vastgesteld staat; de rijen volgen de tabel.
 // Waar de tabel "plus ..." zegt staat hier "Zoals de <vorige maat>, plus ...", zodat een kaart ook los te lezen is.
-// Bewust NIET op de site: de actie voor januari 2027 (Startsite gratis bij een jaar maandpakket).
+// De actie (Startsite gratis bij een jaar maandpakket) staat sinds 13-11-2026 op de site (go Alex 13-11), zie ACTIE in build.mjs.
 export const maten = [
   { naam: 'Startsite', prijs: '€299', getal: '299', kop: 'Online in 2 dagen.',
     rijen: [['Pagina\'s', 'Tot 3'], ['Online in', '2 dagen'], ['Teksten', 'Lever je zelf aan, met foto\'s en logo'], ['Ontwerp', 'Vast ontwerp in jouw kleuren en logo'], ['Vindbaarheid', 'Basis: titel en omschrijving'], ['Erbij', 'Formulier, bel- en WhatsApp-knop'], ['Aanpasrondes', '1']] },
@@ -63,6 +63,27 @@ export const zelfHosten = {
   punten: ['Hosting en domein neem je zelf af, bij een partij naar keuze', 'Wij helpen met het koppelen van je site', 'Updates en back-ups regel je ook zelf', 'Wijzigingen doen we tegen uurtarief'],
 }
 
+// ---------- LIJN C: APPS BOUWEN ----------
+// Bron: vault Areas/AP Digital/aanbod.md, lijn C, vastgesteld door Alex op 13-11-2026. Drie maten met een vanaf-prijs; het exacte
+// bedrag volgt na een gratis gesprek, op papier, vóór we beginnen. Beheer per maand hoort er bij alle drie bij.
+// Nog open bij Alex en daarom NIET op de site: wat er precies in het beheer zit, vanaf wanneer de week van de eerste versie telt,
+// hoe lang het beheer verplicht is, en of eigen apps als bewijs bij de maten getoond mogen worden. Verzin daar niets bij.
+export const appMaten = [
+  { naam: 'Tool op maat', prijs: '€1.500', getal: '1500', kop: 'Eén klus gaat automatisch.',
+    rijen: [['Erin', 'Eén taak, van begin tot eind'], ['Voorbeelden', 'Offertecalculator, urenstaat, boekingsformulier'], ['Klaar in', '1 tot 2 weken'], ['Beheer per maand', '€99']] },
+  { naam: 'App op maat', prijs: '€5.000', getal: '5000', kop: 'Je team logt in en werkt erin.',
+    rijen: [['Erin', 'Meerdere gebruikers, login, overzichten'], ['Voorbeelden', 'Urenregistratie voor een team, voorraad en kassa'], ['Klaar in', '4 tot 6 weken'], ['Beheer per maand', '€249']] },
+  { naam: 'Software op maat', prijs: '€15.000', getal: '15000', kop: 'Alles van je bedrijf op één plek.',
+    rijen: [['Erin', 'Koppelingen, betalingen, rollen, klantomgeving'], ['Voorbeelden', 'Klantportaal, planning'], ['Klaar in', 'In overleg'], ['Beheer per maand', 'In overleg']] },
+]
+export const appBelofte = 'Binnen een week heb je een werkende eerste versie om op te klikken.'
+export const appGrens = [
+  'De vanaf-prijs is een ondergrens, geen offerte. Het vaste bedrag staat in het voorstel na het gesprek, vóór we beginnen.',
+  'Wat buiten de afgesproken opdracht valt kost extra, tegen uurtarief of met een aparte offerte. Dat melden we vooraf.',
+  'Beheer per maand hoort erbij, bij alle drie de maten.',
+  'Na volledige betaling krijg je de broncode van je eigen toepassing.',
+]
+
 export const pijlers = [
   {
     key: 'websites', slug: 'websites-laten-maken', naam: 'Websites', label: '01 · Vindbaar in Google en AI · Websites',
@@ -109,11 +130,14 @@ export const pijlers = [
       ['Uren en personeel', 'Medewerkers schrijven uren op hun telefoon, kantoor keurt goed en exporteert.'],
       ['Klantportalen en kassa', 'Je klanten zien hun eigen gegevens. Je winkel rekent af en houdt voorraad bij.'],
     ],
-    prijs: 'Vaste prijs na een gratis gesprek',
-    aanbod: [['Verkenning', 'Samen uitzoeken wat de app moet doen en wat niet.'], ['Eerste versie', 'Een werkende app voor het belangrijkste proces.'], ['Doorbouwen en support', 'Uitbreiden op wat je team in de praktijk nodig heeft.']],
+    prijs: 'Vanaf €1.500',
+    aanbod: [], // de drie maten komen uit appMaten (lijn C), zie pijlerPagina in build.mjs
     faq: [
       ['Werkt het op telefoon en computer?', 'De apps in ons portfolio werken in de browser, op telefoon en computer, zonder app store.'],
       ['Wat als we later meer willen?', 'Dan bouwen we door op wat er staat. Zo zijn de apps in ons portfolio ook gegroeid.'],
+      ['Wat kost een app?', 'Een tool op maat begint bij €1.500, een app op maat bij €5.000 en software op maat bij €15.000, excl. btw. Dat zijn vanaf-prijzen. Het vaste bedrag krijg je na een gratis gesprek op papier, vóór we beginnen.'],
+      ['Hoe snel zie ik iets?', 'Binnen een week heb je een werkende eerste versie om op te klikken. Een tool op maat is in 1 tot 2 weken klaar, een app op maat in 4 tot 6 weken. Software op maat plannen we in overleg.'],
+      ['Wat kost het per maand?', 'Beheer per maand hoort erbij: €99 bij een tool op maat en €249 bij een app op maat, excl. btw. Bij software op maat spreken we het af in overleg.'],
     ],
     cta: 'Loopt je bedrijf vast op <span class="serif">handwerk en lijstjes?</span>',
   },
@@ -131,12 +155,13 @@ export const pijlers = [
       ['Mails, posts en rapporten', 'Op vaste momenten de juiste mail, post of rapportage, met een controle-moment voor jou.'],
       ['Eén overzicht', 'Een dashboard waar je ziet wat er speelt, in plaats van tien tabbladen.'],
     ],
-    prijs: 'Vaste prijs na een gratis gesprek',
+    prijs: 'Prijs op aanvraag',
     aanbod: [['Processcan', 'We kijken welk terugkerend werk het meeste tijd kost.'], ['Eén automatisering', 'Eén proces dat vanaf dan zelf loopt.'], ['Beheer', 'We houden het draaiend en passen aan als er iets verandert.']],
     faq: [
       ['Moet ik alles uit handen geven?', 'Nee. Bij de automatiseringen in ons portfolio zit steeds een moment waarop een mens kijkt of goedkeurt.'],
       ['Werkt het met mijn huidige systemen?', 'Vaak wel. In het gratis gesprek kijken we welke systemen je gebruikt en wat daarmee te koppelen is. Kan het niet netjes, dan zeggen we dat ook.'],
       ['Wat als er iets misgaat?', 'Voor we bouwen spreken we af wie er kijkt als er iets stokt en hoe snel. Dat staat in het voorstel, samen met de prijs.'],
+      ['Wat kost het?', 'De prijs is op aanvraag. Een automatisering kan heel klein of heel groot zijn, daarom werken we hier zonder pakketten. Na een gratis gesprek krijg je de prijs op papier, vóór we beginnen.'],
     ],
     cta: 'Welk werk wil jij <span class="serif">nooit meer zelf doen?</span>',
   },
