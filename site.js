@@ -248,6 +248,10 @@
       if (veld('pakket') && veld('pakket').value) regels.push('Pakket: ' + veld('pakket').value)
       regels.push('Waar gaat het over: ' + (lf ? lf.value : ''), '', 'Bericht:', bericht ? bericht.value : '')
       location.href = 'mailto:info@apdigital.nl?subject=' + encodeURIComponent(onderwerp) + '&body=' + encodeURIComponent(regels.join('\n'))
+      // Eerlijk blijven: via deze route is er nog niets verstuurd, de bezoeker moet de mail zelf versturen.
+      var blok = veld('formSuccess'), kop = blok.querySelector('h3'), tekst = blok.querySelector('p')
+      if (kop) kop.textContent = 'Nog één stap.'
+      if (tekst) tekst.textContent = 'Het formulier kon niet verzenden. Er opent nu een mail met je gegevens: verstuur die, of bel 06 1416 0265.'
       klaar()
     }
     fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { Accept: 'application/json' }, body: data })
