@@ -170,7 +170,7 @@ function beeld(p, rustig = false) {
 // Projectkaart: kort en visueel (go Alex 13-11-2026). Echt beeld, naam, één zin, hooguit drie kenmerken en één knop.
 // Geen verhaal, geen cijfers, geen status. Is er een site, dan gaat de knop daarheen; anders een stille regel.
 function kaart(p, { rustig = false, klasse = '' } = {}) {
-  const extern = p.url && /^https?:|^\/casa5/.test(p.url)
+  const extern = p.url && /^https?:/.test(p.url)
   const link = p.url ? `<a class="link" href="${p.url}"${extern ? ' target="_blank" rel="noopener"' : ''}>${p.linktekst || 'Bekijk de site'} ↗</a>` : `<span class="link stil">${p.geenlink || 'Demo op aanvraag'}</span>`
   return `<article class="case${klasse ? ' ' + klasse : ''}" data-pijler="${p.pijler}" data-reveal>
   ${beeld(p, rustig)}
@@ -1231,7 +1231,8 @@ const nietGevonden = pagina({
 const FIXES = [
   [/href="\/webshops"/g, `href="${P.websites}"`, '/webshops krijgt een 301 naar /websites-laten-maken'],
   [/href="\/horeca-websites"/g, 'href="/restaurant-websites"', '/horeca-websites krijgt een 301 naar /restaurant-websites'],
-  [/href="\/casa5\/"/g, 'href="/casa5"', 'zonder slash, anders een extra doorverwijzing'],
+  [/De nieuwe site is te bekijken op <a href="\/casa5\/?">apdigital\.nl\/casa5<\/a>\. Op het eigen domein staat op dit moment nog de oude site\./g, 'De nieuwe site staat inmiddels live op <a href="https://casa5.nl/">casa5.nl</a>.', 'Casa 5 staat live op casa5.nl (go Alex 13-11)'],
+  [/(href="|"url": ")(https:\/\/apdigital\.nl)?\/casa5\/?"/g, '$1https://casa5.nl/"', 'Casa 5 staat live op casa5.nl, /casa5 is een 301 (go Alex 13-11)'],
   [/href="\/diensten#websites"/g, `href="${P.websites}"`, 'pijlerpagina Websites'],
   [/href="https:\/\/apdigital\.nl\/webshops"/g, `href="${SITE}${P.websites}"`, '301'],
   [/href="(https:\/\/apdigital\.nl)?\/marketing-fit"([^>]*)>apdigital\.nl\/marketing-fit</g, 'href="https://marketing-fit.nl/"$2>marketing-fit.nl<', 'Marketing Fit staat live op eigen domein'],
@@ -1469,7 +1470,7 @@ function oudePagina(f, { pad, actief }) {
 // ---------- casepagina's: kort en visueel (bijsturing Alex 13-11-2026) ----------
 // Groot beeld van de echte site (desktop en mobiel), één of twee zinnen, een knop naar de site en hooguit drie kenmerken.
 // Geen verhaal over proces, techniek, termijnen of domeinen. Titel, og-titel en JSON-LD komen uit de oude pagina; alleen
-// wat daarin niet klopte is rechtgezet. Casa 5: de knop gaat naar apdigital.nl/casa5, want casa5.eu toont nog de oude site.
+// wat daarin niet klopte is rechtgezet. Casa 5: de knop gaat naar casa5.nl (live sinds juni 2026; /casa5 is een 301, go Alex 13-11).
 const CASE_STIJL = `<style>
 .case-kop { padding-bottom: 26px; }
 .case-groot { position: relative; margin: 0 0 64px; }
@@ -1496,7 +1497,7 @@ function casePagina(f, c) {
   let jsonld = h.match(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g) || []
   for (const [a, b] of c.ld) { const voor = jsonld.join(''); jsonld = jsonld.map(x => x.split(a).join(b)); if (jsonld.join('') === voor) throw new Error(`${f}: JSON-LD-fix raakt niets: ${a}`) }
   const [dw, dh] = maat(p.img), [mw, mh] = maat(c.mobiel)
-  const blank = /^https?:|^\/casa5/.test(p.url) ? ' target="_blank" rel="noopener"' : ''
+  const blank = /^https?:/.test(p.url) ? ' target="_blank" rel="noopener"' : ''
   const body = `
 <section class="pkop raster case-kop"><div class="wrap">
   <div class="kruimel"><a href="/portfolio">Portfolio</a><span>/</span>${c.naam}</div>
