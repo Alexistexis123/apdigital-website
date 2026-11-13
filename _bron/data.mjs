@@ -26,22 +26,15 @@ export const maten = [
 // die bij ons staat, precies wat Online houden is en niets meer, het domein zit er niet in. Beloof er niets bij.
 // Het domein zit niet in de €49 (standaardkeuze, beslispunt Alex).
 
-// HET HALVE UUR: de enige plek waar de tekst over de wijzigingen van Online houden staat. Alex wil dit mogelijk anders
-// formuleren ("is zo specifiek", 12-11-2026, nog geen besluit). Wijzig dan alleen deze vier vormen: build.mjs gebruikt ze
-// overal, ook op de oude pagina's, in de FAQ's en in de JSON-LD. Schrijf de tekst dus nergens anders met de hand.
-export const wijzigingen = {
-  tijd: 'een half uur',                         // "Er zit een half uur per maand in"
-  kort: 'een half uur wijzigingen',             // in een opsomming
-  maand: 'een half uur wijzigingen per maand',  // voluit, ook de regel op de kaart
-  grens: 'het halve uur',                       // "wijzigingen boven het halve uur"
-}
+// WIJZIGINGEN (besluit Alex 13-11-2026, letterlijk "helemaal weg"): in Online houden zitten geen wijzigingen meer, ook geen
+// "kleine wijzigingen" of een andere vervanger. Online houden is hosting, updates en back-ups. Wijzigingen doen we altijd tegen
+// uurtarief (build.mjs, WIJZIGINGEN). De bouw stopt als de oude tekst over de wijzigingen per maand ergens terugkomt (build.mjs, onderaan).
 export const hoofd = s => s.charAt(0).toUpperCase() + s.slice(1)
-// inhoud en inhoudMaand = wat Online houden is, als zin. Eén bron voor elke opsomming op de site.
+// inhoud = wat Online houden is, als zin. Eén bron voor elke opsomming op de site.
 export const onlineHouden = {
   naam: 'Online houden', prijs: '€49', getal: '49',
-  punten: ['Hosting', 'Updates', 'Back-ups', hoofd(wijzigingen.maand)],
-  inhoud: `hosting, updates, back-ups en ${wijzigingen.kort}`,
-  inhoudMaand: `hosting, updates, back-ups en ${wijzigingen.maand}`,
+  punten: ['Hosting', 'Updates', 'Back-ups'],
+  inhoud: 'hosting, updates en back-ups',
 }
 // De doorlopende zinnen, op elke pagina gelijk (stadspagina's, /websites-laten-maken, redesign, restaurant, B&B, blogs).
 // keuze = de keuze uit twee over hosting. inPakket = kort dat Online houden in een maandpakket zit.
@@ -56,7 +49,7 @@ export const startsite = {
   meer: `Meer nodig? Website €595, Bedrijfssite €1.250 of Maatwerk vanaf €2.500. ${naDeBouw.keuze} ${naDeBouw.inPakket} Prijzen excl. btw.`,
 }
 // Zelf hosten. De grens komt uitsluitend uit de voorwaarden, artikel 8 (AP Digital helpt bij het koppelen van de website) en uit
-// wat Online houden is: wat daar in zit (hosting, updates, back-ups, een half uur wijzigingen) doen wij dan niet. Wijzigingen gaan
+// wat Online houden is: wat daar in zit (hosting, updates, back-ups) doen wij dan niet. Wijzigingen gaan
 // tegen het bestaande uurtarief. Geen nieuwe belofte en geen nieuw tarief: verzin hier niets bij.
 export const zelfHosten = {
   naam: 'Zelf hosten',
