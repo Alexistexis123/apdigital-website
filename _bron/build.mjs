@@ -7,7 +7,7 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
-import { projecten, pijlers, verhalen, team, maten, startsite, onlineHouden, zelfHosten, wijzigingen, hoofd, naDeBouw, appMaten, appBelofte, appGrens } from './data.mjs'
+import { projecten, pijlers, team, maten, startsite, onlineHouden, zelfHosten, wijzigingen, hoofd, naDeBouw, appMaten, appBelofte, appGrens } from './data.mjs'
 
 const D = dirname(fileURLToPath(import.meta.url))
 const ROOT = join(D, '..')
@@ -167,45 +167,19 @@ function beeld(p, rustig = false) {
   return `<div class="beeld">${img(p.img, p.alt)}${mini}</div>`
 }
 
-let kaartTeller = 0
+// Projectkaart: kort en visueel (go Alex 13-11-2026). Echt beeld, naam, één zin, hooguit drie kenmerken en één knop.
+// Geen verhaal, geen cijfers, geen status. Is er een site, dan gaat de knop daarheen; anders een stille regel.
 function kaart(p, { rustig = false, klasse = '' } = {}) {
-  const status = p.status ? `<span class="pil geel">${p.status}</span>` : ''
   const extern = p.url && /^https?:|^\/casa5/.test(p.url)
-  const links = [
-    p.url ? `<a class="link" href="${p.url}"${extern ? ' target="_blank" rel="noopener"' : ''}>${p.linktekst || 'Bekijk de site'} ↗</a>` : `<span class="link stil">${p.geenlink || 'Demo op aanvraag'}</span>`,
-    p.caseUrl ? `<a class="link" href="${p.caseUrl}">Lees de case →</a>` : '',
-  ].join('')
-  const v = verhalen[p.id] || null
-  const kl = `case${v ? ' verhaal-case' : ''}${klasse ? ' ' + klasse : ''}`
-  if (!v) {
-    return `<article class="${kl}" data-pijler="${p.pijler}" data-reveal>
+  const link = p.url ? `<a class="link" href="${p.url}"${extern ? ' target="_blank" rel="noopener"' : ''}>${p.linktekst || 'Bekijk de site'} ↗</a>` : `<span class="link stil">${p.geenlink || 'Demo op aanvraag'}</span>`
+  return `<article class="case${klasse ? ' ' + klasse : ''}" data-pijler="${p.pijler}" data-reveal>
   ${beeld(p, rustig)}
   <div class="tekst">
-    <div class="meta"><span class="pil">${p.soort}</span>${status}</div>
+    <div class="meta"><span class="pil">${p.soort}</span></div>
     <h3>${p.titel}</h3>
     <p>${p.kort}</p>
-    ${p.cijfer ? `<div class="bewijs klein-bewijs"><strong>${p.cijfer[0]}</strong><span>${p.cijfer[1]}</span></div>` : ''}
-    <div class="gebouwd">${p.gebouwd.map(g => `<span>${g}</span>`).join('')}</div>
-    <div class="links">${links}</div>
-  </div>
-</article>`
-  }
-  const vid = `v-${p.id}-${++kaartTeller}`
-  const cijfer = v.cijfer ? `<div class="bewijs"><strong${/^[\d.]+$/.test(v.cijfer[0]) ? ` data-tel="${v.cijfer[0].replace(/\./g, '')}"` : ''}>${v.cijfer[0]}</strong><span>${v.cijfer[1]}</span></div>` : ''
-  return `<article class="${kl}" data-pijler="${p.pijler}" data-reveal>
-  ${beeld(p, rustig)}
-  <div class="verhaal" id="${vid}">
-    <div><small>01 · Het probleem</small><p>${v.probleem}</p></div>
-    <div><small>02 · Wat we bouwden</small><p>${v.gebouwd}</p></div>
-    <div><small>03 · Wat het opleverde</small><p>${v.opgeleverd}</p></div>
-  </div>
-  <div class="tekst">
-    <div class="meta"><span class="pil">${p.soort}</span>${status}</div>
-    <h3>${p.titel}</h3>
-    <p>${p.kort}</p>
-    ${cijfer}
-    <button type="button" class="verhaal-knop" aria-expanded="false" aria-controls="${vid}"><span class="dicht">Lees het hele verhaal</span><span class="open">Verhaal sluiten</span></button>
-    <div class="links">${links}</div>
+    <div class="gebouwd">${p.gebouwd.slice(0, 3).map(g => `<span>${g}</span>`).join('')}</div>
+    <div class="links">${link}</div>
   </div>
 </article>`
 }
@@ -548,7 +522,7 @@ const kiesHero = `
 
 const werkHome = `
 <section class="sectie raster" id="werk"><div class="wrap">
-  <div class="sectie-kop" data-reveal><div><div class="label">Ons werk</div><h2 style="margin-top:12px">Echte projecten, <span class="serif">per tak.</span></h2><p class="lead">Wat er mis was, wat we bouwden en wat het opleverde. Open een project voor het hele verhaal.</p></div><a class="knop-2" href="/portfolio">Alle projecten →</a></div>
+  <div class="sectie-kop" data-reveal><div><div class="label">Ons werk</div><h2 style="margin-top:12px">Echte projecten, <span class="serif">per tak.</span></h2><p class="lead">Een paar projecten per tak. Klik door naar de site, of bekijk ze allemaal.</p></div><a class="knop-2" href="/portfolio">Alle projecten →</a></div>
   <div class="tak-kop"><span>01 · Vindbaar in Google en AI</span></div>
   <div class="cases">${['florent', 'geo-monitor'].map(id => kaart(proj(id), { klasse: 'hc-card' })).join('')}</div>
   <div class="tak-kop"><span>02 · Software en automatisering</span></div>
@@ -856,7 +830,7 @@ const portfolioBlok = (id, label, naam, href, linkTekst, lijst) => `
 const portfolio = pagina({
   pad: '/portfolio',
   titel: 'Portfolio: vindbaar online en software op maat | AP Digital',
-  beschrijving: 'Websites die gevonden worden en software waar bedrijven dagelijks op draaien, van Flo-Rent tot MoveFlow. Met wat er mis was, wat we bouwden en wat het opleverde.',
+  beschrijving: 'Websites die gevonden worden en software waar bedrijven dagelijks op draaien, van Flo-Rent tot MoveFlow. Bekijk de sites en de schermen.',
   actief: 'portfolio',
   jsonld: [kruimelLd([['Portfolio', '/portfolio']])],
   body: `
