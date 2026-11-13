@@ -35,7 +35,7 @@ const maat = f => {
   if (/postleads-dashboard/.test(f)) return [1440, 961]
   if (/urenapp/.test(f)) return [534, 526]
   if (/(casa5|florent|herbergen|jacobs|jmc|marketingfit|rhscooter)-d/.test(f)) return MAAT.d
-  if (/(casa5|florent|herbergen|jacobs)-m/.test(f)) return MAAT.m
+  if (/(casa5|florent|herbergen|jacobs|marketingfit)-m/.test(f)) return MAAT.m
   if (/-m\.webp|baby|pt-/.test(f)) return MAAT.ml
   return MAAT.dl
 }
@@ -403,7 +403,8 @@ const TAK = {
   t1: { top: ['florent', 'herbergen', 'casa5', 'jacobs'], meer: ['rhscooter', 'marketingfit', 'jmc', 'geo-monitor', 'seo-rapport'] },
   t2: { top: ['moveflow', 'urenapp', 'postleads-machine', 'cockpit'], meer: ['kassa', 'postleads-dashboard', 'social-manager', 'occasioniq', 'ptapp', 'babyapp'] },
 }
-const AIS = ['ChatGPT', 'Gemini', 'Perplexity', 'Google AI-overzicht', 'Google AI-modus', 'Copilot', 'Meta AI']
+// Alleen de AI's die we echt meten (skill ai-zichtbaarheid). Copilot en Meta AI meten we niet: niet noemen (go Alex 13-11-2026).
+const AIS = ['ChatGPT', 'Gemini', 'Perplexity', 'Google AI-overzicht', 'Google AI-modus']
 
 // Voorbeeld van de gratis check, volledig nepdata (verzonnen installateur).
 const checkKaart = `
@@ -411,7 +412,7 @@ const checkKaart = `
   <div class="ck-kop">
     <span class="ck-logo">AP</span>
     <div><b>Gratis check</b><small>voorbeeld-installatie.nl · nepdata</small></div>
-    <div class="ck-score"><strong>2<em>/7</em></strong><small>AI's noemen je</small></div>
+    <div class="ck-score"><strong>2<em>/${AIS.length}</em></strong><small>AI's noemen je</small></div>
   </div>
   <div class="ck-twee">
     <div class="ck-blok">
@@ -436,7 +437,7 @@ const AI_STROOK = `<div class="ai-strook">${['Google-posities', 'Search Console'
 // Maandpakketten = lijn A uit de vault (Areas/AP Digital/aanbod.md), vastgesteld door Alex op 11-11-2026: €299 / €499 / €799 per maand.
 // Alleen wat daar als vastgesteld staat. Het klantdashboard met eigen login staat sinds 13-11-2026 als onderdeel van elk pakket op de
 // site (go Alex 13-11). Het bestaat nog niet: geen schermbeeld en geen loginlink tonen tot het er is.
-// Nog open bij Alex en daarom ongewijzigd gelaten: pakketnamen (Basis, Groei, Vol), excl. btw, minimaal 3 maanden, "7 AI's", gratis check binnen 5 werkdagen.
+// Nog open bij Alex en daarom ongewijzigd gelaten: pakketnamen (Basis, Groei, Vol), excl. btw, minimaal 3 maanden, "5 AI's", gratis check binnen 5 werkdagen.
 const MAANDPAKKETTEN = [
   { naam: 'Basis', prijs: '299', kop: 'Je weet waar je staat.', tekst: 'Elke maand gemeten en verbeterd, met tot 8 pagina\'s per maand.', punten: ['Tot 8 pagina\'s per maand, nieuw of verbeterd', '15 klantvragen gevolgd in Google en AI'] },
   { naam: 'Groei', prijs: '499', uitgelicht: true, kop: 'Elke maand een stap vooruit.', tekst: 'Meer pagina\'s, meer klantvragen en we houden je concurrenten in de gaten.', punten: ['Tot 15 pagina\'s per maand, nieuw of verbeterd', '30 klantvragen gevolgd in Google en AI', 'We volgen je concurrenten', 'Elk kwartaal een gesprek'] },
@@ -493,7 +494,7 @@ const takKaarten = (svc = false) => `
       <div class="label geel">Het maandpakket</div>
       <h3>Vindbaar in Google en AI</h3>
       <p>Je site is de basis. Elke maand meten we waar je staat, maken we je beter vindbaar en laten we zien wat het deed.</p>
-      <ul><li>Gemeten in Google en 7 AI's</li><li>Elke maand verbeteringen</li><li>Rapport van 2 pagina's</li></ul>
+      <ul><li>Gemeten in Google en 5 AI's</li><li>Elke maand verbeteringen</li><li>Rapport van 2 pagina's</li></ul>
       <div class="tak-prijs">vanaf €299 per maand, excl. btw</div>
       <span class="meer">Bekijk de pakketten →</span>
     </a>
@@ -600,7 +601,7 @@ const t1Faq = [
   ['Waarom zou ik in AI\'s willen staan?', 'Omdat je klanten het daar ook vragen. Wie ChatGPT of Google vraagt om een goede installateur of kapper in de buurt, krijgt een paar namen. Wij zorgen dat de jouwe daar een eerlijke kans maakt.'],
   ['Hoe snel zie ik verschil?', 'Google en de AI\'s hebben tijd nodig om veranderingen op te pikken. Reken op een paar maanden. Daarom meten we elke maand en starten we met minimaal 3 maanden.'],
   ['Heb ik een nieuwe website nodig?', 'Niet altijd. Is je site goed genoeg om op te bouwen, dan werken we daarop verder. Is hij dat niet, dan zeggen we dat na de check. Een nieuwe site valt buiten het pakket: daarvoor krijg je een aparte offerte, een Startsite kost €299.'],
-  ['Wat krijg ik bij de gratis check?', 'Eén pagina: hoe je nu in Google staat op een paar belangrijke zoektermen, of de 7 AI\'s je noemen als iemand om een bedrijf zoals het jouwe vraagt, en de 3 grootste gaten. Binnen 5 werkdagen in je mailbox, en je zit nergens aan vast.'],
+  ['Wat krijg ik bij de gratis check?', 'Eén pagina: hoe je nu in Google staat op een paar belangrijke zoektermen, of de 5 AI\'s je noemen als iemand om een bedrijf zoals het jouwe vraagt, en de 3 grootste gaten. Binnen 5 werkdagen in je mailbox, en je zit nergens aan vast.'],
   ['Kost de nulmeting extra?', 'Niet als je 3 maanden afneemt. De nulmeting bij de start heeft een waarde van €295 en is dan gratis.'],
   ['Wat staat er in het maandrapport?', 'Twee pagina\'s in gewone taal: waar je nu staat, vorige maand en je doel. Wat we deden en wat we volgende maand gaan doen.'],
   ['Wat zie ik in het klantdashboard?', 'Je krijgt een eigen login. Daar zie je zelf hoe je vindbaar bent in Google en AI, je reviews, wat we deden en wat het opleverde.'],
@@ -612,7 +613,7 @@ const tak1 = pagina({
   beschrijving: 'Gevonden worden in Google en in AI\'s als ChatGPT, Gemini en Perplexity. Elke maand gemeten, verbeterd en in een rapport van 2 pagina\'s. Begin met de gratis check.',
   actief: 't1',
   jsonld: [
-    dienstLd('Vindbaar in Google en AI', 'Maandpakket: elke maand meten hoe een bedrijf staat in Google en in 7 AI\'s, verbeteren wat het meeste oplevert en een rapport van 2 pagina\'s. Met een klantdashboard met eigen login.', T1, {
+    dienstLd('Vindbaar in Google en AI', 'Maandpakket: elke maand meten hoe een bedrijf staat in Google en in 5 AI\'s, verbeteren wat het meeste oplevert en een rapport van 2 pagina\'s. Met een klantdashboard met eigen login.', T1, {
       offers: MAANDPAKKETTEN.map(p => ({ '@type': 'Offer', name: `${p.naam} maandpakket`, price: p.prijs, priceCurrency: 'EUR', priceSpecification: { '@type': 'UnitPriceSpecification', price: p.prijs, priceCurrency: 'EUR', unitCode: 'MON', valueAddedTaxIncluded: false }, seller: { '@id': `${SITE}/#business` } })),
     }),
     faqLd(t1Faq), kruimelLd([['Vindbaar in Google en AI', T1]]),
@@ -636,7 +637,7 @@ const tak1 = pagina({
 <section class="sectie smal"><div class="wrap">
   <div class="sectie-kop"><div><div class="label">Wat we elke maand doen</div><h2 style="margin-top:12px">Meten, verbeteren, <span class="serif">uitleggen.</span></h2></div></div>
   <div class="drie">
-    <div><div class="nr">01</div><h3>Meten</h3><p>Dezelfde vragen en zoektermen als vorige maand, in Google en in 7 AI's. Plus je cijfers uit Google Search Console en een check van de techniek.</p></div>
+    <div><div class="nr">01</div><h3>Meten</h3><p>Dezelfde vragen en zoektermen als vorige maand, in Google en in 5 AI's. Plus je cijfers uit Google Search Console en een check van de techniek.</p></div>
     <div><div class="nr">02</div><h3>Verbeteren</h3><p>Wat het meeste oplevert eerst: nieuwe pagina's, bestaande pagina's beter maken, de techniek van je site, je Google-bedrijfsprofiel en reviews.</p></div>
     <div><div class="nr">03</div><h3>Uitleggen</h3><p>Een rapport van 2 pagina's in gewone taal: waar je staat, wat we deden en wat volgende maand komt.</p></div>
   </div>
@@ -651,7 +652,7 @@ const tak1 = pagina({
     <p>Je krijgt één pagina terug: hoe je nu in Google staat, of de AI's je noemen, en de 3 grootste gaten. Binnen 5 werkdagen in je mailbox. Kijken kost niets en verplicht je tot niets.</p>
     <div class="knoppen-rij" style="margin-top:22px"><a class="knop" href="${CHECK}">Vraag de gratis check aan</a></div>
   </div>
-  <ol class="check-lijst"><li><b>Google</b>Waar sta je op de zoektermen die tellen?</li><li><b>7 AI's</b>Noemen ze je als iemand om een bedrijf zoals het jouwe vraagt?</li><li><b>3 gaten</b>Wat het meeste oplevert als je het oplost.</li></ol>
+  <ol class="check-lijst"><li><b>Google</b>Waar sta je op de zoektermen die tellen?</li><li><b>5 AI's</b>Noemen ze je als iemand om een bedrijf zoals het jouwe vraagt?</li><li><b>3 gaten</b>Wat het meeste oplevert als je het oplost.</li></ol>
 </div></div></section>
 
 <section class="sectie" id="pakketten"><div class="wrap">
@@ -1078,7 +1079,7 @@ const gratisCheck = pagina({
     <div class="label geel">Gratis check</div>
     <h1>Hoe vindbaar ben je <span class="serif">nu echt?</span></h1>
     <p class="lead">Vul je website in. Je krijgt één pagina terug: hoe je nu in Google staat, of de AI's je noemen als iemand om een bedrijf zoals het jouwe vraagt, en de 3 grootste gaten.</p>
-    <ul class="vinklijst" style="grid-template-columns:1fr;margin-top:24px"><li>Gratis en vrijblijvend</li><li>Gemeten in Google en 7 AI's</li><li>In gewone taal, op één pagina</li><li>Binnen 5 werkdagen in je mailbox</li></ul>
+    <ul class="vinklijst" style="grid-template-columns:1fr;margin-top:24px"><li>Gratis en vrijblijvend</li><li>Gemeten in Google en 5 AI's</li><li>In gewone taal, op één pagina</li><li>Binnen 5 werkdagen in je mailbox</li></ul>
   </div>
   ${formulier({ knop: 'Vraag mijn gratis check aan', keuzes: false, standaard: 'Gratis check', check: true })}
 </div></section>
@@ -1385,10 +1386,6 @@ const PAGINA_FIXES = {
     [`<p>B&B-pakket met boekingskoppeling, kalender en regio-pagina vanaf €499.</p>`, `<p>Startsite €299, Website €595, Bedrijfssite €1.250. Neemt de site werk over, zoals boekingen, betalen of een koppeling, dan is het Maatwerk, vanaf €2.500.</p>`, 'maten lijn B'],
     [`Vanaf 299 euro voor een Starter-pakket. Een B&B-site met boekingskoppeling, fotogalerij en regio-tips kost doorgaans 499 tot 999 euro.`, `Een Startsite kost 299 euro, een Website 595 euro en een Bedrijfssite 1.250 euro. Neemt de site werk over, zoals boekingen, betalen of een koppeling, dan is het Maatwerk, vanaf 2.500 euro.`, 'maten lijn B', 2],
   ],
-  'case-marketing-fit.html': [
-    [`<span class="val">Premium</span>`, `<span class="val">Premium (oude naam)</span>`, 'Premium bestaat niet meer, de case is toen zo verkocht'],
-    [`De scope kwam uit het Premium-pakket, zie de <a href="/pakketten">pakketten</a> voor wat daarin zit.`, `De scope kwam uit het Premium-pakket van toen. De huidige maten staan bij de <a href="/pakketten">pakketten</a>.`, 'Premium bestaat niet meer, de case is toen zo verkocht'],
-  ],
   'blog-moderne-website-vs-oude-website.html': [
     [`Een redesign van een MKB-site kost meestal tussen 499 en 999 euro. Soms is een refresh van design en snelheid genoeg en kan het goedkoper.`, `Een redesign kost hetzelfde als een nieuwe site: 299 euro voor een Startsite, 595 euro voor een Website en 1.250 euro voor een Bedrijfssite.`, 'herdesign kost hetzelfde als nieuw', 2],
   ],
@@ -1465,8 +1462,6 @@ const OUDE_PAGINAS = {
   'bb-websites.html': { pad: '/bb-websites', actief: 'websites' },
   'website-redesign.html': { pad: '/website-redesign', actief: 'websites' },
   'onderhoud-en-hosting.html': { pad: '/onderhoud-en-hosting', actief: 'websites' },
-  'case-casa5.html': { pad: '/case-casa5', actief: 'portfolio' },
-  'case-marketing-fit.html': { pad: '/case-marketing-fit', actief: 'portfolio' },
   'voorwaarden.html': { pad: '/voorwaarden', actief: '' },
   'privacy.html': { pad: '/privacy', actief: '' },
 }
@@ -1497,6 +1492,57 @@ function oudePagina(f, { pad, actief }) {
   return pagina({ pad, titel, beschrijving, actief, og: { titel: ogTitel, beschrijving: ogBeschrijving, type: ogType || 'website' }, jsonld, kopExtra: kopStijl, body: `<div class="oud">\n${inhoud.trim()}\n</div>` })
 }
 
+// ---------- casepagina's: kort en visueel (bijsturing Alex 13-11-2026) ----------
+// Groot beeld van de echte site (desktop en mobiel), één of twee zinnen, een knop naar de site en hooguit drie kenmerken.
+// Geen verhaal over proces, techniek, termijnen of domeinen. Titel, og-titel en JSON-LD komen uit de oude pagina; alleen
+// wat daarin niet klopte is rechtgezet. Casa 5: de knop gaat naar apdigital.nl/casa5, want casa5.eu toont nog de oude site.
+const CASE_STIJL = `<style>
+.case-kop { padding-bottom: 26px; }
+.case-groot { position: relative; margin: 0 0 64px; }
+.case-groot > a { display: block; border: 1px solid var(--lijn); border-radius: 18px; overflow: hidden; background: #151515; }
+.case-groot img { display: block; width: 100%; height: auto; }
+.case-groot .case-tel { position: absolute; right: 4%; bottom: -44px; width: 19%; border-radius: 18px; overflow: hidden; border: 5px solid #050505; box-shadow: 0 16px 40px rgba(0,0,0,.6); }
+.case-onder { max-width: 720px; }
+.case-onder .lead { margin: 0; }
+@media (max-width: 600px) { .case-groot { margin-bottom: 48px; } .case-groot > a { border-radius: 12px; } .case-groot .case-tel { width: 27%; bottom: -30px; border-width: 3px; border-radius: 12px; } }
+</style>`
+const CASES = {
+  'case-casa5.html': { id: 'casa5', pad: '/case-casa5', naam: 'Casa 5', h1: 'Casa Agosto Azul', mobiel: 'casa5-m.webp',
+    zin: 'De website van Casa Agosto Azul, een vakantieappartement in de Algarve. Voor gasten die eerst de foto\'s, de prijzen en de beschikbaarheid willen zien.',
+    beschrijving: 'Casa 5: de website van vakantieappartement Casa Agosto Azul in de Algarve. In vier talen, met foto\'s, prijzen en beschikbaarheid. Bekijk de site.',
+    ld: [['"about": "Website voor B&B"', '"about": "Website voor een vakantieappartement"']] },
+  'case-marketing-fit.html': { id: 'marketingfit', pad: '/case-marketing-fit', naam: 'Marketing Fit', h1: 'Marketing Fit', mobiel: 'marketingfit-m.webp',
+    zin: 'De website van Marketing Fit, een contentstrateeg. Voor opdrachtgevers die snel willen zien wat ze doet en een kennismaking willen plannen.',
+    beschrijving: 'Marketing Fit: de WordPress-website van een contentstrateeg, met diensten, cases en een knop voor een kennismaking. Bekijk de site.',
+    kenmerken: ['WordPress', 'Diensten en cases', 'Knop voor een kennismaking'], ld: [] },
+}
+function casePagina(f, c) {
+  const h = oud(f), p = proj(c.id)
+  const pak = re => (h.match(re) || [, ''])[1]
+  let jsonld = h.match(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g) || []
+  for (const [a, b] of c.ld) { const voor = jsonld.join(''); jsonld = jsonld.map(x => x.split(a).join(b)); if (jsonld.join('') === voor) throw new Error(`${f}: JSON-LD-fix raakt niets: ${a}`) }
+  const [dw, dh] = maat(p.img), [mw, mh] = maat(c.mobiel)
+  const blank = /^https?:|^\/casa5/.test(p.url) ? ' target="_blank" rel="noopener"' : ''
+  const body = `
+<section class="pkop raster case-kop"><div class="wrap">
+  <div class="kruimel"><a href="/portfolio">Portfolio</a><span>/</span>${c.naam}</div>
+  <h1>${c.h1}</h1>
+</div></section>
+<section class="sectie smal" style="padding-top:0"><div class="wrap">
+  <div class="case-groot">
+    <a href="${p.url}"${blank} aria-label="Bekijk de site van ${esc(p.titel)}"><img src="/img/werk/${p.img}" alt="${esc(p.alt)}: de voorpagina op een computer" width="${dw}" height="${dh}" decoding="async" fetchpriority="high" /></a>
+    <div class="case-tel"><img src="/img/werk/${c.mobiel}" alt="${esc(p.alt)} op een telefoon" width="${mw}" height="${mh}" decoding="async" /></div>
+  </div>
+  <div class="case-onder">
+    <p class="lead">${c.zin}</p>
+    <ul class="feiten">${(c.kenmerken || p.gebouwd).slice(0, 3).map(k => `<li>${k}</li>`).join('')}</ul>
+    <div class="knoppen-rij" style="margin-top:28px"><a class="knop" href="${p.url}"${blank}>Bekijk de site ↗</a><a class="knop-2" href="/portfolio">Alle projecten</a></div>
+  </div>
+</div></section>
+${ctaBand()}`
+  return pagina({ pad: c.pad, titel: pak(/<title>([^<]*)<\/title>/), beschrijving: esc(c.beschrijving), actief: 'portfolio', og: { titel: pak(/<meta property="og:title" content="([^"]*)"/), beschrijving: esc(c.beschrijving), type: pak(/<meta property="og:type" content="([^"]*)"/) || 'website' }, jsonld, kopExtra: CASE_STIJL, body })
+}
+
 // ---------- schrijven ----------
 const pages = {
   'index.html': home,
@@ -1515,6 +1561,7 @@ const pages = {
 for (const p of pijlers) pages[P[p.key].slice(1) + '.html'] = pijlerPagina(p)
 for (const s of steden) pages[s.slug + '.html'] = fix(stadPagina(s), s.slug + '.html')
 for (const [f, o] of Object.entries(OUDE_PAGINAS)) pages[f] = oudePagina(f, o)
+for (const [f, c] of Object.entries(CASES)) pages[f] = casePagina(f, c)
 
 if (!startsite.meer.includes(KEUZE)) throw new Error('startsite.meer (data.mjs) en KEUZE (build.mjs) lopen uit elkaar')
 // Het maandpakket staat nooit meer als derde hosting-keuze, en nergens staat nog dat hosting niet in het maandpakket zit.
